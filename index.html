@@ -1,62 +1,94 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мой сайт</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DLoran — Publisher & Affiliate Projects</title>
+  <meta name="description" content="Independent publisher: reviews, guides and simple tools. Monetized via affiliate programs (CJ Affiliate).">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #1d2b64, #f8cdda);
-      color: #fff;
-      text-align: center;
+    :root{
+      --bg:#0b1220; --panel:#0f172a; --line:#1f2a44; --fg:#e6eef9; --muted:#9fb3c8; --acc:#7dd3fc; --btn:#22d3ee;
     }
-    header {
-      padding: 20px;
-      background: rgba(0,0,0,0.5);
-    }
-    h1 {
-      margin: 20px 0;
-      font-size: 2.5em;
-    }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    a.button {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #ff6f61;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    a.button:hover {
-      background: #ff3b2e;
-    }
-    footer {
-      margin-top: 50px;
-      padding: 10px;
-      background: rgba(0,0,0,0.4);
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    .wrap{max-width:1000px; margin:0 auto; padding:20px;}
+    header{display:flex; gap:12px; align-items:center; justify-content:space-between; padding:10px 0;}
+    header .brand{font-weight:700; letter-spacing:.3px}
+    nav a{color:var(--fg); text-decoration:none; opacity:.85; margin-left:14px}
+    nav a:hover{opacity:1}
+    .hero{margin:24px 0; padding:28px; background:var(--panel); border:1px solid var(--line); border-radius:16px;}
+    h1{margin:0 0 10px; font-size:clamp(26px,4vw,40px)}
+    p{color:var(--muted); line-height:1.65; margin:0 0 10px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .btn{display:inline-block; padding:12px 16px; border-radius:10px; text-decoration:none; color:#06121f; background:var(--btn); font-weight:700}
+    .btn.secondary{background:transparent; color:var(--fg); border:1px solid var(--line)}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:16px}
+    .card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px}
+    h2{margin:26px 0 10px; font-size:22px}
+    h3{margin:0 0 8px; font-size:18px}
+    .meta{font-size:14px; color:var(--muted)}
+    footer{margin:24px 0 8px; text-align:center; color:var(--muted); font-size:14px}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; margin:4px 6px 0 0; color:var(--muted); font-size:13px}
+    @media (prefers-color-scheme: light){
+      :root{--bg:#f7fafc; --panel:#ffffff; --line:#e5eef7; --fg:#0b1220; --muted:#4a6075; --btn:#0891b2;}
+      .btn{color:#fff}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Добро пожаловать на мой сайт 🎉</h1>
-  </header>
+  <div class="wrap">
+    <header>
+      <div class="brand">DLoran</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">What I do</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <main>
-    <p>Это моя первая страница, опубликованная через <b>GitHub Pages</b>!</p>
-    <a href="https://github.com/Dloran1" target="_blank" class="button">Мой GitHub</a>
-  </main>
+    <section class="hero">
+      <h1>Independent Publisher & Affiliate Projects</h1>
+      <p>I run compliant content sites: reviews, tutorials and simple tools. Monetization: affiliate programs (e.g., CJ Affiliate). Primary audiences: US & EU.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:denger88@gmail.com?subject=Business%20inquiry">Contact me</a>
+        <a class="btn secondary" href="#about">Learn more</a>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Мой сайт. Сделано с ❤️</p>
-  </footer>
+    <section id="work">
+      <h2>What I do</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Reviews & Guides</h3>
+          <p>Clear, helpful content on software, privacy and productivity. EN/DE copy.</p>
+          <div class="meta">SEO-first, mobile-friendly</div>
+        </div>
+        <div class="card">
+          <h3>Affiliate Integrations</h3>
+          <p>Clean link setup, redirects, and analytics. Programs via CJ and direct.</p>
+          <div class="meta">Tracking & reporting included</div>
+        </div>
+        <div class="card">
+          <h3>Lightweight Landing Pages</h3>
+          <p>Fast pages suitable for campaigns and organic traffic.</p>
+          <div class="pill">No cookies</div><div class="pill">Fast</div><div class="pill">Accessible</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>I operate as an independent publisher. Traffic sources: SEO and social media. I follow program policies and disclose affiliate relationships.</p>
+    </section>
+
+    <section id="contact" class="hero">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+      <p class="meta">Location: Poland • Remote</p>
+    </section>
+
+    <footer>© <span id="y"></span> DLoran — Publisher</footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
