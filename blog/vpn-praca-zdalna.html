@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN w pracy zdalnej w Polsce — dlaczego warto (2025)</title>
-  <meta name="description" content="VPN w pracy zdalnej: bezpieczeństwo, dostęp do firmowych zasobów, ochrona w Wi-Fi. Jakie VPN-y wybierają pracownicy w Polsce w 2025 roku.">
-  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN do pracy zdalnej – VPN Polska</title>
+  <meta name="description" content="Bezpieczny dostęp do zasobów firmowych: protokoły, polityka haseł, dwuskładnikowe logowanie, wskazówki dla home office.">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0;background:#f7f9fc;color:#0f172a}
-    header{background:#0d47a1;color:#fff;padding:16px 20px}
-    nav{background:#1976d2;color:#fff;padding:10px 16px;display:flex;gap:14px;flex-wrap:wrap}
-    nav a{color:#fff;text-decoration:none;font-weight:600}
-    main{max-width:920px;margin:0 auto;padding:20px}
-    h1{margin:8px 0 16px}
-    h2{margin:20px 0 8px}
-    .note{background:#eef5ff;border:1px solid #d9e8ff;border-radius:10px;padding:12px;margin:12px 0}
-    .back{display:inline-block;margin-top:18px;text-decoration:none;color:#0d47a1;font-weight:700}
+    body{font-family:Arial,system-ui;background:#121212;color:#f1f1f1;margin:0}
+    header{background:#000;padding:15px;text-align:center}
+    header h1{margin:0;color:#e50914}
+    nav a{margin:0 10px;color:#fff;text-decoration:none}
+    .container{max-width:900px;margin:20px auto;padding:20px}
+    h1,h2{color:#e50914} p{line-height:1.6}
+    ul{margin-left:18px}
   </style>
 </head>
 <body>
   <header>
-    <strong>VPN Polska — Blog</strong>
-    <div>Porady dla pracy zdalnej</div>
+    <h1>VPN Polska</h1>
+    <nav>
+      <a href="../index.html">Strona główna</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
   </header>
-  <nav>
-    <a href="/index.html">Strona główna</a>
-    <a href="/vod.html">VPN do VOD</a>
-    <a href="/blog/">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
-  </nav>
+  <div class="container">
+    <h1>VPN do pracy zdalnej</h1>
+    <p><em>Poradnik • 2025</em></p>
 
-  <main>
-    <h1>VPN w pracy zdalnej w Polsce — dlaczego warto (2025)</h1>
-    <p>Praca zdalna stała się standardem. VPN zapewnia bezpieczny dostęp do zasobów firmowych i chroni dane podczas pracy z domu czy kawiarni.</p>
-
-    <h2>Główne zalety VPN w pracy zdalnej</h2>
+    <h2>Dobre praktyki</h2>
     <ul>
-      <li>Bezpieczne logowanie do serwerów firmowych.</li>
-      <li>Ochrona danych w publicznych Wi-Fi.</li>
-      <li>Możliwość korzystania z zasobów dostępnych tylko w Polsce (np. systemy bankowe, rządowe).</li>
+      <li>Wymuś 2FA (aplikacja, klucz U2F).</li>
+      <li>WireGuard / IKEv2; blokada ruchu bez VPN (Kill Switch).</li>
+      <li>Oddzielne profile użytkownika do pracy i prywatne.</li>
+      <li>Aktualizacje systemu i przeglądarki na bieżąco.</li>
     </ul>
 
-    <div class="note"><strong>Tip:</strong> większość dużych firm w Polsce korzysta z VPN typu biznesowego (Cisco AnyConnect, FortiClient), ale prywatnie możesz używać NordVPN/Surfshark do ochrony ruchu.</div>
-
-    <a class="back" href="/blog/">← Wróć do bloga</a>
-  </main>
+    <h2>Udostępnianie plików</h2>
+    <p>Wyłącz publiczne udostępnianie, używaj szyfrowanych chmur (E2E), ogranicz dostęp do niezbędnych osób.</p>
+  </div>
 </body>
 </html>
