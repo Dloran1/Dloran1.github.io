@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Test VPN: IP, DNS, WebRTC i prędkość | VPN & VOD Polska</title>
+  <meta name="description" content="Szybkie testy działania VPN: IP, wycieki DNS/WebRTC i prędkość.">
+  <style>
+    :root{--bg:#0b1220;--card:#121a2b;--text:#e7eefc;--muted:#a9b6d3}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:#0b1220;color:var(--text)}
+    a{color:#bfe7ff;text-decoration:none} header{position:sticky;top:0;background:#0b1220cc;border-bottom:1px solid #1e2a44;backdrop-filter:blur(8px)}
+    .wrap{max-width:1000px;margin:0 auto;padding:16px} nav a{margin-right:10px;color:#a9b6d3} nav a:hover{color:#fff}
+    h1{margin:16px 0 10px;font-size:clamp(24px,4.5vw,34px)} p{color:var(--muted)}
+    .card{background:#121a2b;border:1px solid #1f2b47;border-radius:14px;padding:14px;margin:12px 0}
+    .li{background:#10182a;border:1px dashed #1f3054;border-radius:12px;padding:10px;margin:8px 0}
+  </style>
+</head>
+<body>
+<header><div class="wrap">
+  <strong>VPN & VOD Polska</strong> ·
+  <nav>
+    <a href="index.html">Strona główna</a>
+    <a href="vod.html">VOD</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <h1>Jak sprawdzić, czy VPN działa poprawnie</h1>
+  <div class="card">
+    <h2>1) Adres IP</h2>
+    <p>Wejdź na dowolny checker IP i upewnij się, że lokalizacja to **Polska** po połączeniu z serwerem PL.</p>
+    <div class="li">Przykładowe narzędzia: whatismyipaddress.com, ipinfo.io</div>
+  </div>
+
+  <div class="card">
+    <h2>2) Wycieki DNS</h2>
+    <p>Uruchom test DNS leak – wszystkie serwery powinny wskazywać Polskę lub dostawcę VPN, nie Twojego operatora.</p>
+  </div>
+
+  <div class="card">
+    <h2>3) WebRTC</h2>
+    <p>Sprawdź, czy WebRTC nie ujawnia lokalnego IP. W razie potrzeby wyłącz WebRTC w przeglądarce lub użyj dodatku blokującego.</p>
+  </div>
+
+  <div class="card">
+    <h2>4) Prędkość</h2>
+    <p>Wykonaj test speed (np. speedtest.net). Porównaj z/bez VPN i ewentualnie zmień serwer lub protokół dla lepszego wyniku.</p>
+  </div>
+
+  <div class="card">
+    <h2>Najczęstsze wnioski</h2>
+    <div class="li">Jeżeli IP/DNS wskazują inny kraj – przełącz serwer lub wyczyść cache DNS (restart urządzenia pomaga).</div>
+    <div class="li">Słaba prędkość – wybierz bliższy serwer PL lub inny protokół (często WireGuard jest szybszy).</div>
+  </div>
+</main>
+
+<footer class="wrap">
+  Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a> · © 2025 VPN & VOD Polska
+</footer>
+</body>
+</html>
