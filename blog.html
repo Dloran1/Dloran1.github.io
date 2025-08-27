@@ -3,62 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog VPN Polska</title>
+  <title>Blog • VPN Polska</title>
 
-  <!-- Weryfikacja Google -->
-  <meta name="google-site-verification" content="63DY2VlG8l2-dH5bRXttrQOI8dHHzXssopjQSz4MFVw" />
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="63DY2VlG8l2-dH5bRXttrQOI8dHHzXssopjQSz4MFVw">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #eee;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #000;
-      color: #f00;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      text-align: center;
-      margin: 10px 0;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #f00;
-    }
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background-color: #1a1a1a;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .card h2 {
-      color: #f00;
-    }
-    .card a {
-      color: #f00;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    :root { --bg:#0f1115; --panel:#171a21; --text:#e9eef5; --muted:#a8b3c7; --accent:#e60023; --link:#4da3ff; }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    header{background:#000;padding:22px 16px;text-align:center;position:sticky;top:0;z-index:10}
+    h1{margin:0;font-size:32px;color:var(--accent);letter-spacing:.5px}
+    nav{margin-top:10px}
+    nav a{color:#fff;text-decoration:none;margin:0 12px}
+    nav a:hover{color:var(--accent)}
+    main{max-width:980px;margin:28px auto;padding:0 16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--panel);border:1px solid #222633;border-radius:14px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+    .meta{color:var(--muted);font-size:14px;margin:0 0 8px}
+    .card h2{margin:0 0 10px;font-size:22px;line-height:1.25}
+    .card p{margin:0 0 12px;color:#cbd5e1}
+    .btn{display:inline-block;background:transparent;border:1px solid var(--link);color:var(--link);padding:8px 12px;border-radius:10px;text-decoration:none}
+    .btn:hover{background:#0b2648}
+    footer{max-width:980px;margin:36px auto;padding:0 16px;color:var(--muted);font-size:14px}
+    a.title{color:#c9d7ff;text-decoration:none}
+    a.title:hover{color:#fff;text-decoration:underline}
   </style>
 </head>
 <body>
   <header>
-    <h1>Blog VPN Polska</h1>
+    <h1>VPN Polska — Blog</h1>
     <nav>
       <a href="index.html">Strona główna</a>
       <a href="vod.html">VPN dla VOD</a>
@@ -67,62 +41,86 @@
     </nav>
   </header>
 
-  <div class="container">
-    <h2>Wszystkie artykuły</h2>
+  <main>
+    <div class="grid">
 
-    <div class="card">
-      <h2><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h2>
-      <p>Dlaczego VPN to podstawa bezpieczeństwa w nowoczesnym internecie.</p>
-      <a href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
-    </div>
+      <!-- 1 -->
+      <article class="card">
+        <p class="meta">2025 • Poradnik</p>
+        <h2><a class="title" href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h2>
+        <p>Najważniejsze powody używania VPN w Polsce: prywatność, bezpieczeństwo i dostęp do treści w podróży.</p>
+        <a class="btn" href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h2>
-      <p>Porównanie szybkości, stabilności i bezpieczeństwa.</p>
-      <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
-    </div>
+      <!-- 2 -->
+      <article class="card">
+        <p class="meta">2025 • Poradnik</p>
+        <h2><a class="title" href="blog/vpn-iphone-konfiguracja.html">VPN na iPhone — szybka konfiguracja</a></h2>
+        <p>Krok po kroku: jak włączyć i skonfigurować VPN na iOS (OpenVPN/WireGuard) + praktyczne ustawienia.</p>
+        <a class="btn" href="blog/vpn-iphone-konfiguracja.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></h2>
-      <p>Polska, Niemcy czy Czechy? Dobór najlepszego serwera pod różne potrzeby.</p>
-      <a href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
-    </div>
+      <!-- 3 -->
+      <article class="card">
+        <p class="meta">2025 • VOD</p>
+        <h2><a class="title" href="blog/vpn-netflix-polska.html">Netflix z Polski — co warto wiedzieć z VPN</a></h2>
+        <p>Oglądanie w podróży, typowe problemy z bibliotekami i jak unikać błędu proxy.</p>
+        <a class="btn" href="blog/vpn-netflix-polska.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi: jak chroni VPN</a></h2>
-      <p>Hotspoty, szyfrowanie i ochrona przed atakami.</p>
-      <a href="blog/wifi-bezpieczenstwo.html">Czytaj dalej →</a>
-    </div>
+      <!-- 4 -->
+      <article class="card">
+        <p class="meta">2025 • Testy</p>
+        <h2><a class="title" href="blog/vpn-szybkosc-test.html">Jak testować szybkość VPN</a></h2>
+        <p>Poprawna metodologia: serwery, narzędzia, interpretacja wyników i realne wąskie gardła.</p>
+        <a class="btn" href="blog/vpn-szybkosc-test.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/vpn-iphone-konfiguracja.html">VPN na iPhone – konfiguracja</a></h2>
-      <p>Krok po kroku jak ustawić VPN na iOS.</p>
-      <a href="blog/vpn-iphone-konfiguracja.html">Czytaj dalej →</a>
-    </div>
+      <!-- 5 -->
+      <article class="card">
+        <p class="meta">2025 • Bezpieczeństwo Wi-Fi</p>
+        <h2><a class="title" href="blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi: jak chroni VPN</a></h2>
+        <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i praktyczne ustawienia, które warto włączyć.</p>
+        <a class="btn" href="blog/wifi-bezpieczenstwo.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/vpn-szybkosc-test.html">Test szybkości VPN</a></h2>
-      <p>Jak sprawdzić prędkość serwerów VPN i które są najlepsze.</p>
-      <a href="blog/vpn-szybkosc-test.html">Czytaj dalej →</a>
-    </div>
+      <!-- 6 -->
+      <article class="card">
+        <p class="meta">2025 • Protokóły</p>
+        <h2><a class="title" href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h2>
+        <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
+        <a class="btn" href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/vpn-torrent-polska.html">VPN dla torrentów</a></h2>
-      <p>Najlepsze rozwiązania VPN dla pobierania plików w Polsce.</p>
-      <a href="blog/vpn-torrent-polska.html">Czytaj dalej →</a>
-    </div>
+      <!-- 7 -->
+      <article class="card">
+        <p class="meta">2025 • Poradnik</p>
+        <h2><a class="title" href="blog/vpn-praca-zdalna.html">VPN do pracy zdalnej</a></h2>
+        <p>Stabilne łącza, podział tunelu, ochrona danych firmowych i dobre praktyki dla home office.</p>
+        <a class="btn" href="blog/vpn-praca-zdalna.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/vpn-praca-zdalna.html">VPN i praca zdalna</a></h2>
-      <p>Jak VPN chroni dane podczas pracy z domu.</p>
-      <a href="blog/vpn-praca-zdalna.html">Czytaj dalej →</a>
-    </div>
+      <!-- 8 -->
+      <article class="card">
+        <p class="meta">2025 • Poradnik</p>
+        <h2><a class="title" href="blog/vpn-torrent-polska.html">VPN a torrenty w Polsce</a></h2>
+        <p>Co mówią regulaminy, jakie ustawienia i jakie ryzyka — edukacyjnie i bez porad dot. naruszania prawa.</p>
+        <a class="btn" href="blog/vpn-torrent-polska.html">Czytaj dalej →</a>
+      </article>
 
-    <div class="card">
-      <h2><a href="blog/vpn-netflix-polska.html">VPN i Netflix Polska</a></h2>
-      <p>Jak oglądać pełny katalog Netflix z Polski.</p>
-      <a href="blog/vpn-netflix-polska.html">Czytaj dalej →</a>
+      <!-- 9 -->
+      <article class="card">
+        <p class="meta">2025 • Poradnik</p>
+        <h2><a class="title" href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać</a></h2>
+        <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
+        <a class="btn" href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
+      </article>
+
     </div>
-  </div>
+  </main>
+
+  <footer>
+    © 2025 • VPN Polska • Kontakt: <a href="mailto:u1797008805@gmail.com" style="color:var(--link)">u1797008805@gmail.com</a>
+  </footer>
 </body>
 </html>
