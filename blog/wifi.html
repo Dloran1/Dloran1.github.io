@@ -7,12 +7,11 @@
   <meta name="description" content="Praktyczny poradnik: zagrożenia publicznego Wi-Fi, jak się chronić, ustawienia VPN i lista kontrolna.">
   <style>
     :root{--bg:#0b2a5b;--link:#1a5cff;--card:#ffffff;--text:#0b132b;--muted:#5c6b7a;--border:#e7e9ee}
-    *{box-sizing:border-box}
     body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#f6f7fb}
     header{background:var(--bg);color:#fff;padding:28px 16px 18px}
-    header h1{margin:0 0 8px 0;font-size:30px;font-weight:800}
-    nav a{color:#fff;text-decoration:none;margin-right:22px;opacity:.95}
-    nav a:hover{text-decoration:underline;opacity:1}
+    header h1{margin:0;font-size:30px;font-weight:800}
+    nav a{color:#fff;text-decoration:none;margin-right:22px}
+    nav a:hover{text-decoration:underline}
     .wrap{max-width:880px;margin:22px auto;padding:0 14px}
     article{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
     h2{margin:8px 0 14px 0;font-size:28px}
@@ -39,45 +38,42 @@
   <article>
     <div class="meta">2025 • Bezpieczeństwo</div>
     <h2>Bezpieczeństwo Wi-Fi: jak chronić się w sieciach publicznych</h2>
-
-    <p>Kawiarnie, lotniska i hotele oferują wygodne Wi-Fi, ale takie sieci są często
-      <strong>niezabezpieczone</strong>. Poniżej proste kroki, które realnie zmniejszają ryzyko.</p>
+    <p>Kawiarnie, lotniska i hotele oferują wygodne Wi-Fi, ale takie sieci są często <strong>niezabezpieczone</strong>. Poniżej proste kroki, które realnie zmniejszają ryzyko.</p>
 
     <h3>Najczęstsze zagrożenia</h3>
     <ul>
-      <li><strong>Podsłuch ruchu</strong> (sniffing).</li>
-      <li><strong>Fałszywe hotspoty</strong> „Free Wi-Fi”.</li>
-      <li><strong>MITM</strong> – wstrzykiwanie treści/redirecty.</li>
+      <li>Podsłuch ruchu (sniffing)</li>
+      <li>Fałszywe hotspoty „Free Wi-Fi”</li>
+      <li>MITM – wstrzykiwanie treści/redirecty</li>
     </ul>
 
     <h3>Podstawowe zasady</h3>
     <ul>
       <li>Łącz się tylko z potwierdzonym SSID.</li>
       <li>Wyłącz auto-łączenie z otwartymi sieciami.</li>
-      <li>Wymuszaj <strong>HTTPS</strong>, aktualizuj system/przeglądarkę.</li>
+      <li>Wymuszaj HTTPS, aktualizuj system i przeglądarkę.</li>
       <li>Firewall ON, udostępnianie plików OFF.</li>
     </ul>
 
     <h3>VPN – co ustawić?</h3>
     <ul>
-      <li><strong>Auto-connect/Always-on</strong> dla Wi-Fi.</li>
-      <li>Protokół <strong>WireGuard</strong> (szybkość + kryptografia).</li>
-      <li><strong>Kill-Switch</strong> obowiązkowo.</li>
+      <li>Auto-connect/Always-on dla Wi-Fi.</li>
+      <li>Protokół WireGuard (szybkość + bezpieczeństwo).</li>
+      <li>Kill-Switch obowiązkowo.</li>
       <li>Serwery no-logs + własny DNS dostawcy VPN.</li>
     </ul>
 
     <div class="tip">
-      Na początek porównanie protokołów:
-      <a href="./wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.
+      Sprawdź też artykuł: <a href="wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>
     </div>
 
     <h3>Lista kontrolna (hotspot)</h3>
     <ul>
-      <li>1) Włącz firewall i wyłącz udostępnianie.</li>
-      <li>2) Sprawdź nazwę sieci u obsługi.</li>
-      <li>3) Uruchom VPN (auto-connect + kill-switch).</li>
-      <li>4) Sprawdź kłódkę HTTPS.</li>
-      <li>5) Po użyciu – „zapomnij” sieć.</li>
+      <li>1) Włącz firewall i wyłącz udostępnianie</li>
+      <li>2) Sprawdź nazwę sieci u obsługi</li>
+      <li>3) Uruchom VPN (auto-connect + kill-switch)</li>
+      <li>4) Sprawdź kłódkę HTTPS</li>
+      <li>5) Po użyciu – „zapomnij” sieć</li>
     </ul>
 
     <a class="back" href="../blog.html">← Wróć do listy artykułów</a>
