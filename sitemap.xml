@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dloran1.github.io/</loc></url>
-  <url><loc>https://dloran1.github.io/blog.html</loc></url>
-  <url><loc>https://dloran1.github.io/vod.html</loc></url>
-  <url><loc>https://dloran1.github.io/kontakt.html</loc></url>
-  <url><loc>https://dloran1.github.io/blog/dlaczego-vpn-2025.html</loc></url>
-  <url><loc>https://dloran1.github.io/blog/wireguard-vs-openvpn.html</loc></url>
-  <url><loc>https://dloran1.github.io/blog/jaki-serwer-vpn.html</loc></url>
+
+  <!-- Strona główna -->
+  <url><loc>https://Dloran1.github.io/</loc></url>
+
+  <!-- Podstrony -->
+  <url><loc>https://Dloran1.github.io/blog.html</loc></url>
+  <url><loc>https://Dloran1.github.io/vod.html</loc></url>
+  <url><loc>https://Dloran1.github.io/kontakt.html</loc></url>
+
+  <!-- Artykuły -->
+  <url><loc>https://Dloran1.github.io/blog/dlaczego-vpn-2025.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/wireguard-vs-openvpn.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/jaki-serwer-vpn.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-iphone-konfiguracja.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-szybkosc-test.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-netflix-polska.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-praca-zdalna.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-torrent-polska.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-android-konfiguracja.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-windows-konfiguracja.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-dns-leak.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-split-tunneling.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-double-vpn.html</loc></url>
+  <url><loc>https://Dloran1.github.io/blog/vpn-port-forwarding.html</loc></url>
+
 </urlset>
