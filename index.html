@@ -1,94 +1,123 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DLoran — Publisher & Affiliate Projects</title>
-  <meta name="description" content="Independent publisher: reviews, guides and simple tools. Monetized via affiliate programs (CJ Affiliate).">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Denys Media — Marketing & Digital Services</title>
+  <meta name="description" content="Usługi marketingowe i cyfrowe: content, kampanie partnerskie, konsulting."/>
   <style>
     :root{
-      --bg:#0b1220; --panel:#0f172a; --line:#1f2a44; --fg:#e6eef9; --muted:#9fb3c8; --acc:#7dd3fc; --btn:#22d3ee;
+      --bg:#0f1320; --card:#161b2e; --accent:#58c1ff; --muted:#9aa3b2; --text:#e7ecf3;
     }
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
-    .wrap{max-width:1000px; margin:0 auto; padding:20px;}
-    header{display:flex; gap:12px; align-items:center; justify-content:space-between; padding:10px 0;}
-    header .brand{font-weight:700; letter-spacing:.3px}
-    nav a{color:var(--fg); text-decoration:none; opacity:.85; margin-left:14px}
-    nav a:hover{opacity:1}
-    .hero{margin:24px 0; padding:28px; background:var(--panel); border:1px solid var(--line); border-radius:16px;}
-    h1{margin:0 0 10px; font-size:clamp(26px,4vw,40px)}
-    p{color:var(--muted); line-height:1.65; margin:0 0 10px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
-    .btn{display:inline-block; padding:12px 16px; border-radius:10px; text-decoration:none; color:#06121f; background:var(--btn); font-weight:700}
-    .btn.secondary{background:transparent; color:var(--fg); border:1px solid var(--line)}
-    .grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:16px}
-    .card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px}
-    h2{margin:26px 0 10px; font-size:22px}
-    h3{margin:0 0 8px; font-size:18px}
-    .meta{font-size:14px; color:var(--muted)}
-    footer{margin:24px 0 8px; text-align:center; color:var(--muted); font-size:14px}
-    .pill{display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; margin:4px 6px 0 0; color:var(--muted); font-size:13px}
-    @media (prefers-color-scheme: light){
-      :root{--bg:#f7fafc; --panel:#ffffff; --line:#e5eef7; --fg:#0b1220; --muted:#4a6075; --btn:#0891b2;}
-      .btn{color:#fff}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    header{padding:22px 20px;display:flex;align-items:center;justify-content:space-between;max-width:1060px;margin:0 auto}
+    .logo{display:flex;align-items:center;gap:12px}
+    .brand{
+      width:40px;height:40px;border-radius:50%;
+      background:linear-gradient(135deg,#54e1a5,#58c1ff);display:grid;place-items:center;
+      color:#0b1020;font-weight:800
     }
+    nav a{margin-left:18px;opacity:.9}
+    .hero{max-width:1060px;margin:10px auto 24px;padding:28px 20px 40px;display:grid;gap:18px}
+    h1{font-size:clamp(28px,5vw,40px);line-height:1.18;margin:8px 0}
+    .lead{color:var(--muted);font-size:clamp(16px,2.8vw,18px)}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      background:var(--accent);color:#0b1020;border:none;padding:12px 18px;border-radius:10px;font-weight:700
+    }
+    .btn.ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+    .grid{max-width:1060px;margin:0 auto;padding:6px 20px 40px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--card);border:1px solid #222840;border-radius:14px;padding:18px}
+    .card h3{margin:6px 0 8px}
+    .muted{color:var(--muted)}
+    .about{max-width:1060px;margin:0 auto 8px;padding:10px 20px 28px}
+    footer{max-width:1060px;margin:0 auto;padding:20px;color:var(--muted);border-top:1px solid #222840}
+    .chip{display:inline-block;padding:4px 10px;border-radius:999px;background:#1c2239;border:1px solid #27304f;color:#b8c2d6;font-size:12px}
+    .section-title{margin:8px 20px;color:#b8c2d6;max-width:1060px}
+    /* маленькие улучшения */
+    .list{margin:8px 0 0 18px}
+    .list li{margin:6px 0}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">DLoran</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#work">What I do</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <h1>Independent Publisher & Affiliate Projects</h1>
-      <p>I run compliant content sites: reviews, tutorials and simple tools. Monetization: affiliate programs (e.g., CJ Affiliate). Primary audiences: US & EU.</p>
-      <div class="cta">
-        <a class="btn" href="mailto:denger88@gmail.com?subject=Business%20inquiry">Contact me</a>
-        <a class="btn secondary" href="#about">Learn more</a>
-      </div>
-    </section>
+  <header>
+    <div class="logo">
+      <div class="brand">DM</div>
+      <strong>Denys&nbsp;Media</strong>
+    </div>
+    <nav>
+      <a href="#services">Usługi</a>
+      <a href="#about">O nas</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
 
-    <section id="work">
-      <h2>What I do</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Reviews & Guides</h3>
-          <p>Clear, helpful content on software, privacy and productivity. EN/DE copy.</p>
-          <div class="meta">SEO-first, mobile-friendly</div>
-        </div>
-        <div class="card">
-          <h3>Affiliate Integrations</h3>
-          <p>Clean link setup, redirects, and analytics. Programs via CJ and direct.</p>
-          <div class="meta">Tracking & reporting included</div>
-        </div>
-        <div class="card">
-          <h3>Lightweight Landing Pages</h3>
-          <p>Fast pages suitable for campaigns and organic traffic.</p>
-          <div class="pill">No cookies</div><div class="pill">Fast</div><div class="pill">Accessible</div>
-        </div>
-      </div>
-    </section>
+  <section class="hero">
+    <span class="chip">Marketing • Partnerstwa • Content</span>
+    <h1>Pomagamy markom rosnąć dzięki prostym, skutecznym działaniom digital</h1>
+    <p class="lead">
+      Tworzymy treści, prowadzimy kampanie afiliacyjne i doradzamy w zakresie
+      pozyskiwania ruchu. Krótkie procesy, mierzalne wyniki, przejrzysta komunikacja.
+    </p>
+    <div class="cta">
+      <a class="btn" href="#contact">Skontaktuj się</a>
+      <a class="btn ghost" href="#services">Zobacz usługi</a>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>I operate as an independent publisher. Traffic sources: SEO and social media. I follow program policies and disclose affiliate relationships.</p>
-    </section>
+  <h2 id="services" class="section-title">Co możemy dla Ciebie zrobić</h2>
+  <section class="grid">
+    <article class="card">
+      <h3>Afiliacja & Partnerstwa</h3>
+      <p class="muted">Zakładanie i prowadzenie programów, dobór wydawców, monitoring i optymalizacja stawek.</p>
+    </article>
+    <article class="card">
+      <h3>Content & SEO</h3>
+      <p class="muted">Artykuły, opisy, landing pages — treści, które pracują na ruch i konwersję.</p>
+    </article>
+    <article class="card">
+      <h3>Consulting</h3>
+      <p class="muted">Szybkie audyty i plan działania: gdzie są „szybkie wygrane” i co warto automatyzować.</p>
+    </article>
+  </section>
 
-    <section id="contact" class="hero">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-      <p class="meta">Location: Poland • Remote</p>
-    </section>
+  <h2 id="about" class="section-title">Dlaczego my</h2>
+  <section class="about card">
+    <p class="muted">
+      Denys Media to mały zespół specjalistów pracujących z firmami i twórcami online.
+      Stawiamy na prostotę, przejrzyste rozliczenia i jasne KPI. Pracujemy zdalnie, elastycznie,
+      zawsze z nastawieniem na wynik.
+    </p>
+    <ul class="list">
+      <li>Rozliczenia: faktura / Payoneer</li>
+      <li>Języki: PL / EN / RU</li>
+      <li>Typowe projekty: kampanie afiliacyjne, content plan, szybkie landingi</li>
+    </ul>
+  </section>
 
-    <footer>© <span id="y"></span> DLoran — Publisher</footer>
-  </div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <h2 id="contact" class="section-title">Kontakt</h2>
+  <section class="grid">
+    <article class="card">
+      <h3>E-mail</h3>
+      <p class="muted"><a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+    </article>
+    <article class="card">
+      <h3>Telegram</h3>
+      <p class="muted"><a href="https://t.me/TwojTelegram" target="_blank" rel="noopener">t.me/TwojTelegram</a></p>
+    </article>
+    <article class="card">
+      <h3>Godziny</h3>
+      <p class="muted">Pn–Pt, 10:00–18:00 (CET)</p>
+    </article>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Denys Media &middot; Strona testowa hostowana na GitHub Pages
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
