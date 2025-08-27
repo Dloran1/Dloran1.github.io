@@ -1,52 +1,98 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN Polska — poradniki i testy</title>
-  <meta name="description" content="VPN w Polsce: praktyczne poradniki i testy. Bezpieczeństwo, VOD, protokoły i konfiguracje.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN Polska</title>
+
+  <!-- Weryfikacja Google -->
+  <meta name="google-site-verification" content="63DY2VlG8l2-dH5bRXttrQOI8dHHzXssopjQSz4MFVw" />
+
   <style>
-    body{font-family:Arial,system-ui;background:#121212;color:#f5f5f5;margin:0}
-    header{background:#000;padding:18px;text-align:center}
-    header h1{color:#ff0033;margin:0}
-    nav a{color:#fff;margin:0 12px;text-decoration:none}
-    .wrap{max-width:900px;margin:20px auto;padding:0 14px}
-    h2{color:#ff0033}
-    .card{background:#1e1e1e;border-radius:10px;padding:18px;margin:16px 0}
-    .card h3{color:#ff0033;margin:0 0 8px}
-    .card a{color:#ff0033;text-decoration:none;font-weight:bold}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      color: #f00;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin: 10px 0;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #f00;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      color: #f00;
+    }
+    .card a {
+      color: #f00;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-<header>
-  <h1>VPN Polska</h1>
-  <nav>
-    <a href="index.html">Strona główna</a>
-    <a href="blog.html">Blog</a>
-    <a href="vod.html">VPN dla VOD</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
-</header>
+  <header>
+    <h1>VPN Polska</h1>
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="vod.html">VPN dla VOD</a>
+      <a href="blog.html">Blog</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
 
-<main class="wrap">
-  <h2>Najnowsze artykuły</h2>
+  <div class="container">
+    <h2>Najnowsze artykuły</h2>
 
-  <div class="card">
-    <h3><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h3>
-    <p>Dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku.</p>
-    <a href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
+    <div class="card">
+      <h2><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h2>
+      <p>Dowiedz się, dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku.</p>
+      <a href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
+    </div>
+
+    <div class="card">
+      <h2><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h2>
+      <p>Porównanie szybkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
+      <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
+    </div>
+
+    <div class="card">
+      <h2><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></h2>
+      <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
+      <a href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
+    </div>
+
+    <div class="card">
+      <h2><a href="blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi: jak chroni VPN</a></h2>
+      <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i praktyczne ustawienia, które warto włączyć.</p>
+      <a href="blog/wifi-bezpieczenstwo.html">Czytaj dalej →</a>
+    </div>
   </div>
-
-  <div class="card">
-    <h3><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3>
-    <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów.</p>
-    <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
-  </div>
-
-  <div class="card">
-    <h3><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></h3>
-    <p>Polska, Niemcy czy Czechy? Jak dobrać serwer do VOD, gier i pracy zdalnej.</p>
-    <a href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
-  </div>
-</main>
 </body>
 </html>
