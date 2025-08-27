@@ -1,58 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN Polska – Strona główna</title>
-  <meta name="description" content="VPN Polska – poradniki, testy i bezpieczeństwo online.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN Polska</title>
   <style>
-    :root{--bg:#0b2a5b;--link:#1a5cff;--card:#ffffff;--text:#0b132b;--muted:#5c6b7a;--border:#e7e9ee}
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;color:var(--text)}
-    header{background:var(--bg);color:#fff;padding:28px 16px 18px}
-    header h1{margin:0 0 8px 0;font-size:30px;font-weight:800}
-    nav a{color:#fff;text-decoration:none;margin-right:22px}
-    nav a:hover{text-decoration:underline}
-    .wrap{max-width:880px;margin:22px auto;padding:0 14px}
-    .articles{display:grid;gap:20px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
-    .card-title{margin:0 0 8px 0;font-size:22px;font-weight:700;color:#5a1dbb;text-decoration:none}
-    .card-title:hover{text-decoration:underline}
-    .meta{color:var(--muted);font-size:.95rem;margin-bottom:6px}
-    .btn{display:inline-block;margin-top:10px;color:var(--link);font-weight:600;text-decoration:none}
-    footer{margin:28px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #fff;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ff3333;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #ff3333;
+    }
+    .card {
+      background-color: #1e1e1e;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #ff3333;
+    }
+    .card p {
+      color: #ddd;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #ff3333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .btn:hover {
+      background-color: #cc0000;
+    }
   </style>
 </head>
 <body>
-<header class="wrap">
-  <h1>VPN Polska</h1>
-  <nav>
-    <a href="index.html">Strona główna</a>
-    <a href="vod.html">VPN dla VOD</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
-</header>
+  <header>
+    <h1>VPN Polska</h1>
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="vod.html">VPN dla VOD</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
 
-<main class="wrap">
-  <h2>Najnowsze artykuły</h2>
-  <div class="articles">
+  <div class="container">
+    <h2>Najnowsze artykuły</h2>
+
+    <!-- Artykuł 1 -->
     <div class="card">
-      <div class="meta">2025 • Poradnik</div>
-      <a class="card-title" href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a>
+      <h3>Dlaczego VPN w 2025 roku?</h3>
       <p>Dowiedz się, dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku.</p>
-      <a href="blog/dlaczego-vpn-2025.html" class="btn">Czytaj dalej →</a>
+      <a class="btn" href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
     </div>
 
+    <!-- Artykuł 2 -->
     <div class="card">
-      <div class="meta">2025 • Bezpieczeństwo</div>
-      <a class="card-title" href="blog/wifi.html">Bezpieczeństwo Wi-Fi: jak chronić się w sieciach publicznych</a>
-      <p>Praktyczne kroki, które uchronią Cię przed podsłuchem i fałszywymi hotspotami.</p>
-      <a href="blog/wifi.html" class="btn">Czytaj dalej →</a>
+      <h3>WireGuard vs OpenVPN</h3>
+      <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
+      <a class="btn" href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
     </div>
-  </div>
-</main>
 
-<footer class="wrap">
-  © 2025 VPN Polska • Wszystkie prawa zastrzeżone.
-</footer>
+    <!-- Artykuł 3 -->
+    <div class="card">
+      <h3>Jaki serwer VPN wybrać</h3>
+      <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
+      <a class="btn" href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
+    </div>
+
+    <!-- Artykuł 4 (Wi-Fi) -->
+    <div class="card">
+      <h3>Bezpieczeństwo Wi-Fi: jak chroni VPN</h3>
+      <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i praktyczne ustawienia, które warto włączyć.</p>
+      <a class="btn" href="blog/wifi.html">Czytaj dalej →</a>
+    </div>
+
+  </div>
 </body>
 </html>
