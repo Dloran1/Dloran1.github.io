@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN dla VOD — VPN Polska</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN dla VOD — Netflix, HBO Max, Disney+, Prime Video | VPN Polska</title>
+  <meta name="description" content="Przewodnik: jak oglądać Netflix, HBO Max, Disney+, Prime Video w podróży. Prosty poradnik konfiguracji, wybór serwera i najczęstsze problemy.">
   <style>
-    body{font-family:Arial,system-ui;background:#121212;color:#f5f5f5;margin:0}
-    header{background:#000;padding:18px;text-align:center}
-    header h1{color:#ff0033;margin:0}
-    nav a{color:#fff;margin:0 12px;text-decoration:none}
-    .wrap{max-width:900px;margin:20px auto;padding:0 14px}
-    a{color:#ff0033}
+    :root{
+      --bg:#121212;--panel:#1e1e1e;--ink:#f5f5f5;--muted:#c9c9c9;--brand:#ff0033;--line:#2a2a2a
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,system-ui;background:var(--bg);color:var(--ink)}
+    a{color:var(--brand);text-decoration:none}
+    header{background:#000;padding:18px 12px;text-align:center;position:sticky;top:0;z-index:10}
+    header h1{margin:0;color:var(--brand);font-size:28px}
+    nav{margin-top:8px}
+    nav a{color:#fff;margin:0 12px}
+    .wrap{max-width:1000px;margin:24px auto;padding:0 16px}
+    .hero{background:linear-gradient(180deg,#000 0%,#141414 100%);border-radius:14px;padding:22px}
+    .hero p{color:var(--muted);margin:10px 0 0}
+    h2{color:var(--brand);margin:22px 0 12px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:980px){.grid.cols-3{grid-template-columns:1fr 1fr 1fr}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+    .steps li{margin:8px 0}
+    .badge{display:inline-block;background:var(--brand);color:#fff;border-radius:999px;padding:3px 10px;font-size:12px;margin-left:8px}
+    .svc{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .svc b{font-size:18px}
+    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px;margin-right:6px}
+    table{width:100%;border-collapse:collapse}
+    th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left}
+    th{color:#ddd}
+    .cta{background:#000;border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:10px 16px;border-radius:10px;font-weight:bold}
+    details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:bold;color:#fff}
+    footer{color:var(--muted);font-size:13px;margin:32px 0;text-align:center}
   </style>
 </head>
 <body>
+
 <header>
   <h1>VPN dla VOD</h1>
   <nav>
@@ -21,8 +50,99 @@
     <a href="kontakt.html">Kontakt</a>
   </nav>
 </header>
+
 <main class="wrap">
-  <p>Poradniki dotyczące oglądania serwisów VOD w podróży i za granicą — wkrótce.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Oglądaj swoje VOD w podróży</h2>
+    <p>Podczas wyjazdu część bibliotek VOD może się różnić. VPN pomaga połączyć się z Twoim krajem i oglądać legalnie w ramach posiadonej subskrypcji.<span class="badge">Poradnik</span></p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <h2>Jak to działa? (3 kroki)</h2>
+    <ol class="steps">
+      <li>Zainstaluj aplikację VPN na urządzeniu (telefon, laptop, TV-box).</li>
+      <li>Połącz się z <strong>serwerem w Polsce</strong> (lub kraju Twojej subskrypcji).</li>
+      <li>Uruchom aplikację VOD i oglądaj jak zwykle.</li>
+    </ol>
+  </section>
+
+  <!-- SERVICES QUICK CARDS -->
+  <section>
+    <h2>Najpopularniejsze serwisy</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="svc"><b>Netflix</b> <span class="pill">4K</span> <span class="pill">Smart TV</span></div>
+        <p>Najstabilniej działa po połączeniu z PL/DE. W razie problemów wyczyść dane aplikacji.</p>
+      </div>
+      <div class="card">
+        <div class="svc"><b>HBO Max</b> <span class="pill">5.1</span> <span class="pill">Widevine</span></div>
+        <p>Zwykle wystarcza serwer w Polsce. Po zmianie IP ponownie zaloguj się w aplikacji.</p>
+      </div>
+      <div class="card">
+        <div class="svc"><b>Disney+</b> <span class="pill">Dolby Vision</span></div>
+        <p>Sprawdź, czy biblioteka PL ma potrzebne tytuły; w podróży łącz się z PL.</p>
+      </div>
+      <div class="card">
+        <div class="svc"><b>Prime Video</b> <span class="pill">Atmos</span></div>
+        <p>Niekiedy wymaga przełączenia serwera lub przeładowania aplikacji po zmianie IP.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHOOSING SERVER -->
+  <section>
+    <h2>Dobór serwera a jakość VOD</h2>
+    <table>
+      <thead><tr><th>Kraj serwera</th><th>Kiedy wybrać</th><th>Zalety</th></tr></thead>
+      <tbody>
+        <tr><td>Polska</td><td>Domyślnie dla kont PL</td><td>Niski ping, lokalne płatności i aplikacje</td></tr>
+        <tr><td>Niemcy/Czechy</td><td>Gdy PL jest przeciążony</td><td>Dobra trasa w UE, często stabilniejsze łącza</td></tr>
+        <tr><td>USA/UK</td><td>Podróże i biblioteki zagraniczne</td><td>Duża oferta, ale wyższy ping</td></tr>
+      </tbody>
+    </table>
+    <p>Więcej o serwerach: <a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></p>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2>FAQ — najczęstsze problemy</h2>
+
+    <details>
+      <summary>„Video unavailable” lub aplikacja nie rusza</summary>
+      <p>Odłącz i połącz VPN ponownie, zmień serwer w tym samym kraju, wyczyść cache aplikacji VOD, sprawdź aktualizacje.</p>
+    </details>
+
+    <details>
+      <summary>Spadek jakości (HD/4K spada do SD)</summary>
+      <p>Wybierz szybszy protokół (WireGuard), bliższy serwer, sprawdź sieć Wi-Fi (5 GHz). Porównanie protokołów: <a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.</p>
+    </details>
+
+    <details>
+      <summary>Jak oglądać w hotelowym Wi-Fi?</summary>
+      <p>Połącz VPN zanim otworzysz aplikację VOD. Jeśli hotel stosuje captive portal, zaloguj się do Wi-Fi, potem włącz VPN.</p>
+    </details>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Konfiguracja krok-po-kroku</h2>
+    <p>Przygotowujemy przewodniki dla iOS, Android, Windows i Smart TV.</p>
+    <a class="btn" href="kontakt.html">Masz pytania? Napisz</a>
+  </section>
+
+  <!-- LINKS TO BLOG -->
+  <section>
+    <h2>Powiązane artykuły</h2>
+    <ul>
+      <li><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></li>
+      <li><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></li>
+      <li><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+    </ul>
+  </section>
+
+  <footer>© VPN Polska — poradniki i testy</footer>
 </main>
 </body>
 </html>
