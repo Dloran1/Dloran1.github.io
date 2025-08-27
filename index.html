@@ -7,58 +7,40 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
       margin: 0;
       padding: 0;
-      background-color: #121212;
-      color: #f5f5f5;
     }
     header {
-      background-color: #1e1e1e;
-      padding: 15px;
+      background: #000000;
+      padding: 20px;
       text-align: center;
     }
     header h1 {
-      margin: 0;
-      color: #fff;
+      color: #ff0033;
     }
     nav a {
       margin: 0 15px;
+      color: #ffffff;
       text-decoration: none;
-      color: #ff3333;
-      font-weight: bold;
     }
-    .container {
+    section {
       padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #ff3333;
     }
     .card {
-      background-color: #1e1e1e;
-      padding: 15px;
-      margin: 15px 0;
+      background: #1e1e1e;
       border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
-    .card h3 {
-      margin-top: 0;
-      color: #ff3333;
+    .card h2 {
+      color: #ff0033;
     }
-    .card p {
-      color: #ddd;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 15px;
-      background-color: #ff3333;
-      color: #fff;
+    .card a {
+      color: #ff0033;
       text-decoration: none;
-      border-radius: 4px;
-    }
-    .btn:hover {
-      background-color: #cc0000;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -72,37 +54,27 @@
     </nav>
   </header>
 
-  <div class="container">
+  <section>
     <h2>Najnowsze artykuły</h2>
 
-    <!-- Artykuł 1 -->
     <div class="card">
-      <h3>Dlaczego VPN w 2025 roku?</h3>
+      <h2><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h2>
       <p>Dowiedz się, dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku.</p>
-      <a class="btn" href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
+      <a href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
     </div>
 
-    <!-- Artykuł 2 -->
     <div class="card">
-      <h3>WireGuard vs OpenVPN</h3>
+      <h2><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h2>
       <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
-      <a class="btn" href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
+      <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
     </div>
 
-    <!-- Artykuł 3 -->
     <div class="card">
-      <h3>Jaki serwer VPN wybrać</h3>
+      <h2><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></h2>
       <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
-      <a class="btn" href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
+      <a href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
     </div>
 
-    <!-- Artykuł 4 (Wi-Fi) -->
-    <div class="card">
-      <h3>Bezpieczeństwo Wi-Fi: jak chroni VPN</h3>
-      <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i praktyczne ustawienia, które warto włączyć.</p>
-      <a class="btn" href="blog/wifi.html">Czytaj dalej →</a>
-    </div>
-
-  </div>
+  </section>
 </body>
 </html>
