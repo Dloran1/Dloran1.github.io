@@ -1,170 +1,110 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPN Polska — poradniki, konfiguracja i bezpieczeństwo</title>
-  <meta name="description" content="VPN Polska: praktyczne poradniki, konfiguracja na iOS/Android/Windows, porównania protokołów i wybór serwerów pod VOD, gry i pracę zdalną." />
-  <link rel="canonical" href="https://dloran1.github.io/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN Polska - Bezpieczne rozwiązania</title>
+  <meta name="description" content="Najlepsze poradniki VPN w Polsce. Dowiedz się, jak wybrać VPN dla VOD, pracy zdalnej, torrentów i ochrony prywatności.">
+
+  <!-- 🔑 Google Search Console weryfikacja -->
+  <meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI" />
+
   <style>
-    :root{
-      --bg:#0e0e0f;
-      --panel:#17181b;
-      --text:#e9eef2;
-      --muted:#aeb6bf;
-      --brand:#e6123c;
-      --link:#4da3ff;
-      --panel-border:#25272c;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text)}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{background:#000;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--panel-border)}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-    .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{font-weight:800;font-size:28px;color:var(--brand);letter-spacing:.5px}
-    nav a{color:#fff;margin-left:18px;font-weight:600}
-    nav a:hover{color:#ddd}
-    .hero{background:linear-gradient(180deg, #101114 0%, #0e0e0f 100%);border-bottom:1px solid var(--panel-border)}
-    .hero .wrap{padding:36px 16px}
-    h1{margin:0 0 10px 0;font-size:34px}
-    .sub{color:var(--muted);font-size:18px;line-height:1.5;max-width:900px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:24px 0 48px}
-    .card{background:var(--panel);border:1px solid var(--panel-border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
-    .card .pad{padding:16px}
-    .kicker{color:#9aa4ad;font-size:13px;margin-bottom:8px}
-    .title{color:#fff;font-weight:800;font-size:18px;line-height:1.3;margin:0 0 8px}
-    .excerpt{color:var(--muted);font-size:14px;line-height:1.5}
-    .cta{display:inline-block;margin-top:10px;color:#fff;background:var(--brand);padding:10px 12px;border-radius:8px;font-weight:700}
-    .cta:hover{filter:brightness(1.05);text-decoration:none}
-    footer{border-top:1px solid var(--panel-border);color:var(--muted)}
-    footer .wrap{padding:20px 16px}
-    @media (max-width:560px){
-      .brand{font-size:24px}
-      h1{font-size:28px}
+    header {
+      background: #000;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 {
+      color: #e60000;
+      margin: 0;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #e60000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    h2 {
+      color: #e60000;
+    }
+    .card {
+      background: #1c1c1c;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    .card a {
+      color: #e60000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="wrap bar">
-      <div class="brand">VPN Polska</div>
-      <nav>
-        <a href="index.html">Strona główna</a>
-        <a href="vod.html">VPN dla VOD</a>
-        <a href="blog/blog.html">Blog</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-    </div>
+    <h1>VPN Polska</h1>
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="vod.html">VPN dla VOD</a>
+      <a href="blog.html">Blog</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <div class="wrap">
-      <h1>Bezpieczny internet, szybki streaming, prosta konfiguracja</h1>
-      <p class="sub">
-        Praktyczne poradniki o VPN w Polsce: konfiguracja iPhone/Android/Windows, wybór serwera do VOD i pracy zdalnej,
-        testy szybkości oraz porównania protokołów (WireGuard, OpenVPN).
-      </p>
-    </div>
-  </section>
+  <div class="container">
+    <h2>Najnowsze artykuły</h2>
 
-  <main class="wrap">
-    <h2 style="margin:24px 0 8px">Najnowsze artykuły</h2>
-
-    <div class="grid">
-
-      <!-- 1 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">2025 • Podstawy</div>
-          <a class="title" href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a>
-          <p class="excerpt">Dlaczego VPN stał się podstawą prywatności i bezpieczeństwa online — w Polsce i na wyjazdach.</p>
-          <a class="cta" href="blog/dlaczego-vpn-2025.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 2 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">Poradnik • Serwery</div>
-          <a class="title" href="blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a>
-          <p class="excerpt">Polska, Niemcy czy Czechy? Jak dobrać serwer pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
-          <a class="cta" href="blog/jaki-serwer-vpn-wybrac.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 3 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">VOD • Netflix</div>
-          <a class="title" href="blog/vpn-netflix-polska.html">VPN i Netflix w Polsce</a>
-          <p class="excerpt">Jak oglądać biblioteki zagraniczne i rozwiązywać typowe problemy z działaniem serwisu.</p>
-          <a class="cta" href="blog/vpn-netflix-polska.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 4 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">Konfiguracja • iOS</div>
-          <a class="title" href="blog/vpn-iphone-konfiguracja.html">VPN na iPhone — konfiguracja</a>
-          <p class="excerpt">Szybka konfiguracja na iOS: profile, protokoły i wskazówki dla stabilnego połączenia.</p>
-          <a class="cta" href="blog/vpn-iphone-konfiguracja.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 5 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">Konfiguracja • Android</div>
-          <a class="title" href="blog/vpn-android-konfiguracja.html">VPN na Android — konfiguracja</a>
-          <p class="excerpt">Instalacja aplikacji, split tunneling i szybkie profile dla płynnego streamingu.</p>
-          <a class="cta" href="blog/vpn-android-konfiguracja.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 6 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">Testy • Prędkość</div>
-          <a class="title" href="blog/vpn-szybkosc-test.html">Test szybkości VPN</a>
-          <p class="excerpt">Jak poprawnie mierzyć prędkość i co zrobić, gdy transfer spada po włączeniu VPN.</p>
-          <a class="cta" href="blog/vpn-szybkosc-test.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 7 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">P2P • Prywatność</div>
-          <a class="title" href="blog/vpn-torrent-polska.html">VPN a torrenty w Polsce</a>
-          <p class="excerpt">Jak korzystać z P2P bezpiecznie: zasady, limity operatorów i dobre praktyki.</p>
-          <a class="cta" href="blog/vpn-torrent-polska.html">Czytaj dalej</a>
-        </div>
-      </article>
-
-      <!-- 8 -->
-      <article class="card">
-        <div class="pad">
-          <div class="kicker">Protokoły</div>
-          <a class="title" href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>
-          <p class="excerpt">Który protokół wybrać do streamingu i pracy zdalnej? Plusy i minusy obu rozwiązań.</p>
-          <a class="cta" href="blog/wireguard-vs-openvpn.html">Czytaj dalej</a>
-        </div>
-      </article>
-
+    <div class="card">
+      <h3><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h3>
+      <p>Dowiedz się, dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku.</p>
+      <a href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
     </div>
 
-    <p><a href="blog/blog.html">Zobacz wszystkie artykuły →</a></p>
-  </main>
+    <div class="card">
+      <h3><a href="blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></h3>
+      <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
+      <a href="blog/jaki-serwer-vpn-wybrac.html">Czytaj dalej →</a>
+    </div>
+
+    <div class="card">
+      <h3><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3>
+      <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
+      <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
+    </div>
+  </div>
 
   <footer>
-    <div class="wrap">
-      © 2025 VPN Polska • Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a>
-    </div>
+    © 2025 VPN Polska. Wszelkie prawa zastrzeżone.
   </footer>
-
 </body>
 </html>
