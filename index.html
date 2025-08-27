@@ -4,46 +4,46 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VPN Polska — Bezpieczeństwo, VOD i poradniki</title>
-  <meta name="description" content="VPN w Polsce: jak wybrać, testy, poradniki, dostęp do VOD. Proste wyjaśnienia i praktyczne wskazówki." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23006ad4'/%3E%3Ctext x='50' y='57' text-anchor='middle' font-size='52' fill='white' font-family='Arial,Helvetica,sans-serif'%3EV%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="VPN w Polsce: poradniki, testy, bezpieczeństwo Wi-Fi i dostęp do VOD.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310141A'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='46' fill='%23e11d48' font-family='Arial,Helvetica,sans-serif'%3EV%3C/text%3E%3C/svg%3E">
   <style>
     :root{
-      --bg:#f7f9fc; --card:#fff; --text:#0b1220; --muted:#5b6b80;
-      --brand:#1458d2; --brand-2:#0e46a8; --accent:#6d28d9;
-      --radius:16px; --shadow:0 6px 28px rgba(13,37,62,.12);
+      --bg:#0b0f14;        /* very dark */
+      --panel:#121821;     /* card bg */
+      --border:#1f2937;    /* subtle border */
+      --text:#f8fafc;      /* white-ish */
+      --muted:#cbd5e1;     /* soft gray */
+      --brand:#e11d48;     /* red */
+      --brand-2:#fb7185;   /* red light */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
     a{color:var(--brand);text-decoration:none}
     a:hover{color:var(--brand-2)}
     .wrap{max-width:980px;margin-inline:auto;padding:20px}
-    header.hero{background:linear-gradient(160deg,#0f4ec7 0%,#0b3a95 100%);color:#fff;padding:36px 0 28px;margin:0 0 18px}
-    .hero .wrap{padding-inline:20px}
-    .brand{font-weight:800;letter-spacing:.5px;font-size:36px;margin:0 0 14px}
-    .lead{margin:0;color:#e7edff}
-    nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
-    .pill{display:inline-block;background:#ffffff20;border:1px solid #ffffff3a;color:#fff;padding:10px 14px;border-radius:999px;font-weight:600;backdrop-filter:saturate(180%) blur(6px)}
-    .pill:hover{background:#ffffff33}
-    .cta{margin-top:18px}
-    .cta .btn{display:inline-block;background:#22c55e;border:0;color:#06230f;font-weight:800;padding:12px 18px;border-radius:12px;box-shadow:0 6px 20px rgba(34,197,94,.25)}
-    .cta .btn:hover{filter:brightness(1.05)}
-    .section{margin:26px 0}
-    h2{font-size:28px;margin:0 0 12px}
-    /* cards */
+    header.hero{background:linear-gradient(160deg,#0b0f14 0%,#121821 100%);padding:36px 0 28px;border-bottom:1px solid var(--border)}
+    .brand{font-weight:900;letter-spacing:.3px;font-size:40px;margin:0 0 10px}
+    .lead{margin:0;color:var(--muted)}
+    nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .pill{display:inline-block;background:#ffffff10;border:1px solid #ffffff22;color:var(--text);padding:10px 14px;border-radius:999px}
+    .pill:hover{background:#ffffff18}
+    .cta{margin-top:16px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;font-weight:800;padding:12px 16px;border-radius:12px;box-shadow:0 8px 24px rgba(225,29,72,.35)}
+    .btn:hover{filter:brightness(1.06)}
+    h2{font-size:26px;margin:0 0 12px}
     .grid{display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 12;background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid #e8eef7}
+    .card{grid-column:span 12;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .meta{color:var(--muted);font-weight:600;margin-bottom:6px}
-    .card h3{margin:0 0 10px;font-size:26px;line-height:1.25}
-    .card p{margin:0 0 12px;color:#243247}
+    .card h3{margin:0 0 10px;font-size:24px;line-height:1.25}
+    .card p{margin:0 0 12px;color:#e5e7eb}
     .more{font-weight:800}
-    @media (min-width:720px){
-      .brand{font-size:44px}
-      .grid .card{grid-column:span 6}
-    }
-    footer{margin:28px 0 34px;color:var(--muted);font-size:14px}
-    .footer-inner{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    @media (min-width:720px){ .grid .card{grid-column:span 6} .brand{font-size:48px}}
+    footer{margin:28px 0 34px;color:#a8b3c7;font-size:14px;border-top:1px solid var(--border)}
+    .footer-inner{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-top:16px}
     .links a{margin-right:14px}
-    .dot{width:6px;height:6px;border-radius:50%;background:#a5b4cf;display:inline-block;margin:0 10px}
+    .dot{width:6px;height:6px;border-radius:50%;background:#334155;display:inline-block;margin:0 10px}
   </style>
 </head>
 <body>
@@ -51,7 +51,7 @@
 <header class="hero">
   <div class="wrap">
     <h1 class="brand">VPN Polska</h1>
-    <p class="lead">Bezpieczny internet, dostęp do VOD i praktyczne poradniki po polsku.</p>
+    <p class="lead">Bezpieczny internet, dostęp do VOD i praktyczne poradniki — po polsku.</p>
 
     <nav>
       <a class="pill" href="index.html">Strona główna</a>
@@ -60,28 +60,25 @@
       <a class="pill" href="kontakt.html">Kontakt</a>
     </nav>
 
-    <!-- MIEJSCE NA PRZYSZŁY OFERTOWY CTA -->
-    <div class="cta">
-      <!-- Po pojawieniu się oferty: podmień href poniżej -->
-      <!-- <a class="btn" href="https://twoj-oferowy-link" rel="nofollow">Sprawdź ofertę VPN</a> -->
-    </div>
+    <!-- CTA na przyszłość (oferta) -->
+    <!-- <div class="cta"><a class="btn" href="https://twoj-link" rel="nofollow">Sprawdź ofertę VPN</a></div> -->
   </div>
 </header>
 
 <main class="wrap">
-  <section class="section">
+  <section>
     <h2>Najnowsze artykuły</h2>
 
     <div class="grid">
-      <!-- Karta 1 -->
+      <!-- 1 -->
       <article class="card">
         <div class="meta">2025 • Poradnik</div>
         <h3><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h3>
-        <p>Dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku — prywatność, ochrona Wi-Fi i dostęp do treści.</p>
+        <p>Dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku — prywatność, ochrona i dostęp do treści.</p>
         <a class="more" href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
       </article>
 
-      <!-- Karta 2 -->
+      <!-- 2 -->
       <article class="card">
         <div class="meta">2025 • Protokoły</div>
         <h3><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3>
@@ -89,12 +86,20 @@
         <a class="more" href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
       </article>
 
-      <!-- Karta 3 -->
+      <!-- 3 -->
       <article class="card">
         <div class="meta">2025 • Poradnik</div>
         <h3><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać</a></h3>
         <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
         <a class="more" href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
+      </article>
+
+      <!-- 4 — Wi-Fi bezpieczeństwo (naprawiony link) -->
+      <article class="card">
+        <div class="meta">2025 • Bezpieczeństwo Wi-Fi</div>
+        <h3><a href="blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi: jak chroni VPN</a></h3>
+        <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i praktyczne ustawienia, które warto włączyć.</p>
+        <a class="more" href="blog/wifi-bezpieczenstwo.html">Czytaj dalej →</a>
       </article>
     </div>
   </section>
@@ -108,9 +113,7 @@
       <a href="blog.html">Blog</a><span class="dot"></span>
       <a href="kontakt.html">Kontakt</a>
     </div>
-    <div>
-      Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a>
-    </div>
+    <div>Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a></div>
   </div>
 </footer>
 
