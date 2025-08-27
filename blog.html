@@ -1,53 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN Polska – Blog</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - VPN Polska</title>
   <style>
-    :root{--bg:#0b2a5b;--link:#1a5cff;--card:#ffffff;--text:#0b132b;--muted:#5c6b7a;--border:#e7e9ee}
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;color:var(--text)}
-    header{background:var(--bg);color:#fff;padding:28px 16px 18px}
-    header h1{margin:0;font-size:30px;font-weight:800}
-    nav a{color:#fff;text-decoration:none;margin-right:22px}
-    nav a:hover{text-decoration:underline}
-    .wrap{max-width:880px;margin:22px auto;padding:0 14px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:20px}
-    .card-title{margin:0 0 8px 0;font-size:22px;font-weight:700;color:#5a1dbb;text-decoration:none}
-    .card-title:hover{text-decoration:underline}
-    .meta{color:var(--muted);font-size:.95rem;margin-bottom:6px}
-    .btn{display:inline-block;margin-top:10px;color:var(--link);font-weight:600;text-decoration:none}
-    footer{margin:28px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #000000;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      color: #ff0033;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    section {
+      padding: 20px;
+    }
+    .card {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      color: #ff0033;
+    }
+    .card a {
+      color: #ff0033;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-<header class="wrap">
-  <h1>VPN Polska – Blog</h1>
-  <nav>
-    <a href="index.html">Strona główna</a>
-    <a href="vod.html">VPN dla VOD</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
-</header>
+  <header>
+    <h1>Blog VPN Polska</h1>
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="vod.html">VPN dla VOD</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
 
-<main class="wrap">
-  <div class="card">
-    <div class="meta">2025 • Poradnik</div>
-    <a class="card-title" href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a>
-    <p>Dlaczego korzystanie z VPN staje się obowiązkowe dla każdego internauty.</p>
-    <a href="blog/dlaczego-vpn-2025.html" class="btn">Czytaj dalej →</a>
-  </div>
+  <section>
+    <h2>Wszystkie artykuły</h2>
 
-  <div class="card">
-    <div class="meta">2025 • Bezpieczeństwo</div>
-    <a class="card-title" href="blog/wifi.html">Bezpieczeństwo Wi-Fi: jak chronić się w sieciach publicznych</a>
-    <p>Jak uniknąć zagrożeń w kawiarniach, hotelach i lotniskach?</p>
-    <a href="blog/wifi.html" class="btn">Czytaj dalej →</a>
-  </div>
-</main>
+    <div class="card">
+      <h2><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h2>
+      <p>Dowiedz się, dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku.</p>
+      <a href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
+    </div>
 
-<footer class="wrap">
-  © 2025 VPN Polska • Materiały edukacyjne.
-</footer>
+    <div class="card">
+      <h2><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h2>
+      <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
+      <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
+    </div>
+
+    <div class="card">
+      <h2><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></h2>
+      <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
+      <a href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
+    </div>
+
+  </section>
 </body>
 </html>
