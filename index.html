@@ -1,132 +1,61 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPN i VOD w Polsce – poradniki i najlepsze praktyki</title>
-  <meta name="description" content="Proste poradniki: jak wybrać VPN w Polsce, oglądać VOD za granicą i bezpiecznie korzystać z internetu.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🛡️</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN & VOD Polska</title>
+  <meta name="description" content="VPN i VOD w Polsce – poradniki, testy, bezpieczeństwo w sieci, polityka no-logs.">
   <style>
-    :root{
-      --bg:#0b1220; --card:#121a2b; --text:#e7eefc; --muted:#a9b6d3; --brand:#4ea1ff; --brand2:#6cf0a6;
-    }
-    *{box-sizing:border-box}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; background:linear-gradient(180deg,#0a1020 0%,#0b1220 55%,#0e1526 100%); color:var(--text)}
-    a{color:inherit; text-decoration:none}
-    header{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(8px); background:#0b1220c0; border-bottom:1px solid #1e2a44}
-    .wrap{max-width:1000px; margin:0 auto; padding:16px}
-    .bar{display:flex; align-items:center; justify-content:space-between; gap:12px}
-    .logo{font-weight:800; letter-spacing:.3px}
-    nav a{padding:10px 12px; border-radius:10px; color:var(--muted)}
-    nav a:hover{background:#1b2742; color:var(--text)}
-    .hero{padding:40px 16px 18px}
-    .hero h1{margin:0 0 10px; font-size:clamp(24px,4.5vw,34px)}
-    .hero p{margin:0; color:var(--muted)}
-    .cta{display:flex; gap:10px; margin-top:18px; flex-wrap:wrap}
-    .btn{padding:10px 14px; border-radius:12px; font-weight:600; display:inline-flex; gap:8px; align-items:center}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#051222}
-    .btn.ghost{border:1px solid #2b3a5e; color:var(--text)}
-    h2.sec{margin:22px 0 10px; font-size:20px}
-    .grid{display:grid; gap:14px; grid-template-columns:repeat(1,minmax(0,1fr))}
-    @media (min-width:640px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
-    @media (min-width:980px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr))} }
-    .card{background:var(--card); border:1px solid #1f2b47; border-radius:16px; padding:14px; transition:.2s transform,.2s box-shadow}
-    .card:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.25)}
-    .tag{display:inline-block; font-size:12px; color:#8fb6ff; background:#162546; border:1px solid #23365f; padding:4px 8px; border-radius:999px}
-    .card h3{margin:10px 0 6px; font-size:18px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    .card .more{display:inline-flex; gap:6px; align-items:center; margin-top:10px; color:#bfe7ff}
-    .list{display:grid; gap:10px}
-    .li{background:#10182a; border:1px dashed #1f3054; border-radius:12px; padding:10px}
-    footer{margin-top:30px; border-top:1px solid #1e2a44; color:var(--muted)}
-    .small{font-size:13px}
-    .pill{display:inline-block; padding:6px 10px; background:#132240; border:1px solid #22345e; color:#b1c6ea; border-radius:999px; font-size:12px}
+    :root{--bg:#0b1220;--card:#121a2b;--text:#e7eefc;--muted:#a9b6d3}
+    *{box-sizing:border-box} 
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--text)}
+    a{color:#bfe7ff;text-decoration:none} 
+    header{position:sticky;top:0;background:#0b1220cc;border-bottom:1px solid #1e2a44;backdrop-filter:blur(8px)}
+    .wrap{max-width:1000px;margin:0 auto;padding:16px}
+    nav a{margin-right:12px;color:var(--muted)} nav a:hover{color:#fff}
+    h1{margin:16px 0;font-size:clamp(24px,4.5vw,34px)} 
+    p{color:var(--muted)} 
+    .card{background:var(--card);border:1px solid #1f2b47;border-radius:14px;padding:14px;margin:12px 0}
+    .card h2{margin-top:0;font-size:20px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap bar">
-      <div class="logo">VPN & VOD Polska</div>
-      <nav>
-        <a href="index.html">Strona główna</a>
-        <a href="vod.html">VOD za granicą</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="wrap">
+    <strong>VPN & VOD Polska</strong> ·
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="vod.html">VOD</a>
+      <a href="test-vpn.html">Test VPN</a>
+      <a href="wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a>
+      <a href="no-logs.html">Polityka No-Logs</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>Bezpieczny internet i dostęp do treści — prosto i po polsku</h1>
-      <p>Praktyczne poradniki o VPN, VOD i prywatności online. Zero marketingowego bełkotu — tylko to, co działa w Polsce.</p>
-      <div class="cta">
-        <a class="btn primary" href="vod.html">Poradniki VOD</a>
-        <a class="btn ghost" href="kontakt.html">Napisz do nas</a>
-      </div>
-    </section>
+<main class="wrap">
+  <h1>Witamy w VPN & VOD Polska</h1>
+  <p>Poradniki i wskazówki jak bezpiecznie korzystać z internetu w Polsce, oglądać VOD z zagranicy i chronić prywatność online.</p>
 
-    <h2 class="sec">Najnowsze poradniki</h2>
-    <div class="grid">
+  <div class="card">
+    <h2>🔐 VPN w praktyce</h2>
+    <p>Dowiedz się jak używać VPN do odblokowania serwisów VOD, bezpiecznego korzystania z Wi-Fi i ochrony prywatności.</p>
+  </div>
 
-      <!-- KARTA 1 -->
-      <article class="card">
-        <span class="tag">VPN • Polska</span>
-        <h3>Jaki VPN do Polski wybrać? 5 kluczowych kryteriów</h3>
-        <p>Prędkość, serwery PL, wsparcie VOD, cena i prywatność — zobacz jak szybko porównać usługi bez żargonu.</p>
-        <a class="more" href="vpn-polska.html">Czytaj poradnik →</a>
-      </article>
+  <div class="card">
+    <h2>🎬 VOD w Polsce i za granicą</h2>
+    <p>Jak oglądać Netflix USA, Player.pl czy Canal+ online podczas podróży? Sprawdź w dziale <a href="vod.html">VOD</a>.</p>
+  </div>
 
-      <!-- KARTA 2 -->
-      <article class="card">
-        <span class="tag">VOD • Streaming</span>
-        <h3>Jak oglądać polski VOD za granicą (TVP, Player, Canal+)?</h3>
-        <p>Legalny i prosty schemat: wybór serwera PL, czyszczenie cookies, zgodność aplikacji. Działa w UE i poza UE.</p>
-        <a class="more" href="vod.html#poradnik">Krok-po-kroku →</a>
-      </article>
+  <div class="card">
+    <h2>🛡️ Bezpieczeństwo</h2>
+    <p>Publiczne Wi-Fi, polityka no-logs i inne zasady – zobacz <a href="wifi-bezpieczenstwo.html">porady bezpieczeństwa</a> oraz <a href="no-logs.html">czym jest no-logs</a>.</p>
+  </div>
+</main>
 
-      <!-- KARTA 3 -->
-      <article class="card">
-        <span class="tag">Prywatność</span>
-        <h3>Jak testować, czy VPN naprawdę działa</h3>
-        <p>IP, DNS, WebRTC, prędkość — 4 szybkie testy z darmowymi narzędziami i interpretacją wyników.</p>
-        <a class="more" href="test-vpn.html">Sprawdź listę testów →</a>
-      </article>
-
-      <!-- KARTA 4 (placeholder pod kolejne teksty) -->
-      <article class="card">
-        <span class="tag">Poradnik</span>
-        <h3>Odblokowanie bibliotek VOD: błędy i obejścia</h3>
-        <p>Najczęstsze komunikaty blokad oraz sposoby naprawy: zmiana protokołu, DNS, przeglądarki i lokalizacji.</p>
-        <a class="more" href="vod.html#problemy">Rozwiąż problemy →</a>
-      </article>
-
-      <article class="card">
-        <span class="tag">Bezpieczeństwo</span>
-        <h3>Publiczne Wi-Fi: szybkie zasady bezpieczeństwa</h3>
-        <p>Sieci lotnisk, hoteli i kawiarni: dlaczego zawsze włączać VPN i jak nie dać się śledzić.</p>
-        <a class="more" href="wifi-bezpieczenstwo.html">Zobacz zasady →</a>
-      </article>
-
-      <article class="card">
-        <span class="tag">Porównania</span>
-        <h3>VPN bez logów – co to znaczy naprawdę?</h3>
-        <p>Audyt, kraj jurysdykcji, polityka przechowywania danych. Czym się kierować przy wyborze.</p>
-        <a class="more" href="no-logs.html">Dowiedz się więcej →</a>
-      </article>
-
-    </div>
-
-    <h2 class="sec">Szybkie linki</h2>
-    <div class="list">
-      <div class="li"><span class="pill">🇵🇱</span> &nbsp; Lista polskich serwerów w popularnych usługach VPN</div>
-      <div class="li"><span class="pill">🎬</span> &nbsp; Checklist: VOD nie działa z VPN — 6 rzeczy do sprawdzenia</div>
-      <div class="li"><span class="pill">🧪</span> &nbsp; Test prędkości: jak mierzyć i porównywać wyniki</div>
-    </div>
-  </main>
-
-  <footer class="wrap small">
-    <p>Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a></p>
-    <p>© 2025 VPN & VOD Polska. Proste poradniki bez marketingowego szumu.</p>
-  </footer>
+<footer class="wrap">
+  Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a> · © 2025 VPN & VOD Polska
+</footer>
 </body>
 </html>
