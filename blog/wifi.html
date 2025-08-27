@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bezpieczeństwo Wi-Fi — jak chronić się w sieciach publicznych | VPN Polska</title>
+  <meta name="description" content="Praktyczny poradnik: zagrożenia publicznego Wi-Fi, jak się chronić, ustawienia VPN i lista kontrolna.">
+  <style>
+    :root{--bg:#0b2a5b;--link:#1a5cff;--card:#ffffff;--text:#0b132b;--muted:#5c6b7a;--border:#e7e9ee}
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#f6f7fb}
+    header{background:var(--bg);color:#fff;padding:28px 16px 18px}
+    header h1{margin:0 0 8px 0;font-size:30px;font-weight:800}
+    nav a{color:#fff;text-decoration:none;margin-right:22px;opacity:.95}
+    nav a:hover{text-decoration:underline;opacity:1}
+    .wrap{max-width:880px;margin:22px auto;padding:0 14px}
+    article{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+    h2{margin:8px 0 14px 0;font-size:28px}
+    h3{margin:18px 0 8px 0}
+    .meta{color:var(--muted);font-size:.95rem;margin-bottom:6px}
+    a{color:var(--link)}
+    .tip{background:#f0f5ff;border:1px dashed #cfe1ff;padding:10px 12px;border-radius:10px}
+    ul{margin:8px 0 8px 20px}
+    footer{margin:28px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
+    .back{display:inline-block;margin:16px 0 0;font-weight:700}
+  </style>
+</head>
+<body>
+<header class="wrap">
+  <h1>VPN Polska</h1>
+  <nav>
+    <a href="../index.html">Strona główna</a>
+    <a href="../vod.html">VPN dla VOD</a>
+    <a href="../kontakt.html">Kontakt</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <article>
+    <div class="meta">2025 • Bezpieczeństwo</div>
+    <h2>Bezpieczeństwo Wi-Fi: jak chronić się w sieciach publicznych</h2>
+
+    <p>Kawiarnie, lotniska i hotele oferują wygodne Wi-Fi, ale takie sieci są często
+      <strong>niezabezpieczone</strong>. Poniżej proste kroki, które realnie zmniejszają ryzyko.</p>
+
+    <h3>Najczęstsze zagrożenia</h3>
+    <ul>
+      <li><strong>Podsłuch ruchu</strong> (sniffing).</li>
+      <li><strong>Fałszywe hotspoty</strong> „Free Wi-Fi”.</li>
+      <li><strong>MITM</strong> – wstrzykiwanie treści/redirecty.</li>
+    </ul>
+
+    <h3>Podstawowe zasady</h3>
+    <ul>
+      <li>Łącz się tylko z potwierdzonym SSID.</li>
+      <li>Wyłącz auto-łączenie z otwartymi sieciami.</li>
+      <li>Wymuszaj <strong>HTTPS</strong>, aktualizuj system/przeglądarkę.</li>
+      <li>Firewall ON, udostępnianie plików OFF.</li>
+    </ul>
+
+    <h3>VPN – co ustawić?</h3>
+    <ul>
+      <li><strong>Auto-connect/Always-on</strong> dla Wi-Fi.</li>
+      <li>Protokół <strong>WireGuard</strong> (szybkość + kryptografia).</li>
+      <li><strong>Kill-Switch</strong> obowiązkowo.</li>
+      <li>Serwery no-logs + własny DNS dostawcy VPN.</li>
+    </ul>
+
+    <div class="tip">
+      Na początek porównanie protokołów:
+      <a href="./wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.
+    </div>
+
+    <h3>Lista kontrolna (hotspot)</h3>
+    <ul>
+      <li>1) Włącz firewall i wyłącz udostępnianie.</li>
+      <li>2) Sprawdź nazwę sieci u obsługi.</li>
+      <li>3) Uruchom VPN (auto-connect + kill-switch).</li>
+      <li>4) Sprawdź kłódkę HTTPS.</li>
+      <li>5) Po użyciu – „zapomnij” sieć.</li>
+    </ul>
+
+    <a class="back" href="../blog.html">← Wróć do listy artykułów</a>
+  </article>
+</main>
+
+<footer class="wrap">
+  © 2025 VPN Polska • Materiały edukacyjne.
+</footer>
+</body>
+</html>
