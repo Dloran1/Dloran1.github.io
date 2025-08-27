@@ -1,121 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPN Polska — Bezpieczeństwo, VOD i poradniki</title>
-  <meta name="description" content="VPN w Polsce: poradniki, testy, bezpieczeństwo Wi-Fi i dostęp do VOD.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310141A'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='46' fill='%23e11d48' font-family='Arial,Helvetica,sans-serif'%3EV%3C/text%3E%3C/svg%3E">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN Polska – Bezpieczny internet i poradniki</title>
+  <meta name="description" content="Proste poradniki o VPN dla Polski: bezpieczeństwo Wi-Fi, Netflix, praca zdalna, torrent, iPhone, testy prędkości, WireGuard vs OpenVPN.">
   <style>
     :root{
-      --bg:#0b0f14;        /* very dark */
-      --panel:#121821;     /* card bg */
-      --border:#1f2937;    /* subtle border */
-      --text:#f8fafc;      /* white-ish */
-      --muted:#cbd5e1;     /* soft gray */
-      --brand:#e11d48;     /* red */
-      --brand-2:#fb7185;   /* red light */
-      --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --bg:#0b2a5b;       /* ciemny top */
+      --link:#1a5cff;     /* linki */
+      --card:#ffffff;     /* karty */
+      --text:#0b132b;
+      --muted:#5c6b7a;
+      --accent:#e10600;   /* czerwony akcent PL */
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{color:var(--brand-2)}
-    .wrap{max-width:980px;margin-inline:auto;padding:20px}
-    header.hero{background:linear-gradient(160deg,#0b0f14 0%,#121821 100%);padding:36px 0 28px;border-bottom:1px solid var(--border)}
-    .brand{font-weight:900;letter-spacing:.3px;font-size:40px;margin:0 0 10px}
-    .lead{margin:0;color:var(--muted)}
-    nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
-    .pill{display:inline-block;background:#ffffff10;border:1px solid #ffffff22;color:var(--text);padding:10px 14px;border-radius:999px}
-    .pill:hover{background:#ffffff18}
-    .cta{margin-top:16px}
-    .btn{display:inline-block;background:var(--brand);color:#fff;font-weight:800;padding:12px 16px;border-radius:12px;box-shadow:0 8px 24px rgba(225,29,72,.35)}
-    .btn:hover{filter:brightness(1.06)}
-    h2{font-size:26px;margin:0 0 12px}
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 12;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .meta{color:var(--muted);font-weight:600;margin-bottom:6px}
-    .card h3{margin:0 0 10px;font-size:24px;line-height:1.25}
-    .card p{margin:0 0 12px;color:#e5e7eb}
-    .more{font-weight:800}
-    @media (min-width:720px){ .grid .card{grid-column:span 6} .brand{font-size:48px}}
-    footer{margin:28px 0 34px;color:#a8b3c7;font-size:14px;border-top:1px solid var(--border)}
-    .footer-inner{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-top:16px}
-    .links a{margin-right:14px}
-    .dot{width:6px;height:6px;border-radius:50%;background:#334155;display:inline-block;margin:0 10px}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#f6f7fb}
+    header{background:var(--bg);color:#fff;padding:28px 16px 18px}
+    header h1{margin:0 0 8px 0;font-size:34px;font-weight:800;letter-spacing:.3px}
+    nav a{color:#fff;text-decoration:none;margin-right:22px;opacity:.95}
+    nav a:hover{opacity:1;text-decoration:underline}
+    .wrap{max-width:980px;margin:22px auto;padding:0 14px}
+    h2{font-size:32px;margin:16px 0 12px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border-radius:14px;padding:18px 18px 14px;border:1px solid #e7e9ee}
+    .card h3{margin:0 0 10px 0;font-size:24px;line-height:1.25}
+    .meta{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+    a{color:var(--link)}
+    .more{display:inline-block;margin-top:6px;font-weight:700}
+    footer{margin:28px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
   </style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="wrap">
-    <h1 class="brand">VPN Polska</h1>
-    <p class="lead">Bezpieczny internet, dostęp do VOD i praktyczne poradniki — po polsku.</p>
-
-    <nav>
-      <a class="pill" href="index.html">Strona główna</a>
-      <a class="pill" href="vod.html">VPN dla VOD</a>
-      <a class="pill" href="blog.html">Blog</a>
-      <a class="pill" href="kontakt.html">Kontakt</a>
-    </nav>
-
-    <!-- CTA na przyszłość (oferta) -->
-    <!-- <div class="cta"><a class="btn" href="https://twoj-link" rel="nofollow">Sprawdź ofertę VPN</a></div> -->
-  </div>
+<header class="wrap">
+  <h1>VPN Polska</h1>
+  <nav>
+    <a href="index.html">Strona główna</a>
+    <a href="vod.html">VPN dla VOD</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
 </header>
 
 <main class="wrap">
-  <section>
-    <h2>Najnowsze artykuły</h2>
+  <h2>Najnowsze artykuły</h2>
 
-    <div class="grid">
-      <!-- 1 -->
-      <article class="card">
-        <div class="meta">2025 • Poradnik</div>
-        <h3><a href="blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h3>
-        <p>Dlaczego VPN to podstawa bezpiecznego internetu w 2025 roku — prywatność, ochrona i dostęp do treści.</p>
-        <a class="more" href="blog/dlaczego-vpn-2025.html">Czytaj dalej →</a>
-      </article>
+  <section class="grid">
 
-      <!-- 2 -->
-      <article class="card">
-        <div class="meta">2025 • Protokoły</div>
-        <h3><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3>
-        <p>Różnice w szybkości, stabilności i bezpieczeństwie dwóch najpopularniejszych protokołów VPN.</p>
-        <a class="more" href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
-      </article>
+    <!-- Wi-Fi bezpieczeństwo -->
+    <article class="card">
+      <div class="meta">2025 • Bezpieczeństwo</div>
+      <h3><a href="blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi: jak chronić się w sieciach publicznych</a></h3>
+      <p>Najważniejsze zasady ochrony w hotspotach i domowym Wi-Fi oraz jak VPN zapobiega podsłuchowi.</p>
+      <a class="more" href="blog/wifi-bezpieczenstwo.html">Czytaj dalej →</a>
+    </article>
 
-      <!-- 3 -->
-      <article class="card">
-        <div class="meta">2025 • Poradnik</div>
-        <h3><a href="blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać</a></h3>
-        <p>Polska, Niemcy czy Czechy? Dobór serwera pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
-        <a class="more" href="blog/jaki-serwer-vpn.html">Czytaj dalej →</a>
-      </article>
+    <!-- WireGuard vs OpenVPN -->
+    <article class="card">
+      <div class="meta">2025 • Protokoły</div>
+      <h3><a href="blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3>
+      <p>Porównanie prędkości, stabilności i bezpieczeństwa dwóch najpopularniejszych protokołów VPN.</p>
+      <a class="more" href="blog/wireguard-vs-openvpn.html">Czytaj dalej →</a>
+    </article>
 
-      <!-- 4 — Wi-Fi bezpieczeństwo (naprawiony link) -->
-      <article class="card">
-        <div class="meta">2025 • Bezpieczeństwo Wi-Fi</div>
-        <h3><a href="blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi: jak chroni VPN</a></h3>
-        <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i praktyczne ustawienia, które warto włączyć.</p>
-        <a class="more" href="blog/wifi-bezpieczenstwo.html">Czytaj dalej →</a>
-      </article>
-    </div>
+    <!-- VPN na iPhone -->
+    <article class="card">
+      <div class="meta">2025 • iOS</div>
+      <h3><a href="blog/vpn-iphone-konfiguracja.html">VPN na iPhone — szybka konfiguracja</a></h3>
+      <p>Krok po kroku jak włączyć VPN na iOS oraz które ustawienia są najbezpieczniejsze.</p>
+      <a class="more" href="blog/vpn-iphone-konfiguracja.html">Czytaj dalej →</a>
+    </article>
+
+    <!-- Netflix PL -->
+    <article class="card">
+      <div class="meta">2025 • VOD</div>
+      <h3><a href="blog/vpn-netflix-polska.html">VPN a Netflix w Polsce</a></h3>
+      <p>Co działa, co nie i jak legalnie korzystać z serwisów VOD z zachowaniem prywatności.</p>
+      <a class="more" href="blog/vpn-netflix-polska.html">Czytaj dalej →</a>
+    </article>
+
+    <!-- Praca zdalna -->
+    <article class="card">
+      <div class="meta">2025 • Poradnik</div>
+      <h3><a href="blog/vpn-praca-zdalna.html">VPN do pracy zdalnej</a></h3>
+      <p>Bezpieczne łączenie z firmowymi zasobami i ochrona danych podczas pracy poza biurem.</p>
+      <a class="more" href="blog/vpn-praca-zdalna.html">Czytaj dalej →</a>
+    </article>
+
+    <!-- Test prędkości -->
+    <article class="card">
+      <div class="meta">2025 • Testy</div>
+      <h3><a href="blog/vpn-szybkosc-test.html">Jak testować prędkość VPN</a></h3>
+      <p>Prosty plan testu: ping, download, upload i jak interpretować wyniki.</p>
+      <a class="more" href="blog/vpn-szybkosc-test.html">Czytaj dalej →</a>
+    </article>
+
   </section>
 </main>
 
 <footer class="wrap">
-  <div class="footer-inner">
-    <div class="links">
-      <a href="index.html">Strona główna</a><span class="dot"></span>
-      <a href="vod.html">VPN dla VOD</a><span class="dot"></span>
-      <a href="blog.html">Blog</a><span class="dot"></span>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
-    <div>Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a></div>
-  </div>
+  © 2025 VPN Polska • Materiały edukacyjne. Brak porad prawnych.
 </footer>
-
 </body>
 </html>
