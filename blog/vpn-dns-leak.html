@@ -1,23 +1,46 @@
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Test wycieków DNS w VPN — jak to sprawdzić</title>
-<meta name="description" content="Jak sprawdzić wycieki DNS i jak je naprawić: DNS dostawcy VPN, wyłączenie IPv6, konfiguracja protokołu WireGuard/OpenVPN.">
-<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
-<style>
-body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;text-align:center;padding:15px}
-header h1{color:#e60000;margin:0}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}
-h1{color:#e60000}h2{color:#ff4a4a;margin-top:18px}
-</style></head><body>
-<header><h1>VPN Polska</h1>
-<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a></nav>
-</header>
-<main class="wrap">
-<h1>Test wycieków DNS</h1>
-<h2>Jak testować?</h2>
-<p>Wejdź na dnsleaktest.com → uruchom rozszerzony test. Nazwy serwerów DNS powinny należeć do dostawcy VPN.</p>
-<h2>Jak naprawić wycieki</h2>
-<p>Włącz DNS dostawcy VPN, przełącz protokół, rozważ wyłączenie IPv6.</p>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DNS leak — jak sprawdzić i naprawić | VPN Polska</title>
+<meta name="description" content="Jak wykryć wyciek DNS przy użyciu prostych testów oraz które ustawienia VPN/DNS pomagają go wyeliminować.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-dns-leak.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-dns-leak.html">
+<meta property="og:title" content="DNS leak — jak sprawdzić i naprawić"><meta property="og:description" content="Testy DNS, ustawienia i praktyczne rozwiązania.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{
+ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+  {"@type":"ListItem","position":3,"name":"DNS leak — jak sprawdzić i naprawić","item":"https://dloran1.github.io/blog/vpn-dns-leak.html"}
+ ]}</script>
+</head><body>
+<header><div class="wrap"><nav>
+  <div class="brand">VPN Polska</div>
+  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+<main class="wrap content">
+  <h1>DNS leak — jak sprawdzić i naprawić</h1>
+  <p class="meta">Technicznie</p>
+
+  <h2>Jak sprawdzić</h2>
+  <ul>
+    <li>Połącz VPN → odwiedź serwis testu DNS → sprawdź, czy resolver to DNS VPN, a nie ISP.</li>
+    <li>Przetestuj kilka serwerów i protokołów.</li>
+  </ul>
+
+  <h2>Jak naprawić</h2>
+  <ul>
+    <li>Włącz DNS dostawcy w aplikacji VPN.</li>
+    <li>Wyłącz IPv6 (często pomaga).</li>
+    <li>Ustaw własne DNS (np. 1.1.1.1/8.8.8.8) na poziomie systemu lub routera.</li>
+  </ul>
+
+  <section class="more"><h3>Powiązane artykuły</h3><ul>
+    <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
+    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+  </ul></section>
 </main>
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body></html>
