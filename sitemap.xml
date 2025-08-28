@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Strona główna -->
   <url>
     <loc>https://dloran1.github.io/</loc>
     <lastmod>2025-08-28</lastmod>
-    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
   </url>
 
+  <!-- Główne podstrony -->
   <url>
     <loc>https://dloran1.github.io/vod.html</loc>
     <lastmod>2025-08-28</lastmod>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
-
   <url>
     <loc>https://dloran1.github.io/kontakt.html</loc>
     <lastmod>2025-08-28</lastmod>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
   </url>
 
-  <!-- Пример для блога -->
+  <!-- Blog (index) -->
   <url>
-    <loc>https://dloran1.github.io/blog/dlaczego-vpn-2025.html</loc>
+    <loc>https://dloran1.github.io/blog/</loc>
     <lastmod>2025-08-28</lastmod>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
-
   <url>
-    <loc>https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html</loc>
+    <loc>https://dloran1.github.io/blog/index.html</loc>
     <lastmod>2025-08-28</lastmod>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <url>
-    <loc>https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html</loc>
-    <lastmod>2025-08-28</lastmod>
-    <priority>0.7</priority>
-  </url>
+  <!-- Artykuły -->
+  <url><loc>https://dloran1.github.io/wireguard-vs-openvpn.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
 
-  <!-- остальные статьи блога добавь по такому же шаблону -->
+  <url><loc>https://dloran1.github.io/blog/darmowy-vpn-polska.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/dlaczego-vpn-2025.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://dloran1.github.io/blog/jaki-serwer-vpn-wybrac.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://dloran1.github.io/blog/jaki-serwer-vpn.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/no-logs.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/player-tvp-vpn.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/test-vpn.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-android-konfiguracja.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-dns-leak.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-double-vpn.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-netflix-polska.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-port-forwarding.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-praca-zdalna.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-szybkosc-test.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-split-tunneling.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-torrent-polska.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-torrent.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://dloran1.github.io/blog/vpn-windows-konfiguracja.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://dloran1.github.io/blog/wifi-bezpieczenstwo.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
 </urlset>
