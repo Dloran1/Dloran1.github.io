@@ -1,53 +1,32 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jak testować prędkość VPN – VPN Polska</title>
-  <meta name="description" content="Prosty plan testu VPN: ping, download, upload; jak porównać serwery i protokoły, by wybrać najszybszą opcję.">
-  <style>
-    body{font-family:Arial,system-ui;background:#121212;color:#f1f1f1;margin:0}
-    header{background:#000;padding:15px;text-align:center}
-    header h1{margin:0;color:#e50914}
-    nav a{margin:0 10px;color:#fff;text-decoration:none}
-    .container{max-width:900px;margin:20px auto;padding:20px}
-    h1,h2{color:#e50914} p{line-height:1.6}
-    table{width:100%;border-collapse:collapse}
-    th,td{border-bottom:1px solid #2a2a2a;padding:8px;text-align:left}
-  </style>
-</head>
-<body>
-  <header>
-    <h1>VPN Polska</h1>
-    <nav>
-      <a href="../index.html">Strona główna</a>
-      <a href="../blog.html">Blog</a>
-      <a href="../kontakt.html">Kontakt</a>
-    </nav>
-  </header>
-  <div class="container">
-    <h1>Jak testować prędkość VPN</h1>
-    <p><em>Testy • 2025</em></p>
-
-    <h2>Plan testu</h2>
-    <ol>
-      <li>Zmierz bazę bez VPN (ping / pobieranie / wysyłanie).</li>
-      <li>Połącz VPN: WireGuard (PL), potem OpenVPN (PL).</li>
-      <li>Powtórz dla serwera DE/CZ, porównaj wyniki.</li>
-    </ol>
-
-    <h2>Wzór tabeli wyników</h2>
-    <table>
-      <thead><tr><th>Konfiguracja</th><th>PING</th><th>Pobieranie</th><th>Wysyłanie</th></tr></thead>
-      <tbody>
-        <tr><td>Bez VPN</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>WireGuard (PL)</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>OpenVPN (PL)</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>WireGuard (DE)</td><td>—</td><td>—</td><td>—</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Wnioski</h2>
-    <p>W codziennym użyciu zwykle najlepiej wypada <strong>WireGuard</strong> z serwerem najbliżej fizycznie (PL/DE/CZ).</p>
-  </div>
-</body>
-</html>
+<html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test szybkości VPN — jak mierzyć ping i transfer</title>
+<meta name="description" content="Poprawna metodologia testu prędkości VPN. Jak porównać serwery i protokoły, co wpływa na ping i stabilność.">
+<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
+<style>
+body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;text-align:center;padding:15px}
+header h1{color:#e60000;margin:0}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
+nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}h1{color:#e60000}
+h2{color:#ff4a4a;margin-top:18px}table{width:100%;border-collapse:collapse}
+th,td{border-bottom:1px solid #2a2a2a;padding:8px;text-align:left}
+</style></head><body>
+<header><h1>VPN Polska</h1>
+<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a></nav>
+</header>
+<main class="wrap">
+<h1>Jak testować prędkość VPN</h1>
+<h2>Plan pomiarów</h2>
+<ol><li>Pomiar bez VPN (bazowy).</li><li>WireGuard (PL), OpenVPN (PL).</li><li>WireGuard (DE/CZ).</li></ol>
+<h2>Szablon tabeli</h2>
+<table>
+<thead><tr><th>Konfiguracja</th><th>PING</th><th>Pobieranie</th><th>Wysyłanie</th></tr></thead>
+<tbody><tr><td>Bez VPN</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>WireGuard (PL)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>OpenVPN (PL)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>WireGuard (DE)</td><td>—</td><td>—</td><td>—</td></tr></tbody>
+</table>
+<h2>Wnioski</h2>
+<p>Na co dzień najlepiej wypada <b>WireGuard</b> na najbliższym serwerze.</p>
+</main>
+</body></html>
