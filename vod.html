@@ -1,57 +1,52 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN a VOD – Netflix, HBO, Disney+ i więcej</title>
-  <meta name="description" content="Dowiedz się jak VPN działa z serwisami VOD: Netflix, HBO Max, Disney+ i inne. Oglądaj swoje ulubione treści w podróży i dbaj o prywatność.">
-  <link rel="canonical" href="https://dloran1.github.io/vod.html">
-  <style>
-    body { margin:0; font-family: system-ui, sans-serif; background:#0e0f12; color:#e9eef5; line-height:1.6; }
-    header,footer { background:#000; padding:16px; text-align:center; }
-    header a, footer a { color:#60a5fa; text-decoration:none; margin:0 10px; }
-    header a:hover, footer a:hover { text-decoration:underline; }
-    .wrap { max-width:900px; margin:0 auto; padding:20px; }
-    h1 { color:#ff264d; margin-bottom:16px; }
-    h2 { color:#ff4a4a; margin-top:28px; }
-    .note { background:#16181d; border:1px solid #242833; padding:15px; border-radius:8px; margin-top:20px; }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="/">Strona główna</a>
-    <a href="/blog/">Blog</a>
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN dla VOD — Netflix, Player, TVP za granicą | VPN Polska</title>
+<meta name="description" content="Jak oglądać polskie VOD w podróży: Netflix PL, Player, TVP. Legalne wskazówki, ustawienia VPN, dobór serwera i protokołu.">
+<link rel="canonical" href="https://dloran1.github.io/vod.html"><meta name="robots" content="index,follow">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/vod.html">
+<meta property="og:title" content="VPN dla VOD — Netflix, Player, TVP za granicą"><meta property="og:description" content="Konkretnie: serwery, protokoły i ustawienia.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<link rel="icon" href="/assets/favicon.ico"><link rel="stylesheet" href="/assets/style.css">
+</head><body>
+<header><div class="wrap">
+  <nav>
+    <div class="brand">VPN Polska</div>
+    <a href="/index.html">Strona główna</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/vod.html" aria-current="page">Vod</a>
     <a href="/kontakt.html">Kontakt</a>
-  </header>
+  </nav>
+</div></header>
 
-  <main class="wrap">
-    <h1>VPN a serwisy VOD – Netflix, HBO, Disney+ i więcej</h1>
-    <p>Serwisy <b>VOD</b> (Video on Demand) takie jak <b>Netflix</b>, <b>HBO Max</b> czy <b>Disney+</b> oferują ogromny wybór treści, ale część katalogów różni się w zależności od kraju. VPN pozwala zachować dostęp do swoich ulubionych filmów i seriali podczas podróży.</p>
+<main class="wrap content">
+  <h1>VPN dla VOD: jak oglądać polskie serwisy podczas podróży</h1>
+  <p>Ustawienia, które często działają dla Netflix PL, Player, TVP VOD, Canal+ online i innych serwisów — gdy jesteś poza Polską.</p>
 
-    <h2>Dlaczego warto używać VPN z VOD?</h2>
+  <h2>Krótkie zasady</h2>
+  <ul>
+    <li><b>Serwer:</b> Polska (Warszawa lub najbliższe miasto).</li>
+    <li><b>Protokół:</b> najpierw <b>WireGuard</b>; gdy błąd — <b>OpenVPN TCP 443</b>.</li>
+    <li><b>DNS:</b> DNS dostawcy VPN lub własne (np. 1.1.1.1).</li>
+    <li><b>IPv6:</b> wyłącz, jeśli aplikacja pozwala (mniej błędów geolokalizacji).</li>
+    <li><b>Kill Switch:</b> włącz, by uniknąć „przebić” IP.</li>
+  </ul>
+
+  <h2>Typowe błędy i rozwiązania</h2>
+  <div class="note">
+    <p><b>Netflix „proxy/VPN detected”:</b> zmień serwer w PL; przełącz protokół na OpenVPN TCP; wyczyść cookies; zrestartuj appkę.</p>
+    <p><b>Player/TVP nie ładuje treści:</b> wyłącz IPv6, sprawdź DNS, zmień protokół, spróbuj innej lokalizacji PL.</p>
+  </div>
+
+  <div class="more">
+    <h3>Powiązane poradniki</h3>
     <ul>
-      <li><b>Podróże zagraniczne</b> – oglądasz treści z Polski nawet będąc za granicą.</li>
-      <li><b>Prywatność</b> – ukrywasz adres IP i chronisz swoje dane przed śledzeniem.</li>
-      <li><b>Bezpieczeństwo</b> – szyfrowane połączenie w hotelach, lotniskach czy kawiarniach.</li>
+      <li><a href="/blog/vpn-netflix-polska.html">Netflix Polska: typowe ustawienia</a></li>
+      <li><a href="/blog/player-tvp-vpn.html">Player i TVP z zagranicy</a></li>
+      <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
     </ul>
+  </div>
+</main>
 
-    <h2>Na co uważać?</h2>
-    <p>Nie wszystkie VPN-y działają dobrze z serwisami VOD. Ważna jest regularna aktualizacja serwerów i protokołów.</p>
-
-    <div class="note">
-      📌 Uwaga: Korzystanie z VPN musi być zgodne z regulaminem serwisów VOD. Zawsze sprawdzaj aktualne zasady swojego dostawcy.
-    </div>
-
-    <h2>Więcej informacji</h2>
-    <p>Zobacz nasze artykuły na blogu:
-      <a href="/blog/co-to-jest-vpn.html">Co to jest VPN</a>,
-      <a href="/blog/zalety-vpn.html">Zalety VPN</a>,
-      <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>.
-    </p>
-  </main>
-
-  <footer>
-    © 2025 VPN Polska · <a href="/sitemap.xml">Mapa strony</a>
-  </footer>
-</body>
-</html>
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • Kontakt: <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body></html>
