@@ -1,21 +1,43 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN a publiczne Wi-Fi</title>
-  <meta name="description" content="Publiczne Wi-Fi to ryzyko. Zobacz jak VPN chroni przed podsłuchem: szyfrowanie, kill switch, DNS i auto-connect.">
-  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
-</head>
-<body>
-  <h1>VPN a publiczne Wi-Fi</h1>
-  <p>Otwarte hotspoty w kawiarniach czy na lotniskach są wygodne, ale niosą ryzyko podsłuchu. <b>VPN</b> szyfruje dane i utrudnia przechwycenie haseł.</p>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPN a publiczne Wi-Fi — praktyczne ustawienia | VPN Polska</title>
+<meta name="description" content="Publiczne Wi-Fi to ryzyko podsłuchu. Zobacz, jakie ustawienia VPN włączyć: auto-connect, kill switch, DNS, WireGuard/OpenVPN.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+<meta property="og:title" content="VPN a publiczne Wi-Fi — praktyczne ustawienia"><meta property="og:description" content="Auto-connect, kill switch, DNS, IPv6 — co włączyć.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{
+ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+  {"@type":"ListItem","position":3,"name":"VPN a publiczne Wi-Fi","item":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"}
+ ]}</script>
+</head><body>
+<header><div class="wrap"><nav>
+  <div class="brand">VPN Polska</div>
+  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
 
-  <h2>Co włączyć?</h2>
+<main class="wrap content">
+  <h1>VPN a publiczne Wi-Fi — jak się chronić</h1>
+  <p class="meta">Bezpieczeństwo</p>
+  <h2>Ustawienia, które warto włączyć</h2>
   <ul>
-    <li>Auto-connect w nieznanych sieciach.</li>
-    <li>Kill Switch (blokada ruchu poza VPN).</li>
-    <li>DNS dostawcy VPN.</li>
+    <li><b>Auto-connect:</b> automatyczne łączenie z VPN w nieznanych sieciach.</li>
+    <li><b>Kill Switch:</b> blokada ruchu poza VPN.</li>
+    <li><b>DNS dostawcy VPN:</b> oraz test wycieków DNS.</li>
+    <li><b>Protokół:</b> najpierw WireGuard; gdy niestabilnie — OpenVPN (TCP).</li>
+    <li><b>IPv6:</b> wyłącz, jeśli aplikacja pozwala (mniej błędów geolokalizacji).</li>
   </ul>
-</body>
-</html>
+
+  <section class="more"><h3>Powiązane artykuły</h3><ul>
+    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
+    <li><a href="/blog/vpn-dns-leak.html">DNS leak — jak sprawdzić</a></li>
+    <li><a href="/vod.html">VPN dla VOD — poradnik</a></li>
+  </ul></section>
+</main>
+
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body></html>
