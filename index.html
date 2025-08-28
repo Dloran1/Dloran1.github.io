@@ -1,52 +1,190 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN Polska – Bezpieczeństwo i Prywatność Online</title>
-  <meta name="description" content="VPN Polska – poradniki, testy i informacje o bezpieczeństwie w internecie. Dowiedz się czym jest VPN i jak chroni Twoją prywatność.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPN Polska — Bezpieczeństwo i Prywatność Online</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Poradniki o VPN w Polsce: bezpieczeństwo Wi-Fi, konfiguracja iPhone/Android, VOD za granicą, test prędkości, torrent, protokoły WireGuard i OpenVPN.">
   <link rel="canonical" href="https://dloran1.github.io/">
+  <meta name="robots" content="index,follow">
+
+  <!-- Google verification -->
+  <meta name="google-site-verification" content="f6oG8z7AJp-FgraW-2M2754f3IzGYnmEzfUfl1B70jw">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dloran1.github.io/">
+  <meta property="og:title" content="VPN Polska — Bezpieczeństwo i Prywatność Online">
+  <meta property="og:description" content="Praktyczne poradniki, testy i konfiguracje VPN dla Polski.">
+  <meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+
+  <!-- Favicon (по желанию можно заменить свой) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23222'/%3E%3Ctext x='50' y='58' font-size='52' text-anchor='middle' fill='%23fff'%3EV%3C/text%3E%3C/svg%3E">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "VPN Polska",
+    "url": "https://dloran1.github.io/",
+    "inLanguage": "pl-PL",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.google.com/search?q=site:dloran1.github.io+{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <style>
-    body { margin:0; font-family: system-ui, sans-serif; background:#0e0f12; color:#e9eef5; line-height:1.6; }
-    header,footer { background:#000; padding:16px; text-align:center; }
-    header a, footer a { color:#60a5fa; text-decoration:none; margin:0 10px; }
-    header a:hover, footer a:hover { text-decoration:underline; }
-    .wrap { max-width:1000px; margin:0 auto; padding:20px; }
-    h1 { color:#ff264d; }
-    h2 { color:#ff4a4a; margin-top:28px; }
-    .btn { display:inline-block; background:#ff264d; color:#fff; padding:10px 18px; border-radius:6px; text-decoration:none; margin-top:15px; }
-    .btn:hover { background:#e31c3f; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:20px; }
-    .card { background:#16181d; border:1px solid #242833; padding:14px; border-radius:8px; }
-    .card h3 a { color:#60a5fa; text-decoration:none; }
-    .card h3 a:hover { text-decoration:underline; }
+    :root{
+      --bg:#0f0f12;
+      --card:#17171c;
+      --text:#e8e8ee;
+      --muted:#a8adba;
+      --accent:#ff1f4d;   /* czerwony */
+      --link:#4aa3ff;     /* niebieski */
+      --border:#262630;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--text); background:var(--bg); line-height:1.6;
+    }
+    .wrap{max-width:1024px;margin:0 auto;padding:16px 20px 48px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:saturate(140%) blur(6px);
+      background:color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex; gap:24px; padding:16px 0; align-items:center}
+    nav a{color:var(--link); text-decoration:none; font-weight:600}
+    nav a:hover{text-decoration:underline}
+    .brand{margin-right:auto; font-weight:800; letter-spacing:.3px; color:#fff}
+    .hero{padding:36px 0 8px}
+    h1{
+      font-size:clamp(32px,5.2vw,56px);
+      line-height:1.05; margin:0 0 18px; color:#fff;
+    }
+    .accent{color:var(--accent)}
+    .lead{font-size:clamp(16px,2.6vw,21px); color:var(--text); opacity:.95}
+    .grid{
+      display:grid; gap:18px; margin-top:26px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+    .card{
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:18px 18px 16px;
+      display:flex; flex-direction:column; min-height:180px;
+    }
+    .card h3{margin:0 0 8px; font-size:20px; line-height:1.25}
+    .card p{margin:0 0 14px; color:var(--muted)}
+    .card a{margin-top:auto; align-self:flex-start; color:#fff; 
+      background:var(--accent); padding:10px 14px; border-radius:10px; 
+      text-decoration:none; font-weight:700}
+    .card a:hover{filter:brightness(1.05)}
+    .section-title{margin:26px 0 8px; font-size:24px}
+    footer{margin-top:40px; padding:22px 0; color:var(--muted); border-top:1px solid var(--border)}
+    .small{font-size:14px}
   </style>
 </head>
 <body>
   <header>
-    <a href="/">Strona główna</a>
-    <a href="/blog/">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
+    <div class="wrap">
+      <nav>
+        <div class="brand">VPN Polska</div>
+        <a href="index.html">Strona główna</a>
+        <a href="blog.html">Blog</a>
+        <a href="vod.html">Vod</a><!-- ← ВЕРНУЛ пункт меню -->
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
   </header>
 
   <main class="wrap">
-    <h1>VPN Polska – Bezpieczeństwo i Prywatność Online</h1>
-    <p>Witaj na naszej stronie poświęconej <b>VPN</b> – narzędziu, które chroni prywatność, szyfruje dane i pozwala korzystać z internetu bez ograniczeń. Znajdziesz tutaj poradniki, testy oraz aktualne informacje o bezpieczeństwie online.</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">VPN Polska — <span class="accent">Bezpieczeństwo</span> i Prywatność Online</h1>
+      <p class="lead">
+        Witaj na naszej stronie poświęconej <strong>VPN</strong> — narzędziu, które chroni prywatność,
+        szyfruje dane i pozwala korzystać z internetu bez ograniczeń. Poradniki, testy oraz
+        aktualne informacje o bezpieczeństwie online.
+      </p>
+    </section>
 
-    <h2>Najnowsze artykuły</h2>
-    <div class="grid">
-      <div class="card"><h3><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></h3><p>Podstawy działania i zastosowania VPN.</p></div>
-      <div class="card"><h3><a href="/blog/zalety-vpn.html">Najważniejsze zalety VPN</a></h3><p>Prywatność, bezpieczeństwo i wygoda online.</p></div>
-      <div class="card"><h3><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a></h3><p>Porównanie: co wybrać w 2025?</p></div>
-      <div class="card"><h3><a href="/blog/vpn-publiczne-wifi.html">VPN a publiczne Wi-Fi</a></h3><p>Jak chronić się w otwartych sieciach.</p></div>
-      <div class="card"><h3><a href="/blog/mity-o-vpn.html">Mity o VPN</a></h3><p>Obalamy najczęstsze nieporozumienia.</p></div>
-    </div>
+    <section aria-labelledby="sec-art">
+      <h2 id="sec-art" class="section-title">Najnowsze artykuły</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Dlaczego VPN w 2025 roku?</h3>
+          <p>5 powodów, dla których VPN to dziś podstawa: prywatność, Wi-Fi, streaming i więcej.</p>
+          <a href="blog/dlaczego-vpn-2025.html" aria-label="Czytaj: Dlaczego VPN w 2025 roku">Czytaj dalej</a>
+        </article>
 
-    <a href="/blog/" class="btn">Zobacz wszystkie artykuły</a>
+        <article class="card">
+          <h3>Jaki serwer VPN wybrać</h3>
+          <p>Polska, Niemcy czy Czechy? Wybór pod VOD, gry i pracę zdalną bez utraty prędkości.</p>
+          <a href="blog/jaki-serwer-vpn-wybrac.html">Czytaj dalej</a>
+        </article>
+
+        <article class="card">
+          <h3>Bezpieczeństwo Wi-Fi: jak chroni VPN</h3>
+          <p>Hotspoty, ataki „man-in-the-middle”, szyfrowanie i ustawienia, które warto włączyć.</p>
+          <a href="blog/wifi-bezpieczenstwo.html">Czytaj dalej</a>
+        </article>
+
+        <article class="card">
+          <h3>WireGuard vs OpenVPN</h3>
+          <p>Różnice w prędkości, stabilności i bezpieczeństwie dwóch topowych protokołów.</p>
+          <a href="blog/wireguard-vs-openvpn.html">Czytaj dalej</a>
+        </article>
+
+        <article class="card">
+          <h3>Test prędkości VPN</h3>
+          <p>Jak mierzyć speed z iPhone/Android/PC i co zrobić, gdy VPN spowalnia.</p>
+          <a href="blog/vpn-szybkosc-test.html">Czytaj dalej</a>
+        </article>
+
+        <article class="card">
+          <h3>VPN dla torrentów w Polsce</h3>
+          <p>Anonimowość, brak logów i optymalne ustawienia — przewodnik krok po kroku.</p>
+          <a href="blog/vpn-torrent-polska.html">Czytaj dalej</a>
+        </article>
+
+        <article class="card">
+          <h3>Konfiguracja VPN: Android</h3>
+          <p>Bezpieczna konfiguracja i profile — poradnik dla początkujących.</p>
+          <a href="blog/vpn-android-konfiguracja.html">Czytaj dalej</a>
+        </article>
+
+        <article class="card">
+          <h3>Konfiguracja VPN: iPhone</h3>
+          <p>Profile, DNS, on-demand i szybka zmiana serwerów w iOS.</p>
+          <a href="blog/vpn-iphone-konfiguracja.html">Czytaj dalej</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-vod">
+      <h2 id="sec-vod" class="section-title">VPN dla VOD</h2>
+      <div class="card">
+        <p>Poradniki dotyczące oglądania serwisów VOD w podróży i za granicą — wskazówki i ustawienia.</p>
+        <a href="vod.html">Sprawdź poradnik VOD</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    © 2025 VPN Polska · <a href="/sitemap.xml">Mapa strony</a>
+    <div class="wrap small">
+      © <span id="y"></span> VPN Polska • Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a>
+    </div>
   </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
