@@ -1,29 +1,47 @@
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na iPhone — konfiguracja i najlepsze ustawienia</title>
-<meta name="description" content="Instrukcja konfiguracji VPN na iPhone: WireGuard/IKEv2, Auto-Connect, Kill Switch i DNS. Krok po kroku.">
-<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
-<style>
-body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;padding:15px;text-align:center}
-header h1{margin:0;color:#e60000}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}
-h1{color:#e60000}h2{color:#ff4a4a;margin-top:18px}ol,ul{margin-left:18px}
-</style></head><body>
-<header><h1>VPN Polska</h1>
-<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a><a href="../kontakt.html">Kontakt</a></nav>
-</header>
-<main class="wrap">
-<h1>VPN na iPhone — konfiguracja krok po kroku</h1>
-<h2>Kroki</h2>
-<ol>
-<li>Pobierz aplikację VPN z App Store i zaloguj się.</li>
-<li>Zezwól na dodanie profilu VPN.</li>
-<li>Wybierz protokół: <b>WireGuard</b> lub <b>IKEv2</b>.</li>
-<li>Włącz <b>Auto-Connect</b> i <b>Kill Switch</b> (jeśli dostępny).</li>
-<li>Połącz z serwerem w PL i przetestuj.</li>
-</ol>
-<h2>Diagnostyka</h2>
-<p>Brak połączenia? Zmień serwer w tym samym kraju, przełącz protokół, uruchom ponownie aplikację.</p>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPN na iPhone — szybka konfiguracja | VPN Polska</title>
+<meta name="description" content="Jak skonfigurować VPN na iPhone: profile, on-demand, DNS, przełączanie serwerów. Proste kroki dla iOS.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+<meta property="og:title" content="VPN na iPhone — szybka konfiguracja"><meta property="og:description" content="Profile, DNS i on-demand w iOS.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{
+ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+  {"@type":"ListItem","position":3,"name":"VPN na iPhone — konfiguracja","item":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"}
+ ]}</script>
+</head><body>
+<header><div class="wrap"><nav>
+  <div class="brand">VPN Polska</div>
+  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+
+<main class="wrap content">
+  <h1>VPN na iPhone — szybka konfiguracja</h1>
+  <p class="meta">iOS • Poradnik</p>
+  <h2>Kroki podstawowe</h2>
+  <ol>
+    <li>Zainstaluj aplikację wybranego dostawcy VPN z App Store.</li>
+    <li>Zaloguj się i zaakceptuj dodanie profilu VPN.</li>
+    <li>Włącz <b>On-Demand/Auto-Connect</b> dla nieznanych sieci Wi-Fi.</li>
+  </ol>
+  <h2>Ustawienia, które pomagają</h2>
+  <ul>
+    <li><b>Protokół:</b> WireGuard (szybkość), a gdy problemy — IKEv2/OpenVPN.</li>
+    <li><b>DNS:</b> włącz DNS dostawcy lub 1.1.1.1/8.8.8.8.</li>
+    <li><b>Przełączanie serwerów:</b> testuj kilka lokalizacji w PL/UE.</li>
+  </ul>
+
+  <section class="more"><h3>Powiązane artykuły</h3><ul>
+    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
+    <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+  </ul></section>
 </main>
+
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body></html>
