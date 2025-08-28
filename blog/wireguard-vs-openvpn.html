@@ -1,28 +1,45 @@
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WireGuard vs OpenVPN: prędkość i bezpieczeństwo</title>
-<meta name="description" content="Porównanie WireGuard i OpenVPN: który protokół VPN jest szybszy i stabilniejszy do streamingu, gier i pracy zdalnej?">
-<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
-<style>
-body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;text-align:center;padding:15px}
-header h1{color:#e60000;margin:0}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}h1{color:#e60000}
-h2{color:#ff4a4a;margin-top:18px}ul{margin-left:18px}
-</style></head><body>
-<header><h1>VPN Polska</h1>
-<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a><a href="../vod.html">VOD</a></nav>
-</header>
-<main class="wrap">
-<h1>WireGuard czy OpenVPN — co wybrać?</h1>
-<h2>Różnice techniczne</h2>
-<ul><li><b>WireGuard</b>: nowoczesny, prosty kod, świetna wydajność na mobilnych.</li>
-<li><b>OpenVPN</b>: dojrzały, szeroko wspierany, elastyczne konfiguracje.</li></ul>
-<h2>Testy prędkości</h2>
-<p>Zwykle WireGuard wygrywa przy pobieraniu/gry/streamingu. Gdy trasa jest nietypowa, OpenVPN bywa stabilniejszy.</p>
-<h2>Kompatybilność</h2>
-<p>Jeśli urządzenie wspiera oba — zacznij od WireGuard. Na routerach starszych generacji pozostaje OpenVPN.</p>
-<h2>Wniosek</h2>
-<p>Na co dzień: <b>WireGuard</b>. Gdy są problemy z łącznością: szybko sprawdź <b>OpenVPN</b>.</p>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WireGuard vs OpenVPN — co wybrać? | VPN Polska</title>
+<meta name="description" content="Różnice między WireGuard i OpenVPN: prędkość, stabilność, bezpieczeństwo i kompatybilność. Kiedy który protokół ma przewagę.">
+<link rel="canonical" href="https://dloran1.github.io/blog/wireguard-vs-openvpn.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/wireguard-vs-openvpn.html">
+<meta property="og:title" content="WireGuard vs OpenVPN — co wybrać?"><meta property="og:description" content="Prędkość, stabilność i praktyczne scenariusze.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{
+ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+  {"@type":"ListItem","position":3,"name":"WireGuard vs OpenVPN","item":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html"}
+ ]}</script>
+</head><body>
+<header><div class="wrap"><nav>
+  <div class="brand">VPN Polska</div>
+  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+
+<main class="wrap content">
+  <h1>WireGuard vs OpenVPN — co wybrać?</h1>
+  <p class="meta">Protokoły</p>
+  <h2>Prędkość i stabilność</h2>
+  <p><b>WireGuard</b> zwykle zapewnia lepszą prędkość i niższe opóźnienia. <b>OpenVPN</b> (szczególnie TCP 443) bywa stabilniejszy w sieciach z filtrami.</p>
+  <h2>Bezpieczeństwo i konfiguracja</h2>
+  <p>Oba protokoły są bezpieczne przy prawidłowej konfiguracji. WireGuard ma prostszy kod, OpenVPN — ogromne wsparcie i dojrzały ekosystem.</p>
+  <h2>Kiedy który?</h2>
+  <ul>
+    <li><b>Codziennie/VOD:</b> WireGuard (szybkość).</li>
+    <li><b>Sieci restrykcyjne:</b> OpenVPN TCP (stabilność przez 443).</li>
+    <li><b>Starsze urządzenia:</b> częściej OpenVPN (szersza kompatybilność).</li>
+  </ul>
+
+  <section class="more"><h3>Powiązane artykuły</h3><ul>
+    <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
+    <li><a href="/blog/vpn-dns-leak.html">DNS leak — jak sprawdzić</a></li>
+    <li><a href="/vod.html">VPN dla VOD</a></li>
+  </ul></section>
 </main>
+
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body></html>
