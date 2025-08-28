@@ -1,32 +1,47 @@
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Test szybkości VPN — jak mierzyć ping i transfer</title>
-<meta name="description" content="Poprawna metodologia testu prędkości VPN. Jak porównać serwery i protokoły, co wpływa na ping i stabilność.">
-<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
-<style>
-body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;text-align:center;padding:15px}
-header h1{color:#e60000;margin:0}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}h1{color:#e60000}
-h2{color:#ff4a4a;margin-top:18px}table{width:100%;border-collapse:collapse}
-th,td{border-bottom:1px solid #2a2a2a;padding:8px;text-align:left}
-</style></head><body>
-<header><h1>VPN Polska</h1>
-<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a></nav>
-</header>
-<main class="wrap">
-<h1>Jak testować prędkość VPN</h1>
-<h2>Plan pomiarów</h2>
-<ol><li>Pomiar bez VPN (bazowy).</li><li>WireGuard (PL), OpenVPN (PL).</li><li>WireGuard (DE/CZ).</li></ol>
-<h2>Szablon tabeli</h2>
-<table>
-<thead><tr><th>Konfiguracja</th><th>PING</th><th>Pobieranie</th><th>Wysyłanie</th></tr></thead>
-<tbody><tr><td>Bez VPN</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>WireGuard (PL)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>OpenVPN (PL)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>WireGuard (DE)</td><td>—</td><td>—</td><td>—</td></tr></tbody>
-</table>
-<h2>Wnioski</h2>
-<p>Na co dzień najlepiej wypada <b>WireGuard</b> na najbliższym serwerze.</p>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test prędkości VPN — jak mierzyć i co poprawić | VPN Polska</title>
+<meta name="description" content="Jak poprawnie testować prędkość VPN: wybór serwera, protokół, narzędzia, różnice między TCP a UDP i praktyczne wskazówki.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<meta property="og:title" content="Test prędkości VPN — jak mierzyć i co poprawić"><meta property="og:description" content="Mierzenie speed: serwer, protokół, narzędzia, wskazówki.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{
+ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+  {"@type":"ListItem","position":3,"name":"Test prędkości VPN","item":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"}
+ ]}</script>
+</head><body>
+<header><div class="wrap"><nav>
+  <div class="brand">VPN Polska</div>
+  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+<main class="wrap content">
+  <h1>Test prędkości VPN — jak mierzyć i co poprawić</h1>
+  <p class="meta">Test</p>
+
+  <h2>Jak testować</h2>
+  <ol>
+    <li>Wybierz <b>najbliższy serwer</b> geograficznie.</li>
+    <li>Sprawdź <b>WireGuard</b> vs <b>OpenVPN UDP/TCP</b>.</li>
+    <li>Użyj 2–3 narzędzi (np. speedtest, fast, nPerf) i porównaj medianę.</li>
+  </ol>
+
+  <h2>Co poprawić, gdy jest wolno</h2>
+  <ul>
+    <li>Zmiana serwera na mniej obciążony.</li>
+    <li>Przełączenie protokołu (często WG najszybszy).</li>
+    <li>Wyłączenie IPv6, sprawdzenie DNS, restart routera/appki.</li>
+  </ul>
+
+  <section class="more"><h3>Powiązane artykuły</h3><ul>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
+    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
+  </ul></section>
 </main>
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body></html>
