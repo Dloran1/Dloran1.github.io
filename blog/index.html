@@ -1,47 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Blog — VPN Polska (poradniki i testy)</title>
-  <meta name="description" content="Blog o VPN w Polsce: poradniki, testy prędkości, odblokowanie VOD (Netflix USA, Player.pl, TVP VOD, Canal+) i bezpieczeństwo online.">
+  <title>Blog VPN Polska — wszystkie artykuły (poradniki, testy, konfiguracja)</title>
+  <meta name="description" content="Spis wszystkich wpisów: wybór VPN, Netflix/VOD, bezpieczeństwo Wi-Fi, polityka no-logs, konfiguracja i testy prędkości.">
+  <link rel="canonical" href="https://dloran1.github.io/blog/">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%279%27 fill=%27%23000%27/%3E%3Cpath d=%27M14 40l8-20h6l8 20h-6l-1.6-4H21.6L20 40h-6zm9-9h6l-3-8-3 8zM44 20h6v20h-6V20z%27 fill=%27%23ff264d%27/%3E%3C/svg%3E">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0;background:#f7f9fc;color:#0f172a}
-    header{background:#0d47a1;color:#fff;padding:16px 20px}
-    nav{background:#1976d2;color:#fff;padding:10px 16px;display:flex;gap:14px;flex-wrap:wrap}
-    nav a{color:#fff;text-decoration:none;font-weight:600}
-    main{max-width:920px;margin:0 auto;padding:20px}
-    h1{margin:8px 0 16px}
-    .card{background:#fff;border:1px solid #e4eef8;border-radius:12px;padding:16px;margin:12px 0}
-    .card h2{margin:0 0 8px;font-size:20px}
-    .meta{color:#57708f;font-size:14px;margin-bottom:6px}
-    a.more{display:inline-block;margin-top:8px;text-decoration:none;color:#0d47a1;font-weight:700}
-    footer{margin:30px 0 12px;text-align:center;color:#57708f;font-size:14px}
+    :root{--bg:#0e0f12;--panel:#16181d;--text:#e9eef5;--muted:#9aa5b1;--accent:#ff264d;--link:#60a5fa;--border:#242833}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto}
+    a{color:var(--link);text-decoration:none}
+    header{background:#000;border-bottom:1px solid #222;padding:22px 16px}
+    .brand{color:var(--accent);font-weight:800;font-size:28px;margin:0;text-align:center}
+    nav.main{display:flex;gap:16px;justify-content:center;margin-top:8px}
+    nav.main a{color:#fff}
+    .wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+    .breadcrumbs{font-size:14px;color:var(--muted);margin:16px 0}
+    h1{font-size:26px;margin:0 0 6px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;min-height:160px}
+    .card h3{margin:0 0 6px;color:#fff}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:8px}
+    footer{border-top:1px solid #222;color:var(--muted);text-align:center;padding:22px 16px}
   </style>
+
+  <!-- BreadcrumbList + ItemList для лучшего сниппета -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"url":"https://dloran1.github.io/blog/dlaczego-vpn-2025.html"},
+      {"@type":"ListItem","position":2,"url":"https://dloran1.github.io/blog/vpn-netflix-polska.html"},
+      {"@type":"ListItem","position":3,"url":"https://dloran1.github.io/blog/wifi-bezpieczenstwo.html"},
+      {"@type":"ListItem","position":4,"url":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html"},
+      {"@type":"ListItem","position":5,"url":"https://dloran1.github.io/blog/jaki-serwer-vpn-wybrac.html"},
+      {"@type":"ListItem","position":6,"url":"https://dloran1.github.io/blog/test-vpn.html"},
+      {"@type":"ListItem","position":7,"url":"https://dloran1.github.io/blog/no-logs.html"},
+      {"@type":"ListItem","position":8,"url":"https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html"},
+      {"@type":"ListItem","position":9,"url":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"},
+      {"@type":"ListItem","position":10,"url":"https://dloran1.github.io/blog/vpn-android-konfiguracja.html"},
+      {"@type":"ListItem","position":11,"url":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"},
+      {"@type":"ListItem","position":12,"url":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"},
+      {"@type":"ListItem","position":13,"url":"https://dloran1.github.io/blog/vpn-split-tunneling.html"},
+      {"@type":"ListItem","position":14,"url":"https://dloran1.github.io/blog/vpn-dns-leak.html"},
+      {"@type":"ListItem","position":15,"url":"https://dloran1.github.io/blog/vpn-double-vpn.html"},
+      {"@type":"ListItem","position":16,"url":"https://dloran1.github.io/blog/vpn-port-forwarding.html"},
+      {"@type":"ListItem","position":17,"url":"https://dloran1.github.io/blog/vpn-torrent-polska.html"},
+      {"@type":"ListItem","position":18,"url":"https://dloran1.github.io/blog/player-tvp-vpn.html"},
+      {"@type":"ListItem","position":19,"url":"https://dloran1.github.io/blog/darmowy-vpn-polska.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <strong>VPN Polska — Blog</strong>
-    <div>Poradniki, testy i odblokowanie VOD</div>
-  </header>
-  <nav>
-    <a href="/index.html">Strona główna</a>
-    <a href="/vod.html">VPN do VOD</a>
-    <a href="/blog/">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
+<header>
+  <div class="wrap">
+    <h1 class="brand">VPN Polska</h1>
+    <nav class="main">
+      <a href="/">Strona główna</a>
+      <a href="/vod.html">VPN dla VOD</a>
+      <a href="/kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="breadcrumbs" aria-label="okruszki">
+    <a href="/">Strona główna</a> › <span>Blog</span>
   </nav>
-  <main>
-    <h1>Najnowsze artykuły</h1>
 
-    <article class="card">
-      <h2><a href="/blog/vpn-netflix-polska.html">Netflix USA z Polski: jaki VPN wybrać (2025)</a></h2>
-      <div class="meta">Aktualizacja: 2025 • Kategoria: VOD, Netflix</div>
-      <p>Polski katalog Netflixa różni się od amerykańskiego. Pokażemy, jak legalnie korzystać z VPN do dostępu do Netflix USA z Polski lub polskiego Netflixa za granicą, na co uważać i jakie usługi sprawdzają się najlepiej.</p>
-      <a class="more" href="/blog/vpn-netflix-polska.html">Czytaj dalej →</a>
-    </article>
+  <h1>Wszystkie artykuły</h1>
+  <p class="lead">Poradniki, testy i konfiguracja — po polsku.</p>
 
-    <!-- сюда будем добавлять следующие карточки постов -->
-  </main>
-  <footer>© 2025 VPN Polska — u1797008805@gmail.com</footer>
+  <section class="grid" aria-label="Lista wpisów">
+    <article class="card"><h3><a href="/blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025 roku?</a></h3><div class="meta">Bezpieczeństwo</div><p>Dlaczego dziś VPN to podstawa prywatności i ochrony w sieci.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-netflix-polska.html">VPN do Netflix i polskich VOD</a></h3><div class="meta">VOD</div><p>Oglądanie Netflix/Player/TVP podczas podróży i za granicą.</p></article>
+    <article class="card"><h3><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></h3><div class="meta">Wi-Fi</div><p>Publiczne hotspoty, MITM i praktyczne ustawienia ochrony.</p></article>
+    <article class="card"><h3><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3><div class="meta">Protokoły</div><p>Prędkość, stabilność i szyfrowanie — który wybrać?</p></article>
+    <article class="card"><h3><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></h3><div class="meta">Poradnik</div><p>Polska, Niemcy, Czechy — serwery do VOD, gier i pracy.</p></article>
+    <article class="card"><h3><a href="/blog/test-vpn.html">Test prędkości VPN (metodyka)</a></h3><div class="meta">Testy</div><p>Jak poprawnie mierzyć prędkość i eliminować wąskie gardła.</p></article>
+    <article class="card"><h3><a href="/blog/no-logs.html">Polityka no-logs</a></h3><div class="meta">Prywatność</div><p>Jak rozumieć „no-logs” i czym jest audyt dostawcy.</p></article>
+    <article class="card"><h3><a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a></h3><div class="meta">Porównania</div><p>Funkcje, cena i osiągi w polskich warunkach.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone — konfiguracja</a></h3><div class="meta">iOS</div><p>Szybka konfiguracja i najlepsze ustawienia protokołów.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-android-konfiguracja.html">VPN na Android — konfiguracja</a></h3><div class="meta">Android</div><p>WireGuard, OpenVPN, split-tunneling i autostart.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows — konfiguracja</a></h3><div class="meta">Windows</div><p>Ustawienia DNS, kill-switch i autostart połączenia.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-szybkosc-test.html">Jak przyspieszyć VPN</a></h3><div class="meta">Wydajność</div><p>Dobór protokołu, MTU i serwera pod Twoją trasę.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-split-tunneling.html">Split-tunneling — kiedy używać?</a></h3><div class="meta">Funkcje</div><p>Jak kierować wybrane aplikacje poza tunel i dlaczego.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-dns-leak.html">Wycieki DNS i ich naprawa</a></h3><div class="meta">Prywatność</div><p>Jak wykryć i trwale zablokować DNS leak.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-double-vpn.html">Double VPN — kiedy ma sens?</a></h3><div class="meta">Bezpieczeństwo</div><p>Podwójne szyfrowanie a realne korzyści i koszty prędkości.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-port-forwarding.html">Port forwarding w VPN</a></h3><div class="meta">Zaawansowane</div><p>Usługi za NAT-em i kwestie bezpieczeństwa.</p></article>
+    <article class="card"><h3><a href="/blog/vpn-torrent-polska.html">VPN i torrenty w Polsce</a></h3><div class="meta">P2P</div><p>Jak ustawić bezpieczne P2P i czego unikać.</p></article>
+    <article class="card"><h3><a href="/blog/player-tvp-vpn.html">Player/TVP z zagranicy</a></h3><div class="meta">VOD</div><p>Komunikaty o lokalizacji i bufory — co robić.</p></article>
+    <article class="card"><h3><a href="/blog/darmowy-vpn-polska.html">Darmowy VPN w Polsce — pułapki</a></h3><div class="meta">Poradnik</div><p>Gdzie jest haczyk, limity i alternatywy low-cost.</p></article>
+  </section>
+</main>
+
+<footer>
+  © 2025 VPN Polska · <a href="/">Strona główna</a> · <a href="/sitemap.xml">Sitemap</a>
+</footer>
 </body>
 </html>
