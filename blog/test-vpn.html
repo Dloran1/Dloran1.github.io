@@ -1,61 +1,36 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Test VPN: IP, DNS, WebRTC i prędkość | VPN & VOD Polska</title>
-  <meta name="description" content="Szybkie testy działania VPN: IP, wycieki DNS/WebRTC i prędkość.">
-  <style>
-    :root{--bg:#0b1220;--card:#121a2b;--text:#e7eefc;--muted:#a9b6d3}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:#0b1220;color:var(--text)}
-    a{color:#bfe7ff;text-decoration:none} header{position:sticky;top:0;background:#0b1220cc;border-bottom:1px solid #1e2a44;backdrop-filter:blur(8px)}
-    .wrap{max-width:1000px;margin:0 auto;padding:16px} nav a{margin-right:10px;color:#a9b6d3} nav a:hover{color:#fff}
-    h1{margin:16px 0 10px;font-size:clamp(24px,4.5vw,34px)} p{color:var(--muted)}
-    .card{background:#121a2b;border:1px solid #1f2b47;border-radius:14px;padding:14px;margin:12px 0}
-    .li{background:#10182a;border:1px dashed #1f3054;border-radius:12px;padding:10px;margin:8px 0}
-  </style>
-</head>
-<body>
-<header><div class="wrap">
-  <strong>VPN & VOD Polska</strong> ·
-  <nav>
-    <a href="index.html">Strona główna</a>
-    <a href="vod.html">VOD</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
-</div></header>
-
-<main class="wrap">
-  <h1>Jak sprawdzić, czy VPN działa poprawnie</h1>
-  <div class="card">
-    <h2>1) Adres IP</h2>
-    <p>Wejdź na dowolny checker IP i upewnij się, że lokalizacja to **Polska** po połączeniu z serwerem PL.</p>
-    <div class="li">Przykładowe narzędzia: whatismyipaddress.com, ipinfo.io</div>
-  </div>
-
-  <div class="card">
-    <h2>2) Wycieki DNS</h2>
-    <p>Uruchom test DNS leak – wszystkie serwery powinny wskazywać Polskę lub dostawcę VPN, nie Twojego operatora.</p>
-  </div>
-
-  <div class="card">
-    <h2>3) WebRTC</h2>
-    <p>Sprawdź, czy WebRTC nie ujawnia lokalnego IP. W razie potrzeby wyłącz WebRTC w przeglądarce lub użyj dodatku blokującego.</p>
-  </div>
-
-  <div class="card">
-    <h2>4) Prędkość</h2>
-    <p>Wykonaj test speed (np. speedtest.net). Porównaj z/bez VPN i ewentualnie zmień serwer lub protokół dla lepszego wyniku.</p>
-  </div>
-
-  <div class="card">
-    <h2>Najczęstsze wnioski</h2>
-    <div class="li">Jeżeli IP/DNS wskazują inny kraj – przełącz serwer lub wyczyść cache DNS (restart urządzenia pomaga).</div>
-    <div class="li">Słaba prędkość – wybierz bliższy serwer PL lub inny protokół (często WireGuard jest szybszy).</div>
-  </div>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test VPN — praktyczna checklist | VPN Polska</title>
+<meta name="description" content="Co testować przy wyborze VPN: prędkość, stabilność, DNS leak, protokoły, aplikacje na iOS/Android/Windows i transparentność dostawcy.">
+<link rel="canonical" href="https://dloran1.github.io/blog/test-vpn.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/test-vpn.html">
+<meta property="og:title" content="Test VPN — praktyczna checklist"><meta property="og:description" content="Szybka lista rzeczy do sprawdzenia.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+{"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+{"@type":"ListItem","position":3,"name":"Test VPN — checklist","item":"https://dloran1.github.io/blog/test-vpn.html"}]}</script>
+</head><body>
+<header><div class="wrap"><nav><div class="brand">VPN Polska</div>
+<a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+<main class="wrap content">
+<h1>Test VPN — praktyczna checklist</h1>
+<p class="meta">Test</p>
+<h2>Co sprawdzić</h2>
+<ul>
+<li>Prędkość (kilka serwerów i protokołów).</li>
+<li>DNS leak i WebRTC leak.</li>
+<li>Stabilność połączenia, reconnection.</li>
+<li>Jakość aplikacji (iOS/Android/Windows/Mac).</li>
+<li>Polityka no-logs i audyty.</li>
+</ul>
+<section class="more"><h3>Powiązane artykuły</h3><ul>
+<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
+<li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
+<li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+</ul></section>
 </main>
-
-<footer class="wrap">
-  Kontakt: <a href="mailto:u1797008805@gmail.com">u1797008805@gmail.com</a> · © 2025 VPN & VOD Polska
-</footer>
-</body>
-</html>
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script></body></html>
