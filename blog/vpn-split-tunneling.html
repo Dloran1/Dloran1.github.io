@@ -1,21 +1,35 @@
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Split Tunneling w VPN — kiedy używać?</title>
-<meta name="description" content="Split Tunneling pozwala zdecydować, które aplikacje korzystają z VPN, a które łączą się bezpośrednio. Zalety, ryzyka i ustawienia.">
-<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
-<style>
-body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;text-align:center;padding:15px}
-header h1{color:#e60000;margin:0}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}
-h1{color:#e60000}h2{color:#ff4a4a;margin-top:18px}ul{margin-left:18px}
-</style></head><body>
-<header><h1>VPN Polska</h1>
-<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a></nav>
-</header>
-<main class="wrap">
-<h1>Split Tunneling — na czym polega?</h1>
-<h2>Zalety</h2><ul><li>Lepsza prędkość w aplikacjach poza VPN.</li><li>Elastyczność konfiguracji.</li></ul>
-<h2>Ryzyka</h2><p>Możliwy wyciek IP, jeśli aplikacja nie jest w tunelu. Uważnie dobieraj listę wyjątków.</p>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Split tunneling — kiedy używać? | VPN Polska</title>
+<meta name="description" content="Czym jest split tunneling, jak go poprawnie skonfigurować i kiedy ma sens — praca, gry, bankowość online.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-split-tunneling.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-split-tunneling.html">
+<meta property="og:title" content="Split tunneling — kiedy używać?"><meta property="og:description" content="Łączenie ruchu lokalnego i przez VPN.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+{"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+{"@type":"ListItem","position":3,"name":"Split tunneling — kiedy używać?","item":"https://dloran1.github.io/blog/vpn-split-tunneling.html"}]}</script>
+</head><body>
+<header><div class="wrap"><nav><div class="brand">VPN Polska</div>
+<a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+<main class="wrap content">
+<h1>Split tunneling — kiedy używać?</h1>
+<p class="meta">Sieć</p>
+<h2>Co daje</h2><p>Pozwala wskazać, które aplikacje/strony korzystają z VPN, a które łączą się bezpośrednio.</p>
+<h2>Kiedy ma sens</h2>
+<ul>
+<li>Praca (aplikacje firmowe przez VPN, reszta lokalnie).</li>
+<li>Gry (niższe pingi poza VPN, wrażliwe rzeczy przez VPN).</li>
+<li>Bankowość (czasem wymaga lokalnego IP).</li>
+</ul>
+<section class="more"><h3>Powiązane artykuły</h3><ul>
+<li><a href="/blog/vpn-praca-zdalna.html">VPN w pracy zdalnej</a></li>
+<li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
+<li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
+</ul></section>
 </main>
-</body></html>
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script></body></html>
