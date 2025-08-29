@@ -1,25 +1,40 @@
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na Windows 10/11 — szybki start</title>
-<meta name="description" content="Konfiguracja VPN w Windows 10/11: aplikacja dostawcy, połączenie ręczne, najlepsze praktyki i diagnostyka.">
-<meta name="google-site-verification" content="ifkQ7GK26a1yTo1EfuvleHN0EDvtWkpOCOV9iURG-RI">
-<style>
-body{font-family:Arial;background:#111;color:#eee;margin:0}header{background:#000;padding:15px;text-align:center}
-header h1{color:#e60000;margin:0}nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-nav a:hover{color:#e60000}.wrap{max-width:900px;margin:20px auto;padding:0 15px}
-h1{color:#e60000}h2{color:#ff4a4a;margin-top:18px}ul{margin-left:18px}
-</style></head><body>
-<header><h1>VPN Polska</h1>
-<nav><a href="../index.html">Strona główna</a><a href="../blog.html">Blog</a></nav>
-</header>
-<main class="wrap">
-<h1>VPN na Windows — jak zacząć</h1>
-<h2>Metoda 1: aplikacja</h2>
-<p>Pobierz aplikację VPN, zaloguj się, wybierz serwer i kliknij <b>Connect</b>.</p>
-<h2>Metoda 2: ręczna konfiguracja</h2>
-<p>Ustawienia → Sieć i Internet → VPN → Dodaj połączenie → wpisz dane serwera.</p>
-<h2>Najlepsze praktyki</h2>
-<ul><li>Włącz <b>Kill Switch</b> (jeśli dostępny).</li><li>Aktualizuj aplikację i sterowniki sieciowe.</li></ul>
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPN na Windows — konfiguracja i wskazówki | VPN Polska</title>
+<meta name="description" content="Jak ustawić VPN na Windows: protokoły, DNS, Kill Switch, auto-start i szybkie rozwiązywanie problemów.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
+<meta property="og:title" content="VPN na Windows — konfiguracja i wskazówki"><meta property="og:description" content="Krok po kroku + praktyczne tipy.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+{"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
+{"@type":"ListItem","position":3,"name":"VPN na Windows — konfiguracja","item":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"}]}</script>
+</head><body>
+<header><div class="wrap"><nav><div class="brand">VPN Polska</div>
+<a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
+</nav></div></header>
+<main class="wrap content">
+<h1>VPN na Windows — konfiguracja i wskazówki</h1>
+<p class="meta">Windows • Poradnik</p>
+<h2>Szybka konfiguracja</h2>
+<ol>
+<li>Zainstaluj aplikację VPN i zaloguj się.</li>
+<li>Ustaw protokół: WireGuard (na start), w razie problemów OpenVPN TCP.</li>
+<li>Włącz Kill Switch i Auto-start z systemem.</li>
+</ol>
+<h2>Rozwiązywanie problemów</h2>
+<ul>
+<li>Wyczyść DNS (`ipconfig /flushdns`).</li>
+<li>Zrestartuj usługę sieciową, sprawdź firewall/antywirusa.</li>
+<li>Przełącz lokalizację/port/protokół.</li>
+</ul>
+<section class="more"><h3>Powiązane artykuły</h3><ul>
+<li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
+<li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
+<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
+</ul></section>
 </main>
-</body></html>
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script></body></html>
