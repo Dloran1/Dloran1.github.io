@@ -1,60 +1,54 @@
 <script>
-// Конфиг офферов: меняешь ТОЛЬКО здесь
-window.OFFERS = {
-  nordvpn: {
-    id: 'nordvpn',
-    variants: {
-      // текущий дефолтный оффер
-      default: {
-        href: 'https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584',
-        text: 'Zgarnij do -73% + 3 m-ce gratis z NordVPN'
-      },
-      // пример на будущее
-      blackfriday: {
-        href: 'https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584',
-        text: 'NordVPN Black Friday – największe rabaty roku'
-      }
+/* ===== Affiliates central config & renderer ===== */
+(function () {
+  const OFFERS = {
+    nordvpn: {
+      url: "https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584",
+      brand: "NordVPN",
+      title: "NordVPN — do −73% + 3 mies.",
+      bullets: [
+        "Szybkie serwery (WireGuard)",
+        "Działa z streamingiem i P2P",
+        "30 dni gwarancji zwrotu"
+      ],
+      primaryLabel: "Pobierz NordVPN",
+      secondaryLabel: "Zobacz ofertę"
     }
-  }
-};
+    // tu później łatwo dodamy kolejne programy/URL-e
+  };
 
-// Рендер всех CTA-контейнеров на странице
-(function(){
-  function makeCTA(href, text){
-    const wrap = document.createElement('div');
-    wrap.className = 'cta';
-    wrap.innerHTML = `
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="${href}">
-        ${text}
-      </a>
-      <p class="cta-note">Reklama • Link partnerski. Kupując wspierasz nasz serwis — bez dodatkowych kosztów dla Ciebie.</p>
-    `;
-    return wrap;
-  }
-
-  function resolveOffer(offerKey){
-    // формат ключа: "nordvpn" или "nordvpn:default"
-    const [prog, variant='default'] = offerKey.split(':');
-    if(!window.OFFERS || !window.OFFERS[prog]) return null;
-    const v = window.OFFERS[prog].variants[variant] || window.OFFERS[prog].variants['default'];
-    return v || null;
+  function ctaHTML(o) {
+    return `
+<section class="cta" role="complementary" aria-label="${o.brand}">
+  <h2>${o.title}</h2>
+  <ul class="cta-list">
+    ${o.bullets.map(li => `<li>${li}</li>`).join("")}
+  </ul>
+  <div class="btns">
+    <a class="btn btn-primary" href="${o.url}" rel="nofollow sponsored noopener" target="_blank" aria-label="${o.primaryLabel}">${o.primaryLabel}</a>
+    <a class="btn btn-ghost" href="${o.url}" rel="nofollow sponsored noopener" target="_blank">${o.secondaryLabel}</a>
+  </div>
+  <div class="cta-note">Link reklamowy (affiliate). Cena dla Ciebie się nie zmienia.</div>
+</section>`;
   }
 
-  function renderAll(){
-    document.querySelectorAll('[data-offer]').forEach(node=>{
-      const offerKey = node.getAttribute('data-offer').trim();
-      const res = resolveOffer(offerKey);
-      if(!res) return;
-      const cta = makeCTA(res.href, res.text);
-      node.innerHTML = '';
-      node.appendChild(cta);
+  function renderCTAs() {
+    document.querySelectorAll("[data-offer]").forEach(box => {
+      const key = (box.getAttribute("data-offer") || "").trim().toLowerCase();
+      const offer = OFFERS[key];
+      if (!offer) return;
+      box.innerHTML = ctaHTML(offer);
+      box.classList.add("cta-mounted");
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderAll);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderCTAs);
   } else {
-    renderAll();
+    renderCTAs();
   }
+
+  // expose for future dynamic changes
+  window.__AFF__ = { OFFERS, renderCTAs };
 })();
 </script>
