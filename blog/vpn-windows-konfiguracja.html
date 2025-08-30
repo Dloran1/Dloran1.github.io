@@ -1,40 +1,41 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN na Windows — konfiguracja i wskazówki | VPN Polska</title>
-<meta name="description" content="Jak ustawić VPN na Windows: protokoły, DNS, Kill Switch, auto-start i szybkie rozwiązywanie problemów.">
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN na Windows — instalacja i najlepsze ustawienia</title>
+<meta name="description" content="Instrukcja: jak zainstalować VPN na Windows, włączyć Kill-Switch, autostart, wybór protokołu i optymalizację prędkości.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
+<meta property="og:type" content="article"><meta property="og:title" content="VPN na Windows — instalacja i ustawienia"><meta property="og:description" content="Szybko i bezpiecznie: WireGuard, Kill-Switch, autostart."><meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
 <link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
-<meta property="og:title" content="VPN na Windows — konfiguracja i wskazówki"><meta property="og:description" content="Krok po kroku + praktyczne tipy.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-{"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-{"@type":"ListItem","position":3,"name":"VPN na Windows — konfiguracja","item":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"}]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"VPN na Windows — instalacja i najlepsze ustawienia","datePublished":"2025-08-29","author":{"@type":"Person","name":"VPN Polska"}}
+</script>
 </head><body>
-<header><div class="wrap"><nav><div class="brand">VPN Polska</div>
-<a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
-<main class="wrap content">
-<h1>VPN na Windows — konfiguracja i wskazówki</h1>
-<p class="meta">Windows • Poradnik</p>
-<h2>Szybka konfiguracja</h2>
-<ol>
-<li>Zainstaluj aplikację VPN i zaloguj się.</li>
-<li>Ustaw protokół: WireGuard (na start), w razie problemów OpenVPN TCP.</li>
-<li>Włącz Kill Switch i Auto-start z systemem.</li>
-</ol>
-<h2>Rozwiązywanie problemów</h2>
-<ul>
-<li>Wyczyść DNS (`ipconfig /flushdns`).</li>
-<li>Zrestartuj usługę sieciową, sprawdź firewall/antywirusa.</li>
-<li>Przełącz lokalizację/port/protokół.</li>
-</ul>
-<section class="more"><h3>Powiązane artykuły</h3><ul>
-<li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
-<li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-</ul></section>
+<header class="wrap nav"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></header>
+<main class="wrap">
+  <h1>VPN na Windows — krok po kroku</h1>
+  <p>Pobierz aplikację, zaloguj się i pozwól systemowi dodać adapter sieciowy. W ustawieniach wybierz protokół <strong>WireGuard</strong> (lub OpenVPN, gdy Twoja sieć jest restrykcyjna), włącz <strong>Kill-Switch</strong> i autostart z Windows.</p>
+
+  <h2>Optymalizacja prędkości</h2>
+  <ul>
+    <li>Wybierz serwer blisko swojego położenia lub kraj z mniejszym obciążeniem.</li>
+    <li>Używaj UDP (OpenVPN UDP/WireGuard) zamiast TCP, jeśli to możliwe.</li>
+    <li>Wyłącz zbędne aplikacje synchronizujące w tle podczas testów.</li>
+  </ul>
+
+  <div data-offer="nordvpn"></div>
+  <noscript>
+    <section class="cta" aria-label="NordVPN">
+      <h2>NordVPN — najlepszy start na Windows</h2>
+      <ul class="cta-list"><li>WireGuard (NordLynx)</li><li>Kill-Switch, autostart</li><li>Świetna aplikacja</li></ul>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Pobierz NordVPN</a>
+        <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Zobacz ofertę</a>
+      </div>
+      <div class="cta-note">Link reklamowy.</div>
+    </section>
+  </noscript>
+
+  <h2>Typowe problemy</h2>
+  <p>Jeśli sieć firmowa blokuje ruch — spróbuj OpenVPN TCP/443. Przy słabym Wi-Fi wybierz bliższy serwer. Gdy DNS nie odświeża regionu, wyczyść cache (`ipconfig /flushdns`).</p>
 </main>
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script></body></html>
+<script src="/assets/affiliates.js"></script>
+</body></html>
