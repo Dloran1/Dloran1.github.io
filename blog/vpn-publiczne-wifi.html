@@ -1,43 +1,73 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN a publiczne Wi-Fi — praktyczne ustawienia | VPN Polska</title>
-<meta name="description" content="Publiczne Wi-Fi to ryzyko podsłuchu. Zobacz, jakie ustawienia VPN włączyć: auto-connect, kill switch, DNS, WireGuard/OpenVPN.">
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci</title>
+<meta name="description" content="Kawiarnie, lotniska, hotele: ryzyka publicznych sieci Wi-Fi i jak je minimalizować. Konfiguracja VPN, DNS i podstawowe zasady bezpieczeństwa.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci">
+<meta property="og:description" content="Ryzyka hot-spotów, konfiguracja i dobre praktyki.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Publiczne Wi-Fi a VPN — poradnik">
+<meta name="twitter:description" content="Jak chronić dane w hotspotach i uniknąć przechwytywania ruchu.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci",
+  "description":"Ryzyka sieci publicznych i praktyczna konfiguracja VPN, DNS oraz dobrych zasad bezpieczeństwa.",
+  "author":{"@type":"Person","name":"Zespół VPN Polska"},
+  "publisher":{"@type":"Organization","name":"VPN Polska"},
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-08-30",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"}
+}
+</script>
+<script src="/assets/affiliates.js" defer></script>
 <link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
-<meta property="og:title" content="VPN a publiczne Wi-Fi — praktyczne ustawienia"><meta property="og:description" content="Auto-connect, kill switch, DNS, IPv6 — co włączyć.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{
- "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-  {"@type":"ListItem","position":3,"name":"VPN a publiczne Wi-Fi","item":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"}
- ]}</script>
-</head><body>
-<header><div class="wrap"><nav>
-  <div class="brand">VPN Polska</div>
-  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
+</head>
+<body>
+<header class="container">
+  <nav class="nav">
+    <a href="/">Strona główna</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/kontakt.html">Kontakt</a>
+  </nav>
+</header>
+<main class="container content">
+  <article>
+    <h1>Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci</h1>
+    <p>Hot-spoty w kawiarniach, hotelach czy na lotniskach to wygoda, ale też ryzyko. Ataki typu „evil twin”, przechwytywanie pakietów i fałszywe bramy zdarzają się częściej, niż się wydaje. <strong>VPN</strong> szyfruje ruch i minimalizuje część zagrożeń.</p>
 
-<main class="wrap content">
-  <h1>VPN a publiczne Wi-Fi — jak się chronić</h1>
-  <p class="meta">Bezpieczeństwo</p>
-  <h2>Ustawienia, które warto włączyć</h2>
-  <ul>
-    <li><b>Auto-connect:</b> automatyczne łączenie z VPN w nieznanych sieciach.</li>
-    <li><b>Kill Switch:</b> blokada ruchu poza VPN.</li>
-    <li><b>DNS dostawcy VPN:</b> oraz test wycieków DNS.</li>
-    <li><b>Protokół:</b> najpierw WireGuard; gdy niestabilnie — OpenVPN (TCP).</li>
-    <li><b>IPv6:</b> wyłącz, jeśli aplikacja pozwala (mniej błędów geolokalizacji).</li>
-  </ul>
+    <h2>Zagrożenia w skrócie</h2>
+    <ul>
+      <li>Podsłuch i wstrzykiwanie skryptów na nieszyfrowanych stronach.</li>
+      <li>Fałszywe sieci udające legalne hot-spoty.</li>
+      <li>Ataki na poziomie DNS (podmiana odpowiedzi).</li>
+    </ul>
 
-  <section class="more"><h3>Powiązane artykuły</h3><ul>
-    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
-    <li><a href="/blog/vpn-dns-leak.html">DNS leak — jak sprawdzić</a></li>
-    <li><a href="/vod.html">VPN dla VOD — poradnik</a></li>
-  </ul></section>
+    <h2>Podstawowe zasady</h2>
+    <ol>
+      <li>Łącz się tylko z sieciami z oficjalną nazwą i hasłem.</li>
+      <li>Włącz VPN <em>zanim</em> otworzysz wrażliwe strony/aplikacje.</li>
+      <li>Używaj DNS dostawcy VPN (redukuje wycieki).</li>
+      <li>Aktualizuj system/przeglądarkę; wyłącz auto-połączenia z otwartymi sieciami.</li>
+    </ol>
+
+    <p>Na iOS/Android ustaw <strong>auto-connect VPN</strong> dla otwartych sieci. Zobacz też <a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a> i <a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a>.</p>
+
+    <div data-offer="nordvpn"></div>
+
+    <hr>
+    <p>Powiązane: <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a> · <a href="/blog/no-logs.html">Polityka no-logs</a></p>
+  </article>
 </main>
-
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</body></html>
+<footer class="container foot">
+  <p>© 2025 VPN Polska — bezpieczeństwo Wi-Fi</p>
+</footer>
+</body>
+</html>
