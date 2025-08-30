@@ -1,73 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<title>Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci</title>
-<meta name="description" content="Kawiarnie, lotniska, hotele: ryzyka publicznych sieci Wi-Fi i jak je minimalizować. Konfiguracja VPN, DNS i podstawowe zasady bezpieczeństwa.">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN w publicznym Wi-Fi — szybka checklista</title>
+<meta name="description" content="Jak korzystać bezpiecznie z publicznych hotspotów: ustawienia, nawyki i rola VPN.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
-<meta name="robots" content="index,follow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci">
-<meta property="og:description" content="Ryzyka hot-spotów, konfiguracja i dobre praktyki.">
+<meta property="og:title" content="VPN w publicznym Wi-Fi — szybka checklista">
+<meta property="og:description" content="Co ustawić przed wyjściem i jak reagować na podejrzane sieci.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-hotspot.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Publiczne Wi-Fi a VPN — poradnik">
-<meta name="twitter:description" content="Jak chronić dane w hotspotach i uniknąć przechwytywania ruchu.">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "headline":"Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci",
-  "description":"Ryzyka sieci publicznych i praktyczna konfiguracja VPN, DNS oraz dobrych zasad bezpieczeństwa.",
-  "author":{"@type":"Person","name":"Zespół VPN Polska"},
-  "publisher":{"@type":"Organization","name":"VPN Polska"},
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-08-30",
-  "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"}
-}
-</script>
-<script src="/assets/affiliates.js" defer></script>
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<header class="container">
-  <nav class="nav">
-    <a href="/">Strona główna</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
-  </nav>
-</header>
-<main class="container content">
-  <article>
-    <h1>Publiczne Wi-Fi a VPN — jak bezpiecznie korzystać z sieci</h1>
-    <p>Hot-spoty w kawiarniach, hotelach czy na lotniskach to wygoda, ale też ryzyko. Ataki typu „evil twin”, przechwytywanie pakietów i fałszywe bramy zdarzają się częściej, niż się wydaje. <strong>VPN</strong> szyfruje ruch i minimalizuje część zagrożeń.</p>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
+<main class="article">
+  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+  <h1>VPN w publicznym Wi-Fi — szybka checklista</h1>
+  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 4 min</p>
 
-    <h2>Zagrożenia w skrócie</h2>
-    <ul>
-      <li>Podsłuch i wstrzykiwanie skryptów na nieszyfrowanych stronach.</li>
-      <li>Fałszywe sieci udające legalne hot-spoty.</li>
-      <li>Ataki na poziomie DNS (podmiana odpowiedzi).</li>
-    </ul>
+  <h2>Przed połączeniem</h2>
+  <ul>
+    <li>Aktualizacje systemu i aplikacji</li>
+    <li>Wyłącz automatyczne łączenie z otwartymi sieciami</li>
+    <li>Włącz VPN i <em>kill-switch</em></li>
+  </ul>
 
-    <h2>Podstawowe zasady</h2>
-    <ol>
-      <li>Łącz się tylko z sieciami z oficjalną nazwą i hasłem.</li>
-      <li>Włącz VPN <em>zanim</em> otworzysz wrażliwe strony/aplikacje.</li>
-      <li>Używaj DNS dostawcy VPN (redukuje wycieki).</li>
-      <li>Aktualizuj system/przeglądarkę; wyłącz auto-połączenia z otwartymi sieciami.</li>
-    </ol>
+  <section class="cta">
+    <h2>Chroń dane w hotspotach</h2>
+    <ul class="cta-list"><li>Szyfrowanie całego ruchu</li><li>Ochrona przed DNS leak</li><li>Aplikacje na telefon i laptop</li></ul>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/wifi-bezpieczenstwo.html">Wi-Fi: przewodnik</a>
+    </div>
+    <p class="cta-note">Link partnerski.</p>
+  </section>
 
-    <p>Na iOS/Android ustaw <strong>auto-connect VPN</strong> dla otwartych sieci. Zobacz też <a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a> i <a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a>.</p>
-
-    <div data-offer="nordvpn"></div>
-
-    <hr>
-    <p>Powiązane: <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a> · <a href="/blog/no-logs.html">Polityka no-logs</a></p>
-  </article>
+  <h2>Po zakończeniu</h2>
+  <p>Wyloguj się z kont, wyczyść ciasteczka, wyłącz automatyczne zapisywanie sieci.</p>
 </main>
-<footer class="container foot">
-  <p>© 2025 VPN Polska — bezpieczeństwo Wi-Fi</p>
-</footer>
-</body>
-</html>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+</body></html>
