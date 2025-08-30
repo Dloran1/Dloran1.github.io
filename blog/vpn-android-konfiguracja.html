@@ -1,44 +1,45 @@
-<!doctype html><html lang="pl"><head>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na Androidzie — szybka konfiguracja krok po kroku</title>
-<meta name="description" content="Jak zainstalować i skonfigurować VPN na Androidzie: wybór protokołu, auto-start, kill-switch i wskazówki dot. baterii.">
+<title>Konfiguracja VPN na Androidzie — szybki start</title>
+<meta name="description" content="Instalacja aplikacji, wybór protokołu i serwera, kill-switch oraz split tunneling na Androidzie.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
-<meta property="og:type" content="article"><meta property="og:title" content="VPN na Androidzie — krok po kroku"><meta property="og:description" content="Instalacja, ustawienia i najlepsze praktyki."><meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Konfiguracja VPN na Androidzie — szybki start">
+<meta property="og:description" content="Przewodnik po ustawieniach mobilnych dla stabilnego połączenia.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-android.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN na Androidzie — szybka konfiguracja","datePublished":"2025-08-29","author":{"@type":"Person","name":"VPN Polska"}}
-</script>
-</head><body>
-<header class="wrap nav"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></header>
-<main class="wrap">
-  <h1>VPN na Androidzie — konfiguracja</h1>
-  <ol>
-    <li>Zainstaluj aplikację dostawcy VPN ze Sklepu Play.</li>
-    <li>Zaloguj się i zezwól na utworzenie profilu VPN.</li>
-    <li>W <strong>Ustawieniach</strong> wybierz protokół <strong>WireGuard/Lightway</strong> (szybki i energooszczędny).</li>
-    <li>Włącz <strong>Auto-connect</strong> oraz <strong>Kill-Switch</strong> (blokada ruchu przy zerwaniu tunelu).</li>
-    <li>Aktywuj opcję „Uruchom przy starcie” i „Ochrona w sieciach Wi-Fi”.</li>
-  </ol>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
+<main class="article">
+  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+  <h1>Konfiguracja VPN na Androidzie — szybki start</h1>
+  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 5 min</p>
 
-  <div data-offer="nordvpn"></div>
-  <noscript>
-    <section class="cta" aria-label="NordVPN">
-      <h2>NordVPN na Androidzie — −73% + 3 mies.</h2>
-      <ul class="cta-list"><li>WireGuard (NordLynx)</li><li>Kill-Switch i Auto-connect</li><li>Świetna szybkość</li></ul>
-      <div class="btns">
-        <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Pobierz NordVPN</a>
-        <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Zobacz ofertę</a>
-      </div>
-      <div class="cta-note">Link reklamowy.</div>
-    </section>
-  </noscript>
-
-  <h2>Wskazówki pro</h2>
+  <h2>Ustawienia</h2>
   <ul>
-    <li>Dodaj aplikację VPN do wyjątków w oszczędzaniu baterii.</li>
-    <li>Jeśli sieć blokuje porty, zmień protokół na OpenVPN TCP.</li>
-    <li>Przy problemach ze streamingiem — przełącz serwer/kraj.</li>
+    <li>Protokół: <strong>NordLynx</strong>; awaryjnie OpenVPN TCP 443</li>
+    <li><strong>Kill-switch</strong> i blokada wycieków</li>
+    <li><strong>Split tunneling</strong> dla aplikacji wrażliwych</li>
   </ul>
+
+  <section class="cta">
+    <h2>Zainstaluj aplikację w 1 min</h2>
+    <ul class="cta-list"><li>Android 8+</li><li>Autostart przy Wi-Fi publicznym</li><li>Wsparcie 24/7</li></ul>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/vpn-publiczne-wifi.html">Hotspoty — bezpieczeństwo</a>
+    </div>
+    <p class="cta-note">Link partnerski.</p>
+  </section>
+
+  <h2>Typowe problemy</h2>
+  <p>Brak połączenia w sieci firmowej? Spróbuj TCP 443 lub wyłącz optymalizację baterii dla aplikacji.</p>
 </main>
-<script src="/assets/affiliates.js"></script>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
 </body></html>
