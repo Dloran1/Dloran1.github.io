@@ -1,59 +1,17 @@
 /* === CTA box === */
-.cta {
-  margin: 32px 0;
-  padding: 24px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 14px;
-  background: rgba(255,255,255,.03);
-}
-.cta h2 {
-  margin: 0 0 10px;
-  font-size: 1.35rem;
-  line-height: 1.25;
-}
-.cta .cta-list {
-  margin: 0 0 16px 0;
-  padding-left: 18px;
-}
-.cta .cta-list li {
-  margin: 4px 0;
-}
-.cta .btns {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 6px;
-}
-.btn {
-  display: inline-block;
-  padding: .85rem 1.1rem;
-  border-radius: 10px;
-  text-decoration: none;
-  border: 1px solid transparent;
-  transition: transform .06s ease,opacity .15s ease;
-}
-.btn-primary {
-  background: #e11d48;
-  color: #fff;
-  border-color: #e11d48;
-}
-.btn-primary:hover {
-  opacity: .92;
-  transform: translateY(-1px);
-}
-.btn-ghost {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255,255,255,.25);
-}
-.btn-ghost:hover {
-  background: rgba(255,255,255,.07);
-}
-.cta-note {
-  margin-top: 10px;
-  opacity: .7;
-  font-size: .85rem;
-}
-.cta-mounted noscript {
-  display: none;
-}
+.cta{margin:32px 0;padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03)}
+.cta h2{margin:0 0 10px;font-size:1.35rem;line-height:1.25}
+.cta .cta-list{margin:0 0 16px 0;padding-left:18px}
+.cta .cta-list li{margin:4px 0}
+.cta .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.btn{display:inline-block;padding:.85rem 1.1rem;border-radius:10px;text-decoration:none;border:1px solid transparent;transition:transform .06s ease,opacity .15s ease}
+.btn-primary{background:#e11d48;color:#fff;border-color:#e11d48}
+.btn-primary:hover{opacity:.92;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.07)}
+.cta-note{margin-top:10px;opacity:.7;font-size:.85rem}
+.cta-mounted noscript{display:none}
+.related{margin:24px 0 8px}
+.related h3{margin:0 0 8px;font-size:1.1rem}
+.related ul{margin:0;padding-left:18px}
+.related li{margin:4px 0}
