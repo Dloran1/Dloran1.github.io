@@ -1,41 +1,58 @@
-<!doctype html><html lang="pl"><head>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na Windows — instalacja i najlepsze ustawienia</title>
-<meta name="description" content="Instrukcja: jak zainstalować VPN na Windows, włączyć Kill-Switch, autostart, wybór protokołu i optymalizację prędkości.">
+<title>VPN na Windows — konfiguracja krok po kroku</title>
+<meta name="description" content="Instalacja, wybór protokołu (NordLynx/OpenVPN), kill-switch, split tunneling i rozwiązywanie problemów na Windows.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
-<meta property="og:type" content="article"><meta property="og:title" content="VPN na Windows — instalacja i ustawienia"><meta property="og:description" content="Szybko i bezpiecznie: WireGuard, Kill-Switch, autostart."><meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPN na Windows — konfiguracja krok po kroku">
+<meta property="og:description" content="Szybki przewodnik ustawień VPN w Windows.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-windows.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN na Windows — instalacja i najlepsze ustawienia","datePublished":"2025-08-29","author":{"@type":"Person","name":"VPN Polska"}}
-</script>
-</head><body>
-<header class="wrap nav"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></header>
-<main class="wrap">
-  <h1>VPN na Windows — krok po kroku</h1>
-  <p>Pobierz aplikację, zaloguj się i pozwól systemowi dodać adapter sieciowy. W ustawieniach wybierz protokół <strong>WireGuard</strong> (lub OpenVPN, gdy Twoja sieć jest restrykcyjna), włącz <strong>Kill-Switch</strong> i autostart z Windows.</p>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
+<main class="article">
+  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+  <h1>VPN na Windows — konfiguracja krok po kroku</h1>
+  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 6 min</p>
 
-  <h2>Optymalizacja prędkości</h2>
+  <h2>Instalacja i protokół</h2>
+  <ol>
+    <li>Zainstaluj aplikację dostawcy i zaloguj się.</li>
+    <li>Ustaw <strong>NordLynx/WireGuard</strong> dla szybkości.</li>
+    <li>Awaryjnie użyj <strong>OpenVPN TCP 443</strong> przy restrykcyjnych sieciach.</li>
+  </ol>
+
+  <h2>Funkcje ochronne</h2>
   <ul>
-    <li>Wybierz serwer blisko swojego położenia lub kraj z mniejszym obciążeniem.</li>
-    <li>Używaj UDP (OpenVPN UDP/WireGuard) zamiast TCP, jeśli to możliwe.</li>
-    <li>Wyłącz zbędne aplikacje synchronizujące w tle podczas testów.</li>
+    <li><strong>Kill-switch</strong> — obowiązkowo.</li>
+    <li>Blokada wycieków DNS/IPv6.</li>
+    <li><strong>Split tunneling</strong> — wybierz aplikacje poza tunelem.</li>
   </ul>
 
-  <div data-offer="nordvpn"></div>
-  <noscript>
-    <section class="cta" aria-label="NordVPN">
-      <h2>NordVPN — najlepszy start na Windows</h2>
-      <ul class="cta-list"><li>WireGuard (NordLynx)</li><li>Kill-Switch, autostart</li><li>Świetna aplikacja</li></ul>
-      <div class="btns">
-        <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Pobierz NordVPN</a>
-        <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Zobacz ofertę</a>
-      </div>
-      <div class="cta-note">Link reklamowy.</div>
-    </section>
-  </noscript>
+  <section class="cta">
+    <h2>Windows + NordVPN = prosty start</h2>
+    <ul class="cta-list"><li>Automatyczne łączenie</li><li>Serwery PL/EU</li><li>Wsparcie 24/7</li></ul>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/test-vpn.html">Jak przetestować prędkość</a>
+    </div>
+    <p class="cta-note">Link partnerski.</p>
+  </section>
 
-  <h2>Typowe problemy</h2>
-  <p>Jeśli sieć firmowa blokuje ruch — spróbuj OpenVPN TCP/443. Przy słabym Wi-Fi wybierz bliższy serwer. Gdy DNS nie odświeża regionu, wyczyść cache (`ipconfig /flushdns`).</p>
+  <h2>Rozwiązywanie problemów</h2>
+  <p>Kolizja z antywirusem? Dodaj wyjątek dla aplikacji. Brak internetu po rozłączeniu? Zresetuj adaptery sieciowe.</p>
+
+  <h3>Powiązane</h3>
+  <ul>
+    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
+    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
+  </ul>
 </main>
-<script src="/assets/affiliates.js"></script>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
 </body></html>
