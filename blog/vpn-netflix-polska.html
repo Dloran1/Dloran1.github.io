@@ -1,48 +1,73 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN i Netflix w Polsce — typowe ustawienia | VPN Polska</title>
-<meta name="description" content="Jak skonfigurować VPN pod Netflix PL w podróży: wybór serwera, protokół, DNS, typowe błędy i rozwiązania.">
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>VPN i Netflix w Polsce — jak oglądać biblioteki zagraniczne?</title>
+<meta name="description" content="Wyjaśniamy, jak działa Netflix z VPN: dobór krajów, serwerów i ustawień. Porady dot. prędkości, jakości i typowych błędów.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-netflix-polska.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPN i Netflix w Polsce — jak oglądać biblioteki zagraniczne?">
+<meta property="og:description" content="Praktyczne wskazówki: wybór serwerów, protokoły, prędkość i jakość obrazu.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-netflix-polska.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VPN i Netflix w Polsce — poradnik">
+<meta name="twitter:description" content="Jak dobrać kraj i serwer oraz uniknąć błędów odtwarzania.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"VPN i Netflix w Polsce — jak oglądać biblioteki zagraniczne?",
+  "description":"Praktyczny przewodnik: wybór serwerów, protokoły, prędkość i jakość obrazu.",
+  "author":{"@type":"Person","name":"Zespół VPN Polska"},
+  "publisher":{"@type":"Organization","name":"VPN Polska"},
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-08-30",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-netflix-polska.html"}
+}
+</script>
+<script src="/assets/affiliates.js" defer></script>
 <link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-netflix-polska.html">
-<meta property="og:title" content="VPN i Netflix w Polsce — typowe ustawienia"><meta property="og:description" content="Serwer PL, WireGuard/OpenVPN, DNS, IPv6 — co ustawić.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{
- "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-  {"@type":"ListItem","position":3,"name":"VPN i Netflix w Polsce — ustawienia","item":"https://dloran1.github.io/blog/vpn-netflix-polska.html"}
- ]}</script>
-</head><body>
-<header><div class="wrap"><nav>
-  <div class="brand">VPN Polska</div>
-  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
-<main class="wrap content">
-  <h1>VPN i Netflix w Polsce — typowe ustawienia</h1>
-  <p class="meta">VOD</p>
+</head>
+<body>
+<header class="container">
+  <nav class="nav">
+    <a href="/">Strona główna</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/kontakt.html">Kontakt</a>
+  </nav>
+</header>
+<main class="container content">
+  <article>
+    <h1>VPN i Netflix w Polsce — jak oglądać biblioteki zagraniczne?</h1>
+    <p>Niektórzy dostawcy VPN zapewniają serwery zoptymalizowane pod streaming. Kluczowy jest wybór kraju, węzła i protokołu, a także prędkość łącza i stabilność.</p>
 
-  <h2>Podstawowe kroki</h2>
-  <ul>
-    <li><b>Serwer:</b> Polska (Warszawa lub inna lokalizacja PL).</li>
-    <li><b>Protokół:</b> najpierw WireGuard; gdy błąd — OpenVPN TCP 443.</li>
-    <li><b>DNS:</b> własne DNS dostawcy lub 1.1.1.1.</li>
-    <li><b>IPv6:</b> wyłącz w appce, jeśli dostępne.</li>
-    <li><b>Kill Switch:</b> włącz, aby uniknąć „przebić” IP.</li>
-  </ul>
+    <h2>Dobór lokalizacji i serwera</h2>
+    <ul>
+      <li>Wybierz kraj z poszukiwanym katalogiem treści (np. USA, UK, DE).</li>
+      <li>Testuj 2–3 węzły w danym kraju — różnice jakości bywają duże.</li>
+      <li>Preferuj <strong>WireGuard</strong> dla lepszej prędkości i szybkiego łączenia.</li>
+    </ul>
 
-  <h2>Najczęstsze błędy i fixy</h2>
-  <ul>
-    <li><i>„Wykryto proxy/VPN”</i> — zmień serwer PL, przełącz protokół, wyczyść cookies i restartuj aplikację.</li>
-    <li>Brak ładowania — sprawdź DNS/IPv6, użyj innej lokalizacji PL.</li>
-  </ul>
+    <h2>Jakość i prędkość</h2>
+    <p>Dla 4K potrzebujesz stabilnych ~25 Mb/s. Jeśli spada jakość — zmień serwer, uruchom aplikację VPN przed Netflixem, wyczyść DNS/Cache (restart urządzenia bywa najprostszy).</p>
 
-  <section class="more"><h3>Powiązane artykuły</h3><ul>
-    <li><a href="/vod.html">VPN dla VOD — poradnik</a></li>
-    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-    <li><a href="/blog/player-tvp-vpn.html">Player i TVP z zagranicy</a></li>
-  </ul></section>
+    <h2>Typowe błędy</h2>
+    <ul>
+      <li>Błąd odtwarzania → przełącz na inny węzeł w tym samym kraju.</li>
+      <li>Czarny ekran → sprawdź, czy inne aplikacje nie filtrują ruchu (antywirus, firewall).</li>
+      <li>Spadki prędkości → sprawdź trasę z innym protokołem (UDP/TCP).</li>
+    </ul>
+
+    <div data-offer="nordvpn"></div>
+
+    <hr>
+    <p>Powiązane: <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a> · <a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></p>
+  </article>
 </main>
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</body></html>
+<footer class="container foot">
+  <p>© 2025 VPN Polska — streaming i prywatność</p>
+</footer>
+</body>
+</html>
