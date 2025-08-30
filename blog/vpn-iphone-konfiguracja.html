@@ -1,47 +1,45 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN na iPhone — szybka konfiguracja | VPN Polska</title>
-<meta name="description" content="Jak skonfigurować VPN na iPhone: profile, on-demand, DNS, przełączanie serwerów. Proste kroki dla iOS.">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN na iPhone — konfiguracja i najlepsze praktyki</title>
+<meta name="description" content="Konfiguracja VPN na iOS: protokół, automatyzacja, obejścia problemów z VOD i Wi-Fi publicznym.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPN na iPhone — konfiguracja i najlepsze praktyki">
+<meta property="og:description" content="Szybki przewodnik po ustawieniach VPN w iOS.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-ios.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
-<meta property="og:title" content="VPN na iPhone — szybka konfiguracja"><meta property="og:description" content="Profile, DNS i on-demand w iOS.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{
- "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-  {"@type":"ListItem","position":3,"name":"VPN na iPhone — konfiguracja","item":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"}
- ]}</script>
-</head><body>
-<header><div class="wrap"><nav>
-  <div class="brand">VPN Polska</div>
-  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
+<main class="article">
+  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+  <h1>VPN na iPhone — konfiguracja i najlepsze praktyki</h1>
+  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 5 min</p>
 
-<main class="wrap content">
-  <h1>VPN na iPhone — szybka konfiguracja</h1>
-  <p class="meta">iOS • Poradnik</p>
-  <h2>Kroki podstawowe</h2>
-  <ol>
-    <li>Zainstaluj aplikację wybranego dostawcy VPN z App Store.</li>
-    <li>Zaloguj się i zaakceptuj dodanie profilu VPN.</li>
-    <li>Włącz <b>On-Demand/Auto-Connect</b> dla nieznanych sieci Wi-Fi.</li>
-  </ol>
-  <h2>Ustawienia, które pomagają</h2>
+  <h2>Szybki setup</h2>
   <ul>
-    <li><b>Protokół:</b> WireGuard (szybkość), a gdy problemy — IKEv2/OpenVPN.</li>
-    <li><b>DNS:</b> włącz DNS dostawcy lub 1.1.1.1/8.8.8.8.</li>
-    <li><b>Przełączanie serwerów:</b> testuj kilka lokalizacji w PL/UE.</li>
+    <li>Protokół: <strong>NordLynx</strong>, w razie blokad — IKEv2 lub OpenVPN TCP</li>
+    <li>Automatyczne łączenie przy nieznanym Wi-Fi</li>
+    <li>Wyłącz „Tryb niskiego zużycia energii” przy problemach z utrzymaniem tunelu</li>
   </ul>
 
-  <section class="more"><h3>Powiązane artykuły</h3><ul>
-    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
-    <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-  </ul></section>
-</main>
+  <section class="cta">
+    <h2>Bezpieczny iOS w minutę</h2>
+    <ul class="cta-list"><li>Apka na iPhone/iPad</li><li>Ochrona w hotspotach</li><li>Zwrot 30 dni</li></ul>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/vpn-netflix-polska.html">Netflix PL a VPN</a>
+    </div>
+    <p class="cta-note">Link partnerski.</p>
+  </section>
 
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <h2>Obejścia problemów</h2>
+  <p>Gdy VOD wyświetla błąd — zmień lokalizację/serwer, przełącz protokół, wyczyść cache aplikacji VOD.</p>
+</main>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
 </body></html>
