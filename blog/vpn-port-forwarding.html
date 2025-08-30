@@ -1,73 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<title>Port forwarding w VPN — kiedy ma sens i jak go używać</title>
-<meta name="description" content="Wyjaśniamy działanie port forwarding w VPN: P2P, seedboxy, gry i serwery domowe. Bezpieczeństwo, konfiguracja i alternatywy.">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Port forwarding a VPN — kiedy to ma sens?</title>
+<meta name="description" content="Czym jest przekierowanie portów, kiedy jest potrzebne i jak ma się do bezpieczeństwa. Alternatywy dla P2P i zdalnego dostępu.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-port-forwarding.html">
-<meta name="robots" content="index,follow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Port forwarding w VPN — kiedy ma sens i jak go używać">
-<meta property="og:description" content="Zastosowania, ryzyka i konfiguracja PF u dostawców VPN.">
+<meta property="og:title" content="Port forwarding a VPN — kiedy to ma sens?">
+<meta property="og:description" content="Bezpieczne praktyki, ryzyka i alternatywy przy P2P i zdalnym dostępie.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-port-forwarding.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-port.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Port forwarding w VPN — poradnik">
-<meta name="twitter:description" content="PF dla P2P, gier i własnych usług; kiedy lepiej go unikać.">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "headline":"Port forwarding w VPN — kiedy ma sens i jak go używać",
-  "description":"Zastosowania i ryzyka port forwarding w usługach VPN: P2P, gry, domowe serwery.",
-  "author":{"@type":"Person","name":"Zespół VPN Polska"},
-  "publisher":{"@type":"Organization","name":"VPN Polska"},
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-08-30",
-  "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-port-forwarding.html"}
-}
-</script>
-<script src="/assets/affiliates.js" defer></script>
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<header class="container">
-  <nav class="nav">
-    <a href="/">Strona główna</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
-  </nav>
-</header>
-<main class="container content">
-  <article>
-    <h1>Port forwarding w VPN — kiedy ma sens i jak go używać</h1>
-    <p><strong>Port forwarding</strong> pozwala przekierować ruch z internetu do Twojego urządzenia przez tunel VPN. Przydaje się w <strong>P2P</strong>, grach online czy przy dostępie do usług domowych, ale zwiększa powierzchnię ataku i wymaga rozwagi.</p>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
+<main class="article">
+  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+  <h1>Port forwarding a VPN — kiedy to ma sens?</h1>
+  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 6 min</p>
 
-    <h2>Najczęstsze zastosowania</h2>
-    <ul>
-      <li><strong>P2P</strong> — więcej peerów i stabilniejsze połączenia.</li>
-      <li><strong>Gry</strong> — możliwość hostowania gier/serwerów.</li>
-      <li><strong>Usługi domowe</strong> — zdalny dostęp do NAS/serwera.</li>
-    </ul>
+  <p>Przekierowanie portów może poprawić połączenia P2P lub zdalny dostęp, ale zwiększa powierzchnię ataku. W wielu przypadkach wystarczy <strong>połączenie wychodzące</strong> przez VPN bez otwierania portów.</p>
 
-    <h2>Ryzyka i dobre praktyki</h2>
-    <ul>
-      <li>Otwierasz usługę na świat — aktualizacje i silne hasła to konieczność.</li>
-      <li>Udostępniaj <em>konkretne</em> porty, nie całe zakresy.</li>
-      <li>Rozważ ograniczenia IP (allow-list) lub 2FA.</li>
-    </ul>
+  <h2>Bezpieczeństwo</h2>
+  <ul>
+    <li>Aktualizacje usług wystawionych do Internetu</li>
+    <li>Silne hasła/klucze, ograniczenie adresów źródłowych</li>
+    <li>Monitorowanie logów</li>
+  </ul>
 
-    <h2>Alternatywy</h2>
-    <p>Dla wielu scenariuszy wystarczy zwykły VPN bez PF lub rozwiązania typu reverse proxy. Sprawdź też <a href="/blog/vpn-p2p-bezpiecznie.html">P2P z VPN — bezpieczna konfiguracja</a>.</p>
+  <section class="cta">
+    <h2>Chcesz mniej konfiguracji?</h2>
+    <ul class="cta-list"><li>Gotowe profile P2P</li><li>Kill-switch i DNS leak protection</li><li>Wsparcie 24/7</li></ul>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/mity-o-vpn.html">Mity o VPN</a>
+    </div>
+    <p class="cta-note">Link partnerski.</p>
+  </section>
 
-    <div data-offer="nordvpn"></div>
+  <h2>Alternatywy</h2>
+  <p>Tunelowanie przez SSH/ZeroTier/Tailscale lub po prostu łączenie klient-serwer przez VPN bez ekspozycji portów.</p>
 
-    <hr>
-    <p>Powiązane: <a href="/blog/vpn-split-tunneling.html">Split tunneling</a> · <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a></p>
-  </article>
+  <h3>Powiązane</h3>
+  <ul>
+    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+  </ul>
 </main>
-<footer class="container foot">
-  <p>© 2025 VPN Polska — konfiguracje i poradniki</p>
-</footer>
-</body>
-</html>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+</body></html>
