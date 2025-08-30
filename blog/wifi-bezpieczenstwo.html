@@ -1,35 +1,65 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bezpieczeństwo Wi-Fi — podstawy i praktyka | VPN Polska</title>
-<meta name="description" content="Jak chronić się w publicznych sieciach: VPN, DNS, wyłączenie IPv6, aktualizacje i nawyki bezpieczeństwa.">
-<link rel="canonical" href="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
-<link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
-<meta property="og:title" content="Bezpieczeństwo Wi-Fi — podstawy i praktyka"><meta property="og:description" content="Proste ustawienia, które realnie pomagają.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-{"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-{"@type":"ListItem","position":3,"name":"Bezpieczeństwo Wi-Fi","item":"https://dloran1.github.io/blog/wifi-bezpieczenstwo.html"}]}</script>
-</head><body>
-<header><div class="wrap"><nav><div class="brand">VPN Polska</div>
-<a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
-<main class="wrap content">
-<h1>Bezpieczeństwo Wi-Fi — podstawy i praktyka</h1>
-<p class="meta">Bezpieczeństwo</p>
-<h2>Szybkie checklisty</h2>
-<ul>
-<li>Włącz automatyczne łączenie z VPN w nieznanych sieciach.</li>
-<li>Kill Switch + DNS dostawcy; test wycieków DNS.</li>
-<li>Wyłącz IPv6, jeśli appka pozwala.</li>
-<li>Aktualizacje systemu i aplikacji.</li>
-</ul>
-<section class="more"><h3>Powiązane artykuły</h3><ul>
-<li><a href="/blog/vpn-publiczne-wifi.html">VPN a publiczne Wi-Fi</a></li>
-<li><a href="/blog/vpn-dns-leak.html">DNS leak — test i naprawa</a></li>
-<li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-</ul></section>
-</main>
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bezpieczeństwo Wi-Fi — domowe i publiczne sieci</title>
+  <meta name="description" content="Praktyczne ustawienia routera, nawyki użytkownika i rola VPN. Jak uniknąć podsłuchu w publicznych hotspotach.">
+  <link rel="canonical" href="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bezpieczeństwo Wi-Fi — domowe i publiczne sieci">
+  <meta property="og:description" content="Checklista bezpieczeństwa: WPA3, aktualizacje, hasła, izolacja gości, VPN w podróży.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/og-wifi.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="article">
+    <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+    <h1>Bezpieczeństwo Wi-Fi — domowe i publiczne sieci</h1>
+    <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 6 min</p>
+
+    <h2>Domowa sieć</h2>
+    <ul>
+      <li>Aktualizacje firmware i silne hasło do panelu</li>
+      <li>WPA2/WPA3, wyłącz WPS</li>
+      <li>Osobna sieć dla gości i IoT</li>
+    </ul>
+
+    <h2>Publiczne hotspoty</h2>
+    <p>Traktuj je jak niezaszyfrowane: unikaj wrażliwych operacji bez VPN, używaj 2FA i menedżera haseł.</p>
+
+    <section class="cta">
+      <h2>Chroń ruch w publicznym Wi-Fi</h2>
+      <ul class="cta-list">
+        <li>Szyfrowanie całego ruchu</li>
+        <li>Blokada DNS leak</li>
+        <li>Kill-switch</li>
+      </ul>
+      <div class="btns">
+        <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+           href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+        <a class="btn btn-ghost" href="/blog/mity-o-vpn.html">Mity o VPN</a>
+      </div>
+      <p class="cta-note">Link partnerski.</p>
+    </section>
+
+    <h2>Dodatkowe wskazówki</h2>
+    <p>Ustaw automatyczne aktualizacje systemu, włącz zaporę i rozważ profil „gościa” na urządzeniach dzieci.</p>
+  </main>
+
+  <footer class="foot">
+    <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+  </footer>
+</body>
+</html>
