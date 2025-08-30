@@ -1,47 +1,45 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test prędkości VPN — jak mierzyć i co poprawić | VPN Polska</title>
-<meta name="description" content="Jak poprawnie testować prędkość VPN: wybór serwera, protokół, narzędzia, różnice między TCP a UDP i praktyczne wskazówki.">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jak testować prędkość VPN — metodologia</title>
+<meta name="description" content="Rzetelny test prędkości VPN: jak mierzyć download, upload i ping, wybór serwerów i protokołów, interpretacja wyników.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jak testować prędkość VPN — metodologia">
+<meta property="og:description" content="Praktyczny przewodnik benchmarkowania VPN.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-speed.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
-<meta property="og:title" content="Test prędkości VPN — jak mierzyć i co poprawić"><meta property="og:description" content="Mierzenie speed: serwer, protokół, narzędzia, wskazówki.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{
- "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-  {"@type":"ListItem","position":3,"name":"Test prędkości VPN","item":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"}
- ]}</script>
-</head><body>
-<header><div class="wrap"><nav>
-  <div class="brand">VPN Polska</div>
-  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
-<main class="wrap content">
-  <h1>Test prędkości VPN — jak mierzyć i co poprawić</h1>
-  <p class="meta">Test</p>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
+<main class="article">
+  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
+  <h1>Jak testować prędkość VPN — metodologia</h1>
+  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 6 min</p>
 
-  <h2>Jak testować</h2>
-  <ol>
-    <li>Wybierz <b>najbliższy serwer</b> geograficznie.</li>
-    <li>Sprawdź <b>WireGuard</b> vs <b>OpenVPN UDP/TCP</b>.</li>
-    <li>Użyj 2–3 narzędzi (np. speedtest, fast, nPerf) i porównaj medianę.</li>
-  </ol>
-
-  <h2>Co poprawić, gdy jest wolno</h2>
+  <h2>Jak mierzyć</h2>
   <ul>
-    <li>Zmiana serwera na mniej obciążony.</li>
-    <li>Przełączenie protokołu (często WG najszybszy).</li>
-    <li>Wyłączenie IPv6, sprawdzenie DNS, restart routera/appki.</li>
+    <li>Serwer lokalny i zdalny (EU/US)</li>
+    <li>3–5 powtórzeń dla każdego protokołu</li>
+    <li>Wyłącz tła: chmury, aktualizacje</li>
   </ul>
 
-  <section class="more"><h3>Powiązane artykuły</h3><ul>
-    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
-    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-  </ul></section>
+  <section class="cta">
+    <h2>Sprawdź w praktyce</h2>
+    <ul class="cta-list"><li>NordLynx (szybkość)</li><li>OpenVPN (kompatybilność)</li><li>Statystyki w aplikacji</li></ul>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/test-vpn.html">Test krok po kroku</a>
+    </div>
+    <p class="cta-note">Link partnerski.</p>
+  </section>
+
+  <h2>Interpretacja</h2>
+  <p>Patrz na <strong>stabilność</strong>, a nie jednorazowy pik. Różnica 10–20% między runami jest normalna.</p>
 </main>
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
 </body></html>
