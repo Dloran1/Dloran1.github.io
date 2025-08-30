@@ -1,47 +1,44 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN na Android — konfiguracja krok po kroku | VPN Polska</title>
-<meta name="description" content="Jak ustawić VPN na Androidzie: protokół, auto-connect, DNS, Kill Switch. Prosty przewodnik dla początkujących.">
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN na Androidzie — szybka konfiguracja krok po kroku</title>
+<meta name="description" content="Jak zainstalować i skonfigurować VPN na Androidzie: wybór protokołu, auto-start, kill-switch i wskazówki dot. baterii.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
+<meta property="og:type" content="article"><meta property="og:title" content="VPN na Androidzie — krok po kroku"><meta property="og:description" content="Instalacja, ustawienia i najlepsze praktyki."><meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
 <link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
-<meta property="og:title" content="VPN na Android — konfiguracja krok po kroku"><meta property="og:description" content="WireGuard/IKEv2, DNS, Kill Switch — co włączyć.">
-<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
-<script type="application/ld+json">{
- "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-  {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog.html"},
-  {"@type":"ListItem","position":3,"name":"VPN na Android — konfiguracja","item":"https://dloran1.github.io/blog/vpn-android-konfiguracja.html"}
- ]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"VPN na Androidzie — szybka konfiguracja","datePublished":"2025-08-29","author":{"@type":"Person","name":"VPN Polska"}}
+</script>
 </head><body>
-<header><div class="wrap"><nav>
-  <div class="brand">VPN Polska</div>
-  <a href="/index.html">Strona główna</a><a href="/blog.html" aria-current="page">Blog</a><a href="/vod.html">Vod</a><a href="/kontakt.html">Kontakt</a>
-</nav></div></header>
-
-<main class="wrap content">
-  <h1>VPN na Android — konfiguracja krok po kroku</h1>
-  <p class="meta">Android • Poradnik</p>
-  <h2>Podstawy</h2>
+<header class="wrap nav"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></header>
+<main class="wrap">
+  <h1>VPN na Androidzie — konfiguracja</h1>
   <ol>
-    <li>Pobierz aplikację wybranego VPN z Google Play.</li>
-    <li>Zaloguj się i nadaj wymagane uprawnienia.</li>
-    <li>Włącz <b>Auto-Connect</b> w sieciach publicznych.</li>
+    <li>Zainstaluj aplikację dostawcy VPN ze Sklepu Play.</li>
+    <li>Zaloguj się i zezwól na utworzenie profilu VPN.</li>
+    <li>W <strong>Ustawieniach</strong> wybierz protokół <strong>WireGuard/Lightway</strong> (szybki i energooszczędny).</li>
+    <li>Włącz <strong>Auto-connect</strong> oraz <strong>Kill-Switch</strong> (blokada ruchu przy zerwaniu tunelu).</li>
+    <li>Aktywuj opcję „Uruchom przy starcie” i „Ochrona w sieciach Wi-Fi”.</li>
   </ol>
-  <h2>Ustawienia</h2>
+
+  <div data-offer="nordvpn"></div>
+  <noscript>
+    <section class="cta" aria-label="NordVPN">
+      <h2>NordVPN na Androidzie — −73% + 3 mies.</h2>
+      <ul class="cta-list"><li>WireGuard (NordLynx)</li><li>Kill-Switch i Auto-connect</li><li>Świetna szybkość</li></ul>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Pobierz NordVPN</a>
+        <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="nofollow sponsored noopener">Zobacz ofertę</a>
+      </div>
+      <div class="cta-note">Link reklamowy.</div>
+    </section>
+  </noscript>
+
+  <h2>Wskazówki pro</h2>
   <ul>
-    <li><b>Protokół:</b> WireGuard dla prędkości; w sieciach z filtrami — OpenVPN TCP.</li>
-    <li><b>Kill Switch:</b> blokuje ruch poza VPN w razie zerwania tunelu.</li>
-    <li><b>DNS:</b> dostawcy VPN lub własne (1.1.1.1/8.8.8.8).</li>
+    <li>Dodaj aplikację VPN do wyjątków w oszczędzaniu baterii.</li>
+    <li>Jeśli sieć blokuje porty, zmień protokół na OpenVPN TCP.</li>
+    <li>Przy problemach ze streamingiem — przełącz serwer/kraj.</li>
   </ul>
-
-  <section class="more"><h3>Powiązane artykuły</h3><ul>
-    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-    <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-    <li><a href="/blog/vpn-split-tunneling.html">Split tunneling — kiedy używać</a></li>
-  </ul></section>
 </main>
-
-<footer><div class="wrap small">© <span id="y"></span> VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script src="/assets/affiliates.js"></script>
 </body></html>
