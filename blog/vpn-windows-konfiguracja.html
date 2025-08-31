@@ -1,67 +1,71 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na Windows — konfiguracja i optymalne ustawienia</title>
-<meta name="description" content="Aplikacja dostawcy czy wbudowany klient? Protokół, kill switch, DNS i testy — jak najlepiej ustawić VPN na Windows.">
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN w Windows — konfiguracja krok po kroku</title>
+<meta name="description" content="Jak zainstalować, skonfigurować i przetestować VPN w Windows 10/11. Prosty przewodnik, najważniejsze ustawienia i testy połączenia.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPN na Windows — konfiguracja i optymalne ustawienia">
-<meta property="og:description" content="Aplikacja vs klient Windows, protokoły, kill switch, DNS, testy i autostart.">
+<meta property="og:title" content="VPN w Windows — konfiguracja krok po kroku">
+<meta property="og:description" content="Instalacja, konfiguracja, testy prędkości i szczelności DNS w Windows 10/11.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div>
-</div></nav>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"VPN w Windows — konfiguracja krok po kroku","author":{"@type":"Person","name":"VPN Polska"},"publisher":{"@type":"Organization","name":"VPN Polska"},"datePublished":"2025-08-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"}}
+</script>
+</head><body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a></div></nav>
 
-<main class="wrap article">
-  <h1>VPN na Windows — konfiguracja i optymalne ustawienia</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-windows-konfiguracja.webp" alt="Konfiguracja VPN na Windows" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
+<main class="wrap">
+  <h1>VPN w Windows — konfiguracja krok po kroku</h1>
+  <p>Najprościej użyć aplikacji dostawcy VPN. Poniżej skrót czynności dla Windows 10/11.</p>
 
-  <h2>Dwie drogi konfiguracji</h2>
+  <h2>1. Instalacja</h2>
   <ol>
-    <li><strong>Aplikacja dostawcy</strong> — pełnia funkcji (kill switch, split tunneling, blokada trackerów).</li>
-    <li><strong>Wbudowany klient Windows</strong> — minimalna kontrola, dobry do IKEv2/L2TP.</li>
+    <li>Pobierz instalator z konta dostawcy VPN.</li>
+    <li>Zainstaluj, zaloguj się i przyznaj uprawnienia sieciowe.</li>
   </ol>
 
-  <h2>Ustawienia, które warto włączyć</h2>
+  <h2>2. Ustawienia zalecane</h2>
   <ul>
-    <li>WireGuard/NordLynx lub IKEv2.</li>
-    <li>Kill switch + DNS leak protection.</li>
-    <li>Autostart i auto-łączenie przy starcie.</li>
+    <li><strong>Protokół</strong>: WireGuard/NordLynx (szybkość i stabilność).</li>
+    <li><strong>Kill Switch</strong>: włączony — zatrzymuje ruch bez tunelu.</li>
+    <li><strong>Auto-connect</strong>: przy starcie systemu / nieznane Wi-Fi.</li>
+    <li><strong>DNS</strong>: własne dostawcy (ochrona przed <a href="/blog/vpn-dns-leak.html">DNS leak</a>).</li>
   </ul>
 
-  <div class="cta cta-mounted">
-    <h2>Najłatwiejsza konfiguracja na Windows</h2>
-    <p class="muted">Pełny zestaw funkcji i bardzo dobre prędkości.</p>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na Windows</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Plan i ceny</a>
-    </div>
-  </div>
-
-  <h2>Powiązane poradniki</h2>
+  <h2>3. Testy połączenia</h2>
   <ul>
+    <li>Prędkość — zobacz poradnik: <a href="/blog/test-vpn.html">Test prędkości VPN</a>.</li>
+    <li>Geoblokady — <a href="/blog/vpn-geoblokady.html">jak odblokować serwisy</a>.</li>
+  </ul>
+
+  <section class="cta" id="cta-win">
+    <h2>Wypróbuj NordVPN na Windows z rabatem</h2>
+    <ul class="cta-list">
+      <li>Bardzo szybki WireGuard (NordLynx)</li>
+      <li>Kill Switch i brak logów (audyt)</li>
+      <li>Odblokowanie VOD i P2P</li>
+    </ul>
+    <div class="btns">
+      <a class="btn btn-primary" data-brand="nordvpn"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+         rel="nofollow sponsored">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/darmowe-vs-platne-vpn.html">Dlaczego płatny VPN?</a>
+    </div>
+    <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+  </section>
+
+  <h2>Powiązane artykuły</h2>
+  <ul>
+    <li><a href="/blog/vpn-kill-switch.html">Kill Switch — co to jest?</a></li>
+    <li><a href="/blog/vpn-dns-leak.html">Jak sprawdzić wyciek DNS</a></li>
     <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
-    <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
+    <li><a href="/blog/vpn-publiczne-wifi.html">Korzystanie z publicznego Wi-Fi</a></li>
   </ul>
 </main>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN na Windows — konfiguracja i optymalne ustawienia","description":"Aplikacja dostawcy czy wbudowany klient? Protokół, kill switch, DNS i testy — jak najlepiej ustawić VPN na Windows.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
-</body>
-</html>
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<script src="/assets/affiliates.js"></script>
+</body></html>
