@@ -1,45 +1,51 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
+<!doctype html><html lang="pl"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na iPhone — konfiguracja i najlepsze praktyki</title>
-<meta name="description" content="Konfiguracja VPN na iOS: protokół, automatyzacja, obejścia problemów z VOD i Wi-Fi publicznym.">
+<title>VPN na iPhone — konfiguracja i najlepsze ustawienia (iOS)</title>
+<meta name="description" content="Instrukcja: instalacja VPN na iPhone, profil IKEv2/WireGuard, Kill Switch (Always-on), obejście VOD, wskazówki baterii.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPN na iPhone — konfiguracja i najlepsze praktyki">
-<meta property="og:description" content="Szybki przewodnik po ustawieniach VPN w iOS.">
+<meta property="og:title" content="VPN na iPhone — konfiguracja iOS">
+<meta property="og:description" content="Szybka konfiguracja, bezpieczne protokoły i testy połączenia.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-ios.png">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
-<main class="article">
-  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
-  <h1>VPN na iPhone — konfiguracja i najlepsze praktyki</h1>
-  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 5 min</p>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"VPN na iPhone — konfiguracja i najlepsze ustawienia (iOS)","datePublished":"2025-08-29"}</script>
+</head><body>
+<nav class="wrap small"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></nav>
 
-  <h2>Szybki setup</h2>
-  <ul>
-    <li>Protokół: <strong>NordLynx</strong>, w razie blokad — IKEv2 lub OpenVPN TCP</li>
-    <li>Automatyczne łączenie przy nieznanym Wi-Fi</li>
-    <li>Wyłącz „Tryb niskiego zużycia energii” przy problemach z utrzymaniem tunelu</li>
-  </ul>
+<header class="wrap"><h1>VPN na iPhone — konfiguracja i najlepsze ustawienia (iOS)</h1>
+<p>Apple dba o prywatność, ale pełną ochronę w sieciach Wi-Fi daje dopiero VPN.</p></header>
 
-  <section class="cta">
-    <h2>Bezpieczny iOS w minutę</h2>
-    <ul class="cta-list"><li>Apka na iPhone/iPad</li><li>Ochrona w hotspotach</li><li>Zwrot 30 dni</li></ul>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/vpn-netflix-polska.html">Netflix PL a VPN</a>
-    </div>
-    <p class="cta-note">Link partnerski.</p>
-  </section>
+<section class="wrap">
+<h2>Instalacja i protokoły</h2>
+<ul>
+  <li>Pobierz aplikację dostawcy z App Store i zaloguj się.</li>
+  <li><strong>WireGuard</strong> — szybki i energooszczędny. <strong>IKEv2</strong> — stabilny przy zmianie sieci Wi-Fi/LTE.</li>
+</ul>
 
-  <h2>Obejścia problemów</h2>
-  <p>Gdy VOD wyświetla błąd — zmień lokalizację/serwer, przełącz protokół, wyczyść cache aplikacji VOD.</p>
-</main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+<h2>Always-on / Kill Switch</h2>
+<p>Włącz <em>Always-on</em> (jeśli dostępne) oraz blokadę ruchu poza VPN. Dzięki temu iOS nie „wypuści” ruchu przy zmianie sieci.</p>
+
+<h2>Streaming i lokalizacja</h2>
+<p>Dla VOD wybierz kraj biblioteki (np. USA/UK). W razie błędów wyczyść pamięć aplikacji VOD i zmień serwer.</p>
+
+<div class="cta cta-mounted">
+  <h2>Bezpieczny iOS w 1 klik</h2>
+  <p class="cta-note">Szybkie serwery, WireGuard/IKEv2 i skuteczne odblokowanie VOD.</p>
+  <p class="btns">
+    <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored noopener" target="_blank">Pobierz NordVPN na iOS</a>
+    <a class="btn btn-ghost" href="/blog/vpn-publiczne-wifi.html">Bezpieczeństwo w publicznym Wi-Fi</a>
+  </p>
+</div>
+
+<h2>Kontrola poprawności</h2>
+<p>Sprawdź IP, DNS i wycieki WebRTC w mobilnej przeglądarce; jeśli DNS wskazuje operatora komórkowego — zmień serwer.</p>
+
+<h2>Powiązane treści</h2>
+<ul>
+  <li><a href="/blog/vpn-kill-switch.html">Kill Switch — co to jest i jak działa</a></li>
+  <li><a href="/blog/vpn-geoblokady.html">Jak obchodzić geoblokady</a></li>
+</ul>
+</section>
+
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
 </body></html>
