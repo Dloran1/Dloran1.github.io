@@ -1,51 +1,60 @@
-<!doctype html><html lang="pl"><head>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na iPhone — konfiguracja i najlepsze ustawienia (iOS)</title>
-<meta name="description" content="Instrukcja: instalacja VPN na iPhone, profil IKEv2/WireGuard, Kill Switch (Always-on), obejście VOD, wskazówki baterii.">
+<title>VPN na iPhone — konfiguracja i bezpieczne ustawienia</title>
+<meta name="description" content="Instrukcja dla iOS: konfiguracja VPN, protokół IKEv2/WireGuard, automatyczne łączenie w nowych sieciach i kill switch.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPN na iPhone — konfiguracja iOS">
-<meta property="og:description" content="Szybka konfiguracja, bezpieczne protokoły i testy połączenia.">
+<meta property="og:title" content="VPN na iPhone — konfiguracja i bezpieczeństwo">
+<meta property="og:description" content="iOS: IKEv2/WireGuard, auto-łączenie, kill switch i testy.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-iphone-konfiguracja.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"VPN na iPhone — konfiguracja i najlepsze ustawienia (iOS)","datePublished":"2025-08-29"}</script>
-</head><body>
-<nav class="wrap small"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></nav>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div></nav>
+<main class="wrap article">
+  <h1>VPN na iPhone — konfiguracja i bezpieczne ustawienia</h1>
+  <div class="hero"><img src="/assets/img/hero/vpn-iphone-konfiguracja.webp" alt="Konfiguracja VPN na iPhone" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
 
-<header class="wrap"><h1>VPN na iPhone — konfiguracja i najlepsze ustawienia (iOS)</h1>
-<p>Apple dba o prywatność, ale pełną ochronę w sieciach Wi-Fi daje dopiero VPN.</p></header>
+  <h2>Szybki start</h2>
+  <ol>
+    <li>Pobierz aplikację VPN z App Store i zaloguj się.</li>
+    <li>Zezwól na dodanie profilu VPN w ustawieniach iOS.</li>
+  </ol>
 
-<section class="wrap">
-<h2>Instalacja i protokoły</h2>
-<ul>
-  <li>Pobierz aplikację dostawcy z App Store i zaloguj się.</li>
-  <li><strong>WireGuard</strong> — szybki i energooszczędny. <strong>IKEv2</strong> — stabilny przy zmianie sieci Wi-Fi/LTE.</li>
-</ul>
+  <h2>Ustawienia, które polecamy</h2>
+  <ul>
+    <li><strong>Protokół:</strong> IKEv2 lub WireGuard (w zależności od dostawcy).</li>
+    <li><strong>Auto-Connect:</strong> w nieznanych/otwartych sieciach.</li>
+    <li><strong>Kill Switch:</strong> włączony (iOS łączy to z „Blokuj ruch bez VPN”).</li>
+  </ul>
 
-<h2>Always-on / Kill Switch</h2>
-<p>Włącz <em>Always-on</em> (jeśli dostępne) oraz blokadę ruchu poza VPN. Dzięki temu iOS nie „wypuści” ruchu przy zmianie sieci.</p>
+  <h2>Test i diagnostyka</h2>
+  <p>Sprawdź IP po podłączeniu, wykonaj test DNS, a przy problemach zmień lokalizację serwera lub protokół.</p>
 
-<h2>Streaming i lokalizacja</h2>
-<p>Dla VOD wybierz kraj biblioteki (np. USA/UK). W razie błędów wyczyść pamięć aplikacji VOD i zmień serwer.</p>
+  <section class="cta cta-mounted">
+    <h2>Najprościej z gotową aplikacją</h2>
+    <p class="muted">iOS, iPadOS, Mac — jedna subskrypcja i szybki start.</p>
+    <div class="btns">
+      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na iOS</a>
+      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Plan i ceny</a>
+    </div>
+  </section>
 
-<div class="cta cta-mounted">
-  <h2>Bezpieczny iOS w 1 klik</h2>
-  <p class="cta-note">Szybkie serwery, WireGuard/IKEv2 i skuteczne odblokowanie VOD.</p>
-  <p class="btns">
-    <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored noopener" target="_blank">Pobierz NordVPN na iOS</a>
-    <a class="btn btn-ghost" href="/blog/vpn-publiczne-wifi.html">Bezpieczeństwo w publicznym Wi-Fi</a>
-  </p>
-</div>
-
-<h2>Kontrola poprawności</h2>
-<p>Sprawdź IP, DNS i wycieki WebRTC w mobilnej przeglądarce; jeśli DNS wskazuje operatora komórkowego — zmień serwer.</p>
-
-<h2>Powiązane treści</h2>
-<ul>
-  <li><a href="/blog/vpn-kill-switch.html">Kill Switch — co to jest i jak działa</a></li>
-  <li><a href="/blog/vpn-geoblokady.html">Jak obchodzić geoblokady</a></li>
-</ul>
-</section>
-
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-</body></html>
+  <h2>Powiązane poradniki</h2>
+  <ul>
+    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
+    <li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
+    <li><a href="/blog/vpn-geoblokady.html">Omijanie blokad</a></li>
+  </ul>
+</main>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+<script src="/assets/affiliates.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"VPN na iPhone — konfiguracja i bezpieczne ustawienia","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"},"image":"https://dloran1.github.io/assets/img/hero/vpn-iphone-konfiguracja.webp","description":"Instrukcja iOS: konfiguracja VPN, auto-łączenie, kill switch, test IP i DNS."}
+</script>
+</body>
+</html>
