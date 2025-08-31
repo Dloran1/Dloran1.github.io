@@ -1,78 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<title>VPN dla graczy w Polsce — ping, serwery, optymalne ustawienia</title>
-<meta name="description" content="Czy VPN pomaga w grach? Jak obniżyć ping, ominąć throttling operatora i dobrać serwery. Praktyczne ustawienia dla graczy w Polsce.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN dla graczy — ping, stabilność i ochrona</title>
+<meta name="description" content="Czy VPN dla graczy ma sens? Jak wybrać serwer, by ograniczyć ping i zyskać stabilność, oraz jak chronić się przed DDoS.">
+
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-graczy.html">
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPN dla graczy w Polsce — ping, serwery, ustawienia">
-<meta property="og:description" content="Praktyczny poradnik: trasy, WireGuard, split tunneling i wybór węzłów.">
+<meta property="og:title" content="VPN dla graczy — praktyczny poradnik">
+<meta property="og:description" content="Wybór lokalizacji, protokołu i wskazówki przeciw DDoS.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-graczy.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VPN dla graczy w Polsce — ping, serwery, ustawienia">
-<meta name="twitter:description" content="Jak używać VPN w grach: obniżenie pingu, stabilność, anty-throttling.">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "headline":"VPN dla graczy w Polsce — ping, serwery, optymalne ustawienia",
-  "description":"Poradnik dla graczy: jak używać VPN, aby zminimalizować opóźnienia, dobrać serwer i ominąć throttling operatora.",
-  "author":{"@type":"Person","name":"Zespół VPN Polska"},
-  "publisher":{"@type":"Organization","name":"VPN Polska"},
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-08-30",
-  "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dla-graczy.html"}
-}
-</script>
-<script src="/assets/affiliates.js" defer></script>
+
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<header class="container">
-  <nav class="nav">
+<nav class="nav">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu">
     <a href="/">Strona główna</a>
-    <a href="/blog.html">Blog</a>
+    <a href="/blog/index.html">Blog</a>
     <a href="/kontakt.html">Kontakt</a>
-  </nav>
-</header>
-<main class="container content">
-  <article>
-    <h1>VPN dla graczy w Polsce — ping, serwery, optymalne ustawienia</h1>
-    <p>VPN potrafi poprawić stabilność i czasem <strong>obniżyć ping</strong>, jeśli trasa przez sieć dostawcy jest nieoptymalna albo występuje ograniczanie ruchu (<em>throttling</em>). Warunek: właściwy dobór <a href="/blog/jaki-serwer-vpn-wybrac.html">serwera</a> i protokołu.</p>
+  </div>
+</nav>
 
-    <h2>Kiedy VPN realnie pomaga</h2>
-    <ul>
-      <li>Twój ISP ogranicza ruch do gier/serwerów — szyfrowanie utrudnia klasyfikację pakietów.</li>
-      <li>Domyślna trasa jest długa; węzeł VPN ma krótszy peering do serwera gry.</li>
-      <li>Potrzebujesz stabilności (mniej „skoków” trasy i zmiennych opóźnień).</li>
-    </ul>
+<main class="wrap">
+  <h1>VPN dla graczy — kiedy pomaga</h1>
+  <p>VPN może poprawić stabilność trasy, gdy operator rutuje ruch „naokoło”, a także ukrywa Twój IP (przed atakami <strong>DDoS</strong>). Sam ping zwykle lekko rośnie, ale odpowiedni serwer i protokół potrafią to zminimalizować.</p>
 
-    <h2>Ustawienia dla niskiego pingu</h2>
-    <ol>
-      <li>Protokół: <a href="/blog/wireguard-vs-openvpn.html">WireGuard</a> lub OpenVPN UDP.</li>
-      <li>Serwer: najbliżej <em>serwera gry</em> (np. EU West → Frankfurt/Amsterdam/Paris).</li>
-      <li><strong>Split tunneling</strong> — tuneluj tylko grę (zobacz: <a href="/blog/vpn-split-tunneling.html">poradnik</a>).</li>
-      <li>Wyłącz „auto-select server”; przypnij konkretny węzeł.</li>
-    </ol>
+  <h2>Jak dobrać serwer</h2>
+  <ul>
+    <li>Wybieraj kraj najbliżej serwerów gry (nie zawsze najbliżej Ciebie).</li>
+    <li>Testuj 2–3 lokalizacje i zapisuj najlepszy wynik.</li>
+    <li>Używaj <strong>WireGuard</strong> — zwykle daje najniższe opóźnienia.</li>
+  </ul>
 
-    <h2>Bezpieczeństwo i anty-DDoS</h2>
-    <p>Maskowanie IP utrudnia ataki na Twoje łącze. Pamiętaj, że nie każdy węzeł ma filtrację anty-DDoS — testuj różne lokalizacje.</p>
+  <h2>Bezpieczeństwo i komfort</h2>
+  <ul>
+    <li>Maskowanie IP = mniejsza szansa na celowanie DDoS w Twoje łącze.</li>
+    <li>Stały adres na serwerze VPN może pomóc przy anty-cheat/region-lockach.</li>
+    <li>Na routerze możesz objąć ochroną całą konsolę (PS5/Xbox).</li>
+  </ul>
 
-    <h2>Szybki plan testów</h2>
-    <p>Zmierz ping/jitter bez VPN → włącz VPN (WireGuard) → przetestuj 3–4 węzły → włącz split tunneling. Porównaj wyniki (narzędzie: <a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a>).</p>
+  <div class="cta cta-mounted">
+    <h2>Stabilna gra z ochroną IP</h2>
+    <p class="cta-note">Szybki WireGuard, duża sieć serwerów, aplikacje na PC i konsole (przez router).</p>
+    <div class="btns">
+      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup VPN z rabatem</a>
+      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
+    </div>
+  </div>
 
-    <!-- CTA: wstawi się automatycznie -->
-    <div data-offer="nordvpn"></div>
-
-    <hr>
-    <p>Powiązane: <a href="/blog/test-vpn.html">Jak testować VPN</a> · <a href="/blog/vpn-publiczne-wifi.html">Publiczne Wi-Fi a bezpieczeństwo</a></p>
-  </article>
+  <h2>Powiązane artykuły</h2>
+  <ul class="cta-list">
+    <li><a href="/blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025?</a></li>
+    <li><a href="/blog/vpn-dns-leak.html">Wyciek DNS</a></li>
+    <li><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></li>
+  </ul>
 </main>
-<footer class="container foot">
-  <p>© 2025 VPN Polska — prywatność i bezpieczeństwo online</p>
-</footer>
+
+<footer class="footer">&copy; 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<script src="/assets/affiliates.js" defer></script>
 </body>
 </html>
