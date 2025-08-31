@@ -1,54 +1,30 @@
-<!doctype html><html lang="pl"><head>
+<!DOCTYPE html><html lang="pl"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kill Switch w VPN — dlaczego jest niezbędny i jak go włączyć</title>
-<meta name="description" content="Kill Switch blokuje ruch poza tunelem, gdy połączenie VPN zerwie się na chwilę. Wyjaśniamy typy (systemowy/aplikacji), konfigurację i testy.">
+<title>Kill switch w VPN — po co i jak go używać</title>
+<meta name="description" content="Kill switch blokuje ruch poza tunelem VPN w razie zerwania połączenia. Zobacz, jak go włączyć i przetestować.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-kill-switch.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Kill Switch w VPN — co to jest i jak ustawić">
-<meta property="og:description" content="Poradnik: rodzaje Kill Switch, kiedy działa, jak sprawdzić i co zrobić, gdy blokuje za dużo.">
+<meta property="og:type" content="article"><meta property="og:title" content="Kill switch w VPN — po co i jak go używać">
+<meta property="og:description" content="Wyjaśnienie działania, konfiguracja i testy kill switcha w aplikacji VPN.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-kill-switch.html">
-<link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kill Switch w VPN — dlaczego jest niezbędny i jak go włączyć","datePublished":"2025-08-29"}</script>
-</head><body>
-<nav class="wrap small"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></nav>
-
-<header class="wrap">
-  <h1>Kill Switch w VPN — dlaczego jest niezbędny i jak go włączyć</h1>
-  <p>Bez Kill Switch nawet krótka przerwa w tunelu może ujawnić Twoje IP i DNS.</p>
-</header>
-
-<section class="wrap">
-  <h2>Rodzaje Kill Switch</h2>
-  <ul>
-    <li><strong>Aplikacji</strong> — blokuje wybrane programy (np. torrent).</li>
-    <li><strong>Systemowy</strong> — całkowicie odcina ruch bez VPN (najbezpieczniejszy).</li>
-  </ul>
-
-  <h2>Konfiguracja</h2>
-  <p>W ustawieniach VPN włącz „Kill Switch/Network Lock”. Na Androidzie/iOS szukaj opcji Always-on/Block connections without VPN.</p>
-
-  <h2>Test</h2>
-  <ol>
-    <li>Uruchom transfer (np. odtwarzanie wideo).</li>
-    <li>Rozłącz VPN: ruch powinien się zatrzymać.</li>
-    <li>Po ponownym połączeniu wznowienie jest automatyczne.</li>
-  </ol>
-
-  <div class="cta cta-mounted">
-    <h2>Włącz ochronę jednym kliknięciem</h2>
-    <p class="cta-note">Dostawca z solidnym Kill Switch i ochroną DNS/IPv6.</p>
-    <p class="btns">
-      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored noopener" target="_blank">Wypróbuj NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/vpn-dns-leak.html">Zabezpiecz wycieki DNS</a>
-    </p>
-  </div>
-
-  <h2>Powiązane</h2>
-  <ul>
-    <li><a href="/blog/vpn-android-konfiguracja.html">Android: konfiguracja</a></li>
-    <li><a href="/blog/vpn-iphone-konfiguracja.html">iPhone: konfiguracja</a></li>
-  </ul>
-</section>
-
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<link rel="stylesheet" href="/assets/style.css"></head><body>
+<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
+<main class="wrap article">
+<h1>Kill switch w VPN — po co i jak go używać</h1>
+<div class="hero"><img src="/assets/img/hero/vpn-kill-switch.webp" alt="Kill switch w VPN" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
+<h2>Dlaczego to ważne</h2>
+<p>Chroni przed ujawnieniem IP/DNS, gdy tunel padnie. Kluczowe przy P2P, pracy zdalnej i bankowości.</p>
+<h2>Jak włączyć i przetestować</h2>
+<ul><li>W ustawieniach aplikacji włącz „Kill Switch”.</li>
+<li>Rozłącz VPN i spróbuj otworzyć stronę — połączenie powinno być zablokowane.</li></ul>
+<section class="cta cta-mounted"><h2>Kill switch w standardzie</h2><p class="muted">Pełna ochrona prywatności w razie awarii tunelu.</p>
+<div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+<a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Funkcje bezpieczeństwa</a></div></section>
+<h2>Powiązane</h2>
+<ul><li><a href="/blog/vpn-dns-leak.html">Wyciek DNS</a></li>
+<li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
+<li><a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P</a></li></ul>
+</main>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kill switch w VPN — po co i jak go używać","description":"Kill switch blokuje ruch poza tunelem VPN w razie zerwania połączenia. Zobacz, jak go włączyć i przetestować.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-kill-switch.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}</script>
 </body></html>
