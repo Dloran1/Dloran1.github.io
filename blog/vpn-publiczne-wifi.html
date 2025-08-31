@@ -1,73 +1,38 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN w publicznym Wi-Fi — jak chronić dane w hotelu, na lotnisku i w kawiarni</title>
-<meta name="description" content="Dlaczego publiczne Wi-Fi jest ryzykowne i jak VPN, HTTPS i dobre nawyki chronią Twoje dane. Prosty przewodnik krok po kroku.">
-<link rel="canonical" href="/blog/vpn-publiczne-wifi.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN w publicznym Wi-Fi — jak chronić dane">
-<meta property="og:description" content="Ryzyka sieci publicznych, konfiguracja VPN i dobre nawyki bezpieczeństwa.">
-<meta property="og:url" content="/blog/vpn-publiczne-wifi.html">
-<meta property="og:image" content="/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPN a publiczne Wi-Fi — czy jesteś bezpieczny?</title>
+  <meta name="description" content="Publiczne Wi-Fi to zagrożenie dla twoich danych. Sprawdź, jak VPN chroni cię przed hakerami w kawiarniach i na lotniskach.">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN a publiczne Wi-Fi — czy jesteś bezpieczny?">
+  <meta property="og:description" content="Publiczne Wi-Fi to zagrożenie dla twoich danych. Sprawdź, jak VPN chroni cię przed hakerami w kawiarniach i na lotniskach.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-publiczne-wifi.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu">
-    <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-  </div>
-</nav>
-
-<main class="wrap">
-  <h1>VPN w publicznym Wi-Fi — jak chronić dane w hotelu, na lotnisku i w kawiarni</h1>
-  <p>Otwarte hotspoty to wygoda, ale też ryzyko podsłuchu, wstrzykiwania reklam czy ataków man-in-the-middle. Oto krótki plan działania, żeby korzystać z nich bezpiecznie.</p>
-
-  <div class="cta">
-    <h2>Podłącz VPN zanim wejdziesz na pocztę lub bank</h2>
-    <ul class="cta-list">
-      <li>Automatyczne łączenie w nieznanych sieciach</li>
-      <li>Blokada trackerów i złośliwych domen</li>
-      <li>30-dniowa gwarancja</li>
-    </ul>
-    <div class="btns">
-      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Zainstaluj NordVPN</a>
-      <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Poznaj funkcje</a>
+  <article class="post">
+    <h1>VPN a publiczne Wi-Fi — czy jesteś bezpieczny?</h1>
+    <div class="hero">
+      <img src="/assets/img/hero/vpn-publiczne-wifi.webp" alt="VPN i publiczne Wi-Fi" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
     </div>
-    <p class="cta-note">* Link afiliacyjny.</p>
-    <noscript><a class="cta-mounted" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">NordVPN</a></noscript>
-  </div>
+    <p>Publiczne sieci Wi-Fi w kawiarniach, hotelach czy na lotniskach są wygodne, ale także bardzo niebezpieczne. Hakerzy często wykorzystują je do przechwytywania danych.</p>
+    <h2>Jak VPN pomaga?</h2>
+    <ul>
+      <li>Szyfruje cały ruch internetowy.</li>
+      <li>Chroni hasła i loginy przed podsłuchem.</li>
+      <li>Ukrywa twój prawdziwy adres IP.</li>
+    </ul>
+    <p>Bez VPN twoje dane logowania mogą zostać przechwycone w ciągu kilku sekund. Dlatego tak ważne jest korzystanie z bezpiecznego połączenia.</p>
 
-  <h2>Szybkie zasady</h2>
-  <ul>
-    <li>Włącz <strong>VPN</strong> i łącz się tylko z <strong>HTTPS</strong>.</li>
-    <li>Wyłącz automatyczne łączenie z sieciami Wi-Fi.</li>
-    <li>Nie udostępniaj plików/drukarek; używaj <strong>firewalla</strong>.</li>
-    <li>Uwierzytelnianie <strong>MFA</strong>, unikalne hasła.</li>
-  </ul>
-
-  <h2>Konfiguracja aplikacji</h2>
-  <ul>
-    <li>Aktywuj <strong>kill-switch</strong> i blokadę wycieków DNS.</li>
-    <li>Ustaw automatyczne włączanie VPN w nowych sieciach.</li>
-    <li>Protokół: WireGuard (lub OpenVPN TCP 443, gdy sieć filtruje).</li>
-  </ul>
-
-  <h3>Powiązane artykuły</h3>
-  <ul>
-    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
-    <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS i jak je zatrzymać</a></li>
-    <li><a href="/blog/mity-o-vpn.html">Mity o VPN</a></li>
-  </ul>
-</main>
-
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-<script src="/assets/affiliates.js"></script>
+    <div class="cta">
+      <p>Zabezpiecz się w publicznym Wi-Fi dzięki <strong>NordVPN</strong>:</p>
+      <a href="TWÓJ_LINK_NORDVPN" class="btn">Kup VPN z rabatem</a>
+    </div>
+  </article>
 </body>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN w publicznym Wi-Fi — jak chronić dane","datePublished":"2025-08-29","dateModified":"2025-08-29","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"/blog/vpn-publiczne-wifi.html"},"image":"/assets/img/og-default.jpg","description":"Dlaczego publiczne Wi-Fi jest ryzykowne i jak VPN, HTTPS i dobre nawyki chronią Twoje dane."}
-</script>
 </html>
