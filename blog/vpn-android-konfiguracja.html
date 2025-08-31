@@ -1,45 +1,68 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Konfiguracja VPN na Androidzie — szybki start</title>
-<meta name="description" content="Instalacja aplikacji, wybór protokołu i serwera, kill-switch oraz split tunneling na Androidzie.">
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN na Androidzie — szybka konfiguracja i bezpieczne ustawienia</title>
+<meta name="description" content="Instrukcja krok po kroku: jak skonfigurować VPN na Androidzie, które protokoły wybrać (WireGuard/OpenVPN), włączanie Kill Switch, split tunneling i auto-start.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Konfiguracja VPN na Androidzie — szybki start">
-<meta property="og:description" content="Przewodnik po ustawieniach mobilnych dla stabilnego połączenia.">
+<meta property="og:title" content="VPN na Androidzie — konfiguracja i bezpieczne ustawienia">
+<meta property="og:description" content="Szybki poradnik: instalacja, logowanie, wybór protokołu, Kill Switch, split tunneling i testy szczelności DNS.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-android.png">
+<meta property="og:site_name" content="VPN Polska">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+"headline":"VPN na Androidzie — szybka konfiguracja i bezpieczne ustawienia",
+"author":{"@type":"Person","name":"VPN Polska"},
+"datePublished":"2025-08-29","dateModified":"2025-08-29",
+"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-android-konfiguracja.html"}}
+</script>
 <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
-<main class="article">
-  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
-  <h1>Konfiguracja VPN na Androidzie — szybki start</h1>
-  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 5 min</p>
+</head><body>
+<nav class="wrap small"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></nav>
 
-  <h2>Ustawienia</h2>
+<header class="wrap">
+  <h1>VPN na Androidzie — konfiguracja i bezpieczne ustawienia</h1>
+  <p>5 minut pracy i masz prywatność w sieci mobilnej i Wi-Fi. Poniżej instrukcja krok po kroku.</p>
+</header>
+
+<section class="wrap">
+  <h2>1. Instalacja i logowanie</h2>
+  <ol class="cta-list">
+    <li>Pobierz aplikację z Google Play (sprawdź nazwę wydawcy).</li>
+    <li>Zaloguj się na konto i przyznaj uprawnienia do tworzenia połączeń VPN.</li>
+  </ol>
+
+  <h2>2. Wybór protokołu</h2>
+  <p><strong>WireGuard</strong> — najszybszy, dobra bateria. <strong>OpenVPN TCP</strong> — lepsze obchodzenie filtrów w sieciach firmowych / kampusowych. </p>
+
+  <h2>3. Ustawienia bezpieczeństwa</h2>
   <ul>
-    <li>Protokół: <strong>NordLynx</strong>; awaryjnie OpenVPN TCP 443</li>
-    <li><strong>Kill-switch</strong> i blokada wycieków</li>
-    <li><strong>Split tunneling</strong> dla aplikacji wrażliwych</li>
+    <li><strong>Kill Switch</strong> — blokuje ruch bez tunelu (patrz: artykuł o Kill Switch poniżej).</li>
+    <li><strong>Auto-start</strong> po uruchomieniu urządzenia.</li>
+    <li><strong>Ochrona przed wyciekiem DNS</strong> — wymuszaj serwery DNS dostawcy VPN.</li>
+    <li><strong>Split tunneling</strong> — wyklucz bankowość/apki lokalne z VPN jeśli muszą widzieć kraj PL.</li>
   </ul>
 
-  <section class="cta">
-    <h2>Zainstaluj aplikację w 1 min</h2>
-    <ul class="cta-list"><li>Android 8+</li><li>Autostart przy Wi-Fi publicznym</li><li>Wsparcie 24/7</li></ul>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/vpn-publiczne-wifi.html">Hotspoty — bezpieczeństwo</a>
-    </div>
-    <p class="cta-note">Link partnerski.</p>
-  </section>
+  <h2>4. Test działania</h2>
+  <p>Po połączeniu sprawdź IP i DNS (np. <em>dns leak test</em>). Zmień serwer, gdy ping jest wysoki.</p>
 
-  <h2>Typowe problemy</h2>
-  <p>Brak połączenia w sieci firmowej? Spróbuj TCP 443 lub wyłącz optymalizację baterii dla aplikacji.</p>
-</main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+  <div class="cta cta-mounted">
+    <h2>Zacznij bezpiecznie na Androidzie</h2>
+    <p class="cta-note">Szybkie serwery, WireGuard, Kill Switch i ochrona przed wyciekami.</p>
+    <p class="btns">
+      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored noopener" target="_blank">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/nordvpn-vs-surfshark-pl.html">Porównanie dostawców</a>
+    </p>
+  </div>
+
+  <h2>Powiązane artykuły</h2>
+  <ul>
+    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone (iOS)</a></li>
+    <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — test i naprawa</a></li>
+    <li><a href="/blog/vpn-split-tunneling.html">Split tunneling — jak używać</a></li>
+  </ul>
+</section>
+
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
 </body></html>
