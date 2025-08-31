@@ -1,35 +1,51 @@
-<!doctype html>
-<html lang="pl">
-<head>
-<meta charset="utf-8">
-<title>Geoblokady – jak VPN odblokowuje treści z innych krajów</title>
-<meta name="description" content="Czym są geoblokady, dlaczego platformy je stosują i jak poprawnie używać VPN/Smart DNS, aby je ominąć zgodnie z regulaminami.">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geoblokady — jak je omijać legalnie i skutecznie z VPN</title>
+<meta name="description" content="Czym są geoblokady, na czym polega blokowanie po IP/DNS, jak VPN i SmartDNS pomagają odblokować VOD i serwisy informacyjne.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-geoblokady.html">
-<meta property="og:title" content="Geoblokady – jak VPN odblokowuje treści z innych krajów">
-<meta property="og:description" content="Praktyczne wskazówki: dobór serwera, czyszczenie cache, Smart DNS.">
 <meta property="og:type" content="article">
+<meta property="og:title" content="Geoblokady — jak je omijać z VPN">
+<meta property="og:description" content="Praktyczne wskazówki: wybór kraju, czyszczenie cache, błąd proxy, różnice VPN vs SmartDNS.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-geoblokady.html">
-<meta name="twitter:card" content="summary_large_image">
-<style>:root{--bg:#0b0e12;--card:#141821;--txt:#e9eef5;--accent:#ff2d55}body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.7 system-ui}a{color:#7ab7ff}header{background:#000;padding:18px 20px}.wrap{max-width:880px;margin:0 auto;padding:28px 18px}h1{color:var(--accent);font-size:34px}.card{background:var(--card);border-radius:12px;padding:16px 18px;margin:14px 0}</style>
-</head>
-<body>
-<header><nav><a href="/">Strona główna</a> · <a href="/blog.html">Blog</a> · <a href="/kontakt.html">Kontakt</a></nav></header>
-<main class="wrap">
-<h1>Geoblokady – jak VPN odblokowuje treści z innych krajów</h1>
-<p>Platformy VOD i serwisy muzyczne ograniczają katalogi ze względów licencyjnych. <strong>VPN</strong> pozwala „pojawić się” w innym kraju i uzyskać dostęp do lokalnych treści. Oto jak zrobić to poprawnie.</p>
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Geoblokady — jak je omijać legalnie i skutecznie z VPN","datePublished":"2025-08-29"}</script>
+</head><body>
+<nav class="wrap small"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></nav>
 
-<div class="card">
-<h2>Najważniejsze zasady</h2>
-<ul>
-<li>Wybierz <strong>serwer w kraju docelowym</strong> i blisko Twojej lokalizacji.</li>
-<li>Wyczyść pliki cookie i lokalne dane aplikacji, aby usunąć stary region.</li>
-<li>Jeśli platforma wykrywa VPN – zmień serwer lub protokół, włącz <em>rotację IP</em>.</li>
-<li>Dla Smart TV rozważ <strong>Smart DNS</strong> – świetna wydajność bez szyfrowania.</li>
-</ul>
-</div>
+<header class="wrap">
+  <h1>Geoblokady — jak je omijać legalnie i skutecznie z VPN</h1>
+  <p>Blokady opierają się na IP, DNS i czasem sygnaturach aplikacji. Oto co działa w 2025 r.</p>
+</header>
 
-<p>VPN to legalne narzędzie prywatności; pamiętaj jednak o regulaminach serwisów, które czasem ograniczają korzystanie z narzędzi anonimizujących.</p>
-</main>
-</body>
-</html>
+<section class="wrap">
+  <h2>VPN vs SmartDNS</h2>
+  <ul>
+    <li><strong>VPN</strong> zmienia IP i szyfruje dane — najlepsze pod Wi-Fi publiczne i prywatność.</li>
+    <li><strong>SmartDNS</strong> tylko „kieruje” zapytania do kraju — szybkie na TV/konsole, ale bez szyfrowania.</li>
+  </ul>
+
+  <h2>Typowe problemy i rozwiązania</h2>
+  <ul>
+    <li>Błąd „proxy/VPN detected” — zmień serwer/kraj, wyczyść cache aplikacji VOD.</li>
+    <li>Różne biblioteki na telefonie i TV — sprawdź DNS na urządzeniu, wyłącz prywatny DNS/DoH w przeglądarce.</li>
+    <li>Bankowość online — użyj split tunneling i wyklucz aplikację banku z VPN.</li>
+  </ul>
+
+  <div class="cta cta-mounted">
+    <h2>Odblokuj VOD i chroń prywatność</h2>
+    <p class="cta-note">Serwery w PL i za granicą, szybki WireGuard i dedykacja pod streaming.</p>
+    <p class="btns">
+      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored noopener" target="_blank">Pobierz NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/vpn-split-tunneling.html">Split tunneling — poradnik</a>
+    </p>
+  </div>
+
+  <h2>Powiązane artykuły</h2>
+  <ul>
+    <li><a href="/blog/player-tvp-vpn.html">Player/TVP z VPN</a></li>
+    <li><a href="/blog/vpn-netflix-polska.html">Netflix PL — wskazówki</a></li>
+  </ul>
+</section>
+
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+</body></html>
