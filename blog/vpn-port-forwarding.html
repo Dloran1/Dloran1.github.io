@@ -1,69 +1,56 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
+<!doctype html><html lang="pl"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Port forwarding w VPN — kiedy warto i jak to zrobić</title>
-<meta name="description" content="Czym jest port forwarding w VPN, do czego służy (P2P, zdalny dostęp, gry), jakie są ryzyka i bezpieczne alternatywy.">
+<title>VPN i Port Forwarding — co to jest i jak używać</title>
+<meta name="description" content="Wyjaśnienie przekierowania portów w VPN: kiedy ma sens, ryzyka, alternatywy i bezpieczna konfiguracja.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-port-forwarding.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Port forwarding w VPN — kiedy warto i jak to zrobić">
-<meta property="og:description" content="Wyjaśniamy port forwarding w VPN: zastosowania, ryzyka, konfiguracje i bezpieczne obejścia.">
+<meta property="og:title" content="VPN i Port Forwarding — co to jest i jak używać">
+<meta property="og:description" content="Praktyczny poradnik port forwarding w VPN — zastosowania, bezpieczeństwo i ustawienia.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-port-forwarding.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div>
-</div></nav>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"VPN i Port Forwarding — co to jest i jak używać","author":{"@type":"Person","name":"VPN Polska"},"publisher":{"@type":"Organization","name":"VPN Polska"},"datePublished":"2025-08-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-port-forwarding.html"}}
+</script>
+</head><body>
+<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a></div></nav>
 
-<main class="wrap article">
-  <h1>Port forwarding w VPN — kiedy warto i jak to zrobić</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-port-forwarding.webp" alt="Port forwarding w VPN" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
+<main class="wrap">
+  <h1>VPN i Port Forwarding — co to jest i jak używać</h1>
+  <p>Przekierowanie portów pozwala na zdalny dostęp do usług za NAT. W kontekście VPN ma to zarówno zalety, jak i ryzyka.</p>
 
-  <p>Przekierowanie portów pozwala kierować ruch z internetu na wskazany port urządzenia za NAT. Przydaje się w P2P, zdalnym dostępie czy grach, ale niesie ryzyko „wystawienia” usługi na świat.</p>
-
-  <h2>Do czego się używa</h2>
+  <h2>Kiedy ma sens?</h2>
   <ul>
-    <li><strong>P2P/seedbox</strong> — lepsza łączność z peerami.</li>
-    <li><strong>Zdalny dostęp</strong> — NAS, serwer domowy, kamera.</li>
-    <li><strong>Gry</strong> — stabilniejsze sesje peer-to-peer.</li>
+    <li>Własny serwer gier/domowy serwer multimediów.</li>
+    <li>Torrent klient wymagający nasłuchu (leech/seed).</li>
   </ul>
 
-  <h2>Bezpieczne alternatywy</h2>
+  <h2>Ryzyka i alternatywy</h2>
   <ul>
-    <li>Reverse proxy lub sieci overlay (Tailscale/ZeroTier).</li>
-    <li>Tylko dostęp wewnątrz LAN + łączenie do LAN przez VPN.</li>
+    <li>Otwarty port = potencjalny wektor ataku.</li>
+    <li>Alternatywa: tunelowanie przez WireGuard + reverse proxy.</li>
   </ul>
 
-  <div class="cta cta-mounted">
-    <h2>Chcesz szybki i stabilny VPN?</h2>
-    <p class="muted">Szybkie serwery, własne DNS, audyty no-logs.</p>
+  <section class="cta" id="cta-pf">
+    <h2>Bezpieczne P2P i szybkie porty</h2>
     <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup VPN z rabatem</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
+      <a class="btn btn-primary" data-brand="nordvpn"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+         rel="nofollow sponsored">Sprawdź NordVPN</a>
+      <a class="btn btn-ghost" href="/blog/vpn-torrent.html">Poradnik: torrenty</a>
     </div>
-  </div>
+    <p class="cta-note">Link partnerski — bez dopłaty.</p>
+  </section>
 
   <h2>Powiązane artykuły</h2>
   <ul>
-    <li><a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P bezpiecznie</a></li>
-    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-    <li><a href="/blog/vpn-geoblokady.html">Omijanie geoblokad</a></li>
+    <li><a href="/blog/vpn-p2p-bezpiecznie.html">P2P bezpiecznie</a></li>
+    <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a></li>
+    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
   </ul>
 </main>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Port forwarding w VPN — kiedy warto i jak to zrobić","description":"Czym jest port forwarding w VPN, do czego służy (P2P, zdalny dostęp, gry), jakie są ryzyka i bezpieczne alternatywy.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-port-forwarding.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
-</body>
-</html>
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<script src="/assets/affiliates.js"></script>
+</body></html>
