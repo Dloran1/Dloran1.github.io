@@ -1,73 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Co to jest VPN? Proste wyjaśnienie i praktyczne przykłady</title>
-<meta name="description" content="Czym jest VPN, jak działa tunel szyfrowany i do czego służy? Prosty przewodnik: prywatność, bezpieczeństwo Wi-Fi, omijanie blokad i streaming.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Co to jest VPN? Proste wyjaśnienie i jak zacząć</title>
+  <meta name="description" content="VPN tworzy szyfrowany tunel między Twoim urządzeniem a internetem. Wyjaśniamy jak działa, kiedy warto go używać i jak skonfigurować w 2 minuty.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/co-to-jest-vpn.html">
 
-<link rel="canonical" href="https://dloran1.github.io/blog/co-to-jest-vpn.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Co to jest VPN? Proste wyjaśnienie i przykłady">
-<meta property="og:description" content="Dowiedz się, jak VPN chroni prywatność, szyfruje ruch i odblokowuje treści.">
-<meta property="og:url" content="https://dloran1.github.io/blog/co-to-jest-vpn.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Co to jest VPN? Proste wyjaśnienie i jak zacząć">
+  <meta property="og:description" content="VPN szyfruje połączenie i ukrywa Twój adres IP. Sprawdź, jak działa i kiedy go używać.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/co-to-jest-vpn.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/co-to-jest-vpn.webp">
 
-<link rel="stylesheet" href="/assets/style.css">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Co to jest VPN? Proste wyjaśnienie i jak zacząć">
+  <meta name="twitter:description" content="VPN szyfruje połączenie i ukrywa Twój adres IP.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/co-to-jest-vpn.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Co to jest VPN? Proste wyjaśnienie i jak zacząć",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-08-31",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/co-to-jest-vpn.html"},
+    "image":"https://dloran1.github.io/assets/img/co-to-jest-vpn.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu">
-    <a href="/">Strona główna</a>
-    <a href="/blog/index.html">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
-  </div>
-</nav>
-
-<main class="wrap">
-  <h1>Co to jest VPN?</h1>
-  <p><strong>VPN</strong> (Virtual Private Network) to szyfrowany „tunel” pomiędzy Twoim urządzeniem a serwerem. Dzięki temu dostawca internetu, administrator publicznego Wi-Fi czy śledzące skrypty nie widzą szczegółów Twojej aktywności, a strony i usługi widzą adres IP serwera VPN, a nie Twój.</p>
-
-  <h2>Jak to działa w 3 krokach</h2>
-  <ol>
-    <li>Uruchamiasz aplikację i łączysz się z wybranym serwerem.</li>
-    <li>Ruch zostaje zaszyfrowany (np. protokół WireGuard lub OpenVPN).</li>
-    <li>Strony widzą IP serwera — zyskujesz prywatność i nową lokalizację.</li>
-  </ol>
-
-  <h2>Najważniejsze korzyści</h2>
-  <ul>
-    <li><strong>Prywatność:</strong> szyfrowanie + polityka no-logs u topowych dostawców.</li>
-    <li><strong>Bezpieczeństwo Wi-Fi:</strong> ochrona w kawiarniach, hotelach, na lotniskach.</li>
-    <li><strong>VOD i dostęp do treści:</strong> zmiana lokalizacji pomaga omijać blokady.</li>
-    <li><strong>Praca zdalna:</strong> stabilne połączenie, ochrona transmisji danych.</li>
-  </ul>
-
-  <h2>Kiedy VPN najbardziej się przydaje</h2>
-  <p>Podczas korzystania z publicznych sieci, przy streamingach i podróżach, gdy chcesz uzyskać dostęp do treści z innego kraju, a także w codziennym surfowaniu, aby ograniczyć profilowanie reklamowe.</p>
-
-  <div class="cta cta-mounted">
-    <h2>Chcesz bezpiecznego i szybkiego VPN?</h2>
-    <p class="cta-note">Sprawdzona usługa, audytowane no-logs i bardzo dobre prędkości.</p>
-    <div class="btns">
-      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup VPN z rabatem</a>
-      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Powiązane artykuły</h2>
-  <ul class="cta-list">
-    <li><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a></li>
-    <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — jak je wykryć</a></li>
-    <li><a href="/blog/vpn-dla-graczy.html">VPN dla graczy: ping i stabilność</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>Co to jest VPN?</h1>
 
-<footer class="footer">&copy; 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-<script src="/assets/affiliates.js" defer></script>
+      <figure class="cover">
+        <img src="/assets/img/co-to-jest-vpn.webp" alt="Wyjaśnienie, czym jest VPN" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p><strong>VPN (Virtual Private Network)</strong> to usługa, która tworzy <em>szyfrowany tunel</em> między Twoim urządzeniem a internetem. Dzięki temu strony i aplikacje widzą adres IP serwera VPN, a nie Twój, a dostawca internetu nie może łatwo podglądać, jakie serwisy odwiedzasz.</p>
+
+      <h2>Jak działa VPN — w skrócie</h2>
+      <ul>
+        <li>Uruchamiasz aplikację i łączysz się z wybranym serwerem (np. w Polsce, Niemczech, USA).</li>
+        <li>Tworzy się szyfrowane połączenie (tunel). Twój ruch przechodzi przez serwer VPN.</li>
+        <li>Strony widzą IP serwera, nie Twoje — to pomaga w prywatności i przy geoblokadach.</li>
+      </ul>
+
+      <h2>Co daje VPN?</h2>
+      <ul>
+        <li><strong>Prywatność:</strong> mniej śledzenia i profilowania po IP.</li>
+        <li><strong>Bezpieczeństwo:</strong> ochrona w publicznym Wi-Fi (kawiarnie, lotniska).</li>
+        <li><strong>Treści VOD:</strong> często ułatwia dostęp do katalogów z innych krajów.</li>
+        <li><strong>P2P:</strong> ogranicza ekspozycję Twojego adresu IP w sieciach wymiany plików.</li>
+      </ul>
+
+      <section class="cta">
+        <h2>Zacznij bezpiecznie w 2 minuty</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/zalety-vpn.html">Zalety VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Na co zwrócić uwagę?</h2>
+      <ul>
+        <li><strong>Polityka no-logs:</strong> dostawca nie powinien przechowywać dzienników aktywności.</li>
+        <li><strong>Protokół:</strong> nowoczesny <em>WireGuard/NordLynx</em> = lepsza prędkość i stabilność.</li>
+        <li><strong>Funkcje:</strong> Kill Switch, Auto-connect, ochrona przed wyciekami DNS.</li>
+        <li><strong>Aplikacje:</strong> wsparcie dla Windows, macOS, iOS, Android, routerów i TV.</li>
+      </ul>
+
+      <h2>Jak zacząć — szybka konfiguracja</h2>
+      <ol>
+        <li>Zainstaluj aplikację i zaloguj się.</li>
+        <li>Wybierz protokół <strong>WireGuard/NordLynx</strong>.</li>
+        <li>Włącz <strong>Auto-connect</strong> i <strong>Kill Switch</strong>.</li>
+        <li>Połącz z najbliższym serwerem i zrób <a href="/blog/test-vpn.html">test prędkości</a> oraz
+          <a href="/blog/vpn-dns-leak.html">test wycieku DNS</a>.</li>
+      </ol>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/zalety-vpn.html">Zalety VPN — dlaczego warto</a></li>
+          <li><a href="/blog/no-logs.html">Polityka no-logs — co to znaczy</a></li>
+          <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
 </body>
 </html>
