@@ -1,70 +1,31 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN i wyciek DNS — co to jest i jak go naprawić</title>
-<meta name="description" content="Czym jest wyciek DNS, jak go przetestować i jak skonfigurować VPN, by zapobiec ujawnieniu adresu IP oraz historii zapytań DNS.">
-
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wyciek DNS a VPN — jak sprawdzić i naprawić</title>
+<meta name="description" content="Czym jest wyciek DNS, jak go wykryć i co zrobić w aplikacji VPN, żeby go zablokować.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dns-leak.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Wyciek DNS — sprawdź i zabezpiecz VPN">
-<meta property="og:description" content="Prosty test i kroki naprawy, aby DNS nie zdradzał Twojej lokalizacji.">
+<meta property="og:type" content="article"><meta property="og:title" content="Wyciek DNS a VPN — jak sprawdzić i naprawić">
+<meta property="og:description" content="Instrukcja testów i ustawień DNS w VPN.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dns-leak.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
-<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<nav class="nav">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu">
-    <a href="/">Strona główna</a>
-    <a href="/blog/index.html">Blog</a>
-    <a href="/kontakt.html">Kontakt</a>
-  </div>
-</nav>
-
-<main class="wrap">
-  <h1>Wyciek DNS — na czym polega?</h1>
-  <p><strong>DNS</strong> tłumaczy nazwy stron na adresy IP. Jeśli zapytania DNS omijają tunel VPN i idą przez dostawcę internetu, powstaje <em>wyciek DNS</em>: witryny i usługi mogą kojarzyć Twoją prawdziwą lokalizację.</p>
-
-  <h2>Jak przetestować</h2>
-  <ol>
-    <li>Połącz VPN i wejdź na tester (np. „DNS leak test”).</li>
-    <li>Uruchom „Standard” i „Extended”.</li>
-    <li>Jeśli widzisz serwery DNS z Twojego ISP/kraju — to wyciek.</li>
-  </ol>
-
-  <h2>Jak naprawić</h2>
-  <ul>
-    <li>W aplikacji VPN włącz „Prevent DNS leak” lub „Use VPN DNS”.</li>
-    <li>Korzystaj z protokołu <strong>WireGuard</strong> lub <strong>OpenVPN</strong>.</li>
-    <li>Wyłącz „SmartDNS” przy testach (to celowo używa DNS spoza tunelu).</li>
-    <li>Na routerze ustaw serwery DNS dostawcy VPN (jeżeli łączysz sprzętowo).</li>
-  </ul>
-
-  <div class="cta cta-mounted">
-    <h2>VPN bez wycieków DNS</h2>
-    <p class="cta-note">Wbudowana ochrona, własne DNS, przejrzyste audyty.</p>
-    <div class="btns">
-      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup VPN z rabatem</a>
-      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
-    </div>
-  </div>
-
-  <h2>Powiązane artykuły</h2>
-  <ul class="cta-list">
-    <li><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></li>
-    <li><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a></li>
-    <li><a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a></li>
-  </ul>
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<link rel="stylesheet" href="/assets/style.css"></head><body>
+<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
+<main class="wrap article">
+<h1>Wyciek DNS a VPN — jak sprawdzić i naprawić</h1>
+<div class="hero"><img src="/assets/img/hero/vpn-dns-leak.webp" alt="Wyciek DNS a VPN" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
+<h2>Co to jest wyciek DNS</h2>
+<p>Zapytania DNS wychodzą poza tunel VPN i trafiają do DNS ISP, ujawniając odwiedzane domeny.</p>
+<h2>Test i naprawa</h2>
+<ul><li>Wykonaj test na stronie do wycieków DNS.</li>
+<li>Włącz „Prevent DNS leak” w aplikacji VPN.</li>
+<li>Rozważ własne DNS w tunelu (np. od dostawcy VPN).</li></ul>
+<section class="cta cta-mounted"><h2>Zablokuj wycieki jednym kliknięciem</h2><p class="muted">Aplikacja z wbudowaną ochroną DNS.</p>
+<div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+<a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Więcej o ochronie</a></div></section>
+<h2>Powiązane</h2>
+<ul><li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
+<li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
+<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li></ul>
 </main>
-
-<footer class="footer">&copy; 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-<script src="/assets/affiliates.js" defer></script>
-</body>
-</html>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Wyciek DNS a VPN — jak sprawdzić i naprawić","description":"Czym jest wyciek DNS, jak go wykryć i co zrobić w aplikacji VPN, żeby go zablokować.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dns-leak.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}</script>
+</body></html>
