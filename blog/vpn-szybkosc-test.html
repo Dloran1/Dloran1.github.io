@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jak testować prędkość VPN — metodologia</title>
-<meta name="description" content="Rzetelny test prędkości VPN: jak mierzyć download, upload i ping, wybór serwerów i protokołów, interpretacja wyników.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test prędkości VPN — jak mierzyć i przyspieszyć połączenie</title>
+<meta name="description" content="Jak prawidłowo testować prędkość VPN (download, upload, ping) oraz które ustawienia i protokoły dają najlepsze wyniki.">
+<link rel="canonical" href="/blog/vpn-szybkosc-test.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jak testować prędkość VPN — metodologia">
-<meta property="og:description" content="Praktyczny przewodnik benchmarkowania VPN.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-speed.png">
+<meta property="og:title" content="Test prędkości VPN — jak mierzyć i przyspieszyć połączenie">
+<meta property="og:description" content="Metody pomiaru, czynniki wpływające na wyniki i triki na przyspieszenie VPN.">
+<meta property="og:url" content="/blog/vpn-szybkosc-test.html">
+<meta property="og:image" content="/assets/img/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
-<main class="article">
-  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
-  <h1>Jak testować prędkość VPN — metodologia</h1>
-  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 6 min</p>
+<nav class="nav">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu">
+    <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+  </div>
+</nav>
 
-  <h2>Jak mierzyć</h2>
+<main class="wrap">
+  <h1>Test prędkości VPN — jak mierzyć i przyspieszyć połączenie</h1>
+  <p>Prędkość VPN zależy od protokołu, lokalizacji serwera i jakości łącza. Oto jak rzetelnie testować i co zrobić, by wycisnąć maksimum.</p>
+
+  <div class="cta">
+    <h2>Szybki VPN bez kombinacji</h2>
+    <ul class="cta-list">
+      <li>Nowoczesny protokół NordLynx (WireGuard)</li>
+      <li>Dużo serwerów w PL i UE</li>
+      <li>30 dni gwarancji zwrotu</li>
+    </ul>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Wypróbuj NordVPN</a>
+      <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Zobacz wyniki</a>
+    </div>
+    <p class="cta-note">* Link afiliacyjny.</p>
+    <noscript><a class="cta-mounted" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">NordVPN</a></noscript>
+  </div>
+
+  <h2>Jak testować poprawnie</h2>
+  <ol>
+    <li>Zrób pomiar <strong>bez VPN</strong> jako punkt odniesienia.</li>
+    <li>Włącz VPN i wybierz <strong>najbliższą lokalizację</strong>.</li>
+    <li>Testuj różne protokoły: WireGuard &gt; IKEv2 &gt; OpenVPN.</li>
+    <li>Powtórz testy o różnych porach (obciążenie sieci).</li>
+  </ol>
+
+  <h2>Co najbardziej wpływa na prędkość</h2>
   <ul>
-    <li>Serwer lokalny i zdalny (EU/US)</li>
-    <li>3–5 powtórzeń dla każdego protokołu</li>
-    <li>Wyłącz tła: chmury, aktualizacje</li>
+    <li>Odległość do serwera i trasa routingu.</li>
+    <li>Protokół i implementacja (WireGuard zwykle najszybszy).</li>
+    <li>Wydajność CPU/SoC (na routerach to krytyczne).</li>
   </ul>
 
-  <section class="cta">
-    <h2>Sprawdź w praktyce</h2>
-    <ul class="cta-list"><li>NordLynx (szybkość)</li><li>OpenVPN (kompatybilność)</li><li>Statystyki w aplikacji</li></ul>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/test-vpn.html">Test krok po kroku</a>
-    </div>
-    <p class="cta-note">Link partnerski.</p>
-  </section>
+  <h2>Triki na przyspieszenie</h2>
+  <ul>
+    <li>Zmiana regionu (np. Warszawa ↔ Berlin ↔ Praga).</li>
+    <li>Przełączenie na WireGuard/NordLynx.</li>
+    <li>Wyłączenie zbędnych filtrów/aplikacji w tle.</li>
+  </ul>
 
-  <h2>Interpretacja</h2>
-  <p>Patrz na <strong>stabilność</strong>, a nie jednorazowy pik. Różnica 10–20% między runami jest normalna.</p>
+  <h3>Powiązane artykuły</h3>
+  <ul>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+    <li><a href="/blog/test-vpn.html">Jak testujemy VPN</a></li>
+    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
+  </ul>
 </main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-</body></html>
+
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<script src="/assets/affiliates.js"></script>
+</body>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Test prędkości VPN — jak mierzyć i przyspieszyć połączenie","datePublished":"2025-08-29","dateModified":"2025-08-29","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"/blog/vpn-szybkosc-test.html"},"image":"/assets/img/og-default.jpg","description":"Jak prawidłowo testować prędkość VPN i które ustawienia/protokoły dają najlepsze wyniki."}
+</script>
+</html>
