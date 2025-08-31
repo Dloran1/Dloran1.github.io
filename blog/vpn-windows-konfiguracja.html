@@ -3,46 +3,52 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VPN na Windows — konfiguracja i optymalne ustawienia</title>
-<meta name="description" content="Jak włączyć VPN na Windows: aplikacja dostawcy vs wbudowany klient, protokoły, kill switch, DNS i autostart.">
+<meta name="description" content="Aplikacja dostawcy czy wbudowany klient? Protokół, kill switch, DNS i testy — jak najlepiej ustawić VPN na Windows.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VPN na Windows — konfiguracja i optymalne ustawienia">
-<meta property="og:description" content="Aplikacja czy wbudowany klient? Protokół, kill switch, DNS i testy.">
+<meta property="og:description" content="Aplikacja vs klient Windows, protokoły, kill switch, DNS, testy i autostart.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-windows-konfiguracja.webp">
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div></nav>
+<nav class="nav"><div class="inner">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div>
+</div></nav>
+
 <main class="wrap article">
   <h1>VPN na Windows — konfiguracja i optymalne ustawienia</h1>
-  <div class="hero"><img src="/assets/img/hero/vpn-windows-konfiguracja.webp" alt="Konfiguracja VPN na Windows" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
+  <div class="hero">
+    <img src="/assets/img/hero/vpn-windows-konfiguracja.webp" alt="Konfiguracja VPN na Windows" loading="lazy"
+         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
+  </div>
 
   <h2>Dwie drogi konfiguracji</h2>
   <ol>
-    <li><strong>Aplikacja dostawcy:</strong> najszybsza, pełna funkcji (kill switch, split tunneling, blokada trackerów).</li>
-    <li><strong>Wbudowany klient Windows:</strong> minimalna kontrola, dobra do IKEv2/L2TP, ale mniej wygodna.</li>
+    <li><strong>Aplikacja dostawcy</strong> — pełnia funkcji (kill switch, split tunneling, blokada trackerów).</li>
+    <li><strong>Wbudowany klient Windows</strong> — minimalna kontrola, dobry do IKEv2/L2TP.</li>
   </ol>
 
   <h2>Ustawienia, które warto włączyć</h2>
   <ul>
-    <li>Protokół WireGuard/NordLynx lub IKEv2.</li>
-    <li>Kill switch + blokada wycieków DNS.</li>
-    <li>Autostart i automatyczne łączenie przy starcie.</li>
+    <li>WireGuard/NordLynx lub IKEv2.</li>
+    <li>Kill switch + DNS leak protection.</li>
+    <li>Autostart i auto-łączenie przy starcie.</li>
   </ul>
 
-  <h2>Test działania</h2>
-  <p>Sprawdź IP, uruchom test DNS i wykonaj krótki test prędkości. Przy problemach zmień lokalizację serwera lub protokół.</p>
-
-  <section class="cta cta-mounted">
+  <div class="cta cta-mounted">
     <h2>Najłatwiejsza konfiguracja na Windows</h2>
-    <p class="muted">Pełny zestaw funkcji i najwyższe prędkości.</p>
+    <p class="muted">Pełny zestaw funkcji i bardzo dobre prędkości.</p>
     <div class="btns">
-      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na Windows</a>
-      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Plan i ceny</a>
+      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na Windows</a>
+      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Plan i ceny</a>
     </div>
-  </section>
+  </div>
 
   <h2>Powiązane poradniki</h2>
   <ul>
@@ -51,10 +57,11 @@
     <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
   </ul>
 </main>
+
 <footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-<script src="/assets/affiliates.js"></script>
+
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN na Windows — konfiguracja i optymalne ustawienia","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"},"image":"https://dloran1.github.io/assets/img/hero/vpn-windows-konfiguracja.webp","description":"Jak skonfigurować VPN na Windows: aplikacja dostawcy vs wbudowany klient, protokoły, kill switch, DNS i testy."}
+{"@context":"https://schema.org","@type":"Article","headline":"VPN na Windows — konfiguracja i optymalne ustawienia","description":"Aplikacja dostawcy czy wbudowany klient? Protokół, kill switch, DNS i testy — jak najlepiej ustawić VPN na Windows.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
 </script>
 </body>
 </html>
