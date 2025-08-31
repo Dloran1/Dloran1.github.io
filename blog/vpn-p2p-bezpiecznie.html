@@ -1,35 +1,31 @@
-<!doctype html>
-<html lang="pl">
-<head>
-<meta charset="utf-8">
-<title>P2P z VPN – jak pobierać bezpieczniej i bez wycieków</title>
-<meta name="description" content="Konfiguracja klienta P2P z VPN: Kill Switch, powiązanie aplikacji, port forwarding i wybór krajów przyjaznych P2P.">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN i P2P — jak pobierać bezpiecznie</title>
+<meta name="description" content="Zasady bezpiecznego P2P z VPN: wybór serwera, wycieki DNS, porty, limity i ochrona prywatności.">
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
-<meta property="og:title" content="P2P z VPN – jak pobierać bezpieczniej i bez wycieków">
-<meta property="og:description" content="Praktyczny poradnik konfiguracji i dobrych praktyk.">
-<meta property="og:type" content="article">
+<meta property="og:type" content="article"><meta property="og:title" content="VPN i P2P — jak pobierać bezpiecznie">
+<meta property="og:description" content="Bezpieczne P2P z VPN: serwery, ustawienia, testy i prywatność.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
-<meta name="twitter:card" content="summary_large_image">
-<style>:root{--bg:#0b0e12;--card:#141821;--txt:#e9eef5;--accent:#ff2d55}body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.7 system-ui}a{color:#7ab7ff}header{background:#000;padding:18px 20px}.wrap{max-width:880px;margin:0 auto;padding:28px 18px}h1{color:var(--accent);font-size:34px}.card{background:var(--card);border-radius:12px;padding:16px 18px;margin:14px 0}</style>
-</head>
-<body>
-<header><nav><a href="/">Strona główna</a> · <a href="/blog.html">Blog</a> · <a href="/kontakt.html">Kontakt</a></nav></header>
-<main class="wrap">
-<h1>P2P z VPN – jak pobierać bezpieczniej i bez wycieków</h1>
-<p>Do P2P warto skonfigurować VPN tak, aby żaden pakiet nie wyszedł poza tunel.</p>
-
-<div class="card">
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<link rel="stylesheet" href="/assets/style.css"></head><body>
+<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
+<main class="wrap article">
+<h1>VPN i P2P — jak pobierać bezpiecznie</h1>
+<div class="hero"><img src="/assets/img/hero/vpn-p2p-bezpiecznie.webp" alt="VPN i P2P bezpiecznie" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
 <h2>Kluczowe ustawienia</h2>
-<ul>
-<li><strong>Kill Switch</strong> – obowiązkowo.</li>
-<li><strong>Powiązanie aplikacji</strong> – uruchom klienta P2P tylko gdy VPN jest aktywny.</li>
-<li><strong>Port Forwarding</strong> – jeśli dostawca oferuje, zwiększa liczbę peerów.</li>
-<li>Serwery przyjazne P2P (zwykle oznaczone w aplikacji).</li>
-</ul>
-</div>
-
-<p>Po włączeniu sprawdź swoje IP w kliencie P2P oraz test wycieków DNS. Jeśli prędkość spada – zmień protokół lub kraj serwera.</p>
+<ul><li>Włącz <strong>kill switch</strong> i blokadę DNS leak.</li>
+<li>Wybierz serwery oznaczone jako <strong>P2P</strong>.</li>
+<li>Preferuj <strong>WireGuard</strong> dla prędkości.</li></ul>
+<h2>Testy i diagnostyka</h2>
+<p>Sprawdź IP w kliencie P2P oraz czy wszystkie zapytania DNS idą przez serwer VPN. W razie problemów zmień lokalizację/port/protokół.</p>
+<section class="cta cta-mounted"><h2>Serwery przyjazne P2P</h2><p class="muted">Szybkie łącza i brak limitów transferu.</p>
+<div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
+<a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Lista serwerów</a></div></section>
+<h2>Powiązane artykuły</h2>
+<ul><li><a href="/blog/vpn-port-forwarding.html">Port forwarding w VPN</a></li>
+<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości</a></li>
+<li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li></ul>
 </main>
-</body>
-</html>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"VPN i P2P — jak pobierać bezpiecznie","description":"Zasady bezpiecznego P2P z VPN: wybór serwera, wycieki DNS, porty, limity i ochrona prywatności.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}</script>
+</body></html>
