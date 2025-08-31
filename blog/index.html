@@ -1,149 +1,114 @@
-<!doctype html><html lang="pl"><head>
+<!doctype html>
+<html lang="pl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog VPN — poradniki, testy, konfiguracje</title>
-<meta name="description" content="Wszystkie artykuły: konfiguracje VPN na Android/iPhone/Windows, bezpieczeństwo Wi-Fi, Kill Switch, geoblokady, torrent, praca zdalna i więcej.">
+<title>Blog – VPN Polska</title>
+<meta name="description" content="Poradniki, testy i konfiguracje VPN — zebrane w jednym miejscu.">
 <link rel="canonical" href="https://dloran1.github.io/blog/index.html">
 <link rel="stylesheet" href="/assets/style.css">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Blog VPN — poradniki, testy, konfiguracje">
-<meta property="og:description" content="Zebrane w jednym miejscu: poradniki i testy VPN.">
+<meta property="og:title" content="Blog – VPN Polska">
+<meta property="og:description" content="Poradniki, testy i konfiguracje VPN.">
 <meta property="og:url" content="https://dloran1.github.io/blog/index.html">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"CollectionPage",
-  "name":"Blog VPN — poradniki, testy, konfiguracje",
-  "url":"https://dloran1.github.io/blog/index.html"
-}
-</script>
-<style>
-/* мини-стили карточек списка, чтобы сразу выглядело аккуратно */
-.postlist{display:grid;gap:20px}
-.post{padding:16px;border:1px solid #eee;border-radius:12px}
-.post h2{margin:0 0 6px}
-.post p{margin:0 0 10px}
-.badge{display:inline-block;font-size:.8rem;padding:2px 8px;border-radius:999px;border:1px solid #ddd}
-.search{margin:0 0 20px}
-.search input{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:10px}
-</style>
-</head><body>
-
-<nav class="wrap small"><a href="/index.html">Strona główna</a> • <strong>Blog</strong></nav>
+</head>
+<body>
+<nav class="nav"><div class="inner">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu"><a href="/">Strona główna</a><strong>Blog</strong></div>
+</div></nav>
 
 <header class="wrap">
   <h1>Blog</h1>
-  <p>Poradniki, testy i konfiguracje VPN — wszystko w jednym miejscu.</p>
+  <p class="muted">Poradniki, testy i konfiguracje VPN — wszystko w jednym miejscu.</p>
 </header>
 
 <main class="wrap">
-  <div class="search">
-    <input id="q" type="search" placeholder="Szukaj po tytule…">
-  </div>
+  <div class="search"><input id="q" type="search" placeholder="Szukaj po tytułach…"></div>
   <div id="list" class="postlist" aria-live="polite"></div>
 </main>
 
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
 
 <script>
-/* СЛУГИ ВСЕХ СТАТЕЙ — добавил всё, что видно на твоих скринах */
-const POSTS = [
-  "co-to-jest-vpn",
-  "darmowe-vs-platne-vpn",
-  "darmowy-vpn-polska",
-  "dlaczego-vpn-2025",
-  "jaki-serwer-vpn-wybrac",
-  "jaki-serwer-vpn",
-  "mity-o-vpn",
-  "no-logs",
-  "nordvpn-vs-surfshark-pl",
-  "player-tvp-vpn",
-  "test-vpn",
-  "vpn-android-konfiguracja",
-  "vpn-iphone-konfiguracja",
-  "vpn-windows-konfiguracja",
-  "vpn-kill-switch",
-  "vpn-geoblokady",
-  "vpn-netflix-polska",
-  "vpn-dns-leak",
-  "vpn-double-vpn",
-  "vpn-publiczne-wifi",
-  "vpn-split-tunneling",
-  "vpn-port-forwarding",
-  "vpn-praca-zdalna",
-  "vpn-szybkosc-test",
-  "vpn-torrent",
-  "vpn-torrent-polska",
-  "wifi-bezpieczenstwo",
-  "wireguard-vs-openvpn",
-  "zalety-vpn",
-  "vpn-kontrola-routera",
-  "vpn-optymalne-ustawienia",
-  "vpn-p2p-bezpiecznie",
-  "vpn-dla-apple-tv",
-  "vpn-dla-firm-msp",
-  "vpn-dla-graczy",
-  "vpn-dla-konsol-ps5-xbox",
-  "vpn-dla-smart-tv",
-  "vpn-bankowosc-online",
-  "vpn-a-prawo-w-polsce"
-];
-
-/* Заголовок из слуга: заменяем дефисы и капитализируем */
-function titleFromSlug(slug){
-  const map = {
-    'vpn':'VPN','ios':'iOS','iphone':'iPhone','android':'Android',
-    'tvp':'TVP','ps5':'PS5','xbox':'Xbox','dns':'DNS','vod':'VOD',
-    'wireguard':'WireGuard','openvpn':'OpenVPN','smart':'Smart'
-  };
-  return slug.split('-').map(w=>{
-    return map[w] || w.charAt(0).toUpperCase()+w.slice(1);
-  }).join(' ');
-}
-
-/* Небольшие подсказки-описания по ключевым слугам (необязательные) */
-const hints = {
-  "co-to-jest-vpn":"Podstawy i zasada działania VPN.",
-  "darmowe-vs-platne-vpn":"Różnice, bezpieczeństwo i limity.",
-  "vpn-android-konfiguracja":"Instrukcja i bezpieczne ustawienia.",
-  "vpn-iphone-konfiguracja":"Szybka konfiguracja na iOS.",
-  "vpn-windows-konfiguracja":"Ustawienia na Windows.",
-  "vpn-kill-switch":"Blokada ruchu poza tunelem.",
-  "vpn-geoblokady":"Jak obchodzić blokady regionalne.",
-  "vpn-dns-leak":"Test i naprawa wycieków DNS.",
-  "vpn-publiczne-wifi":"Zasady bezpieczeństwa w sieciach publicznych.",
-  "vpn-split-tunneling":"Kiedy wykluczać aplikacje z VPN.",
-  "vpn-torrent":"P2P — jak korzystać bezpiecznie.",
-  "wireguard-vs-openvpn":"Porównanie protokołów."
+/* ЕДИНОЕ место для офферов (на будущее) */
+window.AFF = window.AFF || {
+  nordvpn: "https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
 };
 
-/* Рендер */
-const list = document.getElementById('list');
-function render(filter=""){
-  list.innerHTML = "";
-  const f = filter.trim().toLowerCase();
-  const items = POSTS
-    .filter(s => !f || titleFromSlug(s).toLowerCase().includes(f))
-    .map(s => {
-      const a = document.createElement('article');
-      a.className = 'post';
-      a.innerHTML = `
-        <h2><a href="/blog/${s}.html">${titleFromSlug(s)}</a></h2>
-        <p>${hints[s] || "Poradnik i wskazówki praktyczne."}</p>
-        <p><a class="badge" href="/blog/${s}.html" aria-label="Czytaj dalej: ${titleFromSlug(s)}">Czytaj dalej</a></p>
-      `;
-      return a;
-    });
-  if(items.length===0){
-    const none = document.createElement('p'); none.textContent = "Brak wyników.";
-    list.appendChild(none);
-  }else{
-    items.forEach(n=>list.appendChild(n));
-  }
+/* Список статей: slug + заголовок (можешь дополнять) */
+const POSTS = [
+  {slug:"co-to-jest-vpn",title:"Co to jest VPN?"},
+  {slug:"darmowe-vs-platne-vpn",title:"Darmowe vs płatne VPN"},
+  {slug:"darmowy-vpn-polska",title:"Darmowy VPN w Polsce"},
+  {slug:"dlaczego-vpn-2025",title:"Dlaczego VPN w 2025 roku?"},
+  {slug:"jaki-serwer-vpn-wybrac",title:"Jaki serwer VPN wybrać"},
+  {slug:"jaki-serwer-vpn",title:"Jaki serwer VPN (poradnik)"},
+  {slug:"mity-o-vpn",title:"Mity o VPN — fakty i rzeczywistość"},
+  {slug:"no-logs",title:"Polityka no-logs"},
+  {slug:"nordvpn-vs-surfshark-pl",title:"NordVPN vs Surfshark"},
+  {slug:"player-tvp-vpn",title:"TVP / Player z VPN"},
+  {slug:"test-vpn",title:"Test prędkości VPN"},
+  {slug:"vpn-android-konfiguracja",title:"VPN na Android — konfiguracja"},
+  {slug:"vpn-iphone-konfiguracja",title:"VPN na iPhone — konfiguracja"},
+  {slug:"vpn-windows-konfiguracja",title:"VPN na Windows — konfiguracja"},
+  {slug:"vpn-kill-switch",title:"Kill Switch — jak działa"},
+  {slug:"vpn-geoblokady",title:"Omijanie blokad geograficznych"},
+  {slug:"vpn-netflix-polska",title:"VPN i Netflix w Polsce"},
+  {slug:"vpn-dns-leak",title:"DNS leak — jak sprawdzić"},
+  {slug:"vpn-double-vpn",title:"Double VPN — co to?"},
+  {slug:"vpn-publiczne-wifi",title:"VPN w publicznym Wi-Fi"},
+  {slug:"vpn-split-tunneling",title:"Split tunneling — jak używać"},
+  {slug:"vpn-port-forwarding",title:"Port forwarding z VPN"},
+  {slug:"vpn-praca-zdalna",title:"VPN do pracy zdalnej"},
+  {slug:"vpn-szybkosc-test",title:"Jak testować szybkość VPN"},
+  {slug:"vpn-torrent",title:"VPN i torrenty: poradnik"},
+  {slug:"vpn-torrent-polska",title:"VPN i torrenty w Polsce"},
+  {slug:"wifi-bezpieczenstwo",title:"Bezpieczeństwo Wi-Fi"},
+  {slug:"wireguard-vs-openvpn",title:"WireGuard vs OpenVPN"},
+  {slug:"zalety-vpn",title:"Zalety VPN"},
+  {slug:"vpn-kontrola-routera",title:"VPN na routerze — dodatkowa ochrona"},
+  {slug:"vpn-optymalne-ustawienia",title:"Optymalne ustawienia VPN"},
+  {slug:"vpn-p2p-bezpiecznie",title:"P2P/Torrenty bezpiecznie"},
+  {slug:"vpn-dla-apple-tv",title:"VPN dla Apple TV"},
+  {slug:"vpn-dla-firm-msp",title:"VPN dla firm (SMB)"},
+  {slug:"vpn-dla-graczy",title:"VPN dla graczy"},
+  {slug:"vpn-dla-konsol-ps5-xbox",title:"VPN na konsole (PS5/Xbox)"},
+  {slug:"vpn-dla-smart-tv",title:"VPN dla Smart TV"},
+  {slug:"vpn-bankowosc-online",title:"VPN a bankowość online"},
+  {slug:"vpn-a-prawo-w-polsce",title:"VPN a prawo w Polsce"}
+];
+
+/* Рендер карточек. Пытаемся загрузить миниатюру по слагу; если ошибки — ставим placeholder */
+function card(post){
+  const href = `/blog/${post.slug}.html`;
+  const thumb = `/assets/img/thumbs/${post.slug}.webp`;
+  const fallback = `/assets/img/thumbs/placeholder.webp`;
+  return `
+  <article class="card">
+    <a class="thumb" href="${href}">
+      <img src="${thumb}" alt="${post.title}"
+           loading="lazy"
+           onerror="this.onerror=null;this.src='${fallback}'">
+    </a>
+    <h3><a href="${href}">${post.title}</a></h3>
+    <p class="muted">Poradnik i praktyczne wskazówki dotyczące VPN.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="${href}">Czytaj dalej</a>
+    </div>
+  </article>`;
 }
-render();
+
+const list = document.getElementById('list');
+function render(arr){ list.innerHTML = arr.map(card).join(''); }
+render(POSTS);
 
 /* Поиск */
-document.getElementById('q').addEventListener('input', e=>render(e.target.value));
+document.getElementById('q').addEventListener('input', e=>{
+  const q = e.target.value.trim().toLowerCase();
+  if(!q){ render(POSTS); return; }
+  render(POSTS.filter(p=>p.title.toLowerCase().includes(q)));
+});
 </script>
-</body></html>
+</body>
+</html>
