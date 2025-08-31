@@ -1,47 +1,74 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN do pracy zdalnej — praktyczne ustawienia</title>
-<meta name="description" content="Stabilny VPN do pracy: wybór protokołu, serwera, split tunneling i dobre praktyki bezpieczeństwa.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki</title>
+<meta name="description" content="Jak skonfigurować VPN do pracy zdalnej: szyfrowanie, dostęp do zasobów firmowych, split tunneling, MFA i polityki bezpieczeństwa.">
+<link rel="canonical" href="/blog/vpn-praca-zdalna.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPN do pracy zdalnej — praktyczne ustawienia">
-<meta property="og:description" content="Jak ustawić VPN, aby połączenia firmowe były stabilne i bezpieczne.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-work.png">
+<meta property="og:title" content="VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki">
+<meta property="og:description" content="Praktyczny poradnik: VPN w pracy zdalnej, konfiguracje, checklisty i typowe błędy.">
+<meta property="og:url" content="/blog/vpn-praca-zdalna.html">
+<meta property="og:image" content="/assets/img/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div></nav>
-<main class="article">
-  <div class="breadcrumbs"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div>
-  <h1>VPN do pracy zdalnej — praktyczne ustawienia</h1>
-  <p class="meta">Aktualizacja: 2025-08-29 • Czas czytania: 6 min</p>
+<nav class="nav">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu">
+    <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+  </div>
+</nav>
 
-  <h2>Protokół i serwer</h2>
-  <p>Priorytetem jest stabilność: <strong>OpenVPN TCP 443</strong> lub WireGuard z MTU dostosowanym do łącza (czasem 1420–1450). Wybieraj serwery bliskie geograficznie.</p>
+<main class="wrap">
+  <h1>VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki</h1>
+  <p>Praca zdalna wymaga stabilnego połączenia i ochrony danych. Odpowiednio skonfigurowany VPN zapewnia szyfrowanie, spójne polityki dostępu i bezpieczne łączenie z zasobami firmy.</p>
 
-  <h2>Split tunneling</h2>
-  <p>Ruch służbowy przez VPN, reszta lokalnie — mniejsze opóźnienia i mniej konfliktów z aplikacjami.</p>
-
-  <section class="cta">
-    <h2>Prosty start bez kombinacji</h2>
-    <ul class="cta-list"><li>Aplikacje na każdy system</li><li>Stałe serwery w UE</li><li>Wsparcie 24/7</li></ul>
+  <div class="cta">
+    <h2>Stabilny VPN do pracy</h2>
+    <ul class="cta-list">
+      <li>Szybkie protokoły (WireGuard)</li>
+      <li>Dedykowane aplikacje na PC/Mac/Telefon</li>
+      <li>30 dni na testy</li>
+    </ul>
     <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="sponsored nofollow noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/jaki-serwer-vpn-wybrac.html">Dobór serwera</a>
+      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Kup NordVPN</a>
+      <a class="btn btn-ghost" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Zobacz plan</a>
     </div>
-    <p class="cta-note">Link partnerski.</p>
-  </section>
+    <p class="cta-note">* Link afiliacyjny.</p>
+    <noscript><a class="cta-mounted" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">NordVPN</a></noscript>
+  </div>
 
-  <h2>Dobre praktyki</h2>
+  <h2>Checklist konfiguracji</h2>
   <ul>
-    <li>2FA i menedżer haseł, aktualizacje systemu</li>
-    <li>Wyłącz autostart zbędnych aplikacji podczas wideokonferencji</li>
+    <li>Protokół: <strong>WireGuard</strong> (lub IKEv2/OpenVPN TCP 443 gdy wymagane).</li>
+    <li><strong>MFA</strong> do dostępu (token/app).</li>
+    <li><strong>Split tunneling</strong> dla aplikacji niezwiązanych z pracą (opcjonalnie).</li>
+    <li>Blokada wycieków DNS, <strong>kill-switch</strong> włączony.</li>
+    <li>Aktualne klienty i polityki haseł.</li>
+  </ul>
+
+  <h2>Typowe błędy</h2>
+  <ul>
+    <li>Stałe udostępnianie drukarek/udostępnianie SMB w sieciach publicznych.</li>
+    <li>Brak wymuszenia szyfrowania DNS.</li>
+    <li>Wyłączony kill-switch podczas delegowania połączeń.</li>
+  </ul>
+
+  <h3>Powiązane artykuły</h3>
+  <ul>
+    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
+    <li><a href="/blog/vpn-windows-konfiguracja.html">Konfiguracja VPN na Windows</a></li>
+    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
   </ul>
 </main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-</body></html>
+
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<script src="/assets/affiliates.js"></script>
+</body>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki","datePublished":"2025-08-29","dateModified":"2025-08-29","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"/blog/vpn-praca-zdalna.html"},"image":"/assets/img/og-default.jpg","description":"Jak skonfigurować VPN do pracy zdalnej: szyfrowanie, dostęp do zasobów firmowych, split tunneling, MFA i dobre praktyki."}
+</script>
+</html>
