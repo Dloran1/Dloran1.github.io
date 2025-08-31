@@ -1,32 +1,110 @@
-<!doctype html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2FA/MFA z VPN — dodatkowa warstwa ochrony</title>
-<meta name="description" content="Dlaczego warto włączyć 2FA/MFA w usługach używanych z VPN. Aplikacje TOTP, klucze sprzętowe, dobre praktyki.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-2fa-mfa.html">
-<meta property="og:type" content="article"><meta property="og:title" content="2FA/MFA z VPN — poradnik">
-<meta property="og:description" content="Jak dobrać metodę 2FA, gdzie ją włączyć i jak zabezpieczyć kody zapasowe.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-2fa-mfa.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"2FA/MFA z VPN — dodatkowa warstwa ochrony","author":{"@type":"Person","name":"VPN Polska"},"publisher":{"@type":"Organization","name":"VPN Polska"},"datePublished":"2025-08-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-2fa-mfa.html"}}</script>
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a> <div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div></nav>
-<main class="wrap">
-<h1>2FA/MFA z VPN</h1>
-<ul>
-<li>Włącz w poczcie, banku, chmurze, komunikatorach.</li>
-<li>Najbezpieczniej: klucze U2F/FIDO; kompromis: aplikacje TOTP.</li>
-<li>Przechowuj kody zapasowe offline.</li>
-</ul>
-<section class="cta" id="cta-2fa">
-  <h2>Zacznij od podstaw</h2>
-  <div class="btns">
-    <a class="btn btn-primary" rel="nofollow sponsored"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-    <a class="btn btn-ghost" href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a>
-  </div><p class="cta-note">Link partnerski — bez dopłaty.</p>
-</section>
-</main>
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-<script src="/assets/affiliates.js"></script></body></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN + 2FA/MFA – dlaczego warto podwójne uwierzytelnianie?</title>
+  <meta name="description" content="2FA i MFA z VPN to dodatkowa warstwa ochrony logowania. Sprawdź, jak działa podwójne uwierzytelnianie i dlaczego warto włączyć je w 2025 roku.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-2fa-mfa.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN + 2FA/MFA – dodatkowa ochrona logowania">
+  <meta property="og:description" content="VPN i podwójne uwierzytelnianie (2FA/MFA) = bezpieczniejsze logowanie.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-2fa-mfa.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-2fa-mfa.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN + 2FA/MFA – dodatkowa ochrona logowania">
+  <meta name="twitter:description" content="Dlaczego 2FA i MFA zwiększają bezpieczeństwo przy korzystaniu z VPN?">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-2fa-mfa.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN + 2FA/MFA – dlaczego warto podwójne uwierzytelnianie?",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-08-31",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-2fa-mfa.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-2fa-mfa.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>VPN + 2FA/MFA – dlaczego warto?</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-2fa-mfa.webp" alt="VPN i podwójne uwierzytelnianie 2FA/MFA" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p><strong>VPN szyfruje Twoje połączenie</strong>, ale to nie koniec ochrony. Jeśli Twoje hasło wycieknie, ktoś może spróbować zalogować się do Twojego konta VPN lub usługi online. Tu wchodzi <strong>2FA/MFA</strong>, czyli dodatkowy krok przy logowaniu.</p>
+
+      <section class="cta">
+        <h2>Zabezpiecz logowanie od razu</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN z 2FA</a>
+          <a class="btn btn-ghost" href="/blog/no-logs.html">VPN bez logów</a>
+        </div>
+        <p class="cta-note">Partner — bez dodatkowych kosztów dla Ciebie.</p>
+      </section>
+
+      <h2>Czym jest 2FA i MFA?</h2>
+      <ul>
+        <li><strong>2FA (Two-Factor Authentication)</strong> – logowanie wymaga hasła + drugiego czynnika (np. SMS, aplikacja, klucz sprzętowy).</li>
+        <li><strong>MFA (Multi-Factor Authentication)</strong> – rozszerzenie 2FA: kilka możliwych warstw (biometria, token, powiadomienie push).</li>
+      </ul>
+
+      <h2>Dlaczego VPN + 2FA to mocny duet?</h2>
+      <ol>
+        <li>VPN szyfruje ruch i ukrywa IP.</li>
+        <li>2FA blokuje dostęp nawet przy wycieku hasła.</li>
+        <li>Razem tworzą kompleksową ochronę logowania i aktywności online.</li>
+      </ol>
+
+      <h2>Najczęstsze formy 2FA/MFA</h2>
+      <ul>
+        <li>Kody SMS lub e-mail.</li>
+        <li>Aplikacje (Google Authenticator, Authy, Microsoft Authenticator).</li>
+        <li>Klucze sprzętowe U2F/FIDO2 (np. YubiKey).</li>
+        <li>Biometria (odcisk palca, FaceID).</li>
+      </ul>
+
+      <h2>Jak włączyć 2FA dla VPN?</h2>
+      <p>Większość topowych dostawców VPN (w tym <strong>NordVPN</strong>) wspiera 2FA. Włączasz je w ustawieniach konta, parując aplikację mobilną (np. Authenticator) i generując kody zapasowe.</p>
+
+      <h2>Podsumowanie</h2>
+      <p><strong>VPN bez 2FA</strong> chroni tylko ruch, ale nie samo konto. <strong>VPN + 2FA</strong> daje Ci realną kontrolę i odporność na przejęcie danych logowania.</p>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/no-logs.html">VPN bez logów</a></li>
+          <li><a href="/blog/bezpieczenstwo-wifi.html">VPN i bezpieczeństwo Wi-Fi</a></li>
+          <li><a href="/blog/mity-o-vpn.html">Mity o VPN</a></li>
+          <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS – jak sprawdzić?</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
