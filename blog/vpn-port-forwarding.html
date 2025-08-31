@@ -1,39 +1,69 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VPN i Port Forwarding — jak to działa?</title>
-  <meta name="description" content="Dowiedz się, czym jest port forwarding w VPN, kiedy się go używa i jakie są zagrożenia.">
-  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-port-forwarding.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN i Port Forwarding — jak to działa?">
-  <meta property="og:description" content="Dowiedz się, czym jest port forwarding w VPN, kiedy się go używa i jakie są zagrożenia.">
-  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-port-forwarding.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/assets/style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Port forwarding w VPN — kiedy warto i jak to zrobić</title>
+<meta name="description" content="Czym jest port forwarding w VPN, do czego służy (P2P, zdalny dostęp, gry), jakie są ryzyka i bezpieczne alternatywy.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-port-forwarding.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Port forwarding w VPN — kiedy warto i jak to zrobić">
+<meta property="og:description" content="Wyjaśniamy port forwarding w VPN: zastosowania, ryzyka, konfiguracje i bezpieczne obejścia.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-port-forwarding.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <article class="post">
-    <h1>VPN i Port Forwarding — jak to działa?</h1>
-    <div class="hero">
-      <img src="/assets/img/hero/vpn-port-forwarding.webp" alt="VPN i port forwarding" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-    </div>
-    <p><strong>Port forwarding</strong> to funkcja VPN, która pozwala na przekierowanie ruchu sieciowego z jednego portu na inny. Używana jest głównie przez graczy online i osoby udostępniające pliki.</p>
-    <h2>Kiedy warto używać port forwarding?</h2>
-    <ul>
-      <li>Do poprawy prędkości w P2P (np. torrenty).</li>
-      <li>Przy hostowaniu własnych serwerów gier.</li>
-      <li>Do zdalnego dostępu do urządzeń.</li>
-    </ul>
-    <h2>Jakie są ryzyka?</h2>
-    <p>Port forwarding otwiera „furtkę” w twoim połączeniu. Jeśli jest źle skonfigurowany, może narazić cię na ataki. Dlatego ważne jest, by korzystać z bezpiecznego VPN.</p>
+<nav class="nav"><div class="inner">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div>
+</div></nav>
 
-    <div class="cta">
-      <p>Zadbaj o bezpieczny port forwarding z <strong>NordVPN</strong>:</p>
-      <a href="TWÓJ_LINK_NORDVPN" class="btn">Kup VPN z rabatem</a>
+<main class="wrap article">
+  <h1>Port forwarding w VPN — kiedy warto i jak to zrobić</h1>
+  <div class="hero">
+    <img src="/assets/img/hero/vpn-port-forwarding.webp" alt="Port forwarding w VPN" loading="lazy"
+         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
+  </div>
+
+  <p>Przekierowanie portów pozwala kierować ruch z internetu na wskazany port urządzenia za NAT. Przydaje się w P2P, zdalnym dostępie czy grach, ale niesie ryzyko „wystawienia” usługi na świat.</p>
+
+  <h2>Do czego się używa</h2>
+  <ul>
+    <li><strong>P2P/seedbox</strong> — lepsza łączność z peerami.</li>
+    <li><strong>Zdalny dostęp</strong> — NAS, serwer domowy, kamera.</li>
+    <li><strong>Gry</strong> — stabilniejsze sesje peer-to-peer.</li>
+  </ul>
+
+  <h2>Bezpieczne alternatywy</h2>
+  <ul>
+    <li>Reverse proxy lub sieci overlay (Tailscale/ZeroTier).</li>
+    <li>Tylko dostęp wewnątrz LAN + łączenie do LAN przez VPN.</li>
+  </ul>
+
+  <div class="cta cta-mounted">
+    <h2>Chcesz szybki i stabilny VPN?</h2>
+    <p class="muted">Szybkie serwery, własne DNS, audyty no-logs.</p>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup VPN z rabatem</a>
+      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
     </div>
-  </article>
+  </div>
+
+  <h2>Powiązane artykuły</h2>
+  <ul>
+    <li><a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P bezpiecznie</a></li>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+    <li><a href="/blog/vpn-geoblokady.html">Omijanie geoblokad</a></li>
+  </ul>
+</main>
+
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Port forwarding w VPN — kiedy warto i jak to zrobić","description":"Czym jest port forwarding w VPN, do czego służy (P2P, zdalny dostęp, gry), jakie są ryzyka i bezpieczne alternatywy.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-port-forwarding.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
+</script>
 </body>
 </html>
