@@ -1,39 +1,69 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jak przetestować prędkość VPN?</title>
-  <meta name="description" content="VPN czasem spowalnia internet. Dowiedz się, jak sprawdzić prędkość VPN i poprawić jakość połączenia.">
-  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Jak przetestować prędkość VPN?">
-  <meta property="og:description" content="VPN czasem spowalnia internet. Dowiedz się, jak sprawdzić prędkość VPN i poprawić jakość połączenia.">
-  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/assets/style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test prędkości VPN — jak mierzyć i przyspieszyć połączenie</title>
+<meta name="description" content="Jak prawidłowo testować prędkość VPN (download, upload, ping) oraz które ustawienia i protokoły dają najlepsze wyniki.">
+<link rel="canonical" href="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test prędkości VPN — jak mierzyć i przyspieszyć połączenie">
+<meta property="og:description" content="Metody pomiaru, czynniki wpływające na wyniki i triki na przyspieszenie VPN.">
+<meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <article class="post">
-    <h1>Jak przetestować prędkość VPN?</h1>
-    <div class="hero">
-      <img src="/assets/img/hero/vpn-szybkosc-test.webp" alt="Test prędkości VPN" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-    </div>
-    <p>Korzystając z VPN możesz zauważyć spadek prędkości internetu. To normalne, ale ważne jest, aby wiedzieć, jak sprawdzić, czy wszystko działa poprawnie.</p>
-    <h2>Jak przetestować VPN?</h2>
-    <ol>
-      <li>Wyłącz VPN i wykonaj test na speedtest.net.</li>
-      <li>Włącz VPN i powtórz test.</li>
-      <li>Porównaj wyniki, aby sprawdzić różnice.</li>
-    </ol>
-    <h2>Co wpływa na prędkość?</h2>
-    <p>Odległość serwera, obciążenie sieci i protokół VPN mogą wpływać na prędkość połączenia.</p>
+<nav class="nav"><div class="inner">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div>
+</div></nav>
 
-    <div class="cta">
-      <p>Wybierz szybkie serwery w <strong>NordVPN</strong> i ciesz się pełną prędkością:</p>
-      <a href="TWÓJ_LINK_NORDVPN" class="btn">Kup VPN z rabatem</a>
+<main class="wrap article">
+  <h1>Test prędkości VPN — jak mierzyć i przyspieszyć połączenie</h1>
+  <div class="hero">
+    <img src="/assets/img/hero/vpn-szybkosc-test.webp" alt="Test prędkości VPN" loading="lazy"
+         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
+  </div>
+
+  <h2>Jak testować poprawnie</h2>
+  <ol>
+    <li>Pomiar <strong>bez VPN</strong> jako punkt odniesienia.</li>
+    <li>Włącz VPN i wybierz <strong>najbliższą lokalizację</strong>.</li>
+    <li>Porównaj protokoły: WireGuard &gt; IKEv2 &gt; OpenVPN.</li>
+    <li>Powtórz testy o różnych porach dnia.</li>
+  </ol>
+
+  <h2>Co najbardziej wpływa na prędkość</h2>
+  <ul>
+    <li>Odległość do serwera i trasa routingu.</li>
+    <li>Protokół i implementacja (WireGuard zwykle najszybszy).</li>
+    <li>Wydajność CPU/SoC (routery są wrażliwe).</li>
+  </ul>
+
+  <div class="cta cta-mounted">
+    <h2>Szybki VPN bez kombinacji</h2>
+    <p class="muted">NordLynx (WireGuard), dużo serwerów w PL i UE.</p>
+    <div class="btns">
+      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
+      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz wyniki</a>
     </div>
-  </article>
+  </div>
+
+  <h2>Powiązane artykuły</h2>
+  <ul>
+    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+    <li><a href="/blog/test-vpn.html">Jak testujemy VPN</a></li>
+    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
+  </ul>
+</main>
+
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Test prędkości VPN — jak mierzyć i przyspieszyć połączenie","description":"Jak prawidłowo testować prędkość VPN (download, upload, ping) i które ustawienia/protokoły dają najlepsze wyniki.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
+</script>
 </body>
 </html>
