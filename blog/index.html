@@ -1,50 +1,149 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog o VPN</title>
-  <meta name="description" content="Poradniki i artykuły o VPN: bezpieczeństwo, prywatność, konfiguracja i testy. Wszystko, co musisz wiedzieć o VPN w Polsce.">
-  <link rel="canonical" href="https://dloran1.github.io/blog/">
-  <style>
-    body { margin:0; font-family: system-ui, sans-serif; background:#0e0f12; color:#e9eef5; }
-    header,footer { background:#000; padding:12px; text-align:center; }
-    .wrap { max-width:1000px; margin:0 auto; padding:20px; }
-    h1 { color:#ff264d; }
-    .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:16px; margin-top:20px; }
-    .card { background:#16181d; border:1px solid #242833; padding:14px; border-radius:8px; }
-    .card h3 a { color:#60a5fa; text-decoration:none; }
-    .card h3 a:hover { text-decoration:underline; }
-    .meta { font-size:0.9em; color:#aaa; margin:6px 0; }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="/">Strona główna</a> · <a href="/kontakt.html">Kontakt</a>
-  </header>
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog VPN — poradniki, testy, konfiguracje</title>
+<meta name="description" content="Wszystkie artykuły: konfiguracje VPN na Android/iPhone/Windows, bezpieczeństwo Wi-Fi, Kill Switch, geoblokady, torrent, praca zdalna i więcej.">
+<link rel="canonical" href="https://dloran1.github.io/blog/index.html">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog VPN — poradniki, testy, konfiguracje">
+<meta property="og:description" content="Zebrane w jednym miejscu: poradniki i testy VPN.">
+<meta property="og:url" content="https://dloran1.github.io/blog/index.html">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "name":"Blog VPN — poradniki, testy, konfiguracje",
+  "url":"https://dloran1.github.io/blog/index.html"
+}
+</script>
+<style>
+/* мини-стили карточек списка, чтобы сразу выглядело аккуратно */
+.postlist{display:grid;gap:20px}
+.post{padding:16px;border:1px solid #eee;border-radius:12px}
+.post h2{margin:0 0 6px}
+.post p{margin:0 0 10px}
+.badge{display:inline-block;font-size:.8rem;padding:2px 8px;border-radius:999px;border:1px solid #ddd}
+.search{margin:0 0 20px}
+.search input{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:10px}
+</style>
+</head><body>
 
-  <main class="wrap">
-    <h1>Blog o VPN</h1>
-    <div class="cards">
+<nav class="wrap small"><a href="/index.html">Strona główna</a> • <strong>Blog</strong></nav>
 
-      <!-- 🔹 Nowe artykuły -->
-      <article class="card"><h3><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></h3><div class="meta">Poradnik</div><p>Podstawy działania i zastosowania VPN.</p></article>
-      <article class="card"><h3><a href="/blog/zalety-vpn.html">Najważniejsze zalety VPN</a></h3><div class="meta">Poradnik</div><p>Prywatność, bezpieczeństwo i wygoda online.</p></article>
-      <article class="card"><h3><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a></h3><div class="meta">Porównanie</div><p>Na co uważać i co wybrać w 2025.</p></article>
-      <article class="card"><h3><a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a></h3><div class="meta">Bezpieczeństwo</div><p>Jak chronić się w otwartych sieciach.</p></article>
-      <article class="card"><h3><a href="/blog/mity-o-vpn.html">Mity o VPN</a></h3><div class="meta">Fakty</div><p>Obalamy najczęstsze nieporozumienia.</p></article>
+<header class="wrap">
+  <h1>Blog</h1>
+  <p>Poradniki, testy i konfiguracje VPN — wszystko w jednym miejscu.</p>
+</header>
 
-      <!-- 🔹 Tutaj możesz dopisać starsze artykuły, jeśli były -->
-      <article class="card"><h3><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></h3><p>Porównanie dwóch popularnych protokołów VPN.</p></article>
-      <article class="card"><h3><a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a></h3><p>Który VPN wybrać? Test i analiza.</p></article>
-      <article class="card"><h3><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></h3><p>Jak skonfigurować VPN na iOS krok po kroku.</p></article>
-      <article class="card"><h3><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></h3><p>Instrukcja konfiguracji krok po kroku.</p></article>
+<main class="wrap">
+  <div class="search">
+    <input id="q" type="search" placeholder="Szukaj po tytule…">
+  </div>
+  <div id="list" class="postlist" aria-live="polite"></div>
+</main>
 
-    </div>
-  </main>
+<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
 
-  <footer>
-    © 2025 VPN Polska · <a href="/sitemap.xml">Mapa strony</a>
-  </footer>
-</body>
-</html>
+<script>
+/* СЛУГИ ВСЕХ СТАТЕЙ — добавил всё, что видно на твоих скринах */
+const POSTS = [
+  "co-to-jest-vpn",
+  "darmowe-vs-platne-vpn",
+  "darmowy-vpn-polska",
+  "dlaczego-vpn-2025",
+  "jaki-serwer-vpn-wybrac",
+  "jaki-serwer-vpn",
+  "mity-o-vpn",
+  "no-logs",
+  "nordvpn-vs-surfshark-pl",
+  "player-tvp-vpn",
+  "test-vpn",
+  "vpn-android-konfiguracja",
+  "vpn-iphone-konfiguracja",
+  "vpn-windows-konfiguracja",
+  "vpn-kill-switch",
+  "vpn-geoblokady",
+  "vpn-netflix-polska",
+  "vpn-dns-leak",
+  "vpn-double-vpn",
+  "vpn-publiczne-wifi",
+  "vpn-split-tunneling",
+  "vpn-port-forwarding",
+  "vpn-praca-zdalna",
+  "vpn-szybkosc-test",
+  "vpn-torrent",
+  "vpn-torrent-polska",
+  "wifi-bezpieczenstwo",
+  "wireguard-vs-openvpn",
+  "zalety-vpn",
+  "vpn-kontrola-routera",
+  "vpn-optymalne-ustawienia",
+  "vpn-p2p-bezpiecznie",
+  "vpn-dla-apple-tv",
+  "vpn-dla-firm-msp",
+  "vpn-dla-graczy",
+  "vpn-dla-konsol-ps5-xbox",
+  "vpn-dla-smart-tv",
+  "vpn-bankowosc-online",
+  "vpn-a-prawo-w-polsce"
+];
+
+/* Заголовок из слуга: заменяем дефисы и капитализируем */
+function titleFromSlug(slug){
+  const map = {
+    'vpn':'VPN','ios':'iOS','iphone':'iPhone','android':'Android',
+    'tvp':'TVP','ps5':'PS5','xbox':'Xbox','dns':'DNS','vod':'VOD',
+    'wireguard':'WireGuard','openvpn':'OpenVPN','smart':'Smart'
+  };
+  return slug.split('-').map(w=>{
+    return map[w] || w.charAt(0).toUpperCase()+w.slice(1);
+  }).join(' ');
+}
+
+/* Небольшие подсказки-описания по ключевым слугам (необязательные) */
+const hints = {
+  "co-to-jest-vpn":"Podstawy i zasada działania VPN.",
+  "darmowe-vs-platne-vpn":"Różnice, bezpieczeństwo i limity.",
+  "vpn-android-konfiguracja":"Instrukcja i bezpieczne ustawienia.",
+  "vpn-iphone-konfiguracja":"Szybka konfiguracja na iOS.",
+  "vpn-windows-konfiguracja":"Ustawienia na Windows.",
+  "vpn-kill-switch":"Blokada ruchu poza tunelem.",
+  "vpn-geoblokady":"Jak obchodzić blokady regionalne.",
+  "vpn-dns-leak":"Test i naprawa wycieków DNS.",
+  "vpn-publiczne-wifi":"Zasady bezpieczeństwa w sieciach publicznych.",
+  "vpn-split-tunneling":"Kiedy wykluczać aplikacje z VPN.",
+  "vpn-torrent":"P2P — jak korzystać bezpiecznie.",
+  "wireguard-vs-openvpn":"Porównanie protokołów."
+};
+
+/* Рендер */
+const list = document.getElementById('list');
+function render(filter=""){
+  list.innerHTML = "";
+  const f = filter.trim().toLowerCase();
+  const items = POSTS
+    .filter(s => !f || titleFromSlug(s).toLowerCase().includes(f))
+    .map(s => {
+      const a = document.createElement('article');
+      a.className = 'post';
+      a.innerHTML = `
+        <h2><a href="/blog/${s}.html">${titleFromSlug(s)}</a></h2>
+        <p>${hints[s] || "Poradnik i wskazówki praktyczne."}</p>
+        <p><a class="badge" href="/blog/${s}.html" aria-label="Czytaj dalej: ${titleFromSlug(s)}">Czytaj dalej</a></p>
+      `;
+      return a;
+    });
+  if(items.length===0){
+    const none = document.createElement('p'); none.textContent = "Brak wyników.";
+    list.appendChild(none);
+  }else{
+    items.forEach(n=>list.appendChild(n));
+  }
+}
+render();
+
+/* Поиск */
+document.getElementById('q').addEventListener('input', e=>render(e.target.value));
+</script>
+</body></html>
