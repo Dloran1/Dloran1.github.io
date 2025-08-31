@@ -1,44 +1,150 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN dla firm (MŚP) — zdalny dostęp i ochrona danych</title>
-<meta name="description" content="Jak bezpiecznie łączyć pracowników z zasobami firmy? Profile, polityki i praktyczne wdrożenie VPN w MŚP.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-firm-msp.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN dla firm (MŚP) — zdalny dostęp i ochrona danych">
-<meta property="og:description" content="Praktyczne wdrożenia, najlepsze praktyki i polityki bezpieczeństwa.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-firm-msp.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dla-firm-msp.webp">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu">
-<a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-</div></nav>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN dla firm (MŚP) — wdrożenie, bezpieczeństwo i checklista 2025</title>
+  <meta name="description" content="Jak wdrożyć VPN w małej i średniej firmie (MŚP)? Modele: zdalny dostęp, site-to-site, SASE. Polityki bezpieczeństwa, MFA, MDM, RODO oraz checklista wdrożenia.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-firm-msp.html">
 
-<main class="wrap">
-<h1>VPN dla firm (MŚP) — zdalny dostęp i ochrona danych</h1>
-<p>Zaufany VPN pozwala bezpiecznie łączyć pracowników z zasobami firmy. Poniżej kluczowe elementy wdrożenia.</p>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN dla firm (MŚP) — wdrożenie i bezpieczeństwo">
+  <meta property="og:description" content="Modele wdrożenia (remote, site-to-site, SASE), polityki, RODO i checklista dla MŚP.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-firm-msp.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dla-firm-msp.webp">
 
-<figure class="hero">
-  <img src="/assets/img/vpn-dla-firm-msp.webp" alt="VPN dla firm i zdalny dostęp" loading="lazy" width="1200" height="630">
-</figure>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN dla firm (MŚP) — wdrożenie i bezpieczeństwo">
+  <meta name="twitter:description" content="Praktyczny poradnik: architektury, polityki, MFA/MDM, RODO i checklista wdrożenia.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-dla-firm-msp.webp">
 
-<section class="cta cta-mounted">
-  <h2>Szybki start dla zespołów</h2>
-  <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Wypróbuj NordVPN</a>
-  <div class="btns">
-    <a class="btn btn-ghost" href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>
-  </div>
-  <p class="cta-note">Link partnerski — bez dopłaty.</p>
-</section>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN dla firm (MŚP) — wdrożenie, bezpieczeństwo i checklista 2025",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-08-31",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dla-firm-msp.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-dla-firm-msp.webp"
+  }
+  </script>
 
-<h2>Powiązane artykuły</h2>
-<ul>
-  <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a></li>
-  <li><a href="/blog/vpn-kill-switch.html">Kill Switch</a></li>
-  <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości</a></li>
-</ul>
-</main>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
 
-<footer class="footer">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-</body></html>
+  <main class="wrap">
+    <article>
+      <h1>VPN dla firm (MŚP) — jak wdrożyć dobrze i bezpiecznie</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-dla-firm-msp.webp" alt="VPN dla firm i MŚP — wdrożenie i bezpieczeństwo" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>W 2025 r. zdalna praca i hybrydowe biura to standard. <strong>Firmowy VPN</strong> zabezpiecza dostęp do zasobów (ERP, NAS, CRM) i zmniejsza ryzyko wycieku danych. Poniżej szybki przewodnik architektur, polityk i listy kontrolnej dla <strong>MŚP</strong>.</p>
+
+      <section class="cta">
+        <h2>Szybki start dla zespołów</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN dla zespołów</a>
+          <a class="btn btn-ghost" href="/blog/vpn-2fa-mfa.html">Włącz 2FA/MFA</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Modele wdrożenia w MŚP</h2>
+      <ul>
+        <li><strong>Remote Access VPN</strong> — pracownicy łączą się zdalnie z siecią firmy (najczęstszy w MŚP).</li>
+        <li><strong>Site-to-Site VPN</strong> — łączy oddziały/biura (router↔router) i zapewnia stały tunel.</li>
+        <li><strong>SASE / ZTNA (Zero Trust)</strong> — nowsze podejście: dostęp przyznawany per-aplikacja, mniejsze ryzyko „pełnego tunelu”.</li>
+      </ul>
+
+      <h2>Protokół i szyfrowanie</h2>
+      <ul>
+        <li><strong>WireGuard/NordLynx</strong> — bardzo dobre prędkości i prosta administracja kluczami.</li>
+        <li><strong>OpenVPN</strong> — dojrzały i elastyczny (UDP/TCP), szerokie wsparcie routerów/NAS.</li>
+        <li><strong>IPsec/IKEv2</strong> — stabilny dla połączeń site-to-site i urządzeń mobilnych.</li>
+      </ul>
+
+      <h2>Polityki bezpieczeństwa (minimum)</h2>
+      <ul>
+        <li><strong>MFA</strong> dla kont VPN i panelu administratora.</li>
+        <li><strong>Least privilege</strong> — dostęp tylko do niezbędnych zasobów (ACL, grupy).</li>
+        <li><strong>Segmentacja</strong> — osobne VLAN-y dla gości, IoT, administracji, produkcji.</li>
+        <li><strong>DNS filtering</strong> i ochrona przed wyciekami DNS.</li>
+        <li><strong>Logowanie i alerty</strong> — próby nieudanych logowań, nietypowe lokalizacje.</li>
+      </ul>
+
+      <h2>Integracje w MŚP</h2>
+      <ul>
+        <li><strong>SSO/IdP</strong> (Google/Microsoft) + <strong>SCIM</strong> do automatycznego nadawania/odbierania dostępu.</li>
+        <li><strong>MDM</strong> (Android/iOS/macOS/Windows) — wymuszanie konfiguracji, certyfikatów i PIN/biometrii.</li>
+        <li><strong>SIEM</strong> — eksport logów VPN (syslog/API) do centralnego monitoringu.</li>
+      </ul>
+
+      <h2>RODO i zgodność</h2>
+      <ul>
+        <li>Minimalizacja danych i cykliczny <strong>przegląd uprawnień</strong> użytkowników.</li>
+        <li><strong>Szyfrowanie</strong> danych w tranzycie (VPN) i w spoczynku (serwery/NAS).</li>
+        <li><strong>Rejestr incydentów</strong> i procedura zgłoszeń naruszeń.</li>
+      </ul>
+
+      <h2>Najczęstsze błędy przy wdrożeniu</h2>
+      <ul>
+        <li>Brak <strong>MFA</strong> i słabe hasła do kont użytkowników/administratorów.</li>
+        <li>Pełny dostęp „do wszystkiego” po zalogowaniu — zero segmentacji.</li>
+        <li>Jedna lokalizacja serwera dla całej Polski — przeciążenie i słaba wydajność.</li>
+        <li>Brak polityki BYOD: prywatne urządzenia bez MDM i anty-malware.</li>
+      </ul>
+
+      <h2>Checklista wdrożenia (do odhaczenia)</h2>
+      <ol>
+        <li>Zdefiniuj model: Remote Access / Site-to-Site / SASE.</li>
+        <li>Wybierz protokół (WireGuard / OpenVPN / IPsec) i lokalizacje serwerów (PL + EU).</li>
+        <li>Skonfiguruj <strong>MFA</strong>, role i grupy dostępu (least privilege).</li>
+        <li>Włącz <strong>Kill Switch</strong>, ochronę DNS i rejestrowanie zdarzeń.</li>
+        <li>Skonfiguruj <strong>MDM</strong> dla laptopów/telefonów (profil VPN, aktualizacje).</li>
+        <li>Testy: przepustowość, stabilność, dostęp per-aplikacja, odzyskiwanie po awarii.</li>
+        <li>Procedury: on/off-boarding, audyty uprawnień, kopie zapasowe konfiguracji.</li>
+      </ol>
+
+      <section class="cta">
+        <h2>Chcesz szybki pilotaż w zespole?</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Uruchom konta użytkowników</a>
+          <a class="btn btn-ghost" href="/blog/test-vpn.html">Testy wydajności i stabilności</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-2fa-mfa.html">VPN + 2FA/MFA</a></li>
+          <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
+          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></li>
+          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
+          <li><a href="/blog/vpn-a-prawo-w-polsce.html">VPN a prawo w Polsce</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
