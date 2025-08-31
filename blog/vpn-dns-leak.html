@@ -1,58 +1,70 @@
-<!doctype html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wycieki DNS — jak sprawdzić i uszczelnić połączenie VPN</title>
-<meta name="description" content="Krok po kroku: test wycieku DNS, typowe przyczyny (DoH, IPv6, aplikacje operatora) oraz trwałe rozwiązania na Windows, Android i iOS.">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN i wyciek DNS — co to jest i jak go naprawić</title>
+<meta name="description" content="Czym jest wyciek DNS, jak go przetestować i jak skonfigurować VPN, by zapobiec ujawnieniu adresu IP oraz historii zapytań DNS.">
+
 <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dns-leak.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wycieki DNS — test i naprawa">
-<meta property="og:description" content="Praktyczny poradnik: jak upewnić się, że zapytania DNS idą przez tunel VPN.">
+<meta property="og:title" content="Wyciek DNS — sprawdź i zabezpiecz VPN">
+<meta property="og:description" content="Prosty test i kroki naprawy, aby DNS nie zdradzał Twojej lokalizacji.">
 <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dns-leak.html">
+<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Wycieki DNS — jak sprawdzić i uszczelnić połączenie VPN","datePublished":"2025-08-29"}</script>
-</head><body>
-<nav class="wrap small"><a href="/index.html">Strona główna</a> • <a href="/blog/index.html">Blog</a></nav>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu">
+    <a href="/">Strona główna</a>
+    <a href="/blog/index.html">Blog</a>
+    <a href="/kontakt.html">Kontakt</a>
+  </div>
+</nav>
 
-<header class="wrap">
-  <h1>Wycieki DNS — jak sprawdzić i uszczelnić połączenie VPN</h1>
-  <p>Jeśli strony DNS wskazują Twojego operatora, to tunel nie chroni w pełni. Sprawdź i napraw.</p>
-</header>
+<main class="wrap">
+  <h1>Wyciek DNS — na czym polega?</h1>
+  <p><strong>DNS</strong> tłumaczy nazwy stron na adresy IP. Jeśli zapytania DNS omijają tunel VPN i idą przez dostawcę internetu, powstaje <em>wyciek DNS</em>: witryny i usługi mogą kojarzyć Twoją prawdziwą lokalizację.</p>
 
-<section class="wrap">
-  <h2>Test szczelności</h2>
+  <h2>Jak przetestować</h2>
   <ol>
-    <li>Połącz VPN i odwiedź serwis testu DNS (wystarczy wyszukać „dns leak test”).</li>
-    <li>Wynik powinien pokazywać serwery dostawcy VPN, a nie ISP/komórkowe.</li>
+    <li>Połącz VPN i wejdź na tester (np. „DNS leak test”).</li>
+    <li>Uruchom „Standard” i „Extended”.</li>
+    <li>Jeśli widzisz serwery DNS z Twojego ISP/kraju — to wyciek.</li>
   </ol>
 
-  <h2>Najczęstsze przyczyny</h2>
+  <h2>Jak naprawić</h2>
   <ul>
-    <li>Włączone DoH w przeglądarce (Firefox/Chrome) omija DNS z tunelu.</li>
-    <li>IPv6 kieruje zapytania poza VPN — wyłącz/obsługuj w aplikacji.</li>
-    <li>Aplikacje operatora modyfikują DNS w tle.</li>
-  </ul>
-
-  <h2>Rozwiązania</h2>
-  <ul>
-    <li>W aplikacji VPN włącz „DNS leak protection”.</li>
-    <li>Wyłącz DoH w przeglądarce lub ustaw je na serwer dostawcy VPN.</li>
-    <li>Gdy problem dotyczy tylko jednej sieci Wi-Fi — zapomnij sieć i połącz ponownie.</li>
+    <li>W aplikacji VPN włącz „Prevent DNS leak” lub „Use VPN DNS”.</li>
+    <li>Korzystaj z protokołu <strong>WireGuard</strong> lub <strong>OpenVPN</strong>.</li>
+    <li>Wyłącz „SmartDNS” przy testach (to celowo używa DNS spoza tunelu).</li>
+    <li>Na routerze ustaw serwery DNS dostawcy VPN (jeżeli łączysz sprzętowo).</li>
   </ul>
 
   <div class="cta cta-mounted">
-    <h2>Uszczelnij połączenie</h2>
-    <p class="cta-note">Ochrona DNS/IPv6 i sprawdzony Kill Switch.</p>
-    <p class="btns">
-      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored noopener" target="_blank">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/vpn-kill-switch.html">Kill Switch — przewodnik</a>
-    </p>
+    <h2>VPN bez wycieków DNS</h2>
+    <p class="cta-note">Wbudowana ochrona, własne DNS, przejrzyste audyty.</p>
+    <div class="btns">
+      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup VPN z rabatem</a>
+      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
+    </div>
   </div>
 
-  <h2>Powiązane</h2>
-  <ul>
-    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
-    <li><a href="/blog/vpn-android-konfiguracja.html">Android — konfiguracja</a></li>
+  <h2>Powiązane artykuły</h2>
+  <ul class="cta-list">
+    <li><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></li>
+    <li><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a></li>
+    <li><a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a></li>
   </ul>
-</section>
+</main>
 
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-</body></html>
+<footer class="footer">&copy; 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+<script src="/assets/affiliates.js" defer></script>
+</body>
+</html>
