@@ -3,39 +3,48 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WireGuard vs OpenVPN — który protokół wybrać?</title>
-<meta name="description" content="Porównanie protokołów: prędkość, bezpieczeństwo, stabilność i zgodność. Kiedy wybrać WireGuard, a kiedy OpenVPN?">
+<meta name="description" content="Porównanie: prędkość, bezpieczeństwo, stabilność i zgodność. Kiedy wybrać WireGuard, a kiedy OpenVPN?">
 <link rel="canonical" href="https://dloran1.github.io/blog/wireguard-vs-openvpn.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WireGuard vs OpenVPN — który wybrać?">
 <meta property="og:description" content="Szybkość, bezpieczeństwo i zgodność — porównujemy WireGuard i OpenVPN.">
 <meta property="og:url" content="https://dloran1.github.io/blog/wireguard-vs-openvpn.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/hero/wireguard-vs-openvpn.webp">
+<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div></nav>
+<nav class="nav"><div class="inner">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div>
+</div></nav>
+
 <main class="wrap article">
   <h1>WireGuard vs OpenVPN — który protokół wybrać?</h1>
-  <div class="hero"><img src="/assets/img/hero/wireguard-vs-openvpn.webp" alt="WireGuard kontra OpenVPN" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
+  <div class="hero">
+    <img src="/assets/img/hero/wireguard-vs-openvpn.webp" alt="WireGuard kontra OpenVPN" loading="lazy"
+         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
+  </div>
 
   <h2>Szybkość i wydajność</h2>
-  <p><strong>WireGuard</strong> zwykle oferuje wyższe prędkości i niższe opóźnienia dzięki lekkiej architekturze. <strong>OpenVPN</strong> bywa wolniejszy, ale bardzo dojrzały.</p>
+  <p>WireGuard często daje wyższe prędkości i niższe opóźnienia; OpenVPN jest dojrzały i elastyczny (TCP/443).</p>
 
   <h2>Bezpieczeństwo</h2>
-  <p>Oba są bezpieczne przy poprawnej konfiguracji. WireGuard używa nowoczesnych prymitywów kryptograficznych; OpenVPN ma długą historię audytów i działa dobrze w trybie TCP/443 (maskowanie jako HTTPS).</p>
+  <p>Oba protokoły są bezpieczne przy poprawnej konfiguracji. WireGuard ma nowoczesną kryptografię; OpenVPN — długą historię audytów.</p>
 
   <h2>Zgodność i obejścia</h2>
-  <p>Gdy sieć filtruje/maskuje ruch, <strong>OpenVPN TCP 443</strong> może być skuteczniejszy. W zwykłych warunkach preferuj <strong>WireGuard</strong>.</p>
+  <p>W sieciach filtrujących pomaga OpenVPN TCP/443. Na co dzień preferuj WireGuard/NordLynx.</p>
 
-  <section class="cta cta-mounted">
+  <div class="cta cta-mounted">
     <h2>Oba protokoły w jednej aplikacji</h2>
     <p class="muted">Przełączaj jednym kliknięciem — testuj i wybierz szybsze.</p>
     <div class="btns">
-      <a class="btn btn-primary" rel="nofollow sponsored noopener" target="_blank" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
-      <a class="btn btn-ghost" rel="nofollow sponsored noopener" target="_blank" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz funkcje</a>
+      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
+      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz funkcje</a>
     </div>
-  </section>
+  </div>
 
   <h2>Powiązane poradniki</h2>
   <ul>
@@ -44,10 +53,11 @@
     <li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
   </ul>
 </main>
+
 <footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-<script src="/assets/affiliates.js"></script>
+
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"WireGuard vs OpenVPN — który protokół wybrać?","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html"},"image":"https://dloran1.github.io/assets/img/hero/wireguard-vs-openvpn.webp","description":"Porównanie protokołów: prędkość, bezpieczeństwo, zgodność. Kiedy wybrać WireGuard, a kiedy OpenVPN?"}
+{"@context":"https://schema.org","@type":"Article","headline":"WireGuard vs OpenVPN — który protokół wybrać?","description":"Porównanie: prędkość, bezpieczeństwo, stabilność i zgodność. Kiedy wybrać WireGuard, a kiedy OpenVPN?","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
 </script>
 </body>
 </html>
