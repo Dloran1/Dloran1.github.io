@@ -1,67 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na Android — szybka konfiguracja krok po kroku</title>
-<meta name="description" content="Konfiguracja VPN na Androidzie: protokół, auto-łączenie, kill switch, DNS leak protection i test połączenia.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN na Android — szybka konfiguracja">
-<meta property="og:description" content="Instrukcja krok po kroku: protokół, auto-łączenie, kill switch i test DNS.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Konfiguracja VPN na Androidzie – krok po kroku</title>
+  <meta name="description" content="Jak skonfigurować VPN na Androidzie? Przewodnik krok po kroku: ustawienia systemowe, aplikacje VPN i dodatkowe opcje bezpieczeństwa.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Konfiguracja VPN na Androidzie – poradnik 2025">
+  <meta property="og:description" content="Przewodnik krok po kroku: jak włączyć i skonfigurować VPN na Androidzie.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-android-konfiguracja.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-android-konfiguracja.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Konfiguracja VPN na Androidzie – poradnik 2025">
+  <meta name="twitter:description" content="Prosty przewodnik konfiguracji VPN na Androidzie.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-android-konfiguracja.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Konfiguracja VPN na Androidzie – krok po kroku",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-08-31",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-android-konfiguracja.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-android-konfiguracja.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div>
-</div></nav>
-
-<main class="wrap article">
-  <h1>VPN na Android — szybka konfiguracja</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-android-konfiguracja.webp" alt="Konfiguracja VPN na Androidzie" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
-
-  <h2>Instalacja i logowanie</h2>
-  <ol>
-    <li>Pobierz aplikację VPN ze Sklepu Play.</li>
-    <li>Zaloguj się i przyznaj wymagane uprawnienia.</li>
-  </ol>
-
-  <h2>Rekomendowane ustawienia</h2>
-  <ul>
-    <li><strong>Protokół:</strong> WireGuard/NordLynx.</li>
-    <li><strong>Auto-łączenie:</strong> w nowych/otwartych sieciach.</li>
-    <li><strong>Kill switch</strong> i <strong>DNS leak protection</strong>.</li>
-  </ul>
-
-  <div class="cta cta-mounted">
-    <h2>Najprostsza konfiguracja? Gotowa aplikacja</h2>
-    <p class="muted">Szybkie serwery w PL/UE, stabilny protokół.</p>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz ofertę</a>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Powiązane poradniki</h2>
-  <ul>
-    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-    <li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
-    <li><a href="/blog/vpn-dns-leak.html">Test wycieków DNS</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>Konfiguracja VPN na Androidzie – krok po kroku</h1>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+      <figure class="cover">
+        <img src="/assets/img/vpn-android-konfiguracja.webp" alt="Konfiguracja VPN na Androidzie" width="1200" height="630" loading="lazy">
+      </figure>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN na Android — szybka konfiguracja","description":"Konfiguracja VPN na Androidzie: protokół, auto-łączenie, kill switch, DNS leak protection i test połączenia.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-android-konfiguracja.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
+      <p>Android oferuje wbudowaną obsługę VPN, a także możliwość korzystania z aplikacji dostawców usług VPN. Dzięki temu możesz w prosty sposób chronić swoją prywatność i omijać blokady treści.</p>
+
+      <section class="cta">
+        <h2>Najprostszy sposób konfiguracji VPN na Androidzie</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na Androida</a>
+          <a class="btn btn-ghost" href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a>
+        </div>
+        <p class="cta-note">Link partnerski – bez dodatkowych kosztów dla Ciebie.</p>
+      </section>
+
+      <h2>Metoda 1: Wbudowane ustawienia Androida</h2>
+      <ol>
+        <li>Wejdź w <em>Ustawienia</em> → <em>Sieć i internet</em> → <em>VPN</em>.</li>
+        <li>Dodaj nową konfigurację VPN (nazwa, serwer, typ, dane logowania).</li>
+        <li>Zapisz i połącz się.</li>
+      </ol>
+
+      <h2>Metoda 2: Aplikacja dostawcy VPN</h2>
+      <p>Najprostsze rozwiązanie to pobranie aplikacji z Google Play, np. NordVPN. Aplikacje same konfigurują wszystkie ustawienia i pozwalają na szybkie przełączanie serwerów.</p>
+
+      <h2>Dodatkowe ustawienia</h2>
+      <ul>
+        <li><strong>Kill Switch</strong> – automatyczne rozłączenie internetu przy utracie VPN.</li>
+        <li><strong>Split Tunneling</strong> – wybór, które aplikacje korzystają z VPN.</li>
+        <li><strong>Protokół</strong> – wybór między WireGuard, OpenVPN lub IKEv2.</li>
+      </ul>
+
+      <h2>Podsumowanie</h2>
+      <p>Konfiguracja VPN na Androidzie może być wykonana ręcznie lub poprzez aplikację. Najszybsze i najbezpieczniejsze rozwiązanie to skorzystanie z oficjalnej aplikacji dostawcy VPN.</p>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-iphone-konfiguracja.html">Konfiguracja VPN na iPhone</a></li>
+          <li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
+          <li><a href="/blog/vpn-na-mac.html">VPN na Mac</a></li>
+          <li><a href="/blog/vpn-na-router.html">VPN na routerze</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
 </body>
 </html>
