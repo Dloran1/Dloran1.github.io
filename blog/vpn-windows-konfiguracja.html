@@ -1,71 +1,123 @@
-<!doctype html><html lang="pl"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN w Windows — konfiguracja krok po kroku</title>
-<meta name="description" content="Jak zainstalować, skonfigurować i przetestować VPN w Windows 10/11. Prosty przewodnik, najważniejsze ustawienia i testy połączenia.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN w Windows — konfiguracja krok po kroku">
-<meta property="og:description" content="Instalacja, konfiguracja, testy prędkości i szczelności DNS w Windows 10/11.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN w Windows — konfiguracja krok po kroku","author":{"@type":"Person","name":"VPN Polska"},"publisher":{"@type":"Organization","name":"VPN Polska"},"datePublished":"2025-08-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"}}
-</script>
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a></div></nav>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Konfiguracja VPN w Windows 10/11 — poradnik krok po kroku (2025)</title>
+  <meta name="description" content="Jak skonfigurować VPN w Windows 10/11? Instrukcja dodania połączenia w ustawieniach, import pliku .ovpn, użycie aplikacji NordVPN/Surfshark, testy i ochrona DNS.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
 
-<main class="wrap">
-  <h1>VPN w Windows — konfiguracja krok po kroku</h1>
-  <p>Najprościej użyć aplikacji dostawcy VPN. Poniżej skrót czynności dla Windows 10/11.</p>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Konfiguracja VPN w Windows 10/11 — poradnik krok po kroku">
+  <meta property="og:description" content="Dodanie ręcznego połączenia VPN w Windows, użycie pliku .ovpn, aplikacji dostawcy oraz testy bezpieczeństwa (DNS leak, Kill Switch).">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-windows-konfiguracja.webp">
 
-  <h2>1. Instalacja</h2>
-  <ol>
-    <li>Pobierz instalator z konta dostawcy VPN.</li>
-    <li>Zainstaluj, zaloguj się i przyznaj uprawnienia sieciowe.</li>
-  </ol>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Konfiguracja VPN w Windows 10/11 — poradnik krok po kroku">
+  <meta name="twitter:description" content="Dodanie VPN w Windows, konfiguracja OpenVPN, aplikacja NordVPN, testy prędkości i DNS.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-windows-konfiguracja.webp">
 
-  <h2>2. Ustawienia zalecane</h2>
-  <ul>
-    <li><strong>Protokół</strong>: WireGuard/NordLynx (szybkość i stabilność).</li>
-    <li><strong>Kill Switch</strong>: włączony — zatrzymuje ruch bez tunelu.</li>
-    <li><strong>Auto-connect</strong>: przy starcie systemu / nieznane Wi-Fi.</li>
-    <li><strong>DNS</strong>: własne dostawcy (ochrona przed <a href="/blog/vpn-dns-leak.html">DNS leak</a>).</li>
-  </ul>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Konfiguracja VPN w Windows 10/11 — poradnik krok po kroku (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-windows-konfiguracja.webp"
+  }
+  </script>
 
-  <h2>3. Testy połączenia</h2>
-  <ul>
-    <li>Prędkość — zobacz poradnik: <a href="/blog/test-vpn.html">Test prędkości VPN</a>.</li>
-    <li>Geoblokady — <a href="/blog/vpn-geoblokady.html">jak odblokować serwisy</a>.</li>
-  </ul>
-
-  <section class="cta" id="cta-win">
-    <h2>Wypróbuj NordVPN na Windows z rabatem</h2>
-    <ul class="cta-list">
-      <li>Bardzo szybki WireGuard (NordLynx)</li>
-      <li>Kill Switch i brak logów (audyt)</li>
-      <li>Odblokowanie VOD i P2P</li>
-    </ul>
-    <div class="btns">
-      <a class="btn btn-primary" data-brand="nordvpn"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-         rel="nofollow sponsored">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" href="/blog/darmowe-vs-platne-vpn.html">Dlaczego płatny VPN?</a>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-    <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-  </section>
+  </nav>
 
-  <h2>Powiązane artykuły</h2>
-  <ul>
-    <li><a href="/blog/vpn-kill-switch.html">Kill Switch — co to jest?</a></li>
-    <li><a href="/blog/vpn-dns-leak.html">Jak sprawdzić wyciek DNS</a></li>
-    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-    <li><a href="/blog/vpn-publiczne-wifi.html">Korzystanie z publicznego Wi-Fi</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>Konfiguracja VPN w Windows 10/11 — poradnik krok po kroku</h1>
 
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-<script src="/assets/affiliates.js"></script>
-</body></html>
+      <figure class="cover">
+        <img src="/assets/img/vpn-windows-konfiguracja.webp"
+             alt="Konfiguracja VPN w Windows 10/11"
+             width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>Windows 10 i 11 posiadają wbudowaną obsługę VPN, a także wspierają aplikacje zewnętrzne jak NordVPN czy Surfshark. Poniżej znajdziesz <strong>instrukcję krok po kroku</strong>, jak dodać VPN w Windows oraz jak sprawdzić, czy działa poprawnie.</p>
+
+      <section class="cta">
+        <h2>Szybki start</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na Windows</a>
+          <a class="btn btn-ghost" href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dodatkowych kosztów dla Ciebie.</p>
+      </section>
+
+      <h2>1) Dodanie VPN w ustawieniach Windows</h2>
+      <ol>
+        <li>Otwórz <em>Ustawienia → Sieć i Internet → VPN</em>.</li>
+        <li>Kliknij <strong>Dodaj połączenie VPN</strong>.</li>
+        <li>Dostawca VPN: <em>Windows (wbudowane)</em>.</li>
+        <li>Typ: <strong>L2TP/IPsec</strong> lub <strong>IKEv2</strong> (zalecane).</li>
+        <li>Adres serwera, login i hasło otrzymasz od dostawcy VPN.</li>
+      </ol>
+
+      <h2>2) Import pliku OpenVPN (.ovpn)</h2>
+      <p>Wielu dostawców (np. <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN</a>, ProtonVPN) udostępnia pliki konfiguracyjne. Do ich użycia zainstaluj klienta <strong>OpenVPN GUI</strong> i zaimportuj plik .ovpn.</p>
+
+      <h2>3) Aplikacje dostawcy VPN</h2>
+      <ul>
+        <li>Pobierz oficjalną aplikację (np. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">NordVPN</a>).</li>
+        <li>Zaloguj się, wybierz <strong>serwer w PL lub UE</strong>.</li>
+        <li>Włącz opcje: <strong>Kill Switch</strong>, <strong>DNS Leak Protection</strong>.</li>
+      </ul>
+
+      <h2>4) Testy i bezpieczeństwo</h2>
+      <ul>
+        <li>Sprawdź IP na stronie <em>whatismyipaddress.com</em>.</li>
+        <li>Wykonaj <a href="/blog/vpn-dns-leak.html">test wycieków DNS</a>.</li>
+        <li>Porównaj prędkość: <a href="/blog/vpn-szybkosc-test.html">speedtest VPN</a>.</li>
+      </ul>
+
+      <section class="cta">
+        <h2>Najprostsze rozwiązanie</h2>
+        <p>Jeśli nie chcesz ręcznej konfiguracji — pobierz gotową aplikację.</p>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Androidzie</a></li>
+          <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
+          <li><a href="/blog/vpn-linux-konfiguracja.html">VPN na Linux</a></li>
+          <li><a href="/blog/vpn-mac.html">VPN na macOS</a></li>
+          <li><a href="/blog/vpn-na-routerze.html">VPN na routerze</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Instrukcja edukacyjna. Używaj VPN zgodnie z prawem i regulaminami usług.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
