@@ -1,31 +1,141 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN i P2P — jak pobierać bezpiecznie</title>
-<meta name="description" content="Zasady bezpiecznego P2P z VPN: wybór serwera, wycieki DNS, porty, limity i ochrona prywatności.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
-<meta property="og:type" content="article"><meta property="og:title" content="VPN i P2P — jak pobierać bezpiecznie">
-<meta property="og:description" content="Bezpieczne P2P z VPN: serwery, ustawienia, testy i prywatność.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<link rel="stylesheet" href="/assets/style.css"></head><body>
-<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
-<main class="wrap article">
-<h1>VPN i P2P — jak pobierać bezpiecznie</h1>
-<div class="hero"><img src="/assets/img/hero/vpn-p2p-bezpiecznie.webp" alt="VPN i P2P bezpiecznie" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
-<h2>Kluczowe ustawienia</h2>
-<ul><li>Włącz <strong>kill switch</strong> i blokadę DNS leak.</li>
-<li>Wybierz serwery oznaczone jako <strong>P2P</strong>.</li>
-<li>Preferuj <strong>WireGuard</strong> dla prędkości.</li></ul>
-<h2>Testy i diagnostyka</h2>
-<p>Sprawdź IP w kliencie P2P oraz czy wszystkie zapytania DNS idą przez serwer VPN. W razie problemów zmień lokalizację/port/protokół.</p>
-<section class="cta cta-mounted"><h2>Serwery przyjazne P2P</h2><p class="muted">Szybkie łącza i brak limitów transferu.</p>
-<div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
-<a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Lista serwerów</a></div></section>
-<h2>Powiązane artykuły</h2>
-<ul><li><a href="/blog/vpn-port-forwarding.html">Port forwarding w VPN</a></li>
-<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości</a></li>
-<li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li></ul>
-</main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"VPN i P2P — jak pobierać bezpiecznie","description":"Zasady bezpiecznego P2P z VPN: wybór serwera, wycieki DNS, porty, limity i ochrona prywatności.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}</script>
-</body></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>P2P/Torrenty z VPN — jak robić to bezpieczniej</title>
+  <meta name="description" content="Jak bezpieczniej korzystać z P2P z VPN: wybór serwera, protokołu, Kill Switch, DNS leak, port forwarding i ustawienia klientów torrent. Praktyczny poradnik.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="P2P/Torrenty z VPN — jak robić to bezpieczniej">
+  <meta property="og:description" content="Konfiguracja krok po kroku: serwer, protokół, Kill Switch, ochrona przed wyciekami i split tunneling.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-p2p-bezpiecznie.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="P2P/Torrenty z VPN — jak robić to bezpieczniej">
+  <meta name="twitter:description" content="Prosty zestaw ustawień, by minimalizować ryzyka podczas P2P.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-p2p-bezpiecznie.webp">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"P2P/Torrenty z VPN — jak robić to bezpieczniej",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-p2p-bezpiecznie.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>P2P/Torrenty z VPN — jak robić to bezpieczniej</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-p2p-bezpiecznie.webp"
+             alt="Bezpieczne P2P i torrenty z VPN"
+             width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>P2P obciąża łącze i bywa filtrowane przez operatorów. <strong>VPN</strong> pomaga zachować prywatność i stabilność, pod warunkiem prawidłowej konfiguracji. Oto najważniejsze kroki.</p>
+
+      <section class="cta">
+        <h2>Chcesz zacząć od sprawdzonej konfiguracji?</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-torrent.html">Poradnik: VPN i torrenty</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty.</p>
+      </section>
+
+      <h2>1) Wybór serwera i kraju</h2>
+      <ul>
+        <li><strong>Serwery P2P</strong> — wybierz lokalizacje oznaczone jako „P2P”. Zwykle dają najlepszą przepustowość.</li>
+        <li><strong>Blisko geograficznie</strong> = mniejsze opóźnienia; unikaj przeciążonych regionów.</li>
+      </ul>
+
+      <h2>2) Protokół połączenia</h2>
+      <ul>
+        <li><strong>WireGuard / NordLynx</strong> — najszybszy i stabilny w P2P.</li>
+        <li><strong>OpenVPN UDP</strong> — dobra alternatywa, gdy dany serwer działa szybciej.</li>
+        <li><strong>OpenVPN TCP</strong> — ostatnia deska ratunku przy niestabilnych sieciach (wolniejszy).</li>
+      </ul>
+
+      <h2>3) Kill Switch i auto-connect</h2>
+      <p>Włącz <a href="/blog/vpn-kill-switch.html"><strong>Kill Switch</strong></a> w trybie systemowym, by ruch nie wychodził poza tunel przy zerwaniu połączenia. Włącz też <strong>auto-connect</strong>, aby klient VPN łączył się sam.</p>
+
+      <h2>4) Ochrona przed wyciekami</h2>
+      <ul>
+        <li>Włącz <a href="/blog/vpn-dns-leak.html">ochronę DNS leak</a> i WebRTC leak (w przeglądarce).</li>
+        <li>Używaj DNS dostawcy VPN dla spójności tunelu.</li>
+      </ul>
+
+      <h2>5) Port forwarding — kiedy ma sens</h2>
+      <p>Przekierowanie portów może poprawić ilość „peerów” i szybkość, ale zwiększa powierzchnię ataku. Używaj tylko, jeśli wiesz po co — patrz <a href="/blog/vpn-port-forwarding.html">poradnik o port forwarding</a>.</p>
+
+      <h2>6) Ustawienia klienta torrent</h2>
+      <ul>
+        <li><strong>Wiązanie interfejsu (bind to interface)</strong> do adaptera VPN, jeśli program to wspiera.</li>
+        <li><strong>Wyłącz UPnP/NAT-PMP</strong> jeśli nie korzystasz z port forwardingu.</li>
+        <li>Ogranicz <strong>upload</strong> do 70–80% maksymalnego wysyłania, by nie „dusić” łącza.</li>
+        <li>Używaj najnowszej wersji klienta (np. qBittorrent).</li>
+      </ul>
+
+      <h2>7) Split tunneling — selektywny ruch</h2>
+      <p>Jeśli nie chcesz, by inne aplikacje szły przez VPN, użyj <a href="/blog/vpn-split-tunneling.html">split tunneling</a>. Utrzymasz pełną prędkość np. dla gier/streamu.</p>
+
+      <section class="cta">
+        <h2>Szybki zestaw dla P2P</h2>
+        <ul class="cta-list">
+          <li>Serwer: <strong>P2P</strong>, możliwie blisko</li>
+          <li>Protokół: <strong>WireGuard / NordLynx</strong></li>
+          <li><strong>Kill Switch + auto-connect</strong></li>
+          <li><strong>DNS leak protection</strong> włączony</li>
+          <li>Port forwarding <strong>tylko gdy potrzebny</strong></li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/test-vpn.html">Sprawdź stabilność połączenia</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty.</p>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-torrent.html">VPN a torrenty — jak to działa</a></li>
+          <li><a href="/blog/vpn-port-forwarding.html">Port Forwarding — co to i jak używać</a></li>
+          <li><a href="/blog/no-logs.html">Polityka no-logs — dlaczego ważna</a></li>
+          <li><a href="/blog/vpn-publiczne-wifi.html">Bezpieczeństwo w publicznym Wi-Fi</a></li>
+          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Uwaga: P2P służy do legalnego udostępniania treści. Za to, co pobierasz/udostępniasz, odpowiadasz samodzielnie.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
