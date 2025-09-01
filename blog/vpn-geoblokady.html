@@ -1,64 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Geoblokady i VPN — jak uzyskać dostęp do treści</title>
-<meta name="description" content="Czym są geoblokady i jak VPN pomaga uzyskać dostęp do treści z innych krajów: streaming, portale i sklepy.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-geoblokady.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Geoblokady i VPN — jak uzyskać dostęp do treści">
-<meta property="og:description" content="Wyjaśniamy, jak działają geoblokady i jak dobrać serwer VPN do streamingu i serwisów.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-geoblokady.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN a geoblokady — jak odblokować serwisy i katalogi VOD (2025)</title>
+  <meta name="description" content="Czym są geoblokady i jak je ominąć? VPN, Smart DNS, dobór serwera, czyszczenie cache oraz najczęstsze błędy. Prosty poradnik krok po kroku.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-geoblokady.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN a geoblokady — jak odblokować serwisy i katalogi VOD">
+  <meta property="og:description" content="VPN, Smart DNS, właściwy serwer i czyszczenie cache. Instrukcja krok po kroku + checklista.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-geoblokady.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-geoblokady.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN a geoblokady — jak odblokować serwisy i katalogi VOD">
+  <meta name="twitter:description" content="Skuteczne metody omijania geoblokad: VPN, Smart DNS, dobór serwerów.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-geoblokady.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN a geoblokady — jak odblokować serwisy i katalogi VOD (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-geoblokady.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-geoblokady.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div>
-</div></nav>
-
-<main class="wrap article">
-  <h1>Geoblokady i VPN — jak uzyskać dostęp do treści</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-geoblokady.webp" alt="Geoblokady i dostęp przez VPN" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
-
-  <h2>Na czym polega geoblokada</h2>
-  <p>Serwis rozpoznaje Twoją lokalizację po adresie IP i ogranicza dostęp. VPN pozwala „przenieść się” do kraju serwera.</p>
-
-  <h2>Wskazówki praktyczne</h2>
-  <ul>
-    <li>Wybieraj serwery blisko kraju docelowego.</li>
-    <li>Wyczyść cookies po zmianie lokalizacji.</li>
-    <li>Przy błędach zmień serwer/protokół.</li>
-  </ul>
-
-  <div class="cta cta-mounted">
-    <h2>Prosty dostęp do treści zza granicy</h2>
-    <p class="muted">Szybkie serwery, dużo lokalizacji, łatwe przełączanie.</p>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz plan</a>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Powiązane poradniki</h2>
-  <ul>
-    <li><a href="/blog/vpn-netflix-polska.html">VPN i Netflix w Polsce</a></li>
-    <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-    <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>VPN a geoblokady — jak to działa i co wybrać?</h1>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+      <figure class="cover">
+        <img src="/assets/img/vpn-geoblokady.webp" alt="Geoblokady i VPN — poradnik" width="1200" height="630" loading="lazy">
+      </figure>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Geoblokady i VPN — jak uzyskać dostęp do treści","description":"Czym są geoblokady i jak VPN pomaga uzyskać dostęp do treści z innych krajów: streaming, portale i sklepy.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-geoblokady.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
+      <p><strong>Geoblokada</strong> to ograniczenie dostępu do treści na podstawie lokalizacji (adresu IP). Serwisy VOD, strony informacyjne czy sklepy online pokazują różne katalogi lub całkiem blokują wejście spoza wybranych krajów. Najskuteczniejsze metody obejścia to <strong>VPN</strong> i <strong>Smart DNS</strong>.</p>
+
+      <section class="cta">
+        <h2>Szybkie odblokowanie treści</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-netflix-polska.html">VPN i Netflix — wskazówki</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>VPN vs Smart DNS — co wybrać?</h2>
+      <ul>
+        <li><strong>VPN</strong> — szyfruje ruch i zmienia adres IP na kraj serwera. Działa w przeglądarce, aplikacjach i na całym urządzeniu. Chroni prywatność.</li>
+        <li><strong>Smart DNS</strong> — nie szyfruje, ale „przekierowuje” zapytania DNS, aby aplikacje widziały inny region. Bardzo wygodny na TV (Apple TV/Smart TV), szybki do VOD.</li>
+      </ul>
+      <p>Do <strong>VOD na telewizorze</strong> często wygodniejszy będzie <strong>Smart DNS</strong>, a do <strong>prywatności i uniwersalności</strong> — <strong>VPN</strong>. Można używać obu metod zamiennie.</p>
+
+      <h2>Instrukcja krok po kroku (VOD/serwisy)</h2>
+      <ol>
+        <li>Wybierz <strong>kraj docelowego katalogu</strong> (np. US/UK/DE/PL).</li>
+        <li><strong>VPN:</strong> połącz się z serwerem w tym kraju (protokół WireGuard/NordLynx).</li>
+        <li><strong>Smart DNS:</strong> włącz w panelu dostawcy i dodaj adresy DNS na urządzeniu.</li>
+        <li><strong>Wyczyść cache/cookies</strong> aplikacji lub przeglądarki (ważne przy VOD).</li>
+        <li>Uruchom aplikację/serwis ponownie. Gdy blokada wróci — <strong>zmień serwer</strong> w tym samym kraju.</li>
+      </ol>
+
+      <h2>Typowe błędy i szybkie naprawy</h2>
+      <ul>
+        <li><strong>„Niedostępne w Twoim regionie”:</strong> zmień serwer na inny w tym samym kraju; wyczyść cache; sprawdź, czy DNS nie wycieka poza VPN.</li>
+        <li><strong>Aplikacja TV ignoruje VPN z telefonu/PC:</strong> użyj <strong>Smart DNS</strong> lub VPN na routerze.</li>
+        <li><strong>Buforowanie/wolne ładowanie:</strong> wybierz bliższy/ mniej obciążony serwer; przełącz Wi-Fi na 5 GHz lub użyj kabla.</li>
+        <li><strong>Blokada po aktualizacji aplikacji:</strong> usuń dane aplikacji, zaloguj się ponownie, przetestuj 2–3 serwery.</li>
+      </ul>
+
+      <h2>Geoblokady a urządzenia</h2>
+      <ul>
+        <li><strong>Smart TV / Apple TV:</strong> najłatwiej <a href="/blog/vpn-dla-smart-tv.html">Smart DNS</a> lub <a href="/blog/vpn-dla-apple-tv.html">router z VPN</a>.</li>
+        <li><strong>Telefon/laptop:</strong> klasyczny <strong>VPN</strong> — pełna ochrona + region.</li>
+        <li><strong>Konsola (PS/Xbox):</strong> <a href="/blog/vpn-dla-konsol-ps5-xbox.html">router z VPN lub Smart DNS</a> do VOD.</li>
+      </ul>
+
+      <h2>Checklista przed seansami i meczami</h2>
+      <ol>
+        <li>Serwer/region ustawiony poprawnie (US/UK/DE/PL).</li>
+        <li>Cache/cookies wyczyszczone (szczególnie po zmianie kraju).</li>
+        <li>Stabilne łącze: 5 GHz lub Ethernet; test prędkości na docelowej aplikacji.</li>
+        <li>W razie błędu: zmień serwer → restart aplikacji/urządzenia → ponownie sprawdź.</li>
+      </ol>
+
+      <section class="cta">
+        <h2>Odblokuj treści w kilka kliknięć</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz VPN/Smart DNS</a>
+          <a class="btn btn-ghost" href="/blog/player-tvp-vpn.html">Player / TVP z VPN — poradnik</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-netflix-polska.html">VPN i Netflix — wskazówki</a></li>
+          <li><a href="/blog/player-tvp-vpn.html">Player / TVP z VPN</a></li>
+          <li><a href="/blog/vpn-dla-smart-tv.html">VPN dla Smart TV</a></li>
+          <li><a href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a></li>
+          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></li>
+          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
 </body>
 </html>
