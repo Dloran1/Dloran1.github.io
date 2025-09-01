@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>VPN Blog Polska</title>
+    <link>https://dloran1.github.io/blog/</link>
+    <description>Artykuły o VPN, bezpieczeństwie online i prywatności w Polsce.</description>
+    <language>pl-PL</language>
+    <lastBuildDate>Mon, 01 Sep 2025 12:00:00 +0200</lastBuildDate>
+
+    <!-- Пример записи -->
+    <item>
+      <title>Co to jest VPN?</title>
+      <link>https://dloran1.github.io/blog/co-to-jest-vpn.html</link>
+      <guid>https://dloran1.github.io/blog/co-to-jest-vpn.html</guid>
+      <pubDate>Mon, 01 Sep 2025 12:00:00 +0200</pubDate>
+      <description>Wyjaśniamy czym jest VPN, jak działa i dlaczego warto go używać.</description>
+    </item>
+
+    <item>
+      <title>Darmowe vs płatne VPN</title>
+      <link>https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html</link>
+      <guid>https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html</guid>
+      <pubDate>Mon, 01 Sep 2025 12:05:00 +0200</pubDate>
+      <description>Porównanie darmowych i płatnych usług VPN – plusy i minusy.</description>
+    </item>
+
+    <item>
+      <title>VPN a prawo w Polsce</title>
+      <link>https://dloran1.github.io/blog/vpn-a-prawo-w-polsce.html</link>
+      <guid>https://dloran1.github.io/blog/vpn-a-prawo-w-polsce.html</guid>
+      <pubDate>Mon, 01 Sep 2025 12:10:00 +0200</pubDate>
+      <description>Czy VPN jest legalny w Polsce? Jakie przepisy regulują jego używanie?</description>
+    </item>
+
+    <!-- Сюда добавь аналогичные <item> для остальных статей -->
+  </channel>
+</rss>
