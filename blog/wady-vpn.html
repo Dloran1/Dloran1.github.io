@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wady VPN — uczciwie o minusach i jak je ograniczyć (2025)</title>
+  <meta name="description" content="VPN ma też wady: spadek prędkości, kaprysy serwisów VOD/banków, CAPTCHy, wycieki DNS/WebRTC, problemy w hotelowym Wi-Fi. Zobacz, jak je zminimalizować w praktyce.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/wady-vpn.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Wady VPN — uczciwie o minusach i jak je ograniczyć">
+  <meta property="og:description" content="Spadek prędkości, blokady serwisów, CAPTCHy, wycieki — praktyczne obejścia i ustawienia.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/wady-vpn.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/wady-vpn.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wady VPN — uczciwie o minusach i jak je ograniczyć">
+  <meta name="twitter:description" content="Lista realnych minusów i szybkie sposoby na ich obejście.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/wady-vpn.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Wady VPN — uczciwie o minusach i jak je ograniczyć (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/wady-vpn.html"},
+    "image":"https://dloran1.github.io/assets/img/wady-vpn.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>Wady VPN — uczciwie o minusach i jak je ograniczyć</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/wady-vpn.webp"
+             alt="Wady korzystania z VPN i sposoby ich ograniczania"
+             width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p><strong>VPN</strong> daje sporo korzyści, ale ma też <strong>realne wady</strong>. Dobra wiadomość: większość z nich da się ograniczyć odpowiednimi ustawieniami. Poniżej lista problemów i gotowe obejścia.</p>
+
+      <section class="cta">
+        <h2>Chcesz rozwiązanie z minimalnymi problemami?</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/zalety-vpn.html">Zalety VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>1) Spadek prędkości i wyższy ping</h2>
+      <p><em>Dlaczego?</em> Szyfrowanie i dodatkowy „skok” przez serwer VPN. <em>Jak ograniczyć?</em></p>
+      <ul>
+        <li>Użyj <strong>WireGuard/NordLynx</strong> zamiast OpenVPN TCP.</li>
+        <li>Wybierz <strong>najbliższy serwer</strong> w PL/UE; testuj kilka (<a href="/blog/vpn-szybkosc-test.html">procedura testów</a>).</li>
+        <li>Przełącz na <strong>Ethernet / Wi-Fi 5 GHz</strong>; zamknij aplikacje w tle.</li>
+        <li>Rozważ <a href="/blog/vpn-split-tunneling.html">split tunneling</a> dla ciężkich aplikacji.</li>
+      </ul>
+
+      <h2>2) Blokady VOD/serwisów, CAPTCHy</h2>
+      <p><em>Dlaczego?</em> Część usług blokuje współdzielone IP; bot-protection wyświetla CAPTCHA. <em>Obejścia:</em></p>
+      <ul>
+        <li>Zmień serwer/kraj; wybieraj lokalizacje zalecane do <a href="/blog/vpn-geoblokady.html">VOD</a>.</li>
+        <li>Wyczyść cookies/LocalStorage przeglądarki; użyj profilu „czystego”.</li>
+        <li>Rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany adres IP</a> u dostawcy VPN.</li>
+      </ul>
+
+      <h2>3) Problemy z bankowością i wrażliwymi serwisami</h2>
+      <p><em>Dlaczego?</em> Logowania z wielu krajów wyglądają podejrzanie. <em>Rozwiązania:</em></p>
+      <ul>
+        <li>Używaj <strong>polskich/stałych</strong> lokalizacji; włącz <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a>.</li>
+        <li>W razie potrzeby wyklucz bank w <a href="/blog/vpn-split-tunneling.html">split tunneling</a>.</li>
+        <li>Przy firmowych panelach — whitelisty i/lub <a href="/blog/vpn-dedykowany-ip.html">dedykowane IP</a>.</li>
+      </ul>
+
+      <h2>4) Wyciek DNS/WebRTC (przeglądarka)</h2>
+      <p><em>Dlaczego?</em> System lub przeglądarka wysyła zapytania poza tunel. <em>Jak naprawić?</em></p>
+      <ul>
+        <li>Włącz ochronę w aplikacji VPN; używaj DNS dostawcy.</li>
+        <li>W przeglądarce zablokuj WebRTC lub ogranicz jego „leaki”.</li>
+        <li>Sprawdź test: <a href="/blog/vpn-dns-leak.html">DNS leak — jak wykryć</a>.</li>
+      </ul>
+
+      <h2>5) Problemy z captive portal (hotel/kawiarnia)</h2>
+      <p><em>Objaw:</em> strona logowania Wi-Fi nie ładuje się przez VPN. <em>Co robić?</em></p>
+      <ul>
+        <li>Połącz z Wi-Fi → zaakceptuj portal → <strong>włącz VPN ponownie</strong>.</li>
+        <li>Jeśli portal wraca, użyj serwera bliżej i sprawdź <a href="/blog/vpn-publiczne-wifi.html">poradnik</a>.</li>
+      </ul>
+
+      <h2>6) Zgodność z aplikacjami/gra</h2>
+      <p>Niektóre gry, VoIP lub aplikacje P2P mogą działać gorzej.</p>
+      <ul>
+        <li>Zmień protokół: WG ⇄ OpenVPN UDP ⇄ TCP; testuj porty/serwery.</li>
+        <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a> dla konkretnej aplikacji.</li>
+        <li>Dla P2P: rozważ <a href="/blog/vpn-port-forwarding.html">port forwarding</a> (ostrożnie!).</li>
+      </ul>
+
+      <h2>7) Prywatność ≠ anonimowość absolutna</h2>
+      <p>VPN zwiększa prywatność, ale nie zastąpi higieny: aktualizacji, haseł, MFA i rozsądku.</p>
+      <ul>
+        <li>Wybieraj dostawców z <a href="/blog/no-logs.html">no-logs</a> i dobrą reputacją.</li>
+        <li>Unikaj logowania na to samo konto z wielu krajów „co chwilę”.</li>
+      </ul>
+
+      <section class="cta">
+        <h2>Konfiguracja z minimalnymi wadami — gotowy zestaw</h2>
+        <ul class="cta-list">
+          <li>Protokół: <strong>WireGuard/NordLynx</strong></li>
+          <li>Serwer: <strong>najbliższy</strong> (PL/UE) lub dedykowany IP</li>
+          <li><strong>Kill Switch</strong> + ochrona <a href="/blog/vpn-dns-leak.html">DNS/WebRTC</a></li>
+          <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a> dla wrażliwych aplikacji</li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/zalety-vpn.html">Zalety VPN</a></li>
+          <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
+          <li><a href="/blog/vpn-publiczne-wifi.html">Publiczne Wi-Fi z VPN</a></li>
+          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+          <li><a href="/blog/vpn-dedykowany-ip.html">Dedykowany adres IP</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Materiał edukacyjny. Zawsze korzystaj z VPN zgodnie z prawem i regulaminami usług.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
