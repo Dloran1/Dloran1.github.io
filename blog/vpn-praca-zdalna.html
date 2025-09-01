@@ -1,68 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki</title>
-<meta name="description" content="Jak skonfigurować VPN do pracy zdalnej: szyfrowanie, dostęp do zasobów firmowych, split tunneling, MFA i kill switch.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki">
-<meta property="og:description" content="Praktyczny poradnik: konfiguracje, checklisty i typowe błędy w pracy zdalnej z VPN.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN dla pracy zdalnej — bezpieczeństwo i dostęp</title>
+  <meta name="description" content="Jak VPN chroni dane podczas pracy zdalnej? Dowiedz się, jak zabezpieczyć połączenie, uniknąć wycieków i ułatwić dostęp do firmowych zasobów.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN dla pracy zdalnej — bezpieczeństwo i dostęp">
+  <meta property="og:description" content="VPN szyfruje połączenie i umożliwia bezpieczny dostęp do danych firmowych. Sprawdź, jak poprawnie go skonfigurować.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-praca-zdalna.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-praca-zdalna.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN dla pracy zdalnej — bezpieczeństwo i dostęp">
+  <meta name="twitter:description" content="Jak VPN chroni dane podczas pracy zdalnej i ułatwia dostęp do zasobów firmowych.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-praca-zdalna.webp">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN dla pracy zdalnej — bezpieczeństwo i dostęp",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-praca-zdalna.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-praca-zdalna.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div>
-</div></nav>
-
-<main class="wrap article">
-  <h1>VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-praca-zdalna.webp" alt="VPN do pracy zdalnej" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
-
-  <h2>Checklist konfiguracji</h2>
-  <ul>
-    <li>Protokół: <strong>WireGuard/NordLynx</strong> lub IKEv2, a w trudnych sieciach OpenVPN TCP/443.</li>
-    <li><strong>MFA</strong> do dostępu, <strong>kill switch</strong> i blokada wycieków DNS.</li>
-    <li><strong>Split tunneling</strong> dla aplikacji nie-biznesowych (opcjonalnie).</li>
-  </ul>
-
-  <h2>Typowe błędy</h2>
-  <ul>
-    <li>Udostępnianie SMB/drukarek w publicznych sieciach.</li>
-    <li>Brak wymuszenia szyfrowania DNS.</li>
-    <li>Wyłączony kill switch przy delegowaniu połączeń.</li>
-  </ul>
-
-  <div class="cta cta-mounted">
-    <h2>Stabilny VPN do pracy</h2>
-    <p class="muted">Szybkie protokoły, aplikacje na wszystkie platformy.</p>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup NordVPN</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz plan</a>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Powiązane artykuły</h2>
-  <ul>
-    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-    <li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
-    <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>VPN dla pracy zdalnej — bezpieczeństwo i dostęp</h1>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+      <figure class="cover">
+        <img src="/assets/img/vpn-praca-zdalna.webp"
+             alt="VPN w pracy zdalnej — bezpieczne połączenie"
+             width="1200" height="630" loading="lazy">
+      </figure>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN do pracy zdalnej — bezpieczne konfiguracje i dobre praktyki","description":"Jak skonfigurować VPN do pracy zdalnej: szyfrowanie, dostęp do zasobów firmowych, split tunneling, MFA i kill switch.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-praca-zdalna.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
+      <p>Praca zdalna stała się codziennością. VPN pozwala na <strong>szyfrowanie połączenia</strong>, chroni przed podsłuchem oraz umożliwia dostęp do wewnętrznych zasobów firmy z dowolnego miejsca na świecie.</p>
+
+      <section class="cta">
+        <h2>Chroń dane firmowe</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-dla-firm-msp.html">VPN dla firm</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty.</p>
+      </section>
+
+      <h2>Zalety VPN w pracy zdalnej</h2>
+      <ul>
+        <li>Szyfrowanie danych i ochrona przed cyberatakami.</li>
+        <li>Możliwość dostępu do wewnętrznych aplikacji firmowych.</li>
+        <li>Bezpieczne korzystanie z publicznych Wi-Fi.</li>
+      </ul>
+
+      <h2>Jak skonfigurować?</h2>
+      <ol>
+        <li>Wybierz dostawcę VPN wspierającego biznes.</li>
+        <li>Zainstaluj aplikację na komputerze i telefonie.</li>
+        <li>Włącz funkcję <a href="/blog/vpn-kill-switch.html">Kill Switch</a> i <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a>.</li>
+      </ol>
+
+      <section class="cta">
+        <h2>Optymalne rozwiązania dla firm</h2>
+        <ul class="cta-list">
+          <li>Centralne zarządzanie kontami</li>
+          <li>Dedykowane serwery</li>
+          <li>Wsparcie dla różnych systemów (Windows, Mac, Linux, iOS, Android)</li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zabezpiecz pracę zdalną</a>
+          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty.</p>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-dla-firm-msp.html">VPN dla firm (MŚP)</a></li>
+          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
+          <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
+          <li><a href="/blog/vpn-kill-switch.html">Kill Switch w VPN</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Poradnik ma charakter informacyjny. Wdrożenie VPN w firmie warto skonsultować z administratorem IT.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
 </body>
 </html>
