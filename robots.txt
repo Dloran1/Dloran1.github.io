@@ -1,5 +1,22 @@
 User-agent: *
 Allow: /
 
+# Не индексировать технические файлы и ошибки
+Disallow: /404.html
+Disallow: /draft/
+
+# Основная карта сайта
 Sitemap: https://dloran1.github.io/sitemap.xml
-Sitemap: https://dloran1.github.io/rss.xml
+
+# Дополнительные указания для Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
