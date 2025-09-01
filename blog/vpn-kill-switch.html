@@ -1,30 +1,103 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kill switch w VPN — po co i jak go używać</title>
-<meta name="description" content="Kill switch blokuje ruch poza tunelem VPN w razie zerwania połączenia. Zobacz, jak go włączyć i przetestować.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-kill-switch.html">
-<meta property="og:type" content="article"><meta property="og:title" content="Kill switch w VPN — po co i jak go używać">
-<meta property="og:description" content="Wyjaśnienie działania, konfiguracja i testy kill switcha w aplikacji VPN.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-kill-switch.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<link rel="stylesheet" href="/assets/style.css"></head><body>
-<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
-<main class="wrap article">
-<h1>Kill switch w VPN — po co i jak go używać</h1>
-<div class="hero"><img src="/assets/img/hero/vpn-kill-switch.webp" alt="Kill switch w VPN" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
-<h2>Dlaczego to ważne</h2>
-<p>Chroni przed ujawnieniem IP/DNS, gdy tunel padnie. Kluczowe przy P2P, pracy zdalnej i bankowości.</p>
-<h2>Jak włączyć i przetestować</h2>
-<ul><li>W ustawieniach aplikacji włącz „Kill Switch”.</li>
-<li>Rozłącz VPN i spróbuj otworzyć stronę — połączenie powinno być zablokowane.</li></ul>
-<section class="cta cta-mounted"><h2>Kill switch w standardzie</h2><p class="muted">Pełna ochrona prywatności w razie awarii tunelu.</p>
-<div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-<a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Funkcje bezpieczeństwa</a></div></section>
-<h2>Powiązane</h2>
-<ul><li><a href="/blog/vpn-dns-leak.html">Wyciek DNS</a></li>
-<li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
-<li><a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P</a></li></ul>
-</main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kill switch w VPN — po co i jak go używać","description":"Kill switch blokuje ruch poza tunelem VPN w razie zerwania połączenia. Zobacz, jak go włączyć i przetestować.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-kill-switch.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}</script>
-</body></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN Kill Switch — co to jest i dlaczego jest ważny?</title>
+  <meta name="description" content="Kill Switch w VPN chroni Twoją prywatność w razie zerwania połączenia. Dowiedz się, jak działa i dlaczego warto go włączyć.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-kill-switch.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN Kill Switch — co to jest i dlaczego jest ważny?">
+  <meta property="og:description" content="Kill Switch to funkcja VPN, która natychmiast blokuje ruch internetowy po zerwaniu połączenia.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-kill-switch.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-kill-switch.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN Kill Switch — co to jest i dlaczego jest ważny?">
+  <meta name="twitter:description" content="Jak działa Kill Switch i dlaczego jest kluczowy dla bezpieczeństwa w Internecie?">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-kill-switch.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN Kill Switch — co to jest i dlaczego jest ważny?",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-kill-switch.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-kill-switch.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>VPN Kill Switch — co to jest i dlaczego jest ważny?</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-kill-switch.webp" alt="VPN Kill Switch" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p><strong>Kill Switch</strong> to funkcja bezpieczeństwa dostępna w najlepszych usługach VPN, która natychmiast blokuje ruch internetowy w przypadku zerwania połączenia VPN. Dzięki temu Twoje dane nie zostaną ujawnione nawet na chwilę.</p>
+
+      <section class="cta">
+        <h2>Zadbaj o pełną ochronę online</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN z Kill Switch</a>
+          <a class="btn btn-ghost" href="/blog/vpn-dns-leak.html">VPN a wycieki DNS</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dodatkowych kosztów dla Ciebie.</p>
+      </section>
+
+      <h2>Jak działa Kill Switch?</h2>
+      <ul>
+        <li>Monitoruje połączenie VPN w tle.</li>
+        <li>W razie przerwania — automatycznie blokuje cały ruch internetowy.</li>
+        <li>Odblokowuje go dopiero po ponownym zestawieniu tunelu VPN.</li>
+      </ul>
+
+      <h2>Dlaczego warto korzystać?</h2>
+      <p>Bez Kill Switch w razie awarii VPN Twój adres IP i dane mogłyby być widoczne dla dostawcy Internetu i odwiedzanych stron. Funkcja ta jest szczególnie ważna dla osób korzystających z publicznych sieci Wi-Fi lub przy pracy z wrażliwymi danymi.</p>
+
+      <section class="cta">
+        <h2>Włącz Kill Switch i śpij spokojnie</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-double-vpn.html">Podwójne szyfrowanie VPN</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-dns-leak.html">VPN a wycieki DNS</a></li>
+          <li><a href="/blog/vpn-double-vpn.html">Double VPN</a></li>
+          <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
+          <li><a href="/blog/vpn-bankowosc-online.html">VPN i bankowość online</a></li>
+          <li><a href="/blog/test-vpn.html">Jak przetestować VPN?</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
