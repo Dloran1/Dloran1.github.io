@@ -1,68 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Split tunneling — kiedy w VPN ma to sens i jak ustawić</title>
-<meta name="description" content="Split tunneling pozwala wybrać, które aplikacje używają VPN. Zastosowania, plusy i minusy oraz konfiguracja krok po kroku.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-split-tunneling.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Split tunneling — kiedy w VPN ma to sens i jak ustawić">
-<meta property="og:description" content="Wydajność, dostęp do lokalnych zasobów i streaming. Wyjaśniamy split tunneling.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-split-tunneling.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Split tunneling VPN — jak działa i kiedy warto używać? (2025)</title>
+  <meta name="description" content="Split tunneling pozwala decydować, które aplikacje lub strony idą przez VPN, a które bezpośrednio do internetu. Zobacz praktyczne zastosowania i ustawienia krok po kroku.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-split-tunneling.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Split tunneling VPN — jak działa i kiedy warto używać?">
+  <meta property="og:description" content="Przewodnik po funkcji split tunneling: zalety, ryzyka i konfiguracja w NordVPN.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-split-tunneling.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-split-tunneling.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Split tunneling VPN — jak działa i kiedy warto używać?">
+  <meta name="twitter:description" content="Kontroluj ruch: część przez VPN, część bezpośrednio. Instrukcja i przykłady.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-split-tunneling.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Split tunneling VPN — jak działa i kiedy warto używać? (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-split-tunneling.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-split-tunneling.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a><a href="/kontakt.html">Kontakt</a></div>
-</div></nav>
-
-<main class="wrap article">
-  <h1>Split tunneling — kiedy w VPN ma to sens i jak ustawić</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-split-tunneling.webp" alt="VPN split tunneling" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
-
-  <h2>Przykładowe scenariusze</h2>
-  <ul>
-    <li>VOD przez VPN, aktualizacje poza tunelem.</li>
-    <li>Aplikacje firmowe przez VPN, komunikatory lokalnie.</li>
-    <li>Ruch do NAS/drukarki poza VPN.</li>
-  </ul>
-
-  <h2>Jak skonfigurować</h2>
-  <ol>
-    <li>Włącz split tunneling w aplikacji.</li>
-    <li>Wybierz aplikacje/adresy, które mają korzystać z VPN lub go omijać.</li>
-    <li>Sprawdź IP i DNS — upewnij się, że nic nie wycieka.</li>
-  </ol>
-
-  <div class="cta cta-mounted">
-    <h2>VPN ze split tunneling</h2>
-    <p class="muted">Reguły per-aplikacja / per-adres, blokada DNS leak.</p>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Sprawdź szczegóły</a>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Powiązane artykuły</h2>
-  <ul>
-    <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></li>
-    <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
-    <li><a href="/blog/vpn-dns-leak.html">Test wycieków DNS</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>Split tunneling VPN — jak działa i kiedy warto używać?</h1>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+      <figure class="cover">
+        <img src="/assets/img/vpn-split-tunneling.webp"
+             alt="Split tunneling w VPN — schemat działania"
+             width="1200" height="630" loading="lazy">
+      </figure>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Split tunneling — kiedy w VPN ma to sens i jak ustawić","description":"Split tunneling pozwala wybrać, które aplikacje używają VPN. Zastosowania, plusy i minusy oraz konfiguracja.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-split-tunneling.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
+      <p><strong>Split tunneling</strong> to funkcja, która pozwala <strong>wybrać, które aplikacje lub witryny korzystają z VPN</strong>, a które łączą się bezpośrednio z internetem. Dzięki temu można np. oglądać Netflix z polskiej lokalizacji i jednocześnie używać bankowości online bez VPN.</p>
+
+      <section class="cta">
+        <h2>Najlepsze VPN ze split tunnelingiem</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Sprawdź ustawienia VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Kiedy split tunneling ma sens?</h2>
+      <ul>
+        <li><strong>Streaming</strong>: tylko aplikacja Netflix przez VPN, reszta normalnie (mniej obciążenia).</li>
+        <li><strong>Praca zdalna</strong>: firmowy intranet przez VPN, prywatne strony bez.</li>
+        <li><strong>Gaming</strong>: gra bez VPN (niski ping), aktualizacje lub VoIP przez VPN.</li>
+      </ul>
+
+      <h2>Zalety i wady</h2>
+      <p><strong>Zalety:</strong></p>
+      <ul>
+        <li>Lepsza wydajność (nie cały ruch idzie przez tunel).</li>
+        <li>Większa kontrola nad tym, co jest szyfrowane.</li>
+        <li>Oszczędność transferu mobilnego.</li>
+      </ul>
+
+      <p><strong>Ryzyka:</strong></p>
+      <ul>
+        <li>Część ruchu pozostaje <strong>niechroniona</strong>.</li>
+        <li>Wymaga ręcznej konfiguracji i wiedzy.</li>
+      </ul>
+
+      <h2>Jak ustawić split tunneling?</h2>
+      <ol>
+        <li>Wejdź do ustawień aplikacji VPN (np. NordVPN → Ustawienia → Split tunneling).</li>
+        <li>Zaznacz aplikacje, które mają korzystać z VPN.</li>
+        <li>Pozostałe będą działać przez normalne połączenie.</li>
+        <li>Przetestuj konfigurację (np. <a href="/blog/test-vpn.html">test VPN</a>).</li>
+      </ol>
+
+      <section class="cta">
+        <h2>Wypróbuj split tunneling w praktyce</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-double-vpn.html">Zobacz Double VPN</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
+          <li><a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a></li>
+          <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — jak sprawdzić?</a></li>
+          <li><a href="/blog/vpn-double-vpn.html">Double VPN</a></li>
+          <li><a href="/blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Poradnik edukacyjny. Funkcja split tunneling nie jest dostępna w każdej wersji aplikacji VPN.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
 </body>
 </html>
