@@ -1,67 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na iPhone — konfiguracja i bezpieczne ustawienia</title>
-<meta name="description" content="iOS: konfiguracja VPN, IKEv2/WireGuard, auto-łączenie w nowych sieciach, kill switch i testy.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN na iPhone — konfiguracja i bezpieczne ustawienia">
-<meta property="og:description" content="Instrukcja iOS: IKEv2/WireGuard, auto-łączenie, kill switch, test IP i DNS.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN na iPhone — konfiguracja krok po kroku (2025)</title>
+  <meta name="description" content="Jak skonfigurować VPN na iPhone? Przewodnik krok po kroku: ustawienia systemowe, aplikacje NordVPN i alternatywne metody połączenia.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN na iPhone — konfiguracja krok po kroku">
+  <meta property="og:description" content="Instrukcja konfiguracji VPN na iPhone: od ustawień systemowych po aplikacje.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-iphone-konfiguracja.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN na iPhone — konfiguracja krok po kroku">
+  <meta name="twitter:description" content="Jak skonfigurować VPN na iPhone w 2025 roku? Praktyczny przewodnik.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-iphone-konfiguracja.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN na iPhone — konfiguracja krok po kroku (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-iphone-konfiguracja.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div>
-</div></nav>
-
-<main class="wrap article">
-  <h1>VPN na iPhone — konfiguracja i bezpieczne ustawienia</h1>
-  <div class="hero">
-    <img src="/assets/img/hero/vpn-iphone-konfiguracja.webp" alt="Konfiguracja VPN na iPhone" loading="lazy"
-         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
-  </div>
-
-  <h2>Szybki start</h2>
-  <ol>
-    <li>Pobierz aplikację z App Store i zaloguj się.</li>
-    <li>Zezwól na dodanie profilu VPN w iOS.</li>
-  </ol>
-
-  <h2>Ustawienia, które polecamy</h2>
-  <ul>
-    <li><strong>Protokół:</strong> IKEv2 lub WireGuard.</li>
-    <li><strong>Auto-Connect:</strong> w nieznanych/otwartych sieciach.</li>
-    <li><strong>Kill Switch:</strong> włączony (z „Blokuj ruch bez VPN”).</li>
-  </ul>
-
-  <div class="cta cta-mounted">
-    <h2>Najprościej z gotową aplikacją</h2>
-    <p class="muted">iOS, iPadOS, Mac — jedna subskrypcja.</p>
-    <div class="btns">
-      <a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na iOS</a>
-      <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Plan i ceny</a>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Powiązane poradniki</h2>
-  <ul>
-    <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
-    <li><a href="/blog/vpn-windows-konfiguracja.html">VPN na Windows</a></li>
-    <li><a href="/blog/vpn-geoblokady.html">Omijanie blokad</a></li>
-  </ul>
-</main>
+  <main class="wrap">
+    <article>
+      <h1>VPN na iPhone — konfiguracja krok po kroku</h1>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+      <figure class="cover">
+        <img src="/assets/img/vpn-iphone-konfiguracja.webp" alt="VPN na iPhone konfiguracja" width="1200" height="630" loading="lazy">
+      </figure>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"VPN na iPhone — konfiguracja i bezpieczne ustawienia","description":"iOS: konfiguracja VPN, IKEv2/WireGuard, auto-łączenie w nowych sieciach, kill switch i testy.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}
-</script>
+      <p>Korzystanie z <strong>VPN na iPhone</strong> pozwala chronić prywatność, korzystać z publicznego Wi-Fi bez obaw i odblokować serwisy dostępne tylko w określonych krajach. Poniżej znajdziesz instrukcję krok po kroku, jak skonfigurować VPN w systemie iOS.</p>
+
+      <section class="cta">
+        <h2>Najprostsza metoda — aplikacja NordVPN</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na iPhone</a>
+          <a class="btn btn-ghost" href="/blog/vpn-android-konfiguracja.html">VPN na Android</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dodatkowych kosztów dla Ciebie.</p>
+      </section>
+
+      <h2>Metoda 1: Aplikacja z App Store</h2>
+      <ol>
+        <li>Wejdź do <strong>App Store</strong> i pobierz <strong>NordVPN</strong> lub inną aplikację VPN.</li>
+        <li>Zaloguj się i wybierz serwer w wybranym kraju.</li>
+        <li>iOS poprosi o zezwolenie na dodanie konfiguracji VPN — zaakceptuj.</li>
+        <li>Od teraz możesz włączać i wyłączać VPN jednym kliknięciem w aplikacji.</li>
+      </ol>
+
+      <h2>Metoda 2: Konfiguracja ręczna</h2>
+      <ol>
+        <li>Otwórz <strong>Ustawienia</strong> → <em>Ogólne</em> → <em>VPN i zarządzanie urządzeniem</em>.</li>
+        <li>Kliknij <em>Dodaj konfigurację VPN</em>.</li>
+        <li>Wprowadź dane serwera (IP, login, hasło, typ L2TP/IPSec lub IKEv2).</li>
+        <li>Zapisz i połącz się.</li>
+      </ol>
+
+      <h2>Alternatywa: VPN przez iCloud Private Relay</h2>
+      <p>Apple oferuje również funkcję <strong>Private Relay</strong>, która ukrywa Twój adres IP, ale nie jest pełnoprawnym VPN. Dla pełnej ochrony i dostępu do treści z innych krajów lepszym wyborem jest klasyczny VPN.</p>
+
+      <section class="cta">
+        <h2>Bezpieczny Internet na iPhone</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-2fa-mfa.html">VPN i logowanie 2FA</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
+          <li><a href="/blog/vpn-smart-tv.html">VPN na Smart TV</a></li>
+          <li><a href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a></li>
+          <li><a href="/blog/test-vpn.html">Jak przetestować VPN?</a></li>
+          <li><a href="/blog/vpn-geolokalizacja.html">VPN i geolokalizacja</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
 </body>
 </html>
