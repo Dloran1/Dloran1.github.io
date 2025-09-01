@@ -1,41 +1,128 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bezpieczeństwo Wi-Fi — jak korzystać bezpiecznie</title>
-<meta name="description" content="Publiczne i domowe Wi-Fi — lista praktycznych kroków: WPA3/WPA2-AES, silne hasła, VPN i aktualizacje.">
-<link rel="canonical" href="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Bezpieczeństwo Wi-Fi — jak korzystać bezpiecznie">
-<meta property="og:description" content="Praktyczna lista: szyfrowanie, hasła, aktualizacje, VPN.">
-<meta property="og:url" content="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/wifi-bezpieczenstwo.webp">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu">
-<a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-</div></nav>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bezpieczeństwo Wi-Fi w domu i pracy — praktyczny poradnik (2025)</title>
+  <meta name="description" content="Jak zabezpieczyć sieć Wi-Fi: silne hasło, WPA3, wyłączenie WPS, segmentacja sieci, gościnne SSID, aktualizacje routera, VPN i ochrona DNS. Checklista krok po kroku.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
 
-<main class="wrap">
-<h1>Bezpieczeństwo Wi-Fi — jak korzystać bezpiecznie</h1>
-<p>Niechronione sieci narażają na podsłuch i przechwycenie haseł. Oto must-have dla domu i poza domem.</p>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bezpieczeństwo Wi-Fi w domu i pracy — praktyczny poradnik">
+  <meta property="og:description" content="WPA3, silne hasła, wyłączenie WPS, sieć gościnna, aktualizacje routera, VPN i ochrona DNS.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/wifi-bezpieczenstwo.webp">
 
-<figure class="hero">
-  <img src="/assets/img/wifi-bezpieczenstwo.webp" alt="Bezpieczne korzystanie z Wi-Fi" loading="lazy" width="1200" height="630">
-</figure>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bezpieczeństwo Wi-Fi w domu i pracy — praktyczny poradnik">
+  <meta name="twitter:description" content="Checklista zabezpieczenia sieci krok po kroku + porady dot. routera i VPN.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/wifi-bezpieczenstwo.webp">
 
-<section class="cta cta-mounted">
-  <h2>Chroń ruch w Wi-Fi</h2>
-  <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Włącz VPN</a>
-  <p class="cta-note">Link partnerski — bez dopłaty.</p>
-</section>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Bezpieczeństwo Wi-Fi w domu i pracy — praktyczny poradnik (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/wifi-bezpieczenstwo.html"},
+    "image":"https://dloran1.github.io/assets/img/wifi-bezpieczenstwo.webp"
+  }
+  </script>
 
-<h2>Powiązane artykuły</h2>
-<ul>
-  <li><a href="/blog/vpn-na-routerze.html">VPN na routerze</a></li>
-  <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — test</a></li>
-  <li><a href="/blog/vpn-geoblokady.html">Geoblokady</a></li>
-</ul>
-</main>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
 
-<footer class="footer">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-</body></html>
+  <main class="wrap">
+    <article>
+      <h1>Bezpieczeństwo Wi-Fi w domu i pracy — praktyczny poradnik</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/wifi-bezpieczenstwo.webp"
+             alt="Zabezpieczenie sieci Wi-Fi — poradnik"
+             width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>Dobrze skonfigurowane <strong>Wi-Fi</strong> to podstawa bezpieczeństwa: chroni domowe urządzenia, dokumenty firmowe i dane logowania. Poniżej dostajesz zwięzłą checklistę i krótkie uzasadnienia — z akcentem na <strong>router</strong>, <strong>hasła</strong>, <strong>aktualizacje</strong> oraz <strong>VPN</strong>.</p>
+
+      <section class="cta">
+        <h2>Chcesz prostą ochronę ruchu?</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Checklista 10 kroków</h2>
+      <ol>
+        <li><strong>Aktualizacje routera</strong> — zainstaluj najnowszy firmware; włącz automatyczne aktualizacje, jeśli są.</li>
+        <li><strong>Hasło do panelu</strong> — zmień domyślne, użyj unikalnego, długiego hasła i <a href="/blog/vpn-2fa-mfa.html">MFA/2FA</a>, jeśli dostępne.</li>
+        <li><strong>Szyfrowanie Wi-Fi</strong> — ustaw <strong>WPA3-Personal</strong> (a jeśli brak, WPA2-AES). Wyłącz tryby mieszane z WEP/TKIP.</li>
+        <li><strong>Silne hasło do Wi-Fi</strong> — min. 14–16 znaków; fraza z losowymi słowami + cyfry.</li>
+        <li><strong>Wyłącz WPS</strong> — przycisk/parowanie PIN zwiększa ryzyko ataku.</li>
+        <li><strong>Sieć gościnna</strong> — osobne SSID tylko do internetu; bez dostępu do urządzeń LAN.</li>
+        <li><strong>Segmentacja</strong> — IoT/TV/konsole na osobnej sieci/ VLAN; komputery i telefon w głównej.</li>
+        <li><strong>5 GHz i kanały</strong> — preferuj 5 GHz (mniej zakłóceń); ustaw automatyczny wybór kanału.</li>
+        <li><strong>DNS</strong> — użyj DNS dostawcy VPN lub zaufanych serwerów; włącz ochronę przed <a href="/blog/vpn-dns-leak.html">wyciekami DNS</a>.</li>
+        <li><strong>VPN na routerze</strong> lub urządzeniach — patrz <a href="/blog/vpn-na-routerze.html">poradnik</a>; włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a> w aplikacjach.</li>
+      </ol>
+
+      <h2>Dobre praktyki na co dzień</h2>
+      <ul>
+        <li>Ukrywaj SSID <em>tylko jeśli wiesz po co</em> — to nie jest ochrona, a bywa uciążliwe.</li>
+        <li>Wyłącz dostęp administracyjny z internetu (WAN). Pozostaw tylko z LAN/VPN.</li>
+        <li>Regularnie przeglądaj listę urządzeń — usuń nieznane.</li>
+        <li>Na słabym sprzęcie rozważ osobny <strong>punkt dostępowy</strong> lub siatkę <em>mesh</em>.</li>
+      </ul>
+
+      <h2>VPN — kiedy i jak?</h2>
+      <p>VPN szyfruje ruch między urządzeniem a serwerem dostawcy. Przydaje się szczególnie w <strong>publicznym Wi-Fi</strong>, ale także w domu (telepraca, dostęp do zasobów). Na TV/Apple TV rozważ <a href="/blog/vpn-dla-smart-tv.html">Smart DNS / VPN na routerze</a>.</p>
+
+      <section class="cta">
+        <h2>Szybki zestaw ustawień</h2>
+        <ul class="cta-list">
+          <li><strong>WPA3</strong> + silne hasła</li>
+          <li><strong>Wyłącz WPS</strong></li>
+          <li><strong>Sieć gościnna</strong> dla gości/IoT</li>
+          <li><strong>VPN</strong> na routerze lub w aplikacji</li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a></li>
+          <li><a href="/blog/vpn-na-routerze.html">VPN na routerze</a></li>
+          <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — test i naprawa</a></li>
+          <li><a href="/blog/vpn-kill-switch.html">Kill Switch — jak działa</a></li>
+          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Poradnik edukacyjny. Konkretny układ opcji zależy od modelu routera. Zawsze aktualizuj urządzenia i przestrzegaj lokalnego prawa.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
