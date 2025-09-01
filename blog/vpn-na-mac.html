@@ -1,39 +1,134 @@
-<!doctype html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na macOS — szybka i bezpieczna konfiguracja</title>
-<meta name="description" content="Instalacja i ustawienia VPN na macOS: auto-connect, Kill Switch, DNS, protokół WireGuard. Poradnik krok po kroku.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-na-mac.html">
-<meta property="og:type" content="article"><meta property="og:title" content="VPN na macOS — konfiguracja">
-<meta property="og:description" content="Najlepsze ustawienia VPN dla macOS: stabilność, prędkość, bezpieczeństwo.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-na-mac.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"VPN na macOS — szybka i bezpieczna konfiguracja","author":{"@type":"Person","name":"VPN Polska"},"publisher":{"@type":"Organization","name":"VPN Polska"},"datePublished":"2025-08-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-na-mac.html"}}</script>
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a></div></nav>
-<main class="wrap">
-<h1>VPN na macOS — szybka konfiguracja</h1>
-<ol>
-<li>Pobierz aplikację dostawcy i zaloguj się.</li>
-<li>Wybierz protokół <strong>WireGuard/NordLynx</strong>.</li>
-<li>Włącz <strong>Auto-connect</strong> i <strong>Kill Switch</strong>.</li>
-<li>Połącz z najbliższym serwerem i zrób <a href="/blog/vpn-dns-leak.html">test wycieku DNS</a>.</li>
-</ol>
-<section class="cta" id="cta-mac">
-  <h2>Najprostszy start na Macu</h2>
-  <div class="btns">
-    <a class="btn btn-primary" rel="nofollow sponsored"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na macOS</a>
-    <a class="btn btn-ghost" href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>
-  </div><p class="cta-note">Link partnerski — bez dopłaty.</p>
-</section>
-<h2>Powiązane</h2>
-<ul>
-  <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-  <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a></li>
-  <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-</ul>
-</main>
-<footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-<script src="/assets/affiliates.js"></script></body></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN na Mac — konfiguracja krok po kroku (2025)</title>
+  <meta name="description" content="Jak skonfigurować VPN na macOS (MacBook, iMac)? Najprostsza metoda z aplikacją, ręczne IKEv2, OpenVPN/WireGuard, Kill Switch i test wycieków DNS.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-na-mac.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN na Mac — konfiguracja krok po kroku">
+  <meta property="og:description" content="Aplikacja, IKEv2, OpenVPN/WireGuard, Kill Switch i testy. Kompletny przewodnik 2025.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-na-mac.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-na-mac.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN na Mac — konfiguracja krok po kroku">
+  <meta name="twitter:description" content="Jak włączyć VPN na macOS: od aplikacji po ręczne profile IKEv2 i OpenVPN.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-na-mac.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN na Mac — konfiguracja krok po kroku (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-na-mac.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-na-mac.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>VPN na Mac — konfiguracja krok po kroku</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-na-mac.webp" alt="Konfiguracja VPN na macOS" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>Na <strong>macOS</strong> możesz korzystać z VPN na kilka sposobów: przez <strong>oficjalną aplikację</strong> dostawcy, <strong>ręczną konfigurację IKEv2</strong> w ustawieniach systemu lub przez klienta <strong>OpenVPN/WireGuard</strong>. Poniżej najprostsze i najbardziej niezawodne ścieżki.</p>
+
+      <section class="cta">
+        <h2>Najszybszy start na Macu</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na macOS</a>
+          <a class="btn btn-ghost" href="/blog/test-vpn.html">Zrób test połączenia</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Metoda 1 — Aplikacja z Mac App Store</h2>
+      <ol>
+        <li>Wejdź do <strong>App Store</strong> i pobierz aplikację dostawcy (np. NordVPN).</li>
+        <li>Zaloguj się, wybierz <strong>serwer/kraj</strong> i połącz. Aplikacja sama doda profil i uprawnienia.</li>
+        <li>Włącz <strong>Kill Switch</strong> i automatyczne łączenie przy starcie (jeśli dostępne).</li>
+      </ol>
+      <p><em>Plusy:</em> najszybciej, automatyczne aktualizacje, łatwa zmiana serwerów. <em>Minusy:</em> mniejsza elastyczność niż przy ręcznych profilach.</p>
+
+      <h2>Metoda 2 — Ręczna konfiguracja IKEv2 (Ustawienia systemowe)</h2>
+      <ol>
+        <li>macOS → <strong>Ustawienia systemowe</strong> → <em>Sieć</em> → <em>VPN</em> → <strong>Dodaj konfigurację</strong>.</li>
+        <li>Wybierz <strong>IKEv2</strong>, wpisz <em>adres serwera</em>, <em>zdalny identyfikator</em>, <em>lokalny identyfikator</em>, login/hasło lub certyfikat zgodnie z danymi dostawcy.</li>
+        <li>Zapisz i <strong>Połącz</strong>. Dodaj opcję „połącz automatycznie”.</li>
+      </ol>
+      <p><em>Plusy:</em> stabilność i natywna integracja. <em>Minusy:</em> brak wygodnych list serwerów, mniejsza kontrola nad DNS/kill switch w GUI.</p>
+
+      <h2>Metoda 3 — OpenVPN / WireGuard (aplikacje zewnętrzne)</h2>
+      <ul>
+        <li><strong>OpenVPN:</strong> użyj klienta (np. Tunnelblick/Viscosity) i zaimportuj pliki <code>.ovpn</code>.</li>
+        <li><strong>WireGuard:</strong> aplikacja „WireGuard” dla macOS → <em>Import tunelu</em> z pliku <code>.conf</code> → <em>Activate</em>.</li>
+        <li>Po imporcie profile można łatwo włączać/wyłączać z paska menu.</li>
+      </ul>
+
+      <h2>Kill Switch, DNS i brak wycieków</h2>
+      <ul>
+        <li>W aplikacji dostawcy włącz <strong>Kill Switch</strong> i <strong>ochronę DNS</strong> (DNS przez tunel).</li>
+        <li>Gdy używasz zewnętrznych klientów, preferuj profile z wpisanymi DNS dostawcy.</li>
+        <li>Po zmianach zrób szybki test: <a href="/blog/vpn-dns-leak.html">wyciek DNS</a> oraz <a href="/blog/test-vpn.html">ping/prędkość</a>.</li>
+      </ul>
+
+      <h2>iCloud Private Relay a VPN</h2>
+      <p><strong>Private Relay</strong> ukrywa IP w Safari i w części ruchu iCloud, ale nie działa jak pełny VPN (nie zmienia regionu w aplikacjach). Jeśli VPN „nie łapie” adresu IP w Safari, wyłącz Private Relay na czas testów.</p>
+
+      <h2>Szybka checklista po konfiguracji</h2>
+      <ol>
+        <li>IP pokazuje kraj serwera VPN (nie Twój).</li>
+        <li>DNS działa przez tunel (brak wycieków ISP/uczelnia/router).</li>
+        <li>Kill Switch aktywny — rozłączenie VPN ≠ brak ochrony.</li>
+        <li>Aplikacje VOD i bankowość działają w oczekiwanym regionie (w razie problemów zmień serwer/wyczyść cache).</li>
+      </ol>
+
+      <section class="cta">
+        <h2>Najprościej — gotowa aplikacja na macOS</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN na Mac</a>
+          <a class="btn btn-ghost" href="/blog/vpn-kill-switch.html">Czym jest Kill Switch?</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
+          <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Androidzie</a></li>
+          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+          <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — test i naprawa</a></li>
+          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
