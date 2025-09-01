@@ -1,14 +1,10 @@
+# Основные правила для всех роботов
 User-agent: *
-Allow: /
-
-# Не индексировать технические файлы и ошибки
 Disallow: /404.html
 Disallow: /draft/
+Allow: /
 
-# Основная карта сайта
-Sitemap: https://dloran1.github.io/sitemap.xml
-
-# Дополнительные указания для Google
+# Для Google
 User-agent: Googlebot
 Allow: /
 
@@ -20,3 +16,15 @@ Allow: /
 
 User-agent: Googlebot-Video
 Allow: /
+
+# Для Bing
+User-agent: Bingbot
+Allow: /
+
+# Для Yandex
+User-agent: Yandex
+Allow: /
+
+# Карты сайта
+Sitemap: https://dloran1.github.io/sitemap.xml
+Sitemap: https://dloran1.github.io/rss.xml
