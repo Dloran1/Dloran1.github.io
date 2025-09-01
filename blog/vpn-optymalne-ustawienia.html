@@ -1,40 +1,143 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Optymalne ustawienia VPN — szybciej i bezpieczniej</title>
-<meta name="description" content="Jak dobrać protokół, serwer, kill switch i DNS, aby VPN działał szybko i bez wycieków. Prosty checklist.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
-<meta property="og:type" content="article"><meta property="og:title" content="Optymalne ustawienia VPN — szybciej i bezpieczniej">
-<meta property="og:description" content="Protokół, serwer, kill switch, DNS — konfiguracja VPN krok po kroku.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/assets/style.css">
-</head><body>
-<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
-<main class="wrap article">
-<h1>Optymalne ustawienia VPN — szybciej i bezpieczniej</h1>
-<div class="hero"><img src="/assets/img/hero/vpn-optymalne-ustawienia.webp" alt="Optymalne ustawienia VPN" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
-<h2>Checklist</h2>
-<ul>
-<li><strong>Protokół:</strong> WireGuard/NordLynx; gdy sieć filtruje — OpenVPN TCP/443.</li>
-<li><strong>Serwer:</strong> najbliższy geograficznie; do VOD — kraj treści.</li>
-<li><strong>Kill switch</strong> i <strong>DNS leak protection</strong> — włączone.</li>
-<li><strong>Auto-Connect</strong> w nowych/otwartych Wi-Fi.</li>
-<li><strong>Split tunneling</strong> dla aplikacji niewrażliwych.</li>
-</ul>
-<h2>Diagnoza prędkości</h2>
-<p>Wykonaj bazowy test bez VPN, potem z VPN — porównaj i zmień region/protokół.</p>
-<section class="cta cta-mounted">
-  <h2>Szybki start: gotowa aplikacja</h2><p class="muted">Szybkie protokoły, własne DNS, kill switch.</p>
-  <div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-  <a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz plan</a></div>
-</section>
-<h2>Powiązane</h2>
-<ul>
-<li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-<li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-<li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a></li>
-</ul>
-</main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Optymalne ustawienia VPN — szybciej i bezpieczniej","description":"Jak dobrać protokół, serwer, kill switch i DNS, aby VPN działał szybko i bez wycieków.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"image":"https://dloran1.github.io/assets/img/og-default.jpg","mainEntityOfPage":{"@id":"https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html","@type":"WebPage"}}</script>
-</body></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Optymalne ustawienia VPN — szybkość i bezpieczeństwo</title>
+  <meta name="description" content="Jakie ustawienia VPN wybrać? WireGuard czy OpenVPN, TCP czy UDP, Kill Switch, Auto-connect, Split Tunneling, DNS i zaciemnianie. Praktyczna konfiguracja dla Polski.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Optymalne ustawienia VPN — szybkość i bezpieczeństwo">
+  <meta property="og:description" content="Prosty przewodnik po ustawieniach: protokół, Kill Switch, split tunneling, DNS i więcej.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-optymalne-ustawienia.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Optymalne ustawienia VPN — szybkość i bezpieczeństwo">
+  <meta name="twitter:description" content="Jak ustawić VPN dla najlepszego balansu między prędkością i ochroną.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-optymalne-ustawienia.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Optymalne ustawienia VPN — szybkość i bezpieczeństwo",
+    "author": { "@type": "Person", "name": "VPN Polska" },
+    "publisher": { "@type": "Organization", "name": "VPN Polska" },
+    "datePublished": "2025-09-01",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html" },
+    "image": "https://dloran1.github.io/assets/img/vpn-optymalne-ustawienia.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>Optymalne ustawienia VPN — szybkość i bezpieczeństwo</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-optymalne-ustawienia.webp"
+             alt="Optymalne ustawienia VPN"
+             width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>Konfiguracja VPN może być prosta, jeśli wiesz, które opcje naprawdę mają znaczenie. Poniżej krótki przewodnik, jak ustawić VPN, aby uzyskać najlepszy balans między <strong>prędkością</strong> a <strong>ochroną</strong>.</p>
+
+      <section class="cta">
+        <h2>Chcesz gotowe, szybkie ustawienia?</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/test-vpn.html">Sprawdź prędkość VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty.</p>
+      </section>
+
+      <h2>1) Protokół: <span class="nowrap">WireGuard</span> / NordLynx vs OpenVPN</h2>
+      <ul>
+        <li><strong>WireGuard / NordLynx</strong> — zwykle najszybszy i stabilny. Dobry wybór na co dzień, streaming i gry.</li>
+        <li><strong>OpenVPN UDP</strong> — alternatywa, gdy dany serwer działa szybciej lub potrzebujesz kompatybilności.</li>
+        <li><strong>OpenVPN TCP</strong> — gdy sieć jest niestabilna lub zrywa połączenia (bardziej „odporny”, ale wolniejszy).</li>
+      </ul>
+
+      <h2>2) Lokalizacja serwera</h2>
+      <ul>
+        <li><strong>Najbliżej geograficznie</strong> = zwykle najlepsza prędkość i ping.</li>
+        <li>Dla VOD wybierz kraj <strong>katalogu</strong> (np. PL/US/UK) — patrz artykuł o <a href="/blog/vpn-netflix-polska.html">VPN i Netflix</a>.</li>
+      </ul>
+
+      <h2>3) Kill Switch</h2>
+      <p>Włącz <strong>Kill Switch</strong>, aby ruch nie wyciekał poza tunel przy zerwaniu połączenia. Warto w trybie „systemowym” (blokuje cały ruch bez VPN).</p>
+      <p>Więcej: <a href="/blog/vpn-kill-switch.html">Kill Switch — jak działa</a>.</p>
+
+      <h2>4) Auto-connect</h2>
+      <p>Włącz <strong>automatyczne łączenie</strong> po starcie systemu i na <strong>sieciach publicznych Wi-Fi</strong>. Dzięki temu nie zapomnisz o ochronie.</p>
+      <p>Bezpieczeństwo w hotspotach: <a href="/blog/vpn-publiczne-wifi.html">publiczne Wi-Fi — zasady</a>.</p>
+
+      <h2>5) Split tunneling</h2>
+      <p>Jeśli chcesz, aby wybrane aplikacje omijały VPN (np. gry LAN, bankowość), użyj <strong>split tunneling</strong>. Zmniejsza to obciążenie i bywa szybsze.</p>
+      <p>Szczegóły: <a href="/blog/vpn-split-tunneling.html">split tunneling — poradnik</a>.</p>
+
+      <h2>6) DNS i ochrona przed wyciekami</h2>
+      <ul>
+        <li>Włącz ochronę przed <strong>DNS leak</strong> w aplikacji.</li>
+        <li>Możesz ustawić własne DNS (np. operatora VPN lub publiczne), ale najlepiej pozostać przy DNS dostawcy VPN, aby zachować spójność tunelu.</li>
+      </ul>
+      <p>Więcej: <a href="/blog/vpn-dns-leak.html">DNS leak — co to i jak sprawdzić</a>.</p>
+
+      <h2>7) Zaciemnianie (Obfuscation)</h2>
+      <p>Gdy sieć ogranicza VPN (np. w pracy, hotelu), włącz <strong>obfuscation/ukrywanie ruchu</strong>. Może nieco obniżyć prędkość, ale zwiększa szanse na połączenie.</p>
+
+      <h2>8) Autostart i „pozwól aplikacji działać w tle”</h2>
+      <p>W systemach mobilnych i na laptopach ze „śpiącymi” aplikacjami pozwól klientowi VPN działać w tle. Zapobiega to zrywaniu tunelu przy przechodzeniu urządzenia w uśpienie.</p>
+
+      <section class="cta">
+        <h2>Szybki zestaw ustawień (polecany start)</h2>
+        <ul class="cta-list">
+          <li>Protokół: <strong>WireGuard / NordLynx</strong></li>
+          <li>Serwer: <strong>najbliższy</strong> (lub kraj katalogu VOD)</li>
+          <li><strong>Kill Switch: włączony</strong></li>
+          <li><strong>Auto-connect</strong> przy starcie i w publicznym Wi-Fi</li>
+          <li>DNS leak protection: <strong>włączony</strong></li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-szybkosc-test.html">Zmierz prędkość po zmianach</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty.</p>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/test-vpn.html">Test VPN — praktyczna checklist</a></li>
+          <li><a href="/blog/vpn-szybkosc-test.html">Jak testować prędkość VPN</a></li>
+          <li><a href="/blog/no-logs.html">Polityka no-logs — na czym polega</a></li>
+          <li><a href="/blog/vpn-kill-switch.html">Kill Switch — ochrona po zerwaniu</a></li>
+          <li><a href="/blog/vpn-split-tunneling.html">Split tunneling — jak używać</a></li>
+        </ul>
+      </aside>
+
+      <p class="small disclaimer">Uwaga: konkretne nazwy opcji różnią się w zależności od aplikacji i systemu. Korzystaj z najnowszej wersji klienta VPN.</p>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
