@@ -1,32 +1,147 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN dla graczy — ping, stabilność i ochrona</title>
-<meta name="description" content="Czy VPN ma sens dla graczy? Jak dobrać serwer, obniżyć ping, uniknąć throttlingu i chronić się przed DDoS.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-graczy.html">
-<meta property="og:type" content="article"><meta property="og:title" content="VPN dla graczy — ping, stabilność i ochrona">
-<meta property="og:description" content="Serwery blisko regionu, stabilny protokół i ochrona przed DDoS — praktyczne porady.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-graczy.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/og-default.jpg">
-<link rel="stylesheet" href="/assets/style.css"></head><body>
-<nav class="nav"><div class="inner"><a class="logo" href="/">VPN Polska</a><div class="menu"><a href="/">Strona główna</a><a href="/blog/index.html">Blog</a></div></div></nav>
-<main class="wrap article">
-<h1>VPN dla graczy — ping, stabilność i ochrona</h1>
-<div class="hero"><img src="/assets/img/hero/vpn-dla-graczy.webp" alt="VPN dla graczy" loading="lazy" onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'"></div>
-<h2>Kiedy VPN pomaga w grach</h2>
-<ul><li>Unikanie <strong>throttlingu</strong> od ISP.</li>
-<li>Stabilniejsza trasa do serwera gry.</li>
-<li>Ochrona przed <strong>DDoS</strong> w grach P2P.</li></ul>
-<h2>Ustawienia</h2>
-<ul><li>Protokół: <strong>WireGuard</strong> (niski ping).</li>
-<li>Serwer: możliwie <strong>najbliżej regionu</strong> gry.</li></ul>
-<section class="cta cta-mounted"><h2>Stabilny tunel do serwerów gier</h2><p class="muted">Niski ping i ochrona przed atakami.</p>
-<div class="btns"><a class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Wypróbuj NordVPN</a>
-<a class="btn btn-ghost" target="_blank" rel="nofollow sponsored noopener" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Zobacz serwery</a></div></section>
-<h2>Powiązane artykuły</h2>
-<ul><li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-<li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-<li><a href="/blog/vpn-na-router.html">VPN na routerze</a></li></ul>
-</main>
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"VPN dla graczy — ping, stabilność i ochrona","description":"Czy VPN ma sens dla graczy? Jak dobrać serwer, obniżyć ping, uniknąć throttlingu i chronić się przed DDoS.","datePublished":"2025-08-31","dateModified":"2025-08-31","author":{"@type":"Organization","name":"VPN Polska"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dla-graczy.html"},"image":"https://dloran1.github.io/assets/img/og-default.jpg"}</script>
-</body></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN dla graczy — niższy ping, stabilność i ochrona przed DDoS (2025)</title>
+  <meta name="description" content="Jak używać VPN do gier? Niższy ping, stabilniejszy routing, ochrona przed DDoS, dobór serwera (PL/EU/US), protokół WireGuard/NordLynx, NAT, porty i checklista.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-graczy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN dla graczy — ping, stabilność i ochrona przed DDoS">
+  <meta property="og:description" content="Dobór serwera do gier, ping/jitter, NAT i porty, WireGuard/NordLynx, a także ochrona przed atakami DDoS.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-graczy.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dla-graczy.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN dla graczy — ping, stabilność i ochrona przed DDoS">
+  <meta name="twitter:description" content="Wybór serwera, protokołu i szybka checklista pod FPS/MOBA/MMO.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-dla-graczy.webp">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN dla graczy — niższy ping, stabilność i ochrona przed DDoS (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-08-31",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dla-graczy.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-dla-graczy.webp"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <article>
+      <h1>VPN dla graczy — ping, stabilność i DDoS</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-dla-graczy.webp" alt="VPN dla graczy — niższy ping i ochrona DDoS" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>Dobry VPN może poprawić <strong>stabilność trasy (routing)</strong>, uchronić przed <strong>DDoS</strong> i pomóc połączyć się z <strong>regionem serwera gry</strong>. Kluczowe jest jednak właściwe ustawienie: wybór <em>serwera</em>, <em>protokół</em> i kontrola <em>NAT/portów</em>.</p>
+
+      <section class="cta">
+        <h2>Szybki start dla graczy</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN (NordLynx)</a>
+          <a class="btn btn-ghost" href="/blog/test-vpn.html">Zrób szybki test ping/prędkość</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Kiedy VPN pomaga w grach?</h2>
+      <ul>
+        <li><strong>Routing</strong> przez sieć VPN jest krótszy/stabilniejszy niż domyślna trasa ISP (mniej węzłów, mniejszy jitter).</li>
+        <li><strong>Ochrona IP</strong> — Twoje prawdziwe IP nie jest widoczne dla przeciwników (mniej ataków DDoS/„swatting”).</li>
+        <li><strong>Region</strong> — łączysz się z serwerem gry w wybranym kraju/regionie (matchmaking, język, ping).</li>
+        <li><strong>CGNAT</strong> — VPN może „ominąć” problemy z podwójnym NATem operatora mobilnego.</li>
+      </ul>
+
+      <h2>Na co uważać?</h2>
+      <ul>
+        <li><strong>Nie każdy serwer</strong> da niższy ping — testuj 2–3 lokalizacje w tym samym regionie.</li>
+        <li><strong>Anty-cheat</strong> niektórych gier bywa wrażliwy na zmiany IP/proxy. Używaj stałego regionu.</li>
+        <li><strong>Porty/NAT</strong> na konsolach: nie wszystkie VPN umożliwiają otwieranie portów (UPnP/port forwarding).</li>
+      </ul>
+
+      <h2>Ustawienia polecane do gier</h2>
+      <ol>
+        <li><strong>Protokół:</strong> <em>WireGuard/NordLynx</em> – najniższy narzut i dobry ping.</li>
+        <li><strong>Serwer:</strong> jak najbliżej <em>serwera gry</em> (nie zawsze najbliżej Ciebie!).</li>
+        <li><strong>Obciążenie:</strong> wybieraj serwery z niższym % load w aplikacji.</li>
+        <li><strong>IPv6:</strong> jeśli gra nie wspiera dobrze IPv6, wyłącz IPv6 po stronie OS/routera.</li>
+        <li><strong>MTU:</strong> gdy masz mikro-lagi, przetestuj MTU 1420–1450 (szczególnie na połączeniach mobilnych).</li>
+      </ol>
+
+      <h2>Konsole (PS/Xbox/Switch)</h2>
+      <ul>
+        <li>Najprościej: VPN na <strong>routerze</strong> → cała konsola idzie tunelem.</li>
+        <li>Alternatywa: udostępnij połączenie z <strong>PC/Mac</strong> (hotspot), gdy router nie obsługuje VPN.</li>
+        <li>NAT typu <strong>Open</strong> bywa trudny przez VPN. Jeżeli gra wymaga otwartych portów, testuj serwery/port forwarding (gdy dostawca udostępnia).</li>
+      </ul>
+
+      <h2>Cloud gaming i zdalne granie</h2>
+      <ul>
+        <li><strong>GeForce NOW, Xbox Cloud, PS Remote Play</strong> — najlepiej serwer VPN w Twoim regionie, niski jitter.</li>
+        <li>Przy zdalnym graniu (Remote Play/Steam Link) czasem lepszy jest <em>lokalny</em> serwer VPN blisko Ciebie.</li>
+      </ul>
+
+      <h2>Jak testować (5 minut)</h2>
+      <ol>
+        <li>Bez VPN: zmierz <strong>ping/jitter/packet loss</strong> do serwera gry.</li>
+        <li>Z VPN: wybierz serwer w regionie gry → powtórz test 2–3 razy i porównaj.</li>
+        <li>Jeśli jest gorzej: zmień serwer/protokół, sprawdź inny kraj sąsiedni, przełącz Wi-Fi 2.4 ↔ 5 GHz.</li>
+      </ol>
+      <p>Szczegóły w <a href="/blog/test-vpn.html">pełnej checkliście testów</a>.</p>
+
+      <h2>Typowe problemy i szybkie rozwiązania</h2>
+      <ul>
+        <li><strong>Skaczący ping/jitter:</strong> inny serwer w tym samym kraju; krótsza trasa; sprawdź obciążenie.</li>
+        <li><strong>Packet loss:</strong> test innego protokołu (WireGuard ↔ OpenVPN UDP), sprawdź kanał Wi-Fi, kabel zamiast Wi-Fi.</li>
+        <li><strong>DDoS:</strong> łącz się przez VPN zawsze w grach rankingowych; zmieniaj serwer/IP po incydencie.</li>
+        <li><strong>Matchmaking zły region:</strong> ustaw stały serwer i wyczyść cache gry/launchera.</li>
+      </ul>
+
+      <section class="cta">
+        <h2>Zabezpiecz konto i ping</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">NordVPN dla graczy</a>
+          <a class="btn btn-ghost" href="/blog/vpn-2fa-mfa.html">Włącz 2FA/MFA</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></li>
+          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
+          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+          <li><a href="/blog/vpn-dns-leak.html">Test wycieku DNS</a></li>
+          <li><a href="/blog/vpn-na-router.html">VPN na routerze</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
