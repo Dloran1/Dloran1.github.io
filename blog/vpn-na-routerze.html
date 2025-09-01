@@ -1,44 +1,119 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN na routerze — dodatkowa ochrona całej sieci</title>
-<meta name="description" content="Konfiguracja VPN na routerze chroni wszystkie urządzenia (TV, konsole, IoT). Kiedy warto i jak zacząć.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-na-routerze.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN na routerze — dodatkowa ochrona">
-<meta property="og:description" content="Jedno logowanie, jeden profil i ochrona całej sieci domowej.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-na-routerze.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-na-routerze.webp">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu">
-<a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-</div></nav>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN na routerze — konfiguracja krok po kroku (2025)</title>
+  <meta name="description" content="Jak skonfigurować VPN na routerze? Instrukcja krok po kroku dla AsusWRT, OpenWRT, DD-WRT i routerów z aplikacją. Zalety, wady i test połączenia.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-na-routerze.html">
 
-<main class="wrap">
-<h1>VPN na routerze — dodatkowa ochrona</h1>
-<p>Rozwiązanie dla całej sieci: TV, konsole, IoT. Jedno logowanie, jeden profil — działa w tle.</p>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN na routerze — konfiguracja krok po kroku">
+  <meta property="og:description" content="AsusWRT, OpenWRT, DD-WRT, a także routery z aplikacją. Pełna instrukcja 2025.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-na-routerze.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-na-routerze.webp">
 
-<figure class="hero">
-  <img src="/assets/img/vpn-na-routerze.webp" alt="VPN skonfigurowany na routerze" loading="lazy" width="1200" height="630">
-</figure>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN na routerze — konfiguracja krok po kroku">
+  <meta name="twitter:description" content="Skonfiguruj VPN na routerze i chroń wszystkie urządzenia w domu. AsusWRT, DD-WRT, OpenWRT i inne.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-na-routerze.webp">
 
-<section class="cta cta-mounted">
-  <h2>Szybka konfiguracja</h2>
-  <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">Aktywuj NordVPN</a>
-  <div class="btns">
-    <a class="btn btn-ghost" href="/blog/vpn-dla-smart-tv.html">VPN dla Smart TV</a>
-  </div>
-  <p class="cta-note">Link partnerski — bez dopłaty.</p>
-</section>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN na routerze — konfiguracja krok po kroku (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-09-01",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-na-routerze.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-na-routerze.webp"
+  }
+  </script>
 
-<h2>Powiązane artykuły</h2>
-<ul>
-  <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a></li>
-  <li><a href="/blog/vpn-port-forwarding.html">Port Forwarding</a></li>
-  <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-</ul>
-</main>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
 
-<footer class="footer">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-</body></html>
+  <main class="wrap">
+    <article>
+      <h1>VPN na routerze — konfiguracja krok po kroku</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-na-routerze.webp" alt="VPN na routerze" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p><strong>VPN na routerze</strong> pozwala chronić wszystkie urządzenia w domu (smartfony, laptopy, TV, konsole) bez instalacji aplikacji na każdym z nich. Wystarczy jedno połączenie — i cały ruch wychodzi przez serwer VPN.</p>
+
+      <section class="cta">
+        <h2>Najprostszy start</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Instrukcja NordVPN dla routerów</a>
+          <a class="btn btn-ghost" href="/blog/test-vpn.html">Test połączenia VPN</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Metoda 1 — Routery z aplikacją VPN</h2>
+      <p>Niektóre routery (np. Asus, Netgear, TP-Link z wyższej półki) mają <strong>wbudowaną obsługę VPN</strong>. Wystarczy wpisać dane serwera, login/hasło i włączyć.</p>
+
+      <h2>Metoda 2 — AsusWRT (Asus z firmware)</h2>
+      <ol>
+        <li>Zaloguj się do panelu (192.168.1.1 → „VPN” → „VPN Client”).</li>
+        <li>Dodaj profil (OpenVPN lub IKEv2), zaimportuj plik konfiguracyjny od dostawcy.</li>
+        <li>Zapisz i kliknij „Połącz”.</li>
+      </ol>
+
+      <h2>Metoda 3 — OpenWRT / DD-WRT</h2>
+      <p>To alternatywne firmware, które pozwalają na <strong>zaawansowaną konfigurację</strong>. Wymagają ręcznej instalacji pakietów (np. openvpn-openssl, wireguard-tools) i dodania konfiguracji przez SSH lub panel WWW.</p>
+
+      <h2>Plusy i minusy VPN na routerze</h2>
+      <ul>
+        <li><strong>Plusy:</strong> ochrona całej sieci, jedno logowanie, brak limitów urządzeń.</li>
+        <li><strong>Minusy:</strong> spadek prędkości (router liczy szyfrowanie), trudniejsza konfiguracja przy starszych modelach.</li>
+      </ul>
+
+      <h2>Test po instalacji</h2>
+      <ol>
+        <li>Podłącz się do Wi-Fi routera.</li>
+        <li>Wejdź na stronę sprawdzającą IP/DNS (np. <a href="/blog/vpn-dns-leak.html">test DNS</a>).</li>
+        <li>Zweryfikuj, czy IP = adres serwera VPN, a DNS nie wycieka.</li>
+      </ol>
+
+      <section class="cta">
+        <h2>Polecane rozwiązanie</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Routery z NordVPN</a>
+          <a class="btn btn-ghost" href="/blog/vpn-dla-smart-tv.html">VPN na Smart TV</a>
+        </div>
+      </section>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-dla-smart-tv.html">VPN na Smart TV</a></li>
+          <li><a href="/blog/vpn-dla-konsol-ps5-xbox.html">VPN dla konsol</a></li>
+          <li><a href="/blog/vpn-na-mac.html">VPN na Mac</a></li>
+          <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Androidzie</a></li>
+          <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
