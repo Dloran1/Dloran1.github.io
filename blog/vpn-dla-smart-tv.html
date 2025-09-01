@@ -1,48 +1,131 @@
-<!DOCTYPE html><html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VPN dla Smart TV — 3 proste metody</title>
-<meta name="description" content="Jak używać VPN na Smart TV? Aplikacja, VPN na routerze albo Smart DNS. Wybierz metodę w zależności od modelu i potrzeb.">
-<link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-smart-tv.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VPN dla Smart TV — 3 proste metody">
-<meta property="og:description" content="Aplikacja, router z VPN lub Smart DNS. Instrukcje i szybki start.">
-<meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-smart-tv.html">
-<meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dla-smart-tv.webp">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style.css">
-</head><body>
-<nav class="nav"><a class="logo" href="/">VPN Polska</a><div class="menu">
-<a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-</div></nav>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VPN dla Smart TV — jak oglądać VOD i omijać blokady (2025)</title>
+  <meta name="description" content="Jak używać VPN na Smart TV? Najprostsze metody: Smart DNS, router z VPN i udostępnianie z komputera. Instrukcje krok po kroku, typowe błędy i checklista.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-smart-tv.html">
 
-<main class="wrap">
-<h1>VPN dla Smart TV — trzy metody</h1>
-<ol>
-  <li>Aplikacja w TV (jeśli wspierana).</li>
-  <li><a href="/blog/vpn-na-routerze.html">VPN na routerze</a> — działa dla całej sieci.</li>
-  <li>Smart DNS — bez szyfrowania, ale często wystarczy do VOD.</li>
-</ol>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN dla Smart TV — jak oglądać VOD i omijać blokady">
+  <meta property="og:description" content="Smart DNS, router z VPN, udostępnianie z PC/Mac. Proste instrukcje i checklista pod Netflix/Prime/Disney+/HBO.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-smart-tv.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dla-smart-tv.webp">
 
-<figure class="hero">
-  <img src="/assets/img/vpn-dla-smart-tv.webp" alt="VPN dla Smart TV" loading="lazy" width="1200" height="630">
-</figure>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN dla Smart TV — jak oglądać VOD i omijać blokady">
+  <meta name="twitter:description" content="Najprostsze metody: Smart DNS, router z VPN, udostępnianie z komputera.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-dla-smart-tv.webp">
 
-<section class="cta cta-mounted">
-  <h2>Start w kilka minut</h2>
-  <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="nofollow sponsored">NordVPN dla Smart TV</a>
-  <div class="btns">
-    <a class="btn btn-ghost" href="/blog/vpn-netflix-polska.html">VPN i Netflix</a>
-  </div>
-  <p class="cta-note">Link partnerski — bez dopłaty.</p>
-</section>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"VPN dla Smart TV — jak oglądać VOD i omijać blokady (2025)",
+    "author":{"@type":"Person","name":"VPN Polska"},
+    "publisher":{"@type":"Organization","name":"VPN Polska"},
+    "datePublished":"2025-08-31",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dla-smart-tv.html"},
+    "image":"https://dloran1.github.io/assets/img/vpn-dla-smart-tv.webp"
+  }
+  </script>
 
-<h2>Powiązane artykuły</h2>
-<ul>
-  <li><a href="/blog/vpn-na-routerze.html">VPN na routerze — dodatkowa ochrona</a></li>
-  <li><a href="/blog/vpn-geoblokady.html">Jak omijać geoblokady</a></li>
-  <li><a href="/blog/vpn-dns-leak.html">Test wycieku DNS</a></li>
-</ul>
-</main>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
 
-<footer class="footer">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-</body></html>
+  <main class="wrap">
+    <article>
+      <h1>VPN dla Smart TV — najprostsze sposoby</h1>
+
+      <figure class="cover">
+        <img src="/assets/img/vpn-dla-smart-tv.webp" alt="VPN dla Smart TV — poradnik VOD" width="1200" height="630" loading="lazy">
+      </figure>
+
+      <p>Większość telewizorów Smart TV <strong>nie obsługuje natywnie aplikacji VPN</strong>. Są jednak trzy skuteczne metody, aby uzyskać dostęp do katalogów VOD z innych krajów i poprawić prywatność: <strong>Smart DNS</strong>, <strong>router z VPN</strong> oraz <strong>udostępnianie połączenia z komputera</strong>.</p>
+
+      <section class="cta">
+        <h2>Najszybszy start na TV</h2>
+        <div class="btns">
+          <a class="btn btn-primary" rel="nofollow sponsored"
+             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN / Smart DNS</a>
+          <a class="btn btn-ghost" href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a>
+        </div>
+        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
+      </section>
+
+      <h2>Metoda 1 — Smart DNS (najprostsza do VOD)</h2>
+      <ol>
+        <li>Zaloguj się do panelu dostawcy i <strong>włącz Smart DNS</strong> (często wymaga potwierdzenia Twojego IP).</li>
+        <li>Na TV: <em>Ustawienia → Sieć → Zaawansowane → DNS</em> → wpisz adresy Smart DNS dostawcy.</li>
+        <li>Zrestartuj telewizor i uruchom aplikacje VOD (Netflix/Prime/Disney+/HBO/Player/TVP).</li>
+      </ol>
+      <p><em>Uwaga:</em> Smart DNS nie szyfruje ruchu — rozwiązuje geoblokady. Jeśli chcesz też prywatności, użyj metody z routerem lub komputerem.</p>
+
+      <h2>Metoda 2 — Router z VPN (VPN dla całego TV)</h2>
+      <ol>
+        <li>Sprawdź, czy router obsługuje klienta VPN (WireGuard/OpenVPN/IPsec).</li>
+        <li>Wgraj konfigurację z panelu dostawcy, ustaw serwer w wybranym kraju katalogu VOD.</li>
+        <li>Podłącz Smart TV do Wi-Fi/LAN tego routera — <strong>cały ruch TV będzie szyfrowany</strong>.</li>
+      </ol>
+      <ul>
+        <li>Plus: VPN + zmiana regionu działa w każdej aplikacji TV.</li>
+        <li>Minus: nieco trudniejsza konfiguracja; lekki spadek prędkości względem Smart DNS.</li>
+      </ul>
+
+      <h2>Metoda 3 — Udostępnianie z PC/Mac</h2>
+      <ul>
+        <li><strong>Windows:</strong> połącz PC z VPN → włącz <em>Mobilny hotspot</em> → podłącz TV do tej sieci.</li>
+        <li><strong>macOS:</strong> połącz z VPN → <em>Udostępnianie Internetu</em> (Wi-Fi/Ethernet) → Smart TV do tej sieci.</li>
+      </ul>
+      <p>To dobry kompromis, gdy router nie wspiera VPN, a Smart DNS nie wystarcza.</p>
+
+      <h2>Wskazówki dla najpopularniejszych systemów TV</h2>
+      <ul>
+        <li><strong>WebOS (LG) / Tizen (Samsung):</strong> brak natywnej aplikacji VPN → użyj Smart DNS lub routera z VPN.</li>
+        <li><strong>Android TV / Google TV:</strong> część dostawców ma aplikacje, ale do VOD często skuteczniejszy jest Smart DNS.</li>
+        <li><strong>Apple TV:</strong> patrz oddzielny poradnik — najczęściej Smart DNS lub router z VPN.</li>
+      </ul>
+
+      <h2>Najczęstsze problemy i szybkie naprawy</h2>
+      <ul>
+        <li><strong>Komunikat o regionie nadal się pojawia:</strong> zmień serwer/region, wyczyść cache aplikacji VOD, uruchom TV ponownie.</li>
+        <li><strong>Aplikacje ignorują VPN z komputera:</strong> użyj <strong>Smart DNS</strong> na TV lub VPN na routerze.</li>
+        <li><strong>Buforowanie:</strong> wybierz bliższy serwer, przełącz Wi-Fi na 5 GHz lub użyj kabla Ethernet.</li>
+      </ul>
+
+      <h2>Checklista przed seansem</h2>
+      <ol>
+        <li>Wybrana metoda: <strong>Smart DNS</strong> (łatwo) lub <strong>router/komputer z VPN</strong> (prywatność).</li>
+        <li>Serwer w kraju katalogu (US/UK/DE/PL), wyczyszczone cache/cookies aplikacji VOD.</li>
+        <li>Stabilne połączenie: 5 GHz lub Ethernet, test prędkości na TV.</li>
+      </ol>
+
+      <aside class="related">
+        <h2>Powiązane artykuły</h2>
+        <ul>
+          <li><a href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a></li>
+          <li><a href="/blog/player-tvp-vpn.html">Player / TVP z VPN</a></li>
+          <li><a href="/blog/vpn-netflix-polska.html">VPN i Netflix — wskazówki</a></li>
+          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></li>
+          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
+        </ul>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
+  <script src="/assets/affiliates.js"></script>
+</body>
+</html>
