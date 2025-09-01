@@ -7,42 +7,87 @@
     <language>pl</language>
     <lastBuildDate>Mon, 01 Sep 2025 09:00:00 +0200</lastBuildDate>
 
-    <item>
-      <title>Co to jest VPN?</title>
-      <link>https://dloran1.github.io/co-to-jest-vpn.html</link>
-      <description>Podstawowe informacje o VPN i dlaczego warto go używać w Polsce.</description>
-      <pubDate>Mon, 01 Sep 2025 09:00:00 +0200</pubDate>
-    </item>
+    <item><title>Co to jest VPN?</title><link>https://dloran1.github.io/co-to-jest-vpn.html</link><description>Podstawowe informacje o VPN i dlaczego warto go używać w Polsce.</description><pubDate>Mon, 01 Sep 2025 09:00:00 +0200</pubDate></item>
 
-    <item>
-      <title>Darmowe vs Płatne VPN</title>
-      <link>https://dloran1.github.io/darmowe-vs-platne-vpn.html</link>
-      <description>Porównanie darmowych i płatnych VPN – który wybrać?</description>
-      <pubDate>Mon, 01 Sep 2025 09:10:00 +0200</pubDate>
-    </item>
+    <item><title>Darmowe vs Płatne VPN</title><link>https://dloran1.github.io/darmowe-vs-platne-vpn.html</link><description>Porównanie darmowych i płatnych VPN – który wybrać?</description><pubDate>Mon, 01 Sep 2025 09:10:00 +0200</pubDate></item>
 
-    <item>
-      <title>Darmowy VPN w Polsce</title>
-      <link>https://dloran1.github.io/darmowy-vpn-polska.html</link>
-      <description>Przegląd darmowych VPN dostępnych w Polsce.</description>
-      <pubDate>Mon, 01 Sep 2025 09:20:00 +0200</pubDate>
-    </item>
+    <item><title>Darmowy VPN Polska</title><link>https://dloran1.github.io/darmowy-vpn-polska.html</link><description>Przegląd darmowych VPN dostępnych w Polsce.</description><pubDate>Mon, 01 Sep 2025 09:20:00 +0200</pubDate></item>
 
-    <item>
-      <title>Dlaczego VPN w 2025?</title>
-      <link>https://dloran1.github.io/dlaczego-vpn-2025.html</link>
-      <description>Powody, dla których VPN będzie kluczowy w 2025 roku.</description>
-      <pubDate>Mon, 01 Sep 2025 09:30:00 +0200</pubDate>
-    </item>
+    <item><title>Dlaczego VPN 2025</title><link>https://dloran1.github.io/dlaczego-vpn-2025.html</link><description>Powody, dla których VPN jest niezbędny w 2025 roku.</description><pubDate>Mon, 01 Sep 2025 09:30:00 +0200</pubDate></item>
 
-    <item>
-      <title>Jaki serwer VPN wybrać?</title>
-      <link>https://dloran1.github.io/jaki-serwer-vpn-wybrac.html</link>
-      <description>Wskazówki dotyczące wyboru najlepszego serwera VPN.</description>
-      <pubDate>Mon, 01 Sep 2025 09:40:00 +0200</pubDate>
-    </item>
+    <item><title>Jaki serwer VPN wybrać?</title><link>https://dloran1.github.io/jaki-serwer-vpn-wybrac.html</link><description>Wskazówki dotyczące wyboru najlepszego serwera VPN.</description><pubDate>Mon, 01 Sep 2025 09:40:00 +0200</pubDate></item>
 
-    <!-- 🔥 Тут по такому же принципie добавляем ВСЕ 47 artykułów -->
-    
+    <item><title>Jaki serwer VPN</title><link>https://dloran1.github.io/jaki-serwer-vpn.html</link><description>Który serwer VPN zapewni najlepsze bezpieczeństwo?</description><pubDate>Mon, 01 Sep 2025 09:50:00 +0200</pubDate></item>
+
+    <item><title>Mity o VPN</title><link>https://dloran1.github.io/mity-o-vpn.html</link><description>Popularne mity na temat VPN i jak wygląda rzeczywistość.</description><pubDate>Mon, 01 Sep 2025 10:00:00 +0200</pubDate></item>
+
+    <item><title>No-Logs VPN</title><link>https://dloran1.github.io/no-logs.html</link><description>Czym są polityki no-logs i dlaczego są ważne?</description><pubDate>Mon, 01 Sep 2025 10:10:00 +0200</pubDate></item>
+
+    <item><title>NordVPN vs Surfshark</title><link>https://dloran1.github.io/nordvpn-vs-surfshark-pl.html</link><description>Porównanie NordVPN i Surfshark w Polsce.</description><pubDate>Mon, 01 Sep 2025 10:20:00 +0200</pubDate></item>
+
+    <item><title>Player TVP z VPN</title><link>https://dloran1.github.io/player-tvp-vpn.html</link><description>Jak oglądać TVP z zagranicy dzięki VPN?</description><pubDate>Mon, 01 Sep 2025 10:30:00 +0200</pubDate></item>
+
+    <item><title>Test VPN</title><link>https://dloran1.github.io/test-vpn.html</link><description>Jak przetestować szybkość i bezpieczeństwo VPN?</description><pubDate>Mon, 01 Sep 2025 10:40:00 +0200</pubDate></item>
+
+    <item><title>VPN i 2FA/MFA</title><link>https://dloran1.github.io/vpn-2fa-mfa.html</link><description>Dlaczego VPN z 2FA/MFA zwiększa poziom bezpieczeństwa?</description><pubDate>Mon, 01 Sep 2025 10:50:00 +0200</pubDate></item>
+
+    <item><title>VPN a prawo w Polsce</title><link>https://dloran1.github.io/vpn-a-prawo-w-polsce.html</link><description>Czy VPN jest legalny w Polsce?</description><pubDate>Mon, 01 Sep 2025 11:00:00 +0200</pubDate></item>
+
+    <item><title>VPN Android konfiguracja</title><link>https://dloran1.github.io/vpn-android-konfiguracja.html</link><description>Jak skonfigurować VPN na urządzeniu z Androidem?</description><pubDate>Mon, 01 Sep 2025 11:10:00 +0200</pubDate></item>
+
+    <item><title>VPN i bankowość online</title><link>https://dloran1.github.io/vpn-bankowosc-online.html</link><description>Dlaczego warto korzystać z VPN w bankowości online?</description><pubDate>Mon, 01 Sep 2025 11:20:00 +0200</pubDate></item>
+
+    <item><title>VPN dla Apple TV</title><link>https://dloran1.github.io/vpn-dla-apple-tv.html</link><description>Jak skonfigurować VPN na Apple TV?</description><pubDate>Mon, 01 Sep 2025 11:30:00 +0200</pubDate></item>
+
+    <item><title>VPN dla firm (MSP)</title><link>https://dloran1.github.io/vpn-dla-firm-msp.html</link><description>Korzyści z VPN dla małych i średnich firm.</description><pubDate>Mon, 01 Sep 2025 11:40:00 +0200</pubDate></item>
+
+    <item><title>VPN dla graczy</title><link>https://dloran1.github.io/vpn-dla-graczy.html</link><description>Czy VPN przyspiesza gry online?</description><pubDate>Mon, 01 Sep 2025 11:50:00 +0200</pubDate></item>
+
+    <item><title>VPN dla konsol PS5/Xbox</title><link>https://dloran1.github.io/vpn-dla-konsol-ps5-xbox.html</link><description>Jak podłączyć VPN na konsolach?</description><pubDate>Mon, 01 Sep 2025 12:00:00 +0200</pubDate></item>
+
+    <item><title>VPN dla Smart TV</title><link>https://dloran1.github.io/vpn-dla-smart-tv.html</link><description>VPN dla telewizorów Smart TV.</description><pubDate>Mon, 01 Sep 2025 12:10:00 +0200</pubDate></item>
+
+    <item><title>VPN DNS Leak</title><link>https://dloran1.github.io/vpn-dns-leak.html</link><description>Jak sprawdzić, czy twój VPN nie ma wycieków DNS?</description><pubDate>Mon, 01 Sep 2025 12:20:00 +0200</pubDate></item>
+
+    <item><title>Double VPN</title><link>https://dloran1.github.io/vpn-double-vpn.html</link><description>Co to jest Double VPN i kiedy warto go używać?</description><pubDate>Mon, 01 Sep 2025 12:30:00 +0200</pubDate></item>
+
+    <item><title>VPN i geoblokady</title><link>https://dloran1.github.io/vpn-geoblokady.html</link><description>Jak VPN pomaga omijać geoblokady?</description><pubDate>Mon, 01 Sep 2025 12:40:00 +0200</pubDate></item>
+
+    <item><title>VPN i geolokalizacja</title><link>https://dloran1.github.io/vpn-geolokalizacja.html</link><description>Jak VPN zmienia twoją lokalizację w sieci?</description><pubDate>Mon, 01 Sep 2025 12:50:00 +0200</pubDate></item>
+
+    <item><title>VPN iPhone konfiguracja</title><link>https://dloran1.github.io/vpn-iphone-konfiguracja.html</link><description>Jak ustawić VPN na iPhone?</description><pubDate>Mon, 01 Sep 2025 13:00:00 +0200</pubDate></item>
+
+    <item><title>VPN Kill Switch</title><link>https://dloran1.github.io/vpn-kill-switch.html</link><description>Funkcja Kill Switch w VPN i dlaczego jest ważna.</description><pubDate>Mon, 01 Sep 2025 13:10:00 +0200</pubDate></item>
+
+    <item><title>VPN Linux konfiguracja</title><link>https://dloran1.github.io/vpn-linux-konfiguracja.html</link><description>Instrukcja konfiguracji VPN na Linux.</description><pubDate>Mon, 01 Sep 2025 13:20:00 +0200</pubDate></item>
+
+    <item><title>VPN na Mac</title><link>https://dloran1.github.io/vpn-na-mac.html</link><description>Jak skonfigurować VPN na komputerze Mac.</description><pubDate>Mon, 01 Sep 2025 13:30:00 +0200</pubDate></item>
+
+    <item><title>VPN na routerze</title><link>https://dloran1.github.io/vpn-na-routerze.html</link><description>Jak skonfigurować VPN na routerze?</description><pubDate>Mon, 01 Sep 2025 13:40:00 +0200</pubDate></item>
+
+    <item><title>VPN i Netflix Polska</title><link>https://dloran1.github.io/vpn-netflix-polska.html</link><description>Jak oglądać Netflix Polska z VPN?</description><pubDate>Mon, 01 Sep 2025 13:50:00 +0200</pubDate></item>
+
+    <item><title>VPN optymalne ustawienia</title><link>https://dloran1.github.io/vpn-optymalne-ustawienia.html</link><description>Jakie ustawienia VPN są najlepsze?</description><pubDate>Mon, 01 Sep 2025 14:00:00 +0200</pubDate></item>
+
+    <item><title>VPN P2P bezpiecznie</title><link>https://dloran1.github.io/vpn-p2p-bezpiecznie.html</link><description>Jak bezpiecznie korzystać z P2P przez VPN?</description><pubDate>Mon, 01 Sep 2025 14:10:00 +0200</pubDate></item>
+
+    <item><title>VPN port forwarding</title><link>https://dloran1.github.io/vpn-port-forwarding.html</link><description>Na czym polega port forwarding w VPN?</description><pubDate>Mon, 01 Sep 2025 14:20:00 +0200</pubDate></item>
+
+    <item><title>VPN praca zdalna</title><link>https://dloran1.github.io/vpn-praca-zdalna.html</link><description>Dlaczego VPN jest konieczny przy pracy zdalnej?</description><pubDate>Mon, 01 Sep 2025 14:30:00 +0200</pubDate></item>
+
+    <item><title>VPN publiczne Wi-Fi</title><link>https://dloran1.github.io/vpn-publiczne-wifi.html</link><description>Jak VPN chroni w publicznych sieciach Wi-Fi?</description><pubDate>Mon, 01 Sep 2025 14:40:00 +0200</pubDate></item>
+
+    <item><title>VPN split tunneling</title><link>https://dloran1.github.io/vpn-split-tunneling.html</link><description>Na czym polega split tunneling w VPN?</description><pubDate>Mon, 01 Sep 2025 14:50:00 +0200</pubDate></item>
+
+    <item><title>VPN szybkość test</title><link>https://dloran1.github.io/vpn-szybkosc-test.html</link><description>Jak sprawdzić prędkość VPN?</description><pubDate>Mon, 01 Sep 2025 15:00:00 +0200</pubDate></item>
+
+    <item><title>VPN torrent Polska</title><link>https://dloran1.github.io/vpn-torrent-polska.html</link><description>Najlepsze VPN do torrentów w Polsce.</description><pubDate>Mon, 01 Sep 2025 15:10:00 +0200</pubDate></item>
+
+    <item><title>VPN Windows konfiguracja</title><link>https://dloran1.github.io/vpn-windows-konfiguracja.html</link><description>Instrukcja konfiguracji VPN na Windows.</description><pubDate>Mon, 01 Sep 2025 15:20:00 +0200</pubDate></item>
+
+    <item><title>Wi-Fi bezpieczeństwo</title><link>https://dloran1.github.io/wifi-bezpieczenstwo.html</link><description>Jak VPN chroni twoje Wi-Fi?</description><pubDate>Mon, 01 Sep 2025 15:30:00 +0200</pubDate></item>
+
+    <item><title>Zalety VPN</title><link>https://dloran1.github.io/zalety-vpn.html</link><description>Najważniejsze zalety korzystania z VPN.</description><pubDate>Mon, 01 Sep 2025 15:40:00 +0200</pubDate></item>
+
   </channel>
 </rss>
