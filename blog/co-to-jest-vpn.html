@@ -7,18 +7,14 @@
   <meta name="description" content="VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy, jak działa, kiedy się przydaje i jak zacząć (3 kroki). Plus: wady/zalety, szybka diagnostyka i FAQ.">
   <link rel="canonical" href="https://dloran1.github.io/blog/co-to-jest-vpn.html">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
   <meta property="og:title" content="Co to jest VPN? Wyjaśnienie i zastosowania">
   <meta property="og:description" content="Jak działa VPN, do czego służy i jak zacząć w 3 krokach.">
   <meta property="og:url" content="https://dloran1.github.io/blog/co-to-jest-vpn.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
-  <meta property="og:locale" content="pl_PL">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -26,24 +22,66 @@
   <meta name="twitter:title" content="Co to jest VPN? Wyjaśnienie i zastosowania">
   <meta name="twitter:description" content="Proste wyjaśnienie + praktyczne wskazówki.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
+
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Fail-safe стили, чтобы картинки/видео НИКОГДА не разъезжали -->
+  <style>
+    .wrap{max-width:880px;margin:0 auto;padding:0 16px;}
+    .article-hero{margin:12px 0 24px;}
+    .article-hero img{
+      display:block;
+      width:100%;
+      max-width:100%;
+      height:auto;
+      aspect-ratio:1200/630;
+      object-fit:cover;
+      border-radius:12px;
+    }
+    .post img{
+      display:block;
+      max-width:100%;
+      height:auto;
+      border-radius:8px;
+    }
+    .post figure{margin:16px 0;}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
+    .table caption{caption-side:top;font-weight:700;margin-bottom:.4rem}
+    .toc{margin:1.25rem 0 2rem}
+    .toc a{text-decoration:underline}
+    .btn{display:inline-block;padding:.9rem 1.1rem;border-radius:12px;font-weight:700;text-decoration:none}
+    .btn-primary{background:#e63946;color:#fff}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-ghost{background:transparent;border:2px solid #e63946;color:#fff}
+    .cta{margin:1.25rem 0 1.5rem}
+    .author{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);padding:16px;border-radius:14px}
+    .author__media img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+    .muted{opacity:.8}
+    video{max-width:100%;height:auto;border-radius:12px;display:block}
+    .backtop{margin:2rem 0}
+  </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="inner">
+  <div class="inner wrap" style="padding-top:12px;padding-bottom:12px">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+    <div class="menu"> <a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a> </div>
   </div>
 </nav>
 
 <header class="wrap">
   <h1>Co to jest VPN? Wyjaśnienie i zastosowania</h1>
+
+  <!-- HERO (жестко фиксированное соотношение и размеры) -->
   <figure class="article-hero">
     <img src="/assets/img/hero/co-to-jest-vpn.webp"
          alt="Ilustracja: czym jest VPN"
-         width="1200" height="630"
-         fetchpriority="high" loading="eager">
+         width="1200" height="630" fetchpriority="high" loading="eager" decoding="async">
   </figure>
+
   <p class="lead">
     <strong>VPN (Virtual Private Network)</strong> szyfruje Twój ruch internetowy i ukrywa adres IP.
     Dzięki temu korzystasz z sieci <em>bezpieczniej i bardziej prywatnie</em>.
@@ -113,10 +151,15 @@
     </ol>
   </section>
 
+  <!-- CTA с партнерскими -->
   <section class="cta">
     <a class="btn btn-primary"
        href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
        target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
   </section>
 
   <aside class="readmore">
@@ -141,9 +184,9 @@
     <h2>Wideo: VPN w pigułce</h2>
     <video controls preload="metadata"
            poster="/assets/img/thumbs/co-to-jest-vpn.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
+           width="960" height="540">
       <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twój przeglądarka nie obsługuje wideo.
+      Twoja przeglądarka nie obsługuje wideo.
     </video>
   </section>
 
@@ -151,7 +194,7 @@
   <ol class="product-mini">
     <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
     <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="YOUR_CYBERGHOST_AFF_LINK" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
   </ol>
 
   <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
@@ -199,10 +242,10 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"Czy VPN działa na telefonie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Aplikacje są dostępne na iOS i Androida."}},
-    {"@type":"Question","name":"Czy mogę oglądać Netflix z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale skuteczność zależy od serwera. Zmień kraj i wyczyść cookies, jeśli coś nie działa."}},
-    {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Wybierz bliższy serwer i protokół WireGuard."}},
-    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Używaj zgodnie z prawem i regulaminami usług."}}
+    {"@type":"Question","name":"Czy VPN działa na telefonie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Aplikacje są dostępne na iOS i Androida. Wystarczy zalogować się i połączyć z serwerem."}},
+    {"@type":"Question","name":"Czy mogę oglądać Netflix z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale skuteczność zależy od serwera. W razie problemów zmień kraj i wyczyść cookies."}},
+    {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Wybierz bliższy serwer i protokół WireGuard dla najlepszej prędkości."}},
+    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Korzystaj zgodnie z prawem i regulaminami usług."}}
   ]
 }
 </script>
@@ -217,14 +260,14 @@
   "description":"Wybierz dostawcę, zainstaluj aplikację i połącz się z serwerem.",
   "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
   "step":[
-    {"@type":"HowToStep","name":"Wybierz usługę VPN","text":"Sprawdź politykę prywatności i zwrot pieniędzy."},
-    {"@type":"HowToStep","name":"Zainstaluj aplikację","text":"Pobierz aplikację na urządzenie i zaloguj się."},
-    {"@type":"HowToStep","name":"Połącz się z serwerem","text":"Włącz Kill Switch, wybierz najbliższy serwer i sprawdź nowe IP."}
+    {"@type":"HowToStep","name":"Wybierz usługę VPN","text":"Sprawdź politykę prywatności/no-logs i warunki zwrotu."},
+    {"@type":"HowToStep","name":"Zainstaluj aplikację","text":"Pobierz aplikację na Windows/macOS/iOS/Android i zaloguj się."},
+    {"@type":"HowToStep","name":"Połącz i zweryfikuj","text":"Włącz Kill Switch, wybierz najbliższy serwer i sprawdź nowe IP."}
   ]
 }
 </script>
 
-<!-- JSON-LD: Video -->
+<!-- JSON-LD: VideoObject -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -240,7 +283,7 @@
 }
 </script>
 
-<!-- JSON-LD: ItemList -->
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -263,7 +306,7 @@
       "@type":"Product","name":"CyberGhost",
       "brand":{"@type":"Brand","name":"CyberGhost"},
       "url":"https://dloran1.github.io/blog/co-to-jest-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"YOUR_CYBERGHOST_AFF_LINK","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
     }}
   ]
 }
