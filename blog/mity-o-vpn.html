@@ -3,102 +3,307 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mity o VPN – co jest prawdą, a co nie?</title>
-  <meta name="description" content="VPN jest wolny, nielegalny, służy tylko do torrentów? Obalamy 6 najczęstszych mitów o VPN i pokazujemy fakty poparte praktyką.">
-  <meta name="robots" content="index,follow">
+  <title>Mity o VPN — fakty i rzeczywistość (2025)</title>
+  <meta name="description" content="Obalamy najczęstsze mity o VPN: legalność, prędkość, anonimowość, VOD i bezpieczeństwo. Konkretne fakty, checklista i szybkie ustawienia.">
   <link rel="canonical" href="https://dloran1.github.io/blog/mity-o-vpn.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/mity-o-vpn.webp" imagesrcset="/assets/img/hero/mity-o-vpn.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Mity o VPN – fakty i obalenia">
-  <meta property="og:description" content="VPN jest wolny, nielegalny, tylko dla hakerów? Zobacz, które z tych stwierdzeń to mity, a które fakty.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Mity o VPN — fakty i rzeczywistość (2025)">
+  <meta property="og:description" content="Legalność, prędkość, anonimowość, VOD i bezpieczeństwo — co jest prawdą, a co mitem.">
   <meta property="og:url" content="https://dloran1.github.io/blog/mity-o-vpn.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/mity-o-vpn.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/mity-o-vpn.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mity o VPN – fakty i obalenia">
-  <meta name="twitter:description" content="6 najczęstszych mitów o VPN, które warto znać.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/mity-o-vpn.webp">
+  <meta name="twitter:title" content="Mity o VPN — fakty i rzeczywistość (2025)">
+  <meta name="twitter:description" content="Obalamy najczęstsze mity o VPN.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/mity-o-vpn.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Mity o VPN – co jest prawdą, a co nie?",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-08-31",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/mity-o-vpn.html"},
-    "image":"https://dloran1.github.io/assets/img/mity-o-vpn.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Mity o VPN — fakty i rzeczywistość (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/mity-o-vpn.webp"
+      alt="Mity o VPN — fakty kontra wyobrażenia"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Wokół VPN narosło sporo mitów: od „pełnej anonimowości” po „zawsze wolny internet”.
+    Tu znajdziesz <em>krótkie i rzeczowe</em> sprostowania z praktycznymi wskazówkami.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#mity">Top 7 mitów o VPN</a></li>
+      <li><a href="#tabela">Skrót: mity vs fakty</a></li>
+      <li><a href="#bezpiecznie">Jak używać VPN bezpiecznie</a></li>
+      <li><a href="#ustawienia">Szybkie ustawienia (PL/UE)</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Mity o VPN</h1>
+  <section id="mity">
+    <h2>Top 7 mitów o VPN</h2>
 
-      <figure class="cover">
-        <img src="/assets/img/mity-o-vpn.webp" alt="Mity i fakty o VPN" width="1200" height="630" loading="lazy">
-      </figure>
+    <h3>Mit 1: „VPN jest nielegalny”</h3>
+    <p><strong>Fakt:</strong> W Polsce korzystanie z VPN jest <em>legalne</em>. Używaj zgodnie z prawem i regulaminami usług.</p>
 
-      <p>Wokół VPN narosło sporo nieporozumień. Jedni twierdzą, że VPN jest wolny, inni że nielegalny, a jeszcze inni że przydaje się tylko do torrentów. Sprawdźmy fakty.</p>
+    <h3>Mit 2: „VPN zapewnia pełną anonimowość”</h3>
+    <p><strong>Fakt:</strong> VPN zwiększa prywatność (szyfruje ruch i ukrywa IP), ale nie daje 100% anonimowości.
+      Zwracaj uwagę na politykę <em>no-logs</em> i audyty dostawcy.</p>
 
-      <section class="cta">
-        <h2>Sprawdź bezpieczny VPN</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>
-        </div>
-        <p class="cta-note">Link partnerski – wsparcie bez dodatkowych kosztów dla Ciebie.</p>
-      </section>
+    <h3>Mit 3: „VPN zawsze spowalnia internet”</h3>
+    <p><strong>Fakt:</strong> Minimalny spadek jest normalny, ale z <em>WireGuard</em> i bliskim serwerem różnica bywa ledwo zauważalna.</p>
 
-      <h2>6 najczęstszych mitów</h2>
+    <h3>Mit 4: „Darmowy VPN działa tak samo jak płatny”</h3>
+    <p><strong>Fakt:</strong> Darmowe często mają limity, reklamy, mniejszą szybkość i niepewną politykę danych.</p>
 
-      <h3>1. VPN jest wolny</h3>
-      <p>To mit sprzed dekady. Nowoczesne protokoły, jak <em>WireGuard</em> czy <em>NordLynx</em>, pozwalają osiągać prędkości zbliżone do łącza bazowego.</p>
+    <h3>Mit 5: „VPN zawsze działa z Netflixem”</h3>
+    <p><strong>Fakt:</strong> Skuteczność zależy od serwera i usługi. Czasem trzeba zmienić kraj i wyczyścić cookies.</p>
 
-      <h3>2. VPN jest nielegalny</h3>
-      <p>W większości krajów korzystanie z VPN jest całkowicie <strong>legalne</strong>. Ograniczenia dotyczą tylko działalności niezgodnej z prawem.</p>
+    <h3>Mit 6: „VPN rozwiązuje każdy problem z bezpieczeństwem”</h3>
+    <p><strong>Fakt:</strong> To ważna warstwa ochrony, ale nie zastępuje higieny haseł, 2FA i aktualizacji.</p>
 
-      <h3>3. VPN jest tylko dla hakerów</h3>
-      <p>VPN to narzędzie dla zwykłych użytkowników dbających o prywatność, firm pracujących zdalnie, streamerów czy graczy.</p>
+    <h3>Mit 7: „W pracy zdalnej VPN to zbędny dodatek”</h3>
+    <p><strong>Fakt:</strong> Dla dostępu do zasobów firmowych i szyfrowania połączeń to często <em>podstawa</em>.</p>
+  </section>
 
-      <h3>4. VPN służy tylko do torrentów</h3>
-      <p>VPN przydaje się w wielu scenariuszach: dostęp do VOD, ochrona w publicznym Wi-Fi, niższy ping w grach, omijanie cenzury.</p>
+  <section id="tabela">
+    <h2>Skrót: mity vs fakty</h2>
+    <table class="table">
+      <caption>Najczęstsze mity i krótka odpowiedź</caption>
+      <thead><tr><th>Mit</th><th>Fakt</th></tr></thead>
+      <tbody>
+        <tr><td>VPN jest nielegalny</td><td>Legalny w PL; używaj zgodnie z prawem</td></tr>
+        <tr><td>Pełna anonimowość</td><td>Większa prywatność ≠ 100% anonimowości</td></tr>
+        <tr><td>Zawsze spowalnia</td><td>WireGuard + bliski serwer = minimalny spadek</td></tr>
+        <tr><td>Darmowy = płatny</td><td>Limity, reklamy, niepewne dane</td></tr>
+        <tr><td>Zawsze działa z VOD</td><td>Zależy od serwera; czasem zmień kraj/cookies</td></tr>
+        <tr><td>VPN = pełne bezpieczeństwo</td><td>To tylko jedna warstwa (jeszcze 2FA, aktualizacje)</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-      <h3>5. VPN zapisuje logi</h3>
-      <p>Dobre usługi (np. NordVPN) posiadają politykę <em>No-Logs</em>, audytowaną przez niezależne firmy.</p>
+  <section id="bezpiecznie">
+    <h2>Jak używać VPN bezpiecznie</h2>
+    <ul>
+      <li>Włącz <strong>Kill Switch</strong> — unikniesz wycieku IP przy zerwaniu połączenia.</li>
+      <li>Używaj <strong>WireGuard</strong> — stabilny i szybki protokół.</li>
+      <li>Sprawdzaj <strong>DNS leak</strong> po połączeniu (np. ipleak.net).</li>
+      <li>Dbaj o podstawy: 2FA, menedżer haseł, aktualizacje systemu.</li>
+    </ul>
+  </section>
 
-      <h3>6. VPN jest trudny w obsłudze</h3>
-      <p>Dzisiejsze aplikacje są proste: jeden klik i jesteś chroniony. Dodatkowe funkcje są opcjonalne.</p>
+  <section id="ustawienia">
+    <h2>Szybkie ustawienia (PL/UE)</h2>
+    <ol>
+      <li><strong>Protokół:</strong> WireGuard.</li>
+      <li><strong>Serwer:</strong> Polska; alternatywnie DE/NL/SE przy przeciążeniach.</li>
+      <li><strong>Profil:</strong> streaming/gaming jeśli dostępny.</li>
+      <li><strong>Test:</strong> sprawdź IP i prędkość, w razie VOD wyczyść cookies.</li>
+    </ol>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></li>
-          <li><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a></li>
-          <li><a href="/blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać</a></li>
-          <li><a href="/blog/vpn-publiczne-wifi.html">VPN i publiczne Wi-Fi</a></li>
-          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-        </ul>
-      </aside>
-    </article>
-  </main>
+    <!-- CTA -->
+    <div class="cta">
+      <a class="btn btn-primary"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+         target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
+      &nbsp;
+      <a class="btn btn-ghost"
+         href="https://www.tkqlhce.com/click-101525886-17061430"
+         target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
+    </div>
+  </section>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>,
+       <a href="/blog/dlaczego-vpn-2025.html">Dlaczego VPN w 2025?</a>,
+       <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></p>
+  </aside>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+    </div>
+  </section>
+
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: mity o VPN — szybkie wyjaśnienie</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/mity-o-vpn.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
+
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Mity o VPN — fakty i rzeczywistość (2025)",
+  "description":"Obalamy najczęstsze mity o VPN: legalność, prędkość, anonimowość, VOD i bezpieczeństwo. Fakty, wskazówki i szybkie ustawienia.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-02",
+  "image":"https://dloran1.github.io/assets/img/hero/mity-o-vpn.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/mity-o-vpn.html"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"Mity o VPN","item":"https://dloran1.github.io/blog/mity-o-vpn.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ (mity jako Q&A) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. VPN jest legalny. Pamiętaj o przestrzeganiu prawa i regulaminów usług."}},
+    {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN zwiększa prywatność, ale nie zapewnia 100% anonimowości. Ważne są polityka no-logs i audyty."}},
+    {"@type":"Question","name":"Czy VPN zawsze spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Z protokołem WireGuard i bliskim serwerem różnica bywa niewielka."}},
+    {"@type":"Question","name":"Czy darmowy VPN jest tak dobry jak płatny?","acceptedAnswer":{"@type":"Answer","text":"Zwykle nie. Darmowe mają limity, reklamy i gorszą prywatność. Do stałego użytku lepszy płatny plan."}},
+    {"@type":"Question","name":"Czy VPN zawsze działa z Netflixem?","acceptedAnswer":{"@type":"Answer","text":"Skuteczność zależy od serwera i usługi. Czasem trzeba zmienić kraj i wyczyścić cookies."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (bezpieczne użycie) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak bezpiecznie używać VPN",
+  "description":"Krótka instrukcja bezpiecznego korzystania z VPN.",
+  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Włącz Kill Switch","text":"Zapobiega wyciekom IP przy zerwaniu połączenia."},
+    {"@type":"HowToStep","name":"Wybierz WireGuard","text":"Dla lepszej prędkości i stabilności."},
+    {"@type":"HowToStep","name":"Sprawdź DNS leak","text":"Zrób test po połączeniu (np. ipleak.net)."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"Mity o VPN — fakty",
+  "description":"Szybkie wyjaśnienie najczęstszych mitów o VPN.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/mity-o-vpn.webp",
+  "uploadDate":"2025-09-02",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/mity-o-vpn.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/mity-o-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/mity-o-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/mity-o-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
