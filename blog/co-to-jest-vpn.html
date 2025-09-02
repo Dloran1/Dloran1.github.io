@@ -1,14 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- ◀◀ EDIT: tytuł i opis -->
   <title>Co to jest VPN? Wyjaśnienie i zastosowania</title>
-  <meta name="description" content="VPN szyfruje ruch internetowy i ukrywa adres IP. Dowiedz się, jak działa VPN, jakie ma zalety i wady oraz jak zacząć go używać.">
+  <meta name="description" content="VPN szyfruje Twój ruch i ukrywa adres IP. Jak działa VPN, kiedy warto, plus szybki start w 3 krokach.">
   <link rel="canonical" href="https://dloran1.github.io/blog/co-to-jest-vpn.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:title" content="Co to jest VPN? Wyjaśnienie i zastosowania">
+  <meta property="og:description" content="Proste wyjaśnienie działania VPN i praktyczne zastosowania w Polsce.">
+  <!-- ◀◀ EDIT: absolutny URL obrazka hero -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
+  <meta property="og:url" content="https://dloran1.github.io/blog/co-to-jest-vpn.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Co to jest VPN?">
+  <meta name="twitter:description" content="Jak działa VPN i gdzie się przydaje.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
+
+  <!-- EDI: jeden общий стиль -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
 </head>
 <body>
+  <!-- Навбар + хлебные крошки (как у тебя) -->
   <nav class="nav">
     <div class="inner">
       <a class="logo" href="/">VPN Polska</a>
@@ -21,82 +40,180 @@
   <main class="wrap article-content">
     <h1>Co to jest VPN? Wyjaśnienie i zastosowania</h1>
 
-    <!-- HERO IMAGE -->
-    <div class="wrap">
-      <img src="/assets/img/hero/co-to-jest-vpn.webp" alt="Co to jest VPN" class="hero-img">
-    </div>
+    <!-- HERO obrazek: фиксированный, без «кривизны» -->
+    <img
+      class="hero-img"
+      src="/assets/img/hero/co-to-jest-vpn.webp"
+      alt="Co to jest VPN"
+      width="1200" height="630"
+      fetchpriority="high">
 
-    <p><strong>VPN</strong> (Virtual Private Network) to narzędzie, które szyfruje Twój ruch internetowy i ukrywa adres IP. Dzięki niemu możesz korzystać z sieci bezpieczniej i anonimowo.</p>
+    <!-- TOC -->
+    <nav class="toc" aria-label="Spis treści">
+      <h2 class="h3">Spis treści:</h2>
+      <ol>
+        <li><a href="#jak-dziala">Jak działa VPN?</a></li>
+        <li><a href="#zastosowania">Zastosowania VPN</a></li>
+        <li><a href="#zalety-wady">Zalety i wady</a></li>
+        <li><a href="#diagnoza">Szybka diagnostyka</a></li>
+        <li><a href="#jak-zaczac">Jak zacząć (3 kroki)</a></li>
+        <li><a href="#top3">TOP-3 VPN 2025</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#wideo">Wideo</a></li>
+      </ol>
+    </nav>
+
+    <!-- Mikro-внутренние ссылки в первых секциях -->
+    <p><strong>VPN</strong> (Virtual Private Network) szyfruje Twój ruch i ukrywa adres IP. Dzięki temu zyskujesz
+      prywatność w <a href="/blog/wifi-bezpieczenstwo.html">publicznym Wi-Fi</a> i dostęp do treści VOD
+      (<a href="/blog/vpn-netflix-polska.html">Netflix PL</a> itd.).</p>
 
     <h2 id="jak-dziala">Jak działa VPN?</h2>
-    <p>Po włączeniu VPN Twój ruch przechodzi przez szyfrowany tunel do serwera dostawcy VPN. Dzięki temu Twój operator, reklamodawcy czy hakerzy nie widzą prawdziwego adresu IP ani odwiedzanych stron.</p>
+    <p>Połączenie przechodzi przez szyfrowany tunel do serwera dostawcy.
+      Operator, reklamodawcy i podsłuchujący nie widzą prawdziwego IP ani stron.
+      Prędkość możesz sprawdzić w <a href="/blog/vpn-szybkosc-test.html">teście szybkości VPN</a>.</p>
 
-    <h2 id="zalety-wady">Zalety i wady VPN</h2>
+    <h2 id="zastosowania">Zastosowania VPN</h2>
+    <ul>
+      <li>Bezpieczeństwo w <a href="/blog/vpn-publiczne-wifi.html">publicznym Wi-Fi</a></li>
+      <li>Dostęp do VOD i omijanie blokad (<a href="/blog/vpn-geoblokady.html">geoblokady</a>)</li>
+      <li>Praca zdalna i ochrona firmowych danych</li>
+      <li>Granie online (stabilniejsze trasy, mniej lagów)</li>
+    </ul>
+
+    <h2 id="zalety-wady">Zalety i wady</h2>
     <table class="table">
-      <tr><th>Zalety</th><th>Wady</th></tr>
-      <tr><td>Większa prywatność</td><td>Może spowolnić internet</td></tr>
-      <tr><td>Dostęp do zablokowanych treści</td><td>Niektóre usługi blokują VPN</td></tr>
-      <tr><td>Ochrona w publicznym Wi-Fi</td><td>Koszt abonamentu</td></tr>
+      <thead><tr><th>Zalety</th><th>Wady</th></tr></thead>
+      <tbody>
+        <tr><td>Prywatność i szyfrowanie</td><td>Możliwy spadek prędkości</td></tr>
+        <tr><td>Dostęp do zablokowanych treści</td><td>Niektóre serwisy blokują VPN</td></tr>
+        <tr><td>Ochrona w hotspotach</td><td>Koszt abonamentu</td></tr>
+      </tbody>
     </table>
 
+    <h2 id="diagnoza">Szybka diagnostyka</h2>
+    <ol>
+      <li>Sprawdź IP przed/po włączeniu (czy się zmienia).</li>
+      <li>Wykonaj <a href="/blog/vpn-szybkosc-test.html">speed test</a> – porównaj ping i pobieranie.</li>
+      <li>Wejdź na serwis VOD – czy katalog się zmienił?</li>
+    </ol>
+
+    <h2 id="jak-zaczac">Jak zacząć (3 kroki)</h2>
+    <ol>
+      <li>Wybierz zaufanego dostawcę (np. NordVPN).</li>
+      <li>Zainstaluj aplikację na urządzeniu.</li>
+      <li>Połącz z najbliższym serwerem i przetestuj prędkość.</li>
+    </ol>
+
+    <!-- CTA (пока только Nord – реальная ссылка) -->
+    <section id="top3" class="cta">
+      <a class="btn btn-primary"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+         target="_blank" rel="nofollow sponsored noopener">Zacznij z NordVPN</a>
+      <!-- Когда одобрят остальные — вставим вторую/третьą кнопку -->
+    </section>
+
+    <!-- Czytaj też: 2–3 релевантные ссылки -->
+    <aside class="more">
+      <h3 class="h4">Czytaj też</h3>
+      <p>Więcej: <a href="/blog/vpn-szybkosc-test.html">Jak testować szybkość VPN</a>, 
+         <a href="/blog/vpn-port-forwarding.html">Port forwarding z VPN</a></p>
+    </aside>
+
+    <!-- FAQ -->
     <h2 id="faq">FAQ</h2>
     <h3>Czy VPN działa na telefonie?</h3>
-    <p>Tak, większość dostawców ma aplikacje na Android i iOS.</p>
+    <p>Tak — dostawcy mają aplikacje na Android i iOS.</p>
     <h3>Czy mogę oglądać Netflix z VPN?</h3>
-    <p>Tak, ale trzeba wybrać dostawcę, który ma serwery działające z VOD.</p>
+    <p>Tak, ale trzeba wybrać usługę działającą z VOD i odpowiedni serwer.</p>
+    <h3>Czy VPN jest legalny w Polsce?</h3>
+    <p>Tak. Nielegalne są jedynie działania sprzeczne z prawem — niezależnie od VPN.</p>
 
-    <!-- CTA -->
-    <div class="cta">
-      <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" rel="sponsored nofollow noopener" target="_blank">Zacznij z NordVPN</a>
-    </div>
+    <!-- Wideo (плейсхолдер с размерами → без CLS) -->
+    <h2 id="wideo">Wideo: VPN w pigułce</h2>
+    <video controls preload="metadata"
+           width="800" height="450"
+           poster="/assets/img/video-poster.webp"
+           style="max-width:100%;display:block;margin:1rem 0;">
+      <!-- ◀◀ EDIT: kiedy pojawi się plik -->
+      <source src="/assets/video/vpn-intro.mp4" type="video/mp4">
+      Twój przeglądarka nie wspiera wideo.
+    </video>
 
-    <!-- AUTHOR BOX -->
-    <div class="author-box">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur">
+    <!-- Автор -->
+    <section class="author-box">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="64" height="64">
       <p><strong>Autor:</strong> Denys Shchur — praktyk VPN i SEO.<br>
-      Ostatnia aktualizacja: 02.09.2025</p>
-    </div>
+         Ostatnia aktualizacja: <!-- ◀◀ EDIT --> 02.09.2025</p>
+    </section>
   </main>
 
   <footer class="foot">
     <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
   </footer>
 
-  <!-- STYLES -->
+  <!-- ЛОКАЛЬНЫЕ МЕЛКИЕ СТИЛИ-ТОЛЬКО ФИКСЫ (основной стиль — /assets/style.css) -->
   <style>
-    .article-content img,
-    .hero-img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 1.5rem auto;
-      border-radius: 8px;
-    }
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-    .table th, .table td {
-      border: 1px solid #ccc;
-      padding: 0.75rem;
-      text-align: left;
-    }
-    .author-box {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-top: 2rem;
-      background: #f9f9f9;
-    }
-    .author-box img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-    }
+    .article-content img, .hero-img {display:block;max-width:100%;height:auto;margin:1.25rem auto;border-radius:8px}
+    .toc {border:1px solid #333;border-radius:8px;padding:1rem;margin:1.25rem 0}
+    .table {width:100%;border-collapse:collapse;margin:1rem 0}
+    .table th,.table td {border:1px solid #333;padding:.75rem;text-align:left}
+    .author-box {display:flex;gap:1rem;align-items:center;border:1px solid #333;border-radius:8px;padding:1rem;margin:2rem 0}
+    .h3{font-size:1.25rem;margin:.5rem 0}.h4{font-size:1.1rem;margin:.5rem 0}
   </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"Co to jest VPN?","item":"https://dloran1.github.io/blog/co-to-jest-vpn.html"}
+  ]}
+  </script>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Co to jest VPN? Wyjaśnienie i zastosowania",
+    "description":"VPN szyfruje ruch i ukrywa adres IP. Jak działa i kiedy warto używać.",
+    "inLanguage":"pl-PL",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/co-to-jest-vpn.html"},
+    "image":"https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html","image":"https://dloran1.github.io/assets/img/authors/denys.webp"},
+    "publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/favicon.png"}},
+    "datePublished":"2025-09-02",  <!-- EDIT -->
+    "dateModified":"2025-09-02"    <!-- EDIT -->
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN działa na telefonie?","acceptedAnswer":{"@type":"Answer","text":"Tak — aplikacje na Android i iOS są dostępne u większości dostawców."}},
+      {"@type":"Question","name":"Czy mogę oglądać Netflix z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale wybierz dostawcę działającego z VOD i właściwy serwer."}},
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Niedozwolone jest jedynie łamanie prawa — niezależnie od VPN."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo (3 kroki startu) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Jak zacząć korzystać z VPN",
+    "step":[
+      {"@type":"HowToStep","name":"Wybierz dostawcę","text":"Wybierz zaufany VPN (np. NordVPN)."},
+      {"@type":"HowToStep","name":"Zainstaluj aplikację","text":"Pobierz aplikację na swoje urządzenie."},
+      {"@type":"HowToStep","name":"Połącz i przetestuj","text":"Połącz z serwerem i wykonaj speed test."}
+    ],
+    "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}]
+  }
+  </script>
 </body>
 </html>
