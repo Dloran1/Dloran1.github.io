@@ -3,109 +3,182 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Player / TVP z VPN — jak oglądać katalogi i rozwiązać blokady?</title>
-  <meta name="description" content="Jak oglądać Player i TVP z VPN: wybór kraju, czyszczenie cache, Smart DNS i najczęstsze błędy. Krótka instrukcja krok po kroku + checklista.">
-  <meta name="robots" content="index,follow">
+  <title>Player.pl i TVP z VPN — jak oglądać za granicą (2025)</title>
+  <meta name="description" content="Jak oglądać Player.pl i TVP za granicą z VPN? Instrukcja: wybór serwera, protokół, ustawienia. Praktyczne porady + FAQ.">
   <link rel="canonical" href="https://dloran1.github.io/blog/player-tvp-vpn.html">
+
+  <!-- Perf / robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/player-tvp-vpn.webp">
+  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Player / TVP z VPN — jak oglądać i omijać blokady">
-  <meta property="og:description" content="Wybór kraju, czyszczenie cache, Smart DNS i najczęstsze błędy. Poradnik krok po kroku.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Player.pl i TVP z VPN — jak oglądać za granicą (2025)">
+  <meta property="og:description" content="Prosty poradnik: jak odblokować Player.pl i TVP z zagranicy dzięki VPN.">
   <meta property="og:url" content="https://dloran1.github.io/blog/player-tvp-vpn.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/player-tvp-vpn.webp">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/player-tvp-vpn.webp">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Player / TVP z VPN — jak oglądać i omijać blokady">
-  <meta name="twitter:description" content="Instrukcja: serwer, cache, Smart DNS i checklista błędów.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/player-tvp-vpn.webp">
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Player / TVP z VPN — jak oglądać katalogi i rozwiązać blokady?",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-08-31",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/player-tvp-vpn.html"},
-    "image":"https://dloran1.github.io/assets/img/player-tvp-vpn.webp"
-  }
-  </script>
-
+  <!-- Styles / favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe -->
+  <style>
+    .wrap{max-width:880px;margin:0 auto;padding:0 16px}
+    figure.article-hero{margin:0 0 12px}
+    .article-hero img,.post img,.author__media img{display:block;max-width:100%;height:auto;border-radius:12px}
+    .toc{margin:1rem 0 2rem}.toc a{text-decoration:underline}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem}
+    .btn{display:inline-block;padding:.9rem 1.1rem;border-radius:12px;font-weight:700;text-decoration:none}
+    .btn-primary{background:#e63946;color:#fff}.btn-ghost{border:2px solid #e63946;color:#fff}
+    .author{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.06);padding:14px;border-radius:14px}
+    .author__media img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+    .cta{margin:1.25rem 0}
+    video{max-width:100%;height:auto;border-radius:12px;display:block}
+  </style>
 </head>
 <body>
-  <nav class="nav">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner wrap" style="padding:12px 0">
+    <a class="logo" href="/">VPN Polska</a> / <a href="/blog/index.html">Blog</a>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Player.pl i TVP z VPN — jak oglądać za granicą (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img src="/assets/img/hero/player-tvp-vpn.webp"
+         alt="Player.pl i TVP z VPN za granicą"
+         width="1200" height="630" loading="eager" fetchpriority="high"
+         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
+  </figure>
+
+  <p class="lead">
+    Polskie serwisy <strong>Player.pl</strong> i <strong>TVP VOD</strong> blokują dostęp za granicą. 
+    Rozwiązanie to <a href="/blog/co-to-jest-vpn.html">VPN</a> — wystarczy wybrać serwer w Polsce, 
+    włączyć aplikację i cieszyć się ulubionymi programami.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#dlaczego">Dlaczego blokuje?</a></li>
+      <li><a href="#jak">Jak ustawić VPN</a></li>
+      <li><a href="#problemy">Najczęstsze problemy</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN PL</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Player / TVP z VPN — jak oglądać?</h1>
+  <section id="dlaczego">
+    <h2>Dlaczego Player/TVP blokują dostęp?</h2>
+    <p>Powód to <strong>licencje geograficzne</strong>. Po wykryciu IP spoza Polski serwis odmawia odtwarzania. 
+      Rozwiązaniem jest <a href="/blog/jaki-serwer-vpn-wybrac.html">wybór serwera VPN</a> w Polsce.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/player-tvp-vpn.webp" alt="Player i TVP z VPN — poradnik" width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="jak">
+    <h2>Jak ustawić VPN</h2>
+    <ol>
+      <li>Pobierz aplikację (np. <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN lub Surfshark</a>).</li>
+      <li>Zaloguj się i wybierz <strong>serwer w Polsce</strong>.</li>
+      <li>Włącz <em>Kill Switch</em> — unikniesz wycieku IP.</li>
+      <li>Wejdź na <a href="https://player.pl" target="_blank" rel="noopener">player.pl</a> 
+        lub <a href="https://tvp.pl" target="_blank" rel="noopener">tvp.pl</a>.</li>
+    </ol>
+  </section>
 
-      <p>Jeżeli Player lub TVP pokazuje komunikat o braku dostępności w Twoim regionie, zwykle pomaga poprawna konfiguracja VPN albo użycie Smart DNS. Poniżej krótki poradnik krok po kroku i lista typowych błędów.</p>
+  <section id="problemy">
+    <h2>Najczęstsze problemy</h2>
+    <ul>
+      <li><strong>Player nadal blokuje?</strong> Wyczyść cookies, zmień serwer PL.</li>
+      <li><strong>TVP nie działa?</strong> Spróbuj innego protokołu (WireGuard/OpenVPN).</li>
+      <li><strong>Brak płynności?</strong> Wybierz bliższy serwer — patrz 
+        <a href="/blog/vpn-szybkosc-test.html">testy szybkości VPN</a>.</li>
+    </ul>
+  </section>
 
-      <section class="cta">
-        <h2>Szybki start — działający streaming</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-netflix-polska.html">VPN a Netflix/Smart DNS</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored noopener nofollow">✅ NordVPN Polska</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored noopener nofollow">Surfshark Polska</a>
+  </section>
 
-      <h2>Konfiguracja krok po kroku</h2>
-      <ol>
-        <li>W aplikacji VPN wybierz <strong>serwer w Polsce</strong> (dla Player/TVP) albo kraj docelowej biblioteki.</li>
-        <li>Ustaw protokół <strong>WireGuard/NordLynx</strong> — zwykle najszybszy i stabilny do streamingu.</li>
-        <li><strong>Wyczyść cache i cookies</strong> przeglądarki/aplikacji Player/TVP (lub użyj trybu prywatnego).</li>
-        <li>Uruchom Player/TVP ponownie i sprawdź odtwarzanie. Jeśli komunikat wraca — <strong>zmień serwer w tym samym kraju</strong>.</li>
-        <li>Jeśli aplikacja nadal blokuje dostęp, skorzystaj z <strong>Smart DNS</strong> (czasem działa lepiej w aplikacjach TV).</li>
-      </ol>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>
+      <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a> •
+      <a href="/blog/no-logs.html">Co to znaczy no-logs</a> •
+      <a href="/blog/mity-o-vpn.html">Mity o VPN</a> •
+      <a href="/blog/darmowy-vpn-polska.html">Darmowy VPN w Polsce</a>
+    </p>
+  </aside>
 
-      <h2>Najczęstsze problemy i rozwiązania</h2>
-      <ul>
-        <li><strong>Nadal widzę blokadę regionu:</strong> zmień serwer PL → wyczyść cache → uruchom ponownie aplikację/telewizor.</li>
-        <li><strong>Aplikacja TV ignoruje VPN:</strong> użyj <strong>Smart DNS</strong> (w menu dostawcy — często osobna zakładka).</li>
-        <li><strong>Buforowanie/wolne ładowanie:</strong> wybierz bliższy serwer PL lub inny o niższym obciążeniu; sprawdź Wi-Fi.</li>
-        <li><strong>Nie działa na routerze:</strong> sprawdź MTU/protokół; czasami prościej jest użyć aplikacji na TV/boxie.</li>
-      </ul>
+  <!-- Autor -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>Smart DNS czy VPN?</h2>
-      <p><strong>VPN</strong> szyfruje ruch i ukrywa IP, a <strong>Smart DNS</strong> jedynie „przekierowuje” zapytania DNS, dzięki czemu aplikacja widzi inny region. Do Player/TVP często wystarcza Smart DNS na TV, natomiast VPN zapewnia dodatkowo prywatność i działa globalnie (na laptopie/telefonie).</p>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: Player.pl i TVP z VPN</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/player-tvp-vpn.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>Krótka checklista (streaming)</h2>
-      <ol>
-        <li>Serwer w <strong>PL</strong> (dla Player/TVP) / docelowym kraju (dla innych platform).</li>
-        <li><strong>WireGuard/NordLynx</strong> + ewentualnie „obfuscated” gdy sieć filtruje VPN.</li>
-        <li>Cache/cookies wyczyszczone, w razie czego tryb prywatny.</li>
-        <li>Test na 2–3 serwerach + rozważ <strong>Smart DNS</strong> dla aplikacji TV.</li>
-      </ol>
+  <h2 id="top3">TOP-3 VPN do Player/TVP</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — szybki, serwery w Polsce. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored noopener nofollow">Oferta</a></li>
+    <li><strong>Surfshark</strong> — tani, nielimitowane urządzenia. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored noopener nofollow">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile streamingowe. <a href="#" target="_blank" rel="sponsored noopener nofollow">Wkrótce</a></li>
+  </ol>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-netflix-polska.html">VPN i Netflix — wskazówki</a></li>
-          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></li>
-          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
-          <li><a href="/blog/darmowy-vpn-polska.html">Darmowy VPN w Polsce — kiedy ma sens?</a></li>
-        </ul>
-      </aside>
-    </article>
-  </main>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","inLanguage":"pl-PL","headline":"Player.pl i TVP z VPN — jak oglądać za granicą (2025)","description":"Instrukcja krok po kroku: jak oglądać Player.pl i TVP z zagranicy dzięki VPN.","datePublished":"2025-09-02","dateModified":"2025-09-02","image":"https://dloran1.github.io/assets/img/hero/player-tvp-vpn.webp","author":{"@type":"Person","name":"Denys Shchur"},"publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}},"mainEntityOfPage":"https://dloran1.github.io/blog/player-tvp-vpn.html"}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Dlaczego Player i TVP blokują za granicą?","acceptedAnswer":{"@type":"Answer","text":"Ze względu na licencje. Wystarczy połączyć się z serwerem VPN w Polsce."}},
+{"@type":"Question","name":"Który VPN działa z Player.pl?","acceptedAnswer":{"@type":"Answer","text":"Najlepiej NordVPN lub Surfshark z serwerami w Polsce."}}
+]}
+</script>
+
+<!-- JSON-LD: Video -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","inLanguage":"pl-PL","name":"Player.pl i TVP z VPN","description":"Jak oglądać Player.pl i TVP VOD za granicą z VPN.","thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/player-tvp-vpn.webp","uploadDate":"2025-09-02","duration":"PT40S","contentUrl":"https://dloran1.github.io/assets/video/intro.mp4","embedUrl":"https://dloran1.github.io/blog/player-tvp-vpn.html#video"}
+</script>
+
 </body>
 </html>
