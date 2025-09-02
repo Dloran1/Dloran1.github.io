@@ -1,110 +1,146 @@
-/* ===== Design tokens ===== */
-:root{
-  --radius:12px;
-  --accent:#ff2a2a;
-  --accent-2:#ffd5d5;
-  --maxw:980px;
-  --font:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-
-  /* DARK — default (главная и все страницы без .blog) */
-  --bg:#0d0d0d;
-  --text:#ffffff;
-  --muted:#b7b7b7;
-  --border:#242424;
-  --card:#151515;
-  --link:#7ab8ff;
-  --link-visited:#a78bfa;
-  --btn:#e51f1f;
-  --btn-text:#fff;
+/* --- Base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* LIGHT — только для страниц с body.blog */
-body.blog{
-  --bg:#ffffff;
-  --text:#111111;
-  --muted:#666666;
-  --border:#e6e6e6;
-  --card:#fafafa;
-  --link:#1658ff;
-  --link-visited:#6a38ff;
-  --btn:#e51f1f;
-  --btn-text:#fff;
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f9f9f9;              /* белый текст */
+  background: #0d0d0d;         /* тёмный фон */
 }
 
-/* ===== Base ===== */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font);
-  line-height:1.65;
+/* --- Links --- */
+a {
+  color: #bb86fc;              /* яркий фиолетовый */
+  font-weight: 500;
+  text-decoration: none;
+}
+a:hover {
+  color: #d1a8ff;
+  text-decoration: underline;
 }
 
-/* Layout */
-.wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.25)}
-body.blog .nav{background:#fff; border-bottom:1px solid var(--border);} /* светлая шапка в блоге */
-.logo{font-weight:800;text-decoration:none;color:var(--text)}
-.menu a{color:var(--link);text-decoration:none;margin-left:16px}
-.menu a:hover{text-decoration:underline}
+.muted {
+  color: #c0c0c0;
+}
 
-.top .hero{padding:28px 16px;border-bottom:1px solid var(--border)}
-h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 12px}
-h2{font-size:clamp(20px,3vw,28px);margin:22px 0 10px}
-h3{font-size:18px;margin:16px 0 8px}
-p{margin:8px 0}
-.muted{color:var(--muted)}
-a{color:var(--link)}
-a:visited{color:var(--link-visited)}
+/* --- Navigation --- */
+.nav {
+  background: #111;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .logo {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+}
+.nav .menu a {
+  margin-left: 15px;
+  color: #f9f9f9;
+}
 
-/* Buttons */
-.btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
-.btn-primary{background:var(--btn);color:var(--btn-text)}
-.btn-ghost{border:1px solid var(--border);color:var(--text);background:transparent}
+/* --- Hero --- */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+}
+.hero h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.hero p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  color: #ddd;
+}
 
-/* Lists / posts */
-.postlist{list-style:none;padding:0;margin:6px 0 24px}
-.postlist li{padding:8px 0;border-bottom:1px solid var(--border)}
-.postlist span{color:var(--muted)}
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all .2s;
+}
 
-/* Cards / CTA */
-.card,.cta{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
-.cta-list{margin:8px 0 0 18px}
-.cta-note{color:var(--muted);font-size:.9em}
+.btn-primary {
+  background: #ff1a1a;        /* ярко-красный */
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #e60000;
+}
 
-/* Footer */
-.foot{margin-top:26px;border-top:1px solid var(--border);padding:18px 16px;text-align:center}
-body.blog .foot{background:#0d0d0d;color:#fff}
+.btn-ghost {
+  border: 2px solid #ff1a1a;
+  color: #ff1a1a;
+  background: transparent;
+}
+.btn-ghost:hover {
+  background: #ff1a1a;
+  color: #fff;
+}
 
-/* ===== Blog-specific components (работают и в тёмной, и в светлой через переменные) ===== */
+/* --- Content --- */
+.wrap {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+.postlist {
+  list-style: none;
+}
+.postlist li {
+  margin-bottom: 10px;
+}
 
-/* Hero image */
-.hero{display:block;margin:8px 0 14px;border-radius:10px;overflow:hidden;border:3px solid #d23}
-.hero img{width:100%;height:auto;display:block}
+/* --- Cards --- */
+.card {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.card h3 a {
+  color: #fff;
+}
 
-/* TOC */
-.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0 18px}
-.toc ol{margin:8px 0 0 18px}
-.toc li{padding:4px 0}
+/* --- Author Box --- */
+.author-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+.author-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.author-box strong {
+  color: #fff;
+}
 
-/* Tables */
-table.tbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-table.tbl thead th{background:color-mix(in srgb, var(--card) 60%, #f3f3f5);font-weight:700;padding:10px;text-align:left}
-table.tbl td{border-top:1px solid var(--border);padding:10px}
-
-/* Author box */
-.author-box{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin:18px 0}
-.author-box img{width:72px;height:72px;border-radius:50%;object-fit:cover}
-
-/* Offers cards */
-.vpn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-.vpn-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
-.vpn-card img{display:block;margin:4px 0 8px}
-
-/* Video */
-.video-wrap video{width:100%;height:auto;border:1px solid var(--border);border-radius:10px}
-
-/* Safety overrides: чтобы точно не «слетало» */
-body{background:var(--bg)!important;color:var(--text)!important}
+/* --- Footer --- */
+.foot {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+.foot a {
+  color: #bb86fc;
+}
