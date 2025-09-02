@@ -1,134 +1,59 @@
-/* ============= BASE ============= */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #fff;
+/* ===== Base tokens (могут быть любыми) ===== */
+:root{
+  --radius:12px;
+  --accent:#ff2a2a;
+  --accent-2:#ffd5d5;
+  --maxw:980px;
+  --font:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
 }
 
-h1, h2, h3 {
-  line-height: 1.3;
-  margin-top: 1.4em;
-  margin-bottom: 0.6em;
-}
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.2rem; }
-
-p { margin: 0.8em 0; }
-
-.wrap {
-  max-width: 900px;
-  margin: auto;
-  padding: 1rem;
+/* ===== DARK for non-blog pages ===== */
+body:not(.blog){
+  --bg:#0d0d0d;
+  --text:#ffffff;
+  --muted:#b7b7b7;
+  --border:#242424;
+  --card:#151515;
+  --link:#7ab8ff;
+  --btn:#e51f1f;
+  --btn-text:#fff;
 }
 
-/* ============= NAV ============= */
-.nav {
-  background: #111;
-  color: #fff;
-}
-.nav .inner {
-  max-width: 900px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 1rem;
-}
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1rem;
-}
-.nav a.logo {
-  font-weight: bold;
-  font-size: 1.2rem;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  line-height:1.6;
 }
 
-/* ============= HERO ============= */
-.hero img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin: 1rem 0;
-}
+/* layout */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.25)}
+.logo{font-weight:800;text-decoration:none;color:var(--text)}
+.menu a{color:var(--link);text-decoration:none;margin-left:16px}
+.menu a:hover{text-decoration:underline}
+.top .hero{padding:28px 16px;border-bottom:1px solid var(--border)}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 10px}
+h2{font-size:clamp(20px,3vw,28px);margin:22px 0 10px}
+p{margin:8px 0}
 
-/* ============= TABLE ============= */
-.tbl {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.2rem 0;
-  font-size: 0.95rem;
-}
-.tbl th, .tbl td {
-  border: 1px solid #ccc;
-  padding: 0.6rem;
-}
-.tbl th {
-  background: #f5f5f5;
-  text-align: left;
-}
+.btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn-primary{background:var(--btn);color:var(--btn-text)}
+.btn-ghost{border:1px solid var(--border);color:var(--text)}
+a{color:var(--link)}
 
-/* ============= FAQ ============= */
-.faq h3 {
-  margin: 1rem 0 0.4rem;
-  font-size: 1.1rem;
-  color: #333;
-}
-.faq p {
-  margin: 0 0 1rem;
-  color: #555;
-}
+.postlist{list-style:none;padding:0;margin:6px 0 24px}
+.postlist li{padding:8px 0;border-bottom:1px solid var(--border)}
+.postlist span{color:var(--muted)}
 
-/* ============= BUTTONS ============= */
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-.btn-primary {
-  background: #e50914;
-  color: #fff;
-}
-.btn-primary:hover {
-  background: #b20710;
-}
+.cta{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.cta-list{margin:8px 0 0 18px}
+.cta-note{color:var(--muted);font-size:.9em}
 
-/* ============= AUTHOR BOX ============= */
-.author-box {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem 0;
-  padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  background: #fafafa;
-}
-.author-box img {
-  border-radius: 50%;
-}
+.foot{margin-top:26px;border-top:1px solid var(--border);padding:18px 16px;text-align:center}
 
-/* ============= FOOTER ============= */
-.foot {
-  background: #111;
-  color: #aaa;
-  padding: 1rem;
-  text-align: center;
-  margin-top: 2rem;
-}
-.foot a { color: #fff; text-decoration: none; }
-
-/* ============= VIDEO ============= */
-.video-wrap {
-  margin: 1.5rem 0;
-}
-.video-wrap video {
-  width: 100%;
-  border-radius: 6px;
-}
+/* safety: принудительно цвет/фон для non-blog */
+body:not(.blog){background:var(--bg)!important;color:var(--text)!important}
