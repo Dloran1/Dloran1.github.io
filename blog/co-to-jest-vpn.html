@@ -11,22 +11,6 @@
   <link rel="stylesheet" href="/assets/style.css">
   <link rel="icon" href="/assets/favicon.png">
 
-  <!-- ДОП. ФИКС РАЗМЕРОВ МЕДИА -->
-  <style>
-    /* Геро-изображение: не шире текста, центрируем */
-    .article-hero{max-width:960px;margin:16px auto;}
-    .article-hero img{display:block;max-width:100%;height:auto;border-radius:12px;}
-
-    /* Любые картинки в статье: не выходят за контейнер */
-    .post img{display:block;max-width:100%;height:auto;border-radius:12px;margin:16px auto;}
-
-    /* Видео: адаптивно, 16:9, не шире 960 */
-    .post video{width:100%;max-width:960px;height:auto;aspect-ratio:16/9;border-radius:12px;}
-
-    /* Таблица, чтобы не расползалась на мобилках */
-    .table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  </style>
-
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
@@ -54,16 +38,12 @@
 
 <header class="wrap">
   <h1>Co to jest VPN? Wyjaśnienie i zastosowania</h1>
-
-  <!-- HERO -->
   <figure class="article-hero">
-    <img
-      src="/assets/img/hero/co-to-jest-vpn.webp"
-      alt="Ilustracja: czym jest VPN"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager">
+    <img src="/assets/img/hero/co-to-jest-vpn.webp"
+         alt="Ilustracja: czym jest VPN"
+         width="1200" height="630"
+         fetchpriority="high" loading="eager">
   </figure>
-
   <p class="lead">
     <strong>VPN (Virtual Private Network)</strong> szyfruje Twój ruch internetowy i ukrywa adres IP.
     Dzięki temu korzystasz z sieci <em>bezpieczniej i bardziej prywatnie</em>.
@@ -161,7 +141,7 @@
     <h2>Wideo: VPN w pigułce</h2>
     <video controls preload="metadata"
            poster="/assets/img/thumbs/co-to-jest-vpn.webp"
-           width="960" height="540">
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
       <source src="/assets/video/intro.mp4" type="video/mp4">
       Twój przeglądarka nie obsługuje wideo.
     </video>
@@ -170,7 +150,7 @@
   <h2 id="top3">TOP-3 VPN 2025</h2>
   <ol class="product-mini">
     <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="YOUR_SURFSHARK_AFF_LINK" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
     <li><strong>CyberGhost</strong> — profile pod streaming. <a href="YOUR_CYBERGHOST_AFF_LINK" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
   </ol>
 
@@ -219,10 +199,10 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"Czy VPN działa na telefonie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Aplikacje są dostępne na iOS i Androida. Wystarczy zalogować się i połączyć z serwerem."}},
-    {"@type":"Question","name":"Czy mogę oglądać Netflix z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale skuteczność zależy od serwera. W razie problemów zmień kraj i wyczyść cookies."}},
-    {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Wybierz bliższy serwer i protokół WireGuard dla najlepszej prędkości."}},
-    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Korzystaj zgodnie z prawem i regulaminami usług."}}
+    {"@type":"Question","name":"Czy VPN działa na telefonie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Aplikacje są dostępne na iOS i Androida."}},
+    {"@type":"Question","name":"Czy mogę oglądać Netflix z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale skuteczność zależy od serwera. Zmień kraj i wyczyść cookies, jeśli coś nie działa."}},
+    {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Wybierz bliższy serwer i protokół WireGuard."}},
+    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Używaj zgodnie z prawem i regulaminami usług."}}
   ]
 }
 </script>
@@ -237,14 +217,14 @@
   "description":"Wybierz dostawcę, zainstaluj aplikację i połącz się z serwerem.",
   "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
   "step":[
-    {"@type":"HowToStep","name":"Wybierz usługę VPN","text":"Sprawdź politykę prywatności/no-logs i warunki zwrotu."},
-    {"@type":"HowToStep","name":"Zainstaluj aplikację","text":"Pobierz aplikację na Windows/macOS/iOS/Android i zaloguj się."},
-    {"@type":"HowToStep","name":"Połącz i zweryfikuj","text":"Włącz Kill Switch, wybierz najbliższy serwer i sprawdź nowe IP."}
+    {"@type":"HowToStep","name":"Wybierz usługę VPN","text":"Sprawdź politykę prywatności i zwrot pieniędzy."},
+    {"@type":"HowToStep","name":"Zainstaluj aplikację","text":"Pobierz aplikację na urządzenie i zaloguj się."},
+    {"@type":"HowToStep","name":"Połącz się z serwerem","text":"Włącz Kill Switch, wybierz najbliższy serwer i sprawdź nowe IP."}
   ]
 }
 </script>
 
-<!-- JSON-LD: VideoObject -->
+<!-- JSON-LD: Video -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -260,7 +240,7 @@
 }
 </script>
 
-<!-- JSON-LD: ItemList (TOP-3 VPN) -->
+<!-- JSON-LD: ItemList -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -277,7 +257,7 @@
       "@type":"Product","name":"Surfshark",
       "brand":{"@type":"Brand","name":"Surfshark"},
       "url":"https://dloran1.github.io/blog/co-to-jest-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"YOUR_SURFSHARK_AFF_LINK","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
     }},
     {"@type":"ListItem","position":3,"item":{
       "@type":"Product","name":"CyberGhost",
