@@ -1,5 +1,7 @@
-/* ===== Light theme for blog ===== */
-:root{
+/* ===== Light theme for blog (scoped) ===== */
+
+/* светлая палитра и токены — ТОЛЬКО на страницах с body.blog */
+body.blog{
   --bg:#ffffff;
   --text:#111111;
   --muted:#666;
@@ -9,9 +11,7 @@
   --card:#fafafa;
   --btn:#e51f1f;
   --btn-text:#fff;
-}
 
-body.blog{
   background:var(--bg);
   color:var(--text);
 }
@@ -78,5 +78,5 @@ body.blog .faq p{ margin:6px 0 10px; }
 /* видео */
 body.blog .video-wrap video{ width:100%; height:auto; border:1px solid var(--border); border-radius:10px; }
 
-/* футер светлый */
+/* футер */
 body.blog .foot{ background:#0d0d0d; color:#fff; }
