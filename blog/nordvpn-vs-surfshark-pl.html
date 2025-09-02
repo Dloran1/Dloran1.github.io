@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html">
 
   <!-- Perf / robots -->
-  <link rel="preload" as="image" href="/assets/img/hero/nordvpn-vs-surfshark.webp">
+  <link rel="preload" as="image" href="/assets/img/hero/nordvpn-vs-surfshark-pl.webp">
   <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph -->
@@ -18,14 +18,14 @@
   <meta property="og:title" content="NordVPN vs Surfshark — porównanie 2025">
   <meta property="og:description" content="Który VPN wybrać? Sprawdź różnice: szybkość, prywatność, streaming i cena.">
   <meta property="og:url" content="https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/nordvpn-vs-surfshark-pl.webp">
   <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 
   <!-- Styles / favicon -->
   <link rel="stylesheet" href="/assets/style.css">
   <link rel="icon" href="/assets/favicon.png">
 
-  <!-- Fail-safe, чтобы медиа не ломали вёрстку -->
+  <!-- Fail-safe -->
   <style>
     .wrap{max-width:880px;margin:0 auto;padding:0 16px}
     figure.article-hero{margin:0 0 12px}
@@ -53,18 +53,18 @@
 <header class="wrap">
   <h1>NordVPN vs Surfshark — porównanie 2025</h1>
 
-  <!-- HERO: есть безопасный фолбэк на существующий файл -->
+  <!-- HERO (правильный файл + fallback) -->
   <figure class="article-hero">
-    <img src="/assets/img/hero/nordvpn-vs-surfshark.webp"
+    <img src="/assets/img/hero/nordvpn-vs-surfshark-pl.webp"
          alt="NordVPN kontra Surfshark — porównanie 2025"
          width="1200" height="630" loading="eager" fetchpriority="high"
-         onerror="this.onerror=null;this.src='/assets/img/hero/co-to-jest-vpn.webp'">
+         onerror="this.onerror=null;this.src='/assets/img/hero/placeholder.webp'">
   </figure>
 
   <p class="lead">
     Jeśli dopiero zaczynasz, zerknij na <a href="/blog/co-to-jest-vpn.html">co to jest VPN</a> i
-    <a href="/blog/no-logs.html">co znaczą polityki no-logs</a>. Tu skupiamy się na różnicach
-    <strong>NordVPN</strong> vs <strong>Surfshark</strong> w praktyce: szybkość, streaming, prywatność i cena.
+    <a href="/blog/no-logs.html">co oznacza no-logs</a>. Tu porównujemy
+    <strong>NordVPN</strong> i <strong>Surfshark</strong> w praktyce: prędkość, streaming, prywatność i cena.
   </p>
 </header>
 
@@ -87,34 +87,33 @@
 
   <section id="speed">
     <h2>Prędkość i protokoły</h2>
-    <p>Obie usługi mają szybki <strong>WireGuard</strong> (NordVPN — jako <em>NordLynx</em>). W typowych testach różnice są małe.
-      Jeśli zależy Ci na maksie, zobacz <a href="/blog/vpn-szybkosc-test.html">jak poprawnie testować szybkość VPN</a>
-      oraz <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.</p>
-    <p class="note">W przypadku wysokiego pingu przełącz najbliższy kraj (PL → DE/NL/SE) —
-      <a href="/blog/jaki-serwer-vpn-wybrac.html">tu masz szybkie wskazówki wyboru serwera</a>.</p>
+    <p>Obie usługi mają szybki <strong>WireGuard</strong> (NordVPN — <em>NordLynx</em>). Różnice zwykle są małe.
+      Najpierw ustaw poprawnie test: <a href="/blog/vpn-szybkosc-test.html">jak mierzyć szybkość VPN</a> i
+      <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.</p>
+    <p class="note">Przy wysokim pingu przełącz najbliższy kraj (PL → DE/NL/SE) —
+      <a href="/blog/jaki-serwer-vpn-wybrac.html">krótki poradnik doboru serwera</a>.</p>
   </section>
 
   <section id="privacy">
     <h2>Prywatność i no-logs</h2>
     <ul>
-      <li>Oba VPN deklarują <strong>no-logs</strong>; warto znać detale — patrz
-        <a href="/blog/no-logs.html">no-logs: co to znaczy w praktyce</a>.</li>
-      <li>Serwery RAM-only, Kill Switch, ochrona przed DNS leak — sprawdź po połączeniu
+      <li>Oba VPN deklarują <strong>no-logs</strong> — zobacz nasz przewodnik:
+        <a href="/blog/no-logs.html">no-logs w praktyce</a>.</li>
+      <li>Kill Switch, DNS leak protection — po połączeniu sprawdź
         <a href="https://ipleak.net" target="_blank" rel="nofollow noopener">ipleak.net</a>.</li>
     </ul>
-    <p>Jeśli rozważasz darmowe alternatywy, koniecznie przeczytaj
+    <p>Jeśli kuszą Cię bezpłatne alternatywy, koniecznie przeczytaj
       <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a> i
       <a href="/blog/darmowy-vpn-polska.html">darmowy VPN w Polsce</a>.</p>
   </section>
 
   <section id="streaming">
     <h2>Streaming i gry</h2>
-    <p>NordVPN i Surfshark oferują profile/serwery do streamingu. Gdy katalog VOD nie działa:
-      zmień kraj i <em>wyczyść cookies</em> (instrukcja w
+    <p>Obaj gracze mają serwery/tryby do streamingu. Gdy VOD nie działa:
+      zmień kraj i <em>wyczyść cookies</em> (patrz sekcja w
       <a href="/blog/vpn-szybkosc-test.html">poradniku testów</a>). Do gier — wybieraj
       najbliższy punkt i protokół WireGuard.</p>
-    <p>Więcej o mitach typu „VPN zawsze spowalnia” lub „zawsze działa z Netflixem”:
-      <a href="/blog/mity-o-vpn.html">mity o VPN</a>.</p>
+    <p>Więcej o mitach: <a href="/blog/mity-o-vpn.html">mity o VPN</a>.</p>
   </section>
 
   <section id="features">
@@ -128,23 +127,23 @@
         <tr><td>Urządzenia</td><td>6 jednocześnie</td><td>Nieograniczone</td></tr>
       </tbody>
     </table>
-    <p>Jeśli potrzebujesz portów lub NAS — sprawdź
+    <p>Potrzebujesz portów/NAS? Sprawdź
       <a href="/blog/vpn-port-forwarding.html">port forwarding z VPN</a>.</p>
   </section>
 
   <section id="price">
     <h2>Cena i warunki</h2>
     <ul>
-      <li><strong>Surfshark</strong> — zwykle najtańszy w planach długoterminowych + nieograniczone urządzenia.</li>
-      <li><strong>NordVPN</strong> — droższy, ale z rozbudowanymi dodatkami (Threat Protection, Meshnet).</li>
-      <li>Oba mają 30-dniową gwarancję zwrotu — łatwo przetestować w praktyce.</li>
+      <li><strong>Surfshark</strong> — zwykle tańszy w planach długoterminowych, nielimitowane urządzenia.</li>
+      <li><strong>NordVPN</strong> — droższy, ale z dodatkami (Threat Protection, Meshnet).</li>
+      <li>Oba mają 30-dniową gwarancję zwrotu — łatwo przetestować.</li>
     </ul>
   </section>
 
   <section id="werdykt">
     <h2>Werdykt — który wybrać?</h2>
-    <p><strong>Wybierz NordVPN</strong>, jeśli chcesz „maksimum wszystkiego” i często korzystasz ze streamingu/P2P.</p>
-    <p><strong>Wybierz Surfshark</strong>, jeśli liczysz każdy grosz i potrzebujesz wielu urządzeń bez limitu.</p>
+    <p><strong>NordVPN</strong> — gdy chcesz maksimum funkcji i często streamujesz/P2P.</p>
+    <p><strong>Surfshark</strong> — gdy ważna jest cena i potrzebujesz wielu urządzeń.</p>
 
     <div class="cta">
       <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
@@ -157,13 +156,13 @@
 
   <section id="faq">
     <h2>FAQ</h2>
-    <details><summary>Który jest szybszy?</summary><p>W praktyce — minimalna przewaga NordVPN, ale obie usługi pozwalają na płynny 4K streaming. Klucz: <a href="/blog/wireguard-vs-openvpn.html">protokół</a> i <a href="/blog/jaki-serwer-vpn-wybrac.html">dobór serwera</a>.</p></details>
-    <details><summary>Czy Surfshark ma darmową wersję?</summary><p>Nie. Jeśli szukasz bezpłatnych opcji do okazjonalnego użytku, zobacz <a href="/blog/darmowy-vpn-polska.html">darmowy VPN w Polsce</a>.</p></details>
+    <details><summary>Który jest szybszy?</summary><p>W praktyce — minimalna przewaga NordVPN, ale obie usługi pozwalają na płynny 4K. Klucz: <a href="/blog/wireguard-vs-openvpn.html">protokół</a> i <a href="/blog/jaki-serwer-vpn-wybrac.html">dobór serwera</a>.</p></details>
+    <details><summary>Czy Surfshark ma darmową wersję?</summary><p>Nie. Do jednorazowych zadań sprawdź <a href="/blog/darmowy-vpn-polska.html">darmowy VPN w Polsce</a>.</p></details>
   </section>
 
   <section id="video">
     <h2>Wideo: NordVPN vs Surfshark</h2>
-    <video controls preload="metadata" poster="/assets/img/thumbs/co-to-jest-vpn.webp" width="960" height="540">
+    <video controls preload="metadata" poster="/assets/img/hero/placeholder.webp" width="960" height="540">
       <source src="/assets/video/intro.mp4" type="video/mp4">
       Twoja przeglądarka nie obsługuje wideo.
     </video>
@@ -182,6 +181,7 @@
       <a href="/blog/co-to-jest-vpn.html">Co to jest VPN</a> •
       <a href="/blog/no-logs.html">No-logs: co to znaczy</a> •
       <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a> •
+      <a href="/blog/darmowy-vpn-polska.html">Darmowy VPN w Polsce</a> •
       <a href="/blog/mity-o-vpn.html">Mity o VPN</a> •
       <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a> •
       <a href="/blog/vpn-szybkosc-test.html">Jak testować szybkość VPN</a> •
@@ -207,16 +207,15 @@
 
 <!-- JSON-LD: Article -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","inLanguage":"pl-PL","headline":"NordVPN vs Surfshark — porównanie 2025","description":"NordVPN czy Surfshark w 2025? Różnice w szybkości, prywatności, streamingu, funkcjach i cenie.","datePublished":"2025-09-02","dateModified":"2025-09-02","image":"https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp","author":{"@type":"Person","name":"Denys Shchur"},"publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}},"mainEntityOfPage":"https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html"}
+{"@context":"https://schema.org","@type":"Article","inLanguage":"pl-PL","headline":"NordVPN vs Surfshark — porównanie 2025","description":"NordVPN czy Surfshark w 2025? Różnice w szybkości, prywatności, streamingu, funkcjach i cenie.","datePublished":"2025-09-02","dateModified":"2025-09-02","image":"https://dloran1.github.io/assets/img/hero/nordvpn-vs-surfshark-pl.webp","author":{"@type":"Person","name":"Denys Shchur"},"publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}},"mainEntityOfPage":"https://dloran1.github.io/blog/nordvpn-vs-surfshark-pl.html"}
 </script>
 
 <!-- JSON-LD: FAQ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Który jest szybszy — NordVPN czy Surfshark?","acceptedAnswer":{"@type":"Answer","text":"Różnice są niewielkie; zwykle minimalna przewaga NordVPN. Ustaw WireGuard i najbliższy serwer."}},
-{"@type":"Question","name":"Czy Surfshark ma darmową wersję?","acceptedAnswer":{"@type":"Answer","text":"Nie. Jeśli szukasz bezpłatnych opcji do okazjonalnego użytku, zobacz „Darmowy VPN w Polsce”."}}
+{"@type":"Question","name":"Czy Surfshark ma darmową wersję?","acceptedAnswer":{"@type":"Answer","text":"Nie. Do jednorazowych zadań sprawdź „Darmowy VPN w Polsce”."}}
 ]}
 </script>
-
 </body>
 </html>
