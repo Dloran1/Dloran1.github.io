@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Co to jest VPN? Wyjaśnienie i zastosowania</title>
   <meta name="description" content="Dowiedz się, czym jest VPN, jak działa i dlaczego warto z niego korzystać. Proste wyjaśnienie + praktyczne przykłady.">
   <link rel="canonical" href="https://dloran1.github.io/blog/co-to-jest-vpn.html">
@@ -20,6 +20,17 @@
   <meta name="twitter:description" content="Poznaj działanie VPN, jego zalety i zastosowania w 2025 roku.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
 
+  <!-- AUTO-CSS loader (работает и для /, и для /blog/) -->
+  <script>
+    (function () {
+      var needsUp = location.pathname.indexOf('/blog/') !== -1 ? '..' : '';
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = needsUp + '/assets/style.css';
+      document.head.appendChild(link);
+    })();
+  </script>
+
   <!-- Breadcrumbs -->
   <script type="application/ld+json">
   {
@@ -34,119 +45,151 @@
   </script>
 </head>
 <body>
-  <header class="wrap">
-    <h1>Co to jest VPN? Wyjaśnienie i zastosowania</h1>
-    <picture class="hero">
-      <source srcset="/assets/img/hero/co-to-jest-vpn.webp" type="image/webp">
-      <img src="/assets/img/hero/co-to-jest-vpn.webp" alt="Co to jest VPN – prosty przewodnik" loading="lazy">
-    </picture>
-  </header>
 
-  <main class="wrap">
-    <article>
-      <p><strong>VPN</strong> (Virtual Private Network) to narzędzie, które szyfruje Twój ruch internetowy i ukrywa adres IP. Dzięki niemu możesz korzystać z sieci bezpieczniej i anonimowo.</p>
+<nav class="nav"><div class="inner">
+  <a class="logo" href="/">VPN Polska</a>
+  <div class="menu"><a href="/">Strona główna</a><strong>Blog</strong></div>
+</div></nav>
 
-      <h2>Jak działa VPN?</h2>
-      <p>Po włączeniu VPN Twój ruch przechodzi przez szyfrowany tunel do serwera dostawcy VPN. Dzięki temu Twój operator, reklamodawcy czy hakerzy nie widzą prawdziwego adresu IP ani odwiedzanych stron.</p>
+<header class="wrap">
+  <h1>Co to jest VPN? Wyjaśnienie i zastosowania</h1>
 
-      <h2>Zalety i wady VPN</h2>
-      <table class="tbl">
-        <thead><tr><th>Zalety</th><th>Wady</th></tr></thead>
-        <tbody>
-          <tr><td>Anonimowość i ukrycie IP</td><td>Może spowolnić Internet</td></tr>
-          <tr><td>Bezpieczne Wi-Fi w hotelach i kawiarniach</td><td>Dobre usługi VPN są płatne</td></tr>
-          <tr><td>Dostęp do treści z innych krajów</td><td>Nie każdy serwer działa z Netflix/Player</td></tr>
-        </tbody>
-      </table>
+  <!-- HERO: автоподстановка по имени файла + fallback -->
+  <picture class="hero">
+    <source id="heroSource" type="image/webp">
+    <img id="heroImg" alt="" loading="lazy"
+         data-fallback="/assets/img/hero/artykul-01.webp"
+         onerror="this.onerror=null;this.src=this.getAttribute('data-fallback');">
+  </picture>
+</header>
 
-      <h2>Jak zacząć korzystać z VPN?</h2>
-      <ol>
-        <li>Pobierz aplikację VPN (np. NordVPN, Surfshark).</li>
-        <li>Zaloguj się i wybierz serwer w wybranym kraju.</li>
-        <li>Włącz <strong>Kill Switch</strong> i sprawdź wycieki IP/DNS.</li>
-      </ol>
+<main class="wrap">
+  <article>
+    <p><strong>VPN</strong> (Virtual Private Network) to narzędzie, które szyfruje Twój ruch internetowy i ukrywa adres IP. Dzięki niemu możesz korzystać z sieci bezpieczniej i anonimowo.</p>
 
-      <h2>Najczęstsze pytania (FAQ)</h2>
-      <div class="faq">
-        <h3>Czy VPN jest legalny w Polsce?</h3>
-        <p>Tak, korzystanie z VPN jest legalne.</p>
+    <h2>Jak działa VPN?</h2>
+    <p>Po włączeniu VPN Twój ruch przechodzi przez szyfrowany tunel do serwera dostawcy VPN. Dzięki temu operator, reklamodawcy czy hakerzy nie widzą prawdziwego adresu IP ani odwiedzanych stron.</p>
 
-        <h3>Czy darmowe VPN są bezpieczne?</h3>
-        <p>Nie zawsze — często zbierają dane użytkowników.</p>
+    <h2>Zalety i wady VPN</h2>
+    <table class="tbl">
+      <thead><tr><th>Zalety</th><th>Wady</th></tr></thead>
+      <tbody>
+        <tr><td>Anonimowość i ukrycie IP</td><td>Może spowolnić Internet</td></tr>
+        <tr><td>Bezpieczne Wi-Fi w hotelach i kawiarniach</td><td>Dobre usługi VPN są płatne</td></tr>
+        <tr><td>Dostęp do treści z innych krajów</td><td>Nie każdy serwer działa z Netflix/Player</td></tr>
+      </tbody>
+    </table>
 
-        <h3>Czy VPN przyspiesza Internet?</h3>
-        <p>VPN zwykle nie przyspiesza, ale czasem może stabilizować połączenie.</p>
-      </div>
+    <h2>Jak zacząć korzystać z VPN?</h2>
+    <ol>
+      <li>Pobierz aplikację VPN (np. NordVPN, Surfshark).</li>
+      <li>Zaloguj się i wybierz serwer w wybranym kraju.</li>
+      <li>Włącz <strong>Kill Switch</strong> i sprawdź wycieki IP/DNS.</li>
+    </ol>
 
-      <h2>Wideo: VPN w pigułce</h2>
-      <div class="video-wrap" id="video">
-        <video controls preload="metadata" poster="/assets/img/video/vpn-thumb.jpg">
-          <source src="/assets/video/vpn-sample.mp4" type="video/mp4">
-        </video>
-      </div>
-    </article>
+    <h2>Najczęstsze pytania (FAQ)</h2>
+    <div class="faq">
+      <h3>Czy VPN jest legalny w Polsce?</h3>
+      <p>Tak, korzystanie z VPN jest legalne.</p>
 
-    <section class="author-box">
-      <img src="/assets/img/authors/denis.jpg" alt="Denis Shchur" width="72" height="72" loading="lazy">
-      <div>
-        <p><strong>Autor:</strong> Denis Shchur — praktyk VPN i SEO.</p>
-        <p class="muted">Ostatnia aktualizacja: 02.09.2025</p>
-      </div>
-    </section>
-  </main>
+      <h3>Czy darmowe VPN są bezpieczne?</h3>
+      <p>Nie zawsze — często zbierają dane użytkowników.</p>
 
-  <!-- JSON-LD Article + FAQ + HowTo + Video -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Co to jest VPN? Wyjaśnienie i zastosowania",
-    "image":"https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
-    "datePublished":"2025-09-02",
-    "dateModified":"2025-09-02",
-    "author":{"@type":"Person","name":"Denis Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png"}}
-  }
-  </script>
+      <h3>Czy VPN przyspiesza Internet?</h3>
+      <p>VPN zwykle nie przyspiesza, ale czasem może stabilizować połączenie.</p>
+    </div>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne."}},
-      {"@type":"Question","name":"Czy darmowe VPN są bezpieczne?","acceptedAnswer":{"@type":"Answer","text":"Nie zawsze — często zbierają dane użytkowników."}},
-      {"@type":"Question","name":"Czy VPN przyspiesza Internet?","acceptedAnswer":{"@type":"Answer","text":"VPN zwykle nie przyspiesza, ale czasem może stabilizować połączenie."}}
-    ]
-  }
-  </script>
+    <h2>Wideo: VPN w pigułce</h2>
+    <div class="video-wrap" id="video">
+      <video controls preload="metadata" poster="/assets/img/video/vpn-thumb.jpg">
+        <source src="/assets/video/vpn-sample.mp4" type="video/mp4">
+      </video>
+    </div>
+  </article>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Jak zacząć korzystać z VPN",
-    "description": "Szybki start z VPN w 3 krokach",
-    "step": [
-      {"@type":"HowToStep","name":"Pobierz aplikację VPN","text":"Zainstaluj np. NordVPN, Surfshark."},
-      {"@type":"HowToStep","name":"Wybierz serwer","text":"Zaloguj się i wybierz serwer w kraju docelowym."},
-      {"@type":"HowToStep","name":"Włącz Kill Switch","text":"Sprawdź wycieki IP/DNS przed torrentami i streamingiem."}
-    ]
-  }
-  </script>
+  <section class="author-box">
+    <img src="/assets/img/authors/denis.jpg" alt="Denis Shchur" width="72" height="72" loading="lazy">
+    <div>
+      <p><strong>Autor:</strong> Denis Shchur — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: 02.09.2025</p>
+    </div>
+  </section>
+</main>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"VideoObject",
-    "name":"Co to jest VPN? (wideo w pigułce)",
-    "description":"Krótki film wyjaśniający podstawy działania VPN.",
-    "thumbnailUrl":"https://dloran1.github.io/assets/img/video/vpn-thumb.jpg",
-    "uploadDate":"2025-09-02",
-    "contentUrl":"https://dloran1.github.io/assets/video/vpn-sample.mp4",
-    "embedUrl":"https://dloran1.github.io/blog/co-to-jest-vpn.html#video",
-    "duration":"PT40S"
-  }
-  </script>
+<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+
+<!-- HERO runtime: подставляет правильный путь /assets/img/hero/<slug>.webp -->
+<script>
+  (function(){
+    var slug = location.pathname.split('/').pop().replace('.html','');
+    var up = location.pathname.indexOf('/blog/') !== -1 ? '..' : '';
+    var hero = up + '/assets/img/hero/' + slug + '.webp';
+    var src  = document.getElementById('heroSource');
+    var img  = document.getElementById('heroImg');
+    src.srcset = hero;
+    img.src    = hero;
+    var h1 = document.querySelector('h1');
+    if (h1) img.alt = h1.textContent.trim();
+  })();
+</script>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Co to jest VPN? Wyjaśnienie i zastosowania",
+  "image":"https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-02",
+  "author":{"@type":"Person","name":"Denis Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png"}}
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne."}},
+    {"@type":"Question","name":"Czy darmowe VPN są bezpieczne?","acceptedAnswer":{"@type":"Answer","text":"Nie zawsze — często zbierają dane użytkowników."}},
+    {"@type":"Question","name":"Czy VPN przyspiesza Internet?","acceptedAnswer":{"@type":"Answer","text":"VPN zwykle nie przyspiesza, ale czasem może stabilizować połączenie."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"Jak zacząć korzystać z VPN",
+  "description":"Szybki start z VPN w 3 krokach",
+  "totalTime":"PT5M",
+  "step":[
+    {"@type":"HowToStep","name":"Pobierz aplikację VPN","text":"Zainstaluj np. NordVPN, Surfshark."},
+    {"@type":"HowToStep","name":"Wybierz serwer","text":"Zaloguj się i wybierz serwer w kraju docelowym."},
+    {"@type":"HowToStep","name":"Włącz Kill Switch","text":"Sprawdź wycieki IP/DNS przed torrentami i streamingiem."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject (может быть заглушка, штрафов нет) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Co to jest VPN? (wideo w pigułce)",
+  "description":"Krótki film wyjaśniający podstawy działania VPN.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/video/vpn-thumb.jpg",
+  "uploadDate":"2025-09-02",
+  "contentUrl":"https://dloran1.github.io/assets/video/vpn-sample.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/co-to-jest-vpn.html#video",
+  "duration":"PT40S"
+}
+</script>
+
 </body>
 </html>
