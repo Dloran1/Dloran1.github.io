@@ -1,14 +1,12 @@
-/* ===== Light theme for blog (scoped) ===== */
-
-/* светлая палитра и токены — ТОЛЬКО на страницах с body.blog */
+/* ===== Light Theme scoped to blog ===== */
 body.blog{
   --bg:#ffffff;
   --text:#111111;
   --muted:#666;
   --border:#e6e6e6;
+  --card:#fafafa;
   --link:#1658ff;
   --link-visited:#6a38ff;
-  --card:#fafafa;
   --btn:#e51f1f;
   --btn-text:#fff;
 
@@ -16,67 +14,48 @@ body.blog{
   color:var(--text);
 }
 
-/* базовая типографика */
-body.blog .wrap{ max-width:820px; }
-body.blog h1{ font-size:clamp(28px,6vw,44px); line-height:1.1; margin:10px 0 12px; }
-body.blog h2{ font-size:clamp(20px,3.2vw,28px); margin:28px 0 12px; }
-body.blog h3{ font-size:18px; margin:18px 0 8px; }
-body.blog p{ font-size:17px; line-height:1.65; margin:10px 0; }
-body.blog .muted{ color:var(--muted); }
-
-/* ссылки */
-body.blog a{ color:var(--link); text-underline-offset:2px; }
-body.blog a:visited{ color:var(--link-visited); }
+/* типографика */
+body.blog .wrap{max-width:820px}
+body.blog h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:10px 0 12px}
+body.blog h2{font-size:clamp(20px,3.2vw,28px);margin:28px 0 12px}
+body.blog h3{font-size:18px;margin:18px 0 8px}
+body.blog p{font-size:17px;line-height:1.65;margin:10px 0}
+body.blog .muted{color:var(--muted)}
+body.blog a{color:var(--link)}
+body.blog a:visited{color:var(--link-visited)}
 
 /* hero */
-body.blog .hero{
-  display:block; margin:8px 0 14px; border-radius:10px;
-  overflow:hidden; border:3px solid #d23;
-}
-body.blog .hero img{ width:100%; height:auto; display:block; }
+body.blog .hero{display:block;margin:8px 0 14px;border-radius:10px;overflow:hidden;border:3px solid #d23}
+body.blog .hero img{width:100%;height:auto;display:block}
 
 /* TOC */
-body.blog .toc{
-  background:var(--card); border:1px solid var(--border);
-  border-radius:10px; padding:14px 16px; margin:10px 0 18px;
-}
-body.blog .toc ol{ margin:8px 0 0 18px; }
-body.blog .toc li{ padding:4px 0; }
+body.blog .toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0 18px}
+body.blog .toc ol{margin:8px 0 0 18px}
+body.blog .toc li{padding:4px 0}
 
 /* таблицы */
-body.blog table.tbl{
-  width:100%; border-collapse:separate; border-spacing:0;
-  border:1px solid var(--border); border-radius:10px; overflow:hidden;
-}
-body.blog table.tbl thead th{
-  background:#f3f3f5; font-weight:700; padding:10px; text-align:left;
-}
-body.blog table.tbl td{ border-top:1px solid var(--border); padding:10px; }
+body.blog table.tbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+body.blog table.tbl thead th{background:#f3f3f5;font-weight:700;padding:10px;text-align:left}
+body.blog table.tbl td{border-top:1px solid var(--border);padding:10px}
 
 /* author box */
-body.blog .author-box{
-  display:flex; gap:14px; align-items:center;
-  background:var(--card); border:1px solid var(--border);
-  border-radius:12px; padding:14px; margin:18px 0;
-}
-body.blog .author-box img{ width:72px; height:72px; border-radius:50%; object-fit:cover; }
+body.blog .author-box{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin:18px 0}
+body.blog .author-box img{width:72px;height:72px;border-radius:50%;object-fit:cover}
 
-/* CTA */
-body.blog .btn{ display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; }
-body.blog .btn-primary{ background:var(--btn); color:var(--btn-text); }
-body.blog .cta{ margin:22px 0; text-align:center; }
-
-/* карты TOP-3 */
-body.blog .vpn-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
-body.blog .vpn-card{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; }
-body.blog .vpn-card img{ display:block; margin:4px 0 8px; }
+/* CTA / карточки */
+body.blog .btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+body.blog .btn-primary{background:var(--btn);color:var(--btn-text)}
+body.blog .cta{margin:22px 0;text-align:center}
+body.blog .vpn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+body.blog .vpn-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
+body.blog .vpn-card img{display:block;margin:4px 0 8px}
 
 /* FAQ */
-body.blog .faq h3{ margin-top:12px; font-size:18px; }
-body.blog .faq p{ margin:6px 0 10px; }
+body.blog .faq h3{margin-top:12px;font-size:18px}
+body.blog .faq p{margin:6px 0 10px}
 
-/* видео */
-body.blog .video-wrap video{ width:100%; height:auto; border:1px solid var(--border); border-radius:10px; }
+/* Video */
+body.blog .video-wrap video{width:100%;height:auto;border:1px solid var(--border);border-radius:10px}
 
-/* футер */
-body.blog .foot{ background:#0d0d0d; color:#fff; }
+/* светлый футер оставим тёмным для контраста */
+body.blog .foot{background:#0d0d0d;color:#fff}
