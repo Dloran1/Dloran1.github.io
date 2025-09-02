@@ -3,98 +3,339 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN No-Logs – co oznacza brak logów?</title>
-  <meta name="description" content="Polityka No-Logs oznacza, że VPN nie przechowuje Twojej aktywności. Sprawdź, dlaczego to ważne i które usługi naprawdę gwarantują brak logów.">
-  <meta name="robots" content="index,follow">
+  <title>VPN no-logs — co to znaczy i jak to sprawdzić (2025)</title>
+  <meta name="description" content="Polityka no-logs w VPN: co oznacza, jak ją weryfikować (audyt, RAM-only, jurysdykcja) i których dostawców wybrać. Checklista, tabela, FAQ i wideo.">
   <link rel="canonical" href="https://dloran1.github.io/blog/no-logs.html">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN No-Logs – co oznacza brak logów?">
-  <meta property="og:description" content="Dowiedz się, dlaczego polityka No-Logs to kluczowa funkcja VPN i które firmy faktycznie jej przestrzegają.">
-  <meta property="og:url" content="https://dloran1.github.io/blog/no-logs.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/no-logs.webp">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN No-Logs – co oznacza brak logów?">
-  <meta name="twitter:description" content="Polityka No-Logs w VPN – sprawdź, na czym polega i jak działa w praktyce.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/no-logs.webp">
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"VPN No-Logs – co oznacza brak logów?",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-08-31",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/no-logs.html"},
-    "image":"https://dloran1.github.io/assets/img/no-logs.webp"
-  }
-  </script>
-
+  <!-- Global styles / favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/no-logs.webp"
+        imagesrcset="/assets/img/hero/no-logs.webp"
+        imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN no-logs — co to znaczy i jak to sprawdzić (2025)">
+  <meta property="og:description" content="Co to jest polityka no-logs, na co zwrócić uwagę (audyt, RAM-only, jurysdykcja) i które VPN-y ją spełniają.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/no-logs.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/no-logs.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VPN no-logs — co to znaczy i jak to sprawdzić (2025)">
+  <meta name="twitter:description" content="Polityka no-logs w VPN w praktyce: jak ją zweryfikować i jacy dostawcy ją mają.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/no-logs.webp">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .wrap{max-width:880px;margin:0 auto;padding:0 16px;}
+    .article-hero{margin:12px 0 24px;}
+    .article-hero img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border-radius:12px}
+    .post img{display:block;max-width:100%;height:auto;border-radius:8px}
+    .post figure{margin:16px 0}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
+    .table caption{caption-side:top;font-weight:700;margin-bottom:.4rem}
+    .toc{margin:1.25rem 0 2rem}
+    .toc a{text-decoration:underline}
+    .btn{display:inline-block;padding:.9rem 1.1rem;border-radius:12px;font-weight:700;text-decoration:none;-webkit-tap-highlight-color:transparent}
+    .btn-primary{background:#e63946;color:#fff}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-ghost{background:transparent;border:2px solid #e63946;color:#fff}
+    .cta{margin:1.25rem 0 1.5rem}
+    .author{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);padding:16px;border-radius:14px}
+    .author__media img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+    .muted{opacity:.8}
+    video{max-width:100%;height:auto;border-radius:12px;display:block}
+    .backtop{margin:2rem 0}
+    .note{opacity:.9;font-size:.95rem}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;background:rgba(255,255,255,.06);padding:.1rem .35rem;border-radius:.35rem}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner wrap" style="padding-top:12px;padding-bottom:12px">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN no-logs — co to znaczy i jak to sprawdzić (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img src="/assets/img/hero/no-logs.webp"
+         alt="Polityka no-logs w VPN — co znaczy i jak zweryfikować"
+         width="1200" height="630" fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    <strong>No-logs</strong> = dostawca VPN <em>nie gromadzi</em> danych pozwalających odtworzyć Twoją aktywność online
+    (odwiedzane strony, treść ruchu, oryginalny adres IP). Poniżej — jak rozpoznać prawdziwą politykę no-logs,
+    czego unikać i którzy dostawcy w 2025 wypadają najlepiej.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#co-to">Co to jest polityka no-logs?</a></li>
+      <li><a href="#dlaczego">Dlaczego to ważne</a></li>
+      <li><a href="#weryfikacja">Jak zweryfikować dostawcę (checklista)</a></li>
+      <li><a href="#tabela">Co VPN może / nie powinien logować</a></li>
+      <li><a href="#wady-zalety">Polityka no-logs — zalety i ryzyka</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN no-logs (2025)</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>VPN No-Logs – co oznacza brak logów?</h1>
+  <section id="co-to">
+    <h2>Co to jest polityka no-logs?</h2>
+    <p>Polityka <strong>no-logs</strong> oznacza brak przechowywania danych, które pozwalałyby
+       zidentyfikować użytkownika lub odtworzyć jego aktywność. Zazwyczaj dopuszczalne są
+       <em>techniczne, zanonimizowane</em> metryki (np. obciążenie serwera), ale bez adresów IP źródłowych
+       czy znaczników czasu przypisanych do konta.</p>
+    <p class="note">Uwaga na marketing: hasło „no-logs” bez <em>zewnętrznego audytu</em>, <em>RAM-only</em> i jasnych definicji bywa tylko obietnicą.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/no-logs.webp" alt="Polityka No-Logs w VPN" width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="dlaczego">
+    <h2>Dlaczego to ważne</h2>
+    <ul>
+      <li><strong>Prywatność:</strong> brak historycznych logów minimalizuje ryzyko wycieku lub przejęcia danych.</li>
+      <li><strong>Bezpieczeństwo:</strong> architektura RAM-only ogranicza persystencję danych po restarcie serwerów.</li>
+      <li><strong>Compliance:</strong> spójna polityka i audyty budują zaufanie (praca, dziennikarstwo, podróże).</li>
+    </ul>
+  </section>
 
-      <p>Jednym z najważniejszych parametrów wyboru VPN jest polityka <strong>No-Logs</strong>. Oznacza ona, że dostawca nie przechowuje żadnych danych dotyczących Twojej aktywności online.</p>
+  <section id="weryfikacja">
+    <h2>Jak zweryfikować dostawcę (checklista)</h2>
+    <ol>
+      <li><strong>Audyt no-logs:</strong> niezależna firma (cyklicznie), publiczny raport z zakresu audytu.</li>
+      <li><strong>RAM-only:</strong> serwery bez dysków lub z ephemeral storage; automatyczny wipe przy restarcie.</li>
+      <li><strong>Jurysdykcja:</strong> przejrzysta spółka, historia zgodności z prawem, brak agresywnej inwigilacji.</li>
+      <li><strong>Transparentność:</strong> raporty przejrzystości, warrant canary (jeśli prowadzą), otwarte polityki.</li>
+      <li><strong>Aplikacje i protokoły:</strong> WireGuard/OpenVPN, Kill Switch, brak telemetrycznych identyfikatorów użytkownika.</li>
+      <li><strong>Płatności:</strong> możliwość anonimowej płatności (np. kryptowaluty, karty podarunkowe), ale nie kosztem wsparcia.</li>
+      <li><strong>Praktyka:</strong> czy usługa faktycznie przechodzi testy: <span class="kbd">DNS leak</span>, <span class="kbd">IP leak</span>, <span class="kbd">WebRTC leak</span>.</li>
+    </ol>
+  </section>
 
-      <section class="cta">
-        <h2>Wybierz sprawdzony VPN</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Kup NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/mity-o-vpn.html">Mity o VPN</a>
-        </div>
-        <p class="cta-note">Link partnerski – wsparcie bez dodatkowych kosztów.</p>
-      </section>
+  <section id="tabela">
+    <h2>Co VPN może / nie powinien logować</h2>
+    <table class="table">
+      <caption>Logi techniczne vs dane wrażliwe</caption>
+      <thead><tr><th>Element</th><th>OK przy no-logs</th><th>Nie OK przy no-logs</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Adres IP użytkownika</td>
+          <td>Nie w logach trwałych (ew. krótkotrwałe w pamięci dla balansu, bez zapisu)</td>
+          <td>Trwałe zapisy IP źródłowych przypisane do konta</td>
+        </tr>
+        <tr>
+          <td>Chronologia połączeń</td>
+          <td>Zanonimizowane metryki obciążenia serwerów</td>
+          <td>Znaczniki czasu sesji powiązane z kontem</td>
+        </tr>
+        <tr>
+          <td>Ruch/treści</td>
+          <td>Brak — ruch jest szyfrowany</td>
+          <td>Inspekcja treści lub domen odwiedzanych stron</td>
+        </tr>
+        <tr>
+          <td>Dane rozliczeniowe</td>
+          <td>Min. dane do płatności (u procesora płatności)</td>
+          <td>Przechowywanie kopii dokumentów tożsamości itp.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">W praktyce no-logs = brak danych pozwalających cofnąć się i przypisać aktywność do osoby.</p>
+  </section>
 
-      <h2>Czym są logi?</h2>
-      <p>Logi to dane techniczne, takie jak adres IP, odwiedzane strony, czas połączenia czy używane aplikacje. Tradycyjni dostawcy internetu takie informacje przechowują.</p>
+  <section id="wady-zalety">
+    <h2>Polityka no-logs — zalety i ryzyka</h2>
+    <table class="table">
+      <thead><tr><th>Zalety</th><th>Ryzyka / uwagi</th></tr></thead>
+      <tbody>
+        <tr><td>Minimalizacja danych wrażliwych</td><td>Zaufanie do deklaracji — ważne audyty i reputacja</td></tr>
+        <tr><td>Lepsza ochrona przy incydentach</td><td>Jurysdykcja może wymagać meta-danych — czy usługa ma odpowiedzi?</td></tr>
+        <tr><td>RAM-only ogranicza trwałość</td><td>Nie zastępuje higieny bezpieczeństwa (2FA, aktualizacje, menedżer haseł)</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-      <h2>Polityka No-Logs</h2>
-      <p>Dostawca VPN z polityką No-Logs deklaruje, że nie zapisuje Twojej aktywności, a jedynie minimalne dane potrzebne do obsługi konta (np. adres e-mail, dane płatności).</p>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Wypróbuj VPN z polityką no-logs (NordVPN)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
+  </section>
 
-      <h2>Kto weryfikuje No-Logs?</h2>
-      <p>Najlepsze firmy poddają swoje serwery audytom zewnętrznych firm (np. Deloitte, PwC). Dzięki temu użytkownik ma pewność, że polityka jest realna, a nie marketingowa.</p>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>,
+       <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>,
+       <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></p>
+  </aside>
 
-      <h2>Dlaczego to ważne?</h2>
-      <ul>
-        <li>Chroni Twoją prywatność przed dostawcą internetu.</li>
-        <li>Minimalizuje ryzyko przekazania danych organom państwowym.</li>
-        <li>Daje pełną anonimowość w korzystaniu z sieci.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+    </div>
+  </section>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></li>
-          <li><a href="/blog/mity-o-vpn.html">Mity o VPN</a></li>
-          <li><a href="/blog/vpn-publiczne-wifi.html">VPN i publiczne Wi-Fi</a></li>
-          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-          <li><a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P – bezpieczeństwo</a></li>
-        </ul>
-      </aside>
-    </article>
-  </main>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: co znaczy no-logs?</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/no-logs.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+  <!-- TOP-3 -->
+  <h2 id="top3">TOP-3 VPN no-logs (2025)</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — audyty, RAM-only (NordLynx). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — no-logs, wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile streamingowe, no-logs. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN no-logs — co to znaczy i jak to sprawdzić (2025)",
+  "description":"Polityka no-logs w VPN: co oznacza, jak ją weryfikować (audyt, RAM-only, jurysdykcja) i których dostawców wybrać. Checklista, tabela, FAQ i wideo.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-02",
+  "image":"https://dloran1.github.io/assets/img/hero/no-logs.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/no-logs.html"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"VPN no-logs","item":"https://dloran1.github.io/blog/no-logs.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Co oznacza no-logs w VPN?","acceptedAnswer":{"@type":"Answer","text":"Dostawca nie przechowuje danych pozwalających odtworzyć Twoją aktywność online (np. odwiedzanych stron, oryginalnego IP czy znaczników czasu sesji przypisanych do konta)."}},
+    {"@type":"Question","name":"Jak sprawdzić, czy VPN naprawdę jest no-logs?","acceptedAnswer":{"@type":"Answer","text":"Szukaj niezależnych audytów, architektury RAM-only, raportów transparentności i jasnych definicji tego, czego NIE logują. Sprawdź też testy IP/DNS/WebRTC po połączeniu."}},
+    {"@type":"Question","name":"Czy no-logs oznacza pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN zwiększa prywatność, ale nie gwarantuje 100% anonimowości. Wciąż ważne są 2FA, silne hasła i dobre praktyki."}},
+    {"@type":"Question","name":"Czy darmowe VPN-y mogą być no-logs?","acceptedAnswer":{"@type":"Answer","text":"Rzadko udowadniają to audytami. Często mają limity i monetyzują dane. Do stałego użytku lepszy jest płatny plan z audytem."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (weryfikacja no-logs) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak zweryfikować politykę no-logs w VPN",
+  "description":"Krótka instrukcja: audyt, RAM-only, testy wycieków.",
+  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Sprawdź audyt","text":"Zweryfikuj, czy dostawca ma niezależny, publiczny audyt polityki no-logs."},
+    {"@type":"HowToStep","name":"RAM-only","text":"Poszukaj informacji o serwerach działających bez trwałego zapisu (pamięć RAM)."},
+    {"@type":"HowToStep","name":"Test wycieków","text":"Po połączeniu wykonaj test IP/DNS/WebRTC (np. ipleak.net)."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"Co znaczy no-logs w VPN?",
+  "description":"Szybkie wyjaśnienie polityki no-logs i jak ją zweryfikować.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/no-logs.webp",
+  "uploadDate":"2025-09-02",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/no-logs.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN no-logs 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/no-logs.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/no-logs.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/no-logs.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
