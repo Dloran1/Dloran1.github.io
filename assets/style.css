@@ -1,59 +1,110 @@
-/* ===== Base tokens (могут быть любыми) ===== */
+/* ===== Design tokens ===== */
 :root{
   --radius:12px;
   --accent:#ff2a2a;
   --accent-2:#ffd5d5;
   --maxw:980px;
   --font:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-}
 
-/* ===== DARK for non-blog pages ===== */
-body:not(.blog){
+  /* DARK — default (главная и все страницы без .blog) */
   --bg:#0d0d0d;
   --text:#ffffff;
   --muted:#b7b7b7;
   --border:#242424;
   --card:#151515;
   --link:#7ab8ff;
+  --link-visited:#a78bfa;
   --btn:#e51f1f;
   --btn-text:#fff;
 }
 
+/* LIGHT — только для страниц с body.blog */
+body.blog{
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#666666;
+  --border:#e6e6e6;
+  --card:#fafafa;
+  --link:#1658ff;
+  --link-visited:#6a38ff;
+  --btn:#e51f1f;
+  --btn-text:#fff;
+}
+
+/* ===== Base ===== */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--text);
   font-family:var(--font);
-  line-height:1.6;
+  line-height:1.65;
 }
 
-/* layout */
+/* Layout */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.25)}
+body.blog .nav{background:#fff; border-bottom:1px solid var(--border);} /* светлая шапка в блоге */
 .logo{font-weight:800;text-decoration:none;color:var(--text)}
 .menu a{color:var(--link);text-decoration:none;margin-left:16px}
 .menu a:hover{text-decoration:underline}
-.top .hero{padding:28px 16px;border-bottom:1px solid var(--border)}
-h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 10px}
-h2{font-size:clamp(20px,3vw,28px);margin:22px 0 10px}
-p{margin:8px 0}
 
+.top .hero{padding:28px 16px;border-bottom:1px solid var(--border)}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 12px}
+h2{font-size:clamp(20px,3vw,28px);margin:22px 0 10px}
+h3{font-size:18px;margin:16px 0 8px}
+p{margin:8px 0}
+.muted{color:var(--muted)}
+a{color:var(--link)}
+a:visited{color:var(--link-visited)}
+
+/* Buttons */
 .btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
 .btn-primary{background:var(--btn);color:var(--btn-text)}
-.btn-ghost{border:1px solid var(--border);color:var(--text)}
-a{color:var(--link)}
+.btn-ghost{border:1px solid var(--border);color:var(--text);background:transparent}
 
+/* Lists / posts */
 .postlist{list-style:none;padding:0;margin:6px 0 24px}
 .postlist li{padding:8px 0;border-bottom:1px solid var(--border)}
 .postlist span{color:var(--muted)}
 
-.cta{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+/* Cards / CTA */
+.card,.cta{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
 .cta-list{margin:8px 0 0 18px}
 .cta-note{color:var(--muted);font-size:.9em}
 
+/* Footer */
 .foot{margin-top:26px;border-top:1px solid var(--border);padding:18px 16px;text-align:center}
+body.blog .foot{background:#0d0d0d;color:#fff}
 
-/* safety: принудительно цвет/фон для non-blog */
-body:not(.blog){background:var(--bg)!important;color:var(--text)!important}
+/* ===== Blog-specific components (работают и в тёмной, и в светлой через переменные) ===== */
+
+/* Hero image */
+.hero{display:block;margin:8px 0 14px;border-radius:10px;overflow:hidden;border:3px solid #d23}
+.hero img{width:100%;height:auto;display:block}
+
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0 18px}
+.toc ol{margin:8px 0 0 18px}
+.toc li{padding:4px 0}
+
+/* Tables */
+table.tbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+table.tbl thead th{background:color-mix(in srgb, var(--card) 60%, #f3f3f5);font-weight:700;padding:10px;text-align:left}
+table.tbl td{border-top:1px solid var(--border);padding:10px}
+
+/* Author box */
+.author-box{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin:18px 0}
+.author-box img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+
+/* Offers cards */
+.vpn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.vpn-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
+.vpn-card img{display:block;margin:4px 0 8px}
+
+/* Video */
+.video-wrap video{width:100%;height:auto;border:1px solid var(--border);border-radius:10px}
+
+/* Safety overrides: чтобы точно не «слетало» */
+body{background:var(--bg)!important;color:var(--text)!important}
