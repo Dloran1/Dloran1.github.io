@@ -1,17 +1,14 @@
-// scripts/build-manifest.mjs
 import { promises as fs } from 'fs';
 import path from 'path';
 
 const ROOT = './articles';
 const OUT  = './data/posts.json';
 
-// исключаемое
 const EX_FILES = new Set(['index.html','404.html','sitemap.html','rss.html','vpn-na-routerze.html']);
 const EX_DIRS  = new Set(['drafts','_partials','_includes']);
 
 function normalize(p){ return p.replaceAll('\\','/'); }
 
-// рекурсивный обход /articles (+ подпапки)
 async function walk(dir, acc = []) {
   const ents = await fs.readdir(dir, { withFileTypes: true }).catch(() => []);
   for (const e of ents) {
@@ -29,24 +26,18 @@ async function walk(dir, acc = []) {
   return acc;
 }
 
-// читаем мету из <script id="post-meta">, иначе — <title>/<meta desc>
-// ФОЛЛБЭК: если description пустой — берём первый <p> из статьи (обрезаем до 160)
 function parseMeta(html) {
   const metaBlock = html.match(
     /<script\s+type=["']application\/json["']\s+id=["']post-meta["']>([\s\S]*?)<\/script>/i
   );
-  if (metaBlock) {
-    try { return JSON.parse(metaBlock[1]); } catch {}
-  }
+  if (metaBlock) { try { return JSON.parse(metaBlock[1]); } catch {} }
 
   const title = (html.match(/<title>([^<]+)<\/title>/i)?.[1] || '').trim();
 
-  // 1) meta description, если есть
   let desc = (html.match(
     /<meta\s+name=["']description["']\s+content=["']([^"]*)["'][^>]*>/i
   )?.[1] || '').trim();
 
-  // 2) fallback — первый абзац внутри <article> (или вообще первый <p>)
   if (!desc) {
     const inArticle = html.match(/<article[\s\S]*?<\/article>/i)?.[0] || html;
     const firstP = inArticle.match(/<p[^>]*>([\s\S]*?)<\/p>/i)?.[1] || '';
@@ -59,24 +50,21 @@ function parseMeta(html) {
 
 await fs.mkdir('./data', { recursive: true });
 
-// собираем
 const files = await walk(ROOT, []);
 const posts = [];
 
 for (const slug of files) {
   const html = await fs.readFile(slug, 'utf8');
   const meta = parseMeta(html);
-
   if (/\bvpn-na-routerze\.html$/.test(slug)) continue;
 
   const base = slug.split('/').pop().replace(/\.html$/,'');
   const stat = await fs.stat(slug).catch(() => null);
 
   posts.push({
-    slug,                                   // напр. articles/blog/plik.html
+    slug,
     title: meta.title || base.replace(/[-_]+/g,' '),
     desc:  meta.desc  || 'Czytaj więcej →',
-    // если нет даты в мета — используем дату изменения файла
     date:  meta.date  || (stat ? stat.mtime.toISOString().slice(0,10) : ''),
     tags:  Array.isArray(meta.tags) ? meta.tags : (meta.tags ? [meta.tags] : []),
     thumb: meta.thumb || `/assets/img/thumbs/${base}.webp`,
@@ -85,6 +73,5 @@ for (const slug of files) {
   });
 }
 
-// пишем манифест
 await fs.writeFile(OUT, JSON.stringify(posts, null, 2), 'utf8');
 console.log(`OK: wrote ${posts.length} posts → ${OUT}`);
