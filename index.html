@@ -50,7 +50,7 @@
               ${p.date ? `<time datetime="${p.date}">${p.date}</time>` : ''}
               ${(p.tags || []).slice(0,3).map(t => `<span class="badge">${escapeHtml(String(t))}</span>`).join('')}
             </div>
-            <p class="card-desc">${desc}</p>
+            <p class="card-desc">${(p.desc && p.desc.trim()) || 'Czytaj więcej →'}</p>
           </div>
           <div class="card-footer"><a class="btn" href="/${p.slug}">Czytaj</a></div>
         </article>`;
