@@ -3,154 +3,240 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN na Linuxie — konfiguracja krok po kroku (WireGuard / OpenVPN)</title>
-  <meta name="description" content="Jak skonfigurować VPN na Linuxie? Instrukcje dla WireGuard i OpenVPN: instalacja, import plików .conf/.ovpn, NetworkManager, Kill Switch i test wycieków DNS.">
-  <meta name="robots" content="index,follow">
+  <title>VPN na Linux — konfiguracja krok po kroku (2025)</title>
+  <meta name="description" content="Jak skonfigurować VPN na Linux (Ubuntu, Debian, Fedora). Instrukcja: klient OpenVPN, WireGuard, NetworkManager, test IP i DNS. Plus FAQ i wskazówki.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-linux-konfiguracja.html">
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN na Linuxie — konfiguracja WireGuard i OpenVPN">
-  <meta property="og:description" content="Praktyczny poradnik dla Ubuntu/Debian/Fedora/Arch: instalacja, import, Kill Switch i testy.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN na Linux — konfiguracja krok po kroku (2025)">
+  <meta property="og:description" content="Instrukcja konfiguracji VPN na Linux (Ubuntu, Debian, Fedora). OpenVPN, WireGuard, NetworkManager i testy IP/DNS.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-linux-konfiguracja.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-linux-konfiguracja.webp">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-linux-konfiguracja.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN na Linuxie — konfiguracja WireGuard i OpenVPN">
-  <meta name="twitter:description" content="Krok po kroku + polecenia: Ubuntu, Debian, Fedora, Arch.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-linux-konfiguracja.webp">
+  <meta name="twitter:title" content="VPN na Linux — konfiguracja krok po kroku (2025)">
+  <meta name="twitter:description" content="Pełna instrukcja: OpenVPN, WireGuard, NetworkManager i testy IP/DNS.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-linux-konfiguracja.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"VPN na Linuxie — konfiguracja krok po kroku (WireGuard / OpenVPN)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-linux-konfiguracja.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-linux-konfiguracja.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN na Linux — konfiguracja krok po kroku (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-linux-konfiguracja.webp"
+         alt="Konfiguracja VPN na Linux — poradnik krok po kroku"
+         width="1200" height="630" fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Linux daje duże możliwości, ale konfiguracja VPN wymaga kilku kroków. 
+    Poniżej znajdziesz <em>prosty przewodnik</em> dla Ubuntu, Debian, Fedora oraz Arch — zarówno dla <strong>OpenVPN</strong>, jak i <strong>WireGuard</strong>.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#openvpn">Konfiguracja OpenVPN</a></li>
+      <li><a href="#wireguard">Konfiguracja WireGuard</a></li>
+      <li><a href="#networkmanager">NetworkManager GUI</a></li>
+      <li><a href="#test">Test połączenia (IP/DNS)</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>VPN na Linuxie — konfiguracja krok po kroku</h1>
+  <section id="openvpn">
+    <h2>Konfiguracja OpenVPN</h2>
+    <ol>
+      <li>Zainstaluj klienta: <code>sudo apt install openvpn</code> (Ubuntu/Debian) lub <code>sudo dnf install openvpn</code> (Fedora).</li>
+      <li>Pobierz plik <code>.ovpn</code> od dostawcy VPN.</li>
+      <li>Połącz się: <code>sudo openvpn --config plik.ovpn</code>.</li>
+    </ol>
+    <p>Więcej o stabilności znajdziesz w <a href="/blog/vpn-kill-switch.html">VPN z Kill Switch</a>.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-linux-konfiguracja.webp" alt="Konfiguracja VPN na Linuxie (WireGuard / OpenVPN)" width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="wireguard">
+    <h2>Konfiguracja WireGuard</h2>
+    <ol>
+      <li>Zainstaluj: <code>sudo apt install wireguard</code> lub <code>sudo dnf install wireguard-tools</code>.</li>
+      <li>Otrzymasz plik <code>wg0.conf</code> z kluczami i serwerem.</li>
+      <li>Uruchom: <code>sudo wg-quick up wg0</code>. Aby zatrzymać: <code>sudo wg-quick down wg0</code>.</li>
+    </ol>
+    <p>Porównanie protokołów znajdziesz w <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.</p>
+  </section>
 
-      <p>Linux daje kilka wygodnych sposobów na połączenie z VPN: <strong>WireGuard</strong> (najszybszy), <strong>OpenVPN</strong> (bardzo kompatybilny) oraz integrację przez <strong>NetworkManager</strong>. Poniżej zebralem szybkie recepty dla popularnych dystrybucji.</p>
+  <section id="networkmanager">
+    <h2>NetworkManager GUI</h2>
+    <p>Jeśli wolisz interfejs graficzny (Ubuntu, Fedora Workstation):</p>
+    <ol>
+      <li>Otwórz <em>Ustawienia sieci</em> → Dodaj VPN.</li>
+      <li>Zaimportuj plik <code>.ovpn</code> lub <code>.conf</code>.</li>
+      <li>Zapisz i kliknij „Połącz”.</li>
+    </ol>
+    <p>Podobne rozwiązanie działa też na <a href="/blog/vpn-iphone-konfiguracja.html">iPhone</a> czy <a href="/blog/vpn-android-konfiguracja.html">Androidzie</a>.</p>
+  </section>
 
-      <section class="cta">
-        <h2>Najszybszy start (GUI + gotowe profile)</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz profile i skonfiguruj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/test-vpn.html">Sprawdź ping i wycieki DNS</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section id="test">
+    <h2>Test połączenia (IP/DNS)</h2>
+    <ol>
+      <li>Sprawdź IP na <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>.</li>
+      <li>Jeśli widzisz IP VPN — działa poprawnie.</li>
+      <li>Sprawdź też <a href="/blog/vpn-dns-leak.html">test wycieków DNS</a>.</li>
+    </ol>
+  </section>
 
-      <h2>1) WireGuard — terminal (wszystkie dystrybucje)</h2>
-      <ol>
-        <li>Zainstaluj pakiety:
-          <ul>
-            <li><strong>Ubuntu/Debian:</strong> <code>sudo apt update && sudo apt install wireguard resolvconf</code></li>
-            <li><strong>Fedora:</strong> <code>sudo dnf install wireguard-tools</code></li>
-            <li><strong>Arch:</strong> <code>sudo pacman -S wireguard-tools</code></li>
-          </ul>
-        </li>
-        <li>Skopiuj plik konfiguracyjny <code>xxx.conf</code> do <code>/etc/wireguard/</code>: <code>sudo cp ~/Pobrane/serwer.conf /etc/wireguard/wg0.conf</code></li>
-        <li>Uruchom tunel: <code>sudo wg-quick up wg0</code> (wyłącz: <code>sudo wg-quick down wg0</code>).</li>
-        <li>Autostart po reboocie: <code>sudo systemctl enable wg-quick@wg0</code></li>
-      </ol>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
+  </section>
 
-      <h2>2) OpenVPN — terminal</h2>
-      <ol>
-        <li>Instalacja:
-          <ul>
-            <li><strong>Ubuntu/Debian:</strong> <code>sudo apt install openvpn</code></li>
-            <li><strong>Fedora:</strong> <code>sudo dnf install openvpn</code></li>
-            <li><strong>Arch:</strong> <code>sudo pacman -S openvpn</code></li>
-          </ul>
-        </li>
-        <li>Połącz z profilem: <code>sudo openvpn --config ~/Pobrane/profil.ovpn</code></li>
-        <li>Odłącz: <kbd>Ctrl</kbd>+<kbd>C</kbd> w tym samym oknie terminala.</li>
-      </ol>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>3) NetworkManager — GUI (WireGuard / OpenVPN)</h2>
-      <ol>
-        <li>Zainstaluj wtyczki:
-          <ul>
-            <li><strong>Ubuntu/Debian (GNOME/KDE):</strong> <code>sudo apt install network-manager-openvpn network-manager-wireguard</code></li>
-            <li><strong>Fedora:</strong> <code>sudo dnf install NetworkManager-openvpn NetworkManager-wireguard</code></li>
-          </ul>
-        </li>
-        <li>Otwórz <em>Ustawienia sieci</em> → <em>+</em> → <em>Import z pliku</em> → wskaż <code>.conf</code> (WG) lub <code>.ovpn</code> (OVPN).</li>
-        <li>Zapisz i przełącz suwak, aby połączyć.</li>
-      </ol>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: konfiguracja VPN na Linux</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-linux-konfiguracja.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>Kill Switch i ochrona DNS</h2>
-      <ul>
-        <li><strong>WireGuard (wg-quick):</strong> w profilu można mieć reguły <code>PreUp</code>/<code>PostUp</code> blokujące ruch poza tunel (iptables/nft). Prostsza alternatywa: reguły zapory, które dopuszczają tylko interfejs <code>wg0</code>.</li>
-        <li><strong>OpenVPN:</strong> użyj firewall-a (ufw/nftables) by zezwolić na ruch wyłącznie przez interfejs tunelu <code>tun0</code>.</li>
-        <li><strong>DNS leak:</strong> upewnij się, że w profilu są ustawione serwery DNS dostawcy VPN; na systemach z <code>systemd-resolved</code> sprawdź, czy po połączeniu DNS wskazuje na interfejs VPN.</li>
-      </ul>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-      <h2>Szybkie komendy zapory (przykład UFW)</h2>
-      <pre><code># pozwól tylko przez interfejs wg0
-sudo ufw default deny outgoing
-sudo ufw default deny incoming
-sudo ufw allow out on wg0 to any
-sudo ufw enable
-</code></pre>
-      <p><em>Uwaga:</em> to twardy Kill Switch — zanim włączysz, upewnij się, że masz poprawny profil i wyjście awaryjne (np. dostęp lokalny).</p>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <h2>Diagnostyka i testy</h2>
-      <ul>
-        <li><strong>Adres IP:</strong> po połączeniu powinien wskazywać kraj serwera VPN.</li>
-        <li><strong>DNS:</strong> sprawdź, czy odpowiadają serwery DNS dostawcy (zobacz <a href="/blog/vpn-dns-leak.html">VPN a wycieki DNS</a>).</li>
-        <li><strong>Routing:</strong> <code>ip route</code> powinno mieć domyślną trasę przez interfejs tunelu.</li>
-        <li><strong>Szybkość/ping:</strong> przejdź do <a href="/blog/test-vpn.html">checklisty testów</a>.</li>
-      </ul>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-      <section class="cta">
-        <h2>Najprościej — gotowe profile i aplikacja</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">NordVPN na Linux (WireGuard/OpenVPN)</a>
-          <a class="btn btn-ghost" href="/blog/vpn-kill-switch.html">Kill Switch na Linuxie</a>
-        </div>
-      </section>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN na Linux — konfiguracja krok po kroku (2025)",
+  "description":"Instrukcja konfiguracji VPN na Linux (Ubuntu, Debian, Fedora). OpenVPN, WireGuard, NetworkManager i testy IP/DNS.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-linux-konfiguracja.webp",
+  "author":{"@type":"Person","name":"Denys Shchur"},
+  "publisher":{"@type":"Organization","name":"VPN Polska"}
+}
+</script>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer wybrać?</a></li>
-          <li><a href="/blog/vpn-kill-switch.html">VPN Kill Switch</a></li>
-          <li><a href="/blog/vpn-android-konfiguracja.html">VPN na Androidzie</a></li>
-          <li><a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a></li>
-        </ul>
-      </aside>
-    </article>
-  </main>
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Jak zainstalować OpenVPN na Linux?","acceptedAnswer":{"@type":"Answer","text":"Na Ubuntu/Debian: sudo apt install openvpn. Na Fedora: sudo dnf install openvpn."}},
+    {"@type":"Question","name":"Czy WireGuard działa na Linux?","acceptedAnswer":{"@type":"Answer","text":"Tak. Możesz użyć sudo apt install wireguard (Ubuntu) albo sudo dnf install wireguard-tools (Fedora)."}},
+    {"@type":"Question","name":"Czy mogę używać GUI do VPN na Linux?","acceptedAnswer":{"@type":"Answer","text":"Tak. NetworkManager pozwala importować pliki .ovpn i .conf przez Ustawienia sieci."}},
+    {"@type":"Question","name":"Jak sprawdzić czy VPN działa?","acceptedAnswer":{"@type":"Answer","text":"Sprawdź IP na ipleak.net i upewnij się, że nie ma wycieków DNS."}}
+  ]
+}
+</script>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD: HowTo -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Konfiguracja VPN na Linux",
+  "description":"Instrukcja krok po kroku konfiguracji VPN na Linux (OpenVPN, WireGuard, NetworkManager).",
+  "tool":[{"@type":"HowToTool","name":"Klient VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Zainstaluj klienta","text":"Użyj apt lub dnf aby zainstalować OpenVPN lub WireGuard."},
+    {"@type":"HowToStep","name":"Zaimportuj plik konfiguracyjny","text":"Dodaj .ovpn lub .conf do systemu lub NetworkManagera."},
+    {"@type":"HowToStep","name":"Połącz i przetestuj","text":"Uruchom połączenie i sprawdź IP na ipleak.net."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"VPN na Linux — konfiguracja",
+  "description":"Prosty poradnik jak skonfigurować VPN na Linux (OpenVPN, WireGuard).",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-linux-konfiguracja.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-linux-konfiguracja.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","brand":{"@type":"Brand","name":"NordVPN"},"offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"}}},
+    {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","brand":{"@type":"Brand","name":"Surfshark"},"offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430"}}},
+    {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"CyberGhost","brand":{"@type":"Brand","name":"CyberGhost"},"offers":{"@type":"Offer","url":"#"}}}
+  ]
+}
+</script>
+
 </body>
 </html>
