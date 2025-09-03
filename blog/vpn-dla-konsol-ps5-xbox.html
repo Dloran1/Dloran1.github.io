@@ -3,145 +3,312 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN dla konsol (PS5 / Xbox) — ping, DDoS i konfiguracja (2025)</title>
-  <meta name="description" content="Jak używać VPN na PS5 i Xbox? Router z VPN, udostępnianie z PC/Mac, Smart DNS do VOD, NAT/porty, DDoS oraz szybka checklista dla graczy konsolowych.">
-  <meta name="robots" content="index,follow">
+  <title>VPN dla konsol (PS5 / Xbox) — ping, NAT, region i streaming</title>
+  <meta name="description" content="Jak używać VPN na PS5 i Xbox? Omawiamy sposoby (router, SmartDNS, udostępnianie z PC/Mac), wpływ na ping, NAT, region sklepu, VOD oraz bezpieczeństwo. Checklista, FAQ i linki do poradników.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-dla-konsol.webp" imagesrcset="/assets/img/hero/vpn-dla-konsol.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN dla konsol (PS5 / Xbox) — ping, DDoS i konfiguracja">
-  <meta property="og:description" content="Najlepsze metody: router z VPN, udostępnianie z PC/Mac i Smart DNS. Porady o NAT, portach i ochronie przed DDoS.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN dla konsol (PS5 / Xbox) — ping, NAT, region i streaming">
+  <meta property="og:description" content="Sposoby podłączenia VPN na PS5/Xbox, wpływ na ping i NAT, zmiana regionu i streaming VOD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dla-konsol-ps5-xbox.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-dla-konsol.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN dla konsol (PS5 / Xbox) — ping, DDoS i konfiguracja">
-  <meta name="twitter:description" content="Router VPN, udostępnianie z komputera, Smart DNS i checklista dla graczy.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-dla-konsol-ps5-xbox.webp">
+  <meta name="twitter:title" content="VPN dla konsol (PS5 / Xbox) — ping, NAT, region i streaming">
+  <meta name="twitter:description" content="Router/SmartDNS/udostępnianie z PC, plus FAQ i checklista.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-dla-konsol.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"VPN dla konsol (PS5 / Xbox) — ping, DDoS i konfiguracja (2025)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-08-31",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-dla-konsol-ps5-xbox.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .wrap{max-width:880px;margin:0 auto;padding:0 16px;}
+    figure.article-hero{margin:0}
+    .article-hero img,.post img,.author__media img{display:block;max-width:100%;height:auto;border-radius:12px}
+    .toc{margin:1.25rem 0 2rem}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
+    .table caption{caption-side:top;font-weight:700;margin-bottom:.4rem}
+    .note{opacity:.9}
+    .cta{margin:1.25rem 0 1.5rem}
+    .btn-primary{display:inline-block;background:#e63946;color:#fff;padding:.8rem 1.1rem;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn-ghost{display:inline-block;border:2px solid #e63946;color:#fff;padding:.75rem 1.05rem;border-radius:12px;text-decoration:none;font-weight:700}
+    video{max-width:100%;height:auto;border-radius:12px;display:block}
+    .author{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);padding:16px;border-radius:14px}
+    .author__media img{width:96px;height:96px;object-fit:cover;border-radius:50%}
+    .backtop{margin:2rem 0}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner wrap" style="padding-top:12px;padding-bottom:12px">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN dla konsol (PS5 / Xbox) — ping, NAT, region i streaming</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/vpn-dla-konsol.webp"
+      alt="VPN dla PS5 i Xbox — schemat podłączenia przez router lub PC"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Konsole nie mają natywnych aplikacji VPN, ale można je podłączyć przez <strong>router</strong>, <strong>udostępnianie z PC/Mac</strong> lub <strong>SmartDNS</strong>.
+    Poniżej — najprostsze konfiguracje, wpływ na <em>ping/NAT</em> i szybka checklista.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#metody">Metody podłączenia</a></li>
+      <li><a href="#ping-nat">Ping, NAT i stabilność</a></li>
+      <li><a href="#region-vod">Region sklepu i VOD</a></li>
+      <li><a href="#checklista">Checklista konfiguracji</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>VPN dla konsol (PS5 / Xbox) — ping, DDoS i konfiguracja</h1>
+  <section id="metody">
+    <h2>Metody podłączenia PS5/Xbox do VPN</h2>
+    <h3>1) Router z VPN</h3>
+    <p>Najwygodniejsze i „ustaw i zapomnij”. Cała sieć domowa korzysta z VPN. Sprawdź, czy Twój router wspiera klienta VPN (WireGuard/OpenVPN). W razie potrzeby rozważ drugi router tylko pod konsolę.</p>
+    <ul>
+      <li><strong>Plusy:</strong> stałe połączenie, brak kombinacji z kablami/udostępnianiem.</li>
+      <li><strong>Minusy:</strong> zależne od mocy routera; słabsze modele zaniżą prędkość.</li>
+    </ul>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-dla-konsol-ps5-xbox.webp" alt="VPN dla konsol PS5 i Xbox" width="1200" height="630" loading="lazy">
-      </figure>
+    <h3>2) Udostępnianie z PC/Mac</h3>
+    <p>Łączysz PC/Mac z VPN i udostępniasz internet po kablu (Ethernet) do konsoli lub przez hotspot Wi-Fi.</p>
+    <ul>
+      <li><strong>Plusy:</strong> działa na każdym dostawcy, szybki start.</li>
+      <li><strong>Minusy:</strong> PC/Mac musi być włączony; nieco więcej opóźnień.</li>
+    </ul>
 
-      <p>Na konsolach nie zainstalujesz zwykłej aplikacji VPN, ale możesz chronić IP i czasem poprawić trasę (routing) przez: <strong>router z VPN</strong>, <strong>udostępnianie połączenia z PC/Mac</strong> lub <strong>Smart DNS</strong> (do VOD). Poniżej najprostsze metody i praktyczne wskazówki pod PS5 i Xbox.</p>
+    <h3>3) SmartDNS (dla VOD)</h3>
+    <p>Jeśli zależy Ci głównie na <em>streamingu</em>, wielu dostawców oferuje <strong>SmartDNS</strong> — wpisujesz adresy DNS w ustawieniach sieci konsoli. Nie szyfruje, ale zmienia „region” dla VOD.</p>
+    <p class="note">Do pełnego szyfrowania i ochrony w grach lepszy będzie router lub udostępnianie z komputera.</p>
 
-      <section class="cta">
-        <h2>Szybka konfiguracja dla konsol</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Skonfiguruj VPN (NordLynx)</a>
-          <a class="btn btn-ghost" href="/blog/vpn-dla-graczy.html">Poradnik: VPN dla graczy</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+    <p class="note">Podstawy działania VPN znajdziesz tu: <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a> • Porównanie protokołów: <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a> • Dla TV: <a href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a> • Dla graczy PC: <a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a>.</p>
+  </section>
 
-      <h2>3 sposoby użycia VPN na PS5/Xbox</h2>
-      <h3>1) Router z VPN (najwygodniejszy)</h3>
-      <ol>
-        <li>Sprawdź, czy router obsługuje klienta VPN (WireGuard/OpenVPN).</li>
-        <li>Wgraj konfigurację od dostawcy VPN → połącz konsolę do tego Wi-Fi/LAN.</li>
-        <li>Cały ruch konsoli idzie tunelem (ochrona IP, stały region). Dobre do gier i VOD.</li>
-      </ol>
+  <section id="ping-nat">
+    <h2>Ping, NAT i stabilność</h2>
+    <ul>
+      <li><strong>Ping:</strong> VPN dodaje kilka–kilkanaście ms. Wybierz <em>najbliższy</em> serwer lub taki, który skraca trasę do konkretnego regionu gry.</li>
+      <li><strong>NAT:</strong> PS5/Xbox potrafią pokazywać NAT „zrestrykcjonowany”. VPN <em>nie</em> gwarantuje NAT-open. Pomaga <a href="/blog/vpn-port-forwarding.html">port forwarding</a> lub ustawienia na routerze.</li>
+      <li><strong>Stabilność:</strong> priorytetem jest stałe łącze — sprawdzaj przeciążenie serwera i porównuj protokoły (WireGuard często wygrywa).</li>
+    </ul>
+    <p>Zobacz też: <a href="/blog/vpn-szybkosc-test.html">Jak testować szybkość VPN</a> i <a href="/blog/mity-o-vpn.html">Mity o VPN</a>.</p>
+  </section>
 
-      <h3>2) Udostępnianie z PC/Mac (gdy router nie wspiera VPN)</h3>
-      <ul>
-        <li><strong>Windows:</strong> Połącz PC z VPN → ustaw <em>Mobile Hotspot</em> → udostępnij do konsoli.</li>
-        <li><strong>macOS:</strong> Połącz Maca z VPN → <em>Udostępnianie Internetu</em> Wi-Fi/Ethernet → konsola.</li>
-      </ul>
+  <section id="region-vod">
+    <h2>Region sklepu i VOD na konsoli</h2>
+    <p>VPN/SmartDNS może pomóc w dostępie do bibliotek VOD i promocji regionalnych. Pamiętaj o zgodności z regulaminem i lokalnym prawem — szczegóły: <a href="/blog/vpn-a-prawo-w-polsce.html">VPN a prawo w Polsce</a>.</p>
+    <ul>
+      <li><strong>VOD:</strong> najlepiej działa dedykowany profil streaming u dostawcy oraz regularna zmiana serwera; w razie problemów <em>wyczyść cookies</em> w aplikacjach/na urządzeniu towarzyszącym.</li>
+      <li><strong>Sklep:</strong> zmiana regionu konta często wymaga dodatkowych kroków niezależnych od samego VPN.</li>
+    </ul>
+    <p>Alternatywa dla samego VOD: <a href="/blog/player-tvp-vpn.html">Player/TVP z VPN</a> oraz <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
+  </section>
 
-      <h3>3) Smart DNS (VOD na konsoli)</h3>
-      <ol>
-        <li>W panelu dostawcy włącz <strong>Smart DNS</strong> (potwierdź swój adres IP).</li>
-        <li>Na konsoli wprowadź adresy DNS (Ustawienia sieci → DNS ręcznie).</li>
-        <li>Smart DNS omija blokady regionalne w aplikacjach VOD, ale <em>nie szyfruje</em> ruchu (to nie jest VPN).</li>
-      </ol>
+  <section id="checklista">
+    <h2>Checklista konfiguracji (PS5/Xbox)</h2>
+    <ol>
+      <li>Wybierz dostawcę z <strong>WireGuard</strong>, <strong>SmartDNS</strong> i <strong>Kill Switch</strong> (patrz TOP-3).</li>
+      <li>Jeśli masz wspierany router — skonfiguruj klienta VPN (albo użyj dodatkowego routera „za” głównym).</li>
+      <li>Jeśli nie — udostępnij połączenie z PC/Mac do konsoli (Ethernet/hotspot).</li>
+      <li>Dla VOD — wprowadź SmartDNS w ustawieniach sieci konsoli.</li>
+      <li>Przetestuj: IP (na urządzeniu towarzyszącym), ping i stabilność, a w grach — matchmaking/party chat.</li>
+    </ol>
+  </section>
 
-      <h2>NAT, porty i DDoS — o co chodzi na konsolach?</h2>
-      <ul>
-        <li><strong>NAT Type (PS/Xbox):</strong> przy VPN często uzyskasz <em>Moderate/Type 2</em>. <em>Open/Type 1</em> bywa trudny, bo wielu dostawców nie wspiera <em>port forwarding</em>.</li>
-        <li><strong>DDoS:</strong> graj przez VPN na serwerach rankingowych — Twoje prawdziwe IP nie jest widoczne.</li>
-        <li><strong>CGNAT operatora:</strong> jeśli masz podwójny NAT, VPN potrafi pomóc ustabilizować połączenie.</li>
-      </ul>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
+  </section>
 
-      <h2>Ustawienia polecane pod granie</h2>
-      <ol>
-        <li><strong>Protokół:</strong> <em>WireGuard/NordLynx</em> — niski narzut i ping.</li>
-        <li><strong>Serwer:</strong> jak najbliżej <em>serwera gry</em>, nie zawsze najbliżej Ciebie.</li>
-        <li><strong>Obciążenie:</strong> wybieraj serwery z niższym % load.</li>
-        <li><strong>Wi-Fi:</strong> kanał 5 GHz lub kabel Ethernet do konsoli.</li>
-        <li><strong>MTU/IPv6:</strong> przy mikro-lagach przetestuj MTU 1420–1450; jeśli gra nie wspiera IPv6 — wyłącz je w routerze/OS.</li>
-      </ol>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/vpn-dla-graczy.html">VPN dla graczy (PC)</a>,
+       <a href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a>,
+       <a href="/blog/vpn-dedykowany-ip.html">VPN z dedykowanym IP</a>,
+       <a href="/blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a>,
+       <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a></p>
+  </aside>
 
-      <h2>Checklista (5 minut przed meczem)</h2>
-      <ul>
-        <li>Stały region serwera VPN (nie zmieniaj w trakcie sesji).</li>
-        <li>Ping/jitter sprawdzony (zobacz <a href="/blog/test-vpn.html">checklistę testów</a>).</li>
-        <li>Partia/prywatny czat — jeśli rwie, zmień serwer na mniej obciążony.</li>
-        <li>VOD na konsoli? Rozważ <strong>Smart DNS</strong> zamiast pełnego VPN.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>Typowe problemy i szybkie rozwiązania</h2>
-      <ul>
-        <li><strong>Skaczący ping:</strong> inny serwer w tym samym kraju; sprawdź kanał Wi-Fi; preferuj 5 GHz/kabel.</li>
-        <li><strong>Voice chat nie działa:</strong> przetestuj inne serwery/protokół (UDP), ewentualnie wyłącz IPv6.</li>
-        <li><strong>NAT zbyt restrykcyjny:</strong> VPN bez port forwarding rzadko osiąga „Open”; zostaw „Moderate/Type 2”.</li>
-        <li><strong>Region matchmakingu zły:</strong> ustaw stały serwer i zrestartuj grę/konsole; usuń cache.</li>
-      </ul>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: VPN na konsolach — szybki przegląd</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-dla-konsol.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <section class="cta">
-        <h2>Chroń IP i stabilizuj trasę</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">NordVPN dla konsol</a>
-          <a class="btn btn-ghost" href="/blog/jaki-serwer-vpn-wybrac.html">Dobór najlepszego serwera</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — szybkie serwery, SmartDNS, NordLynx (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — nieograniczone urządzenia, SmartDNS. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a></li>
-          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
-          <li><a href="/blog/jaki-serwer-vpn-wybrac.html">Jaki serwer VPN wybrać?</a></li>
-          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-          <li><a href="/blog/player-tvp-vpn.html">Player/TVP z VPN (VOD na konsoli → Smart DNS)</a></li>
-        </ul>
-      </aside>
-    </article>
-  </main>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN dla konsol (PS5 / Xbox) — ping, NAT, region i streaming",
+  "description":"Jak używać VPN na PS5 i Xbox? Router, SmartDNS, udostępnianie z PC/Mac, wpływ na ping i NAT oraz streaming VOD.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-02",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-dla-konsol.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"VPN dla konsol (PS5/Xbox)","item":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy na PS5/Xbox można zainstalować aplikację VPN?","acceptedAnswer":{"@type":"Answer","text":"Nie. Konsole nie mają natywnych aplikacji VPN. Działa to przez router, udostępnianie z PC/Mac lub SmartDNS (dla VOD)."}},
+    {"@type":"Question","name":"Czy VPN poprawi ping w grach?","acceptedAnswer":{"@type":"Answer","text":"Zwykle ping rośnie o kilka–kilkanaście ms. Bywa, że trasa przez serwer VPN jest stabilniejsza. Wybierz najbliższy serwer i WireGuard."}},
+    {"@type":"Question","name":"Czy VPN otworzy NAT na konsoli?","acceptedAnswer":{"@type":"Answer","text":"VPN nie gwarantuje NAT open. Pomóc może port forwarding u dostawcy lub odpowiednia konfiguracja routera."}},
+    {"@type":"Question","name":"SmartDNS czy pełny VPN?","acceptedAnswer":{"@type":"Answer","text":"SmartDNS jest wygodny do VOD i nie szyfruje ruchu. Pełny VPN daje prywatność i bywa lepszy do gier, ale może podnieść ping."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (checklista) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak podłączyć PS5/Xbox do VPN",
+  "description":"Najprostsze sposoby: router, udostępnianie z PC/Mac, SmartDNS.",
+  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"},{"@type":"HowToTool","name":"Router/PC/Mac"}],
+  "step":[
+    {"@type":"HowToStep","name":"Wybierz metodę","text":"Router (najwygodniej), udostępnianie z PC/Mac lub SmartDNS dla VOD."},
+    {"@type":"HowToStep","name":"Skonfiguruj połączenie","text":"Na routerze dodaj profil WireGuard/OpenVPN lub udostępnij internet z komputera."},
+    {"@type":"HowToStep","name":"Przetestuj","text":"Sprawdź IP, ping, matchmaking i party chat. W razie VOD wyczyść cookies i zmień serwer."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"VPN na konsolach — szybki przegląd",
+  "description":"Router, udostępnianie z PC/Mac i SmartDNS. Ping, NAT, VOD.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-dla-konsol.webp",
+  "uploadDate":"2025-09-02",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/vpn-dla-konsol-ps5-xbox.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
