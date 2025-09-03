@@ -11,62 +11,56 @@
   <div class="wrap">
     <h1>Blog</h1>
     <input id="q" type="search" placeholder="Szukaj po tytule/opisie…">
-    <div id="info" class="muted"></div>
-    <div id="grid" class="grid"></div>
+    <div id="posts" class="grid"></div>
   </div>
 
   <script>
   (async () => {
-    const info = document.getElementById('info');
-    const grid = document.getElementById('grid');
-    const q = document.getElementById('q');
-
-    // грузим posts.json без кеша
+    // грузим список постов БЕЗ кэша
     const res = await fetch('/data/posts.json?v=' + Date.now(), { cache: 'no-store' });
     const all = await res.json();
+    // фильтруем черновики и роутер
     const posts = all.filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
 
-    info.textContent = `Znaleziono ${posts.length} postów`;
+    const container = document.getElementById('posts');
+    const q = document.getElementById('q');
 
-    const getDesc = (p) => {
+    const esc = s => (s || '').toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    const getDesc = p => {
       const d = (p.desc || '').toString().trim();
-      if (!d) return 'Czytaj więcej →';
-      return d.length > 160 ? d.slice(0, 157) + '…' : d;
+      return d ? (d.length > 160 ? d.slice(0,157) + '…' : d) : 'Czytaj więcej →';
     };
 
-    const escapeHtml = s => (s||'').toString().replace(/[&<>"']/g, m => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    }[m]));
-
-    function cardHTML(p) {
+    function card(p){
       return `
         <article class="card">
-          <a href="/${p.slug}" aria-label="${escapeHtml(p.title)}">
-            <img class="card-thumb" src="${p.thumb}" width="640" height="360" alt="${escapeHtml(p.title)}">
+          <a href="/${p.slug}" aria-label="${esc(p.title)}">
+            <img class="card-thumb" src="${p.thumb}" alt="${esc(p.title)}" width="640" height="360">
           </a>
           <div class="card-body">
-            <h3 class="card-title"><a href="/${p.slug}">${escapeHtml(p.title)}</a></h3>
+            <h3 class="card-title"><a href="/${p.slug}">${esc(p.title)}</a></h3>
             <div class="card-meta">
               ${p.date ? `<time datetime="${p.date}">${p.date}</time>` : ''}
-              ${(p.tags || []).slice(0,3).map(t => `<span class="badge">${escapeHtml(String(t))}</span>`).join('')}
+              ${(p.tags || []).slice(0,3).map(t => `<span class="badge">${esc(String(t))}</span>`).join('')}
             </div>
-            <p class="card-desc">${escapeHtml(getDesc(p))}</p>
+            <p class="card-desc">${esc(getDesc(p))}</p>
           </div>
           <div class="card-footer"><a class="btn" href="/${p.slug}">Czytaj</a></div>
-        </article>`;
+        </article>
+      `;
     }
 
     function render(list){
-      grid.innerHTML = list
+      container.innerHTML = list
         .sort((a,b) => (b.date||'').localeCompare(a.date||''))
-        .map(cardHTML)
+        .map(card)
         .join('');
-      if (!list.length) grid.innerHTML = '<p>Nic nie znaleziono.</p>';
+      if (!list.length) container.innerHTML = '<p>Nic nie znaleziono.</p>';
     }
 
     function apply(){
-      const v = (q.value||'').toLowerCase();
-      render(posts.filter(p => (p.title + ' ' + p.desc).toLowerCase().includes(v)));
+      const v = (q.value || '').toLowerCase();
+      render(posts.filter(p => (p.title + ' ' + (p.desc || '')).toLowerCase().includes(v)));
     }
 
     q.addEventListener('input', apply);
