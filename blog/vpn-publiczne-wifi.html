@@ -3,140 +3,320 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN w publicznym Wi-Fi — jak korzystać bezpiecznie (2025)</title>
-  <meta name="description" content="Kawiarnia, hotel, lotnisko: publiczne Wi-Fi bywa ryzykowne. Zobacz, jak używać VPN, Kill Switch, HTTPS i 2FA, by połączyć się bezpiecznie. Checklista krok po kroku.">
-  <meta name="robots" content="index,follow">
+  <title>VPN w publicznym Wi-Fi — czy to bezpieczne? (2025)</title>
+  <meta name="description" content="Czy publiczne Wi-Fi jest bezpieczne? Jak VPN chroni w kawiarniach, hotelach i na lotniskach. Checklista ustawień, test wycieków DNS i praktyczne porady.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-publiczne-wifi.webp" imagesrcset="/assets/img/hero/vpn-publiczne-wifi.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN w publicznym Wi-Fi — jak korzystać bezpiecznie">
-  <meta property="og:description" content="Praktyczny poradnik: publiczne sieci, ryzyka i konfiguracja VPN. Checklista 5 minut.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN w publicznym Wi-Fi — czy to bezpieczne? (2025)">
+  <meta property="og:description" content="Ryzyka publicznego Wi-Fi i jak VPN chroni Twoje połączenie. Checklista i szybkie ustawienia.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-publiczne-wifi.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-publiczne-wifi.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-publiczne-wifi.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN w publicznym Wi-Fi — jak korzystać bezpiecznie">
-  <meta name="twitter:description" content="Hotel, kawiarnia, lotnisko — bezpieczne łączenie się z Wi-Fi dzięki VPN.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-publiczne-wifi.webp">
+  <meta name="twitter:title" content="VPN w publicznym Wi-Fi — czy to bezpieczne? (2025)">
+  <meta name="twitter:description" content="Jak bezpiecznie korzystać z Wi-Fi w kawiarni, hotelu i na lotnisku.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-publiczne-wifi.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"VPN w publicznym Wi-Fi — jak korzystać bezpiecznie (2025)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-publiczne-wifi.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (не конфликтует со style.css) -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+    .table{ width:100%; border-collapse:collapse }
+    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.65rem .8rem; vertical-align:top }
+    .cta .btn{ margin-right:.5rem }
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN w publicznym Wi-Fi — czy to bezpieczne? (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/vpn-publiczne-wifi.webp"
+      alt="VPN w publicznym Wi-Fi — bezpieczeństwo w hotelu, kawiarni i na lotnisku"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Publiczne sieci Wi-Fi są wygodne, ale narażają na podsłuch, wstrzykiwanie reklam i kradzież sesji.
+    <strong>VPN</strong> szyfruje cały ruch i ukrywa IP, więc właściciel hotspotu, dostawca internetu ani osoby w tej samej sieci
+    nie zobaczą treści Twojej komunikacji. Jeśli dopiero zaczynasz, zajrzyj najpierw do: <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a>
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#ryzyka">Ryzyka w publicznym Wi-Fi</a></li>
+      <li><a href="#jak-vpn-chroni">Jak VPN chroni</a></li>
+      <li><a href="#ustawienia">Szybkie ustawienia (PL/UE)</a></li>
+      <li><a href="#testy">Jak sprawdzić, czy działa</a></li>
+      <li><a href="#praktyka">Dobre praktyki bezpieczeństwa</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>VPN w publicznym Wi-Fi — jak korzystać bezpiecznie</h1>
+  <section id="ryzyka">
+    <h2>Ryzyka w publicznym Wi-Fi</h2>
+    <table class="table">
+      <caption>Publiczne Wi-Fi — najczęstsze zagrożenia i jak reagować</caption>
+      <thead><tr><th>Zagrożenie</th><th>Na czym polega</th><th>Co robić</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Podsłuch ruchu</td>
+          <td>Administrator lub ktoś w sieci analizuje nieszyfrowane połączenia.</td>
+          <td>Włącz VPN i używaj HTTPS; sprawdź <a href="/blog/vpn-dns-leak.html">wycieki DNS</a>.</td>
+        </tr>
+        <tr>
+          <td>Fałszywy hotspot</td>
+          <td>Atakujący zakłada „free Wi-Fi” i przechwytuje ruch.</td>
+          <td>Łącz się tylko z oficjalnymi SSID, włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a>.</td>
+        </tr>
+        <tr>
+          <td>Hijack sesji</td>
+          <td>Przejęcie ciasteczek/logowania przy słabym zabezpieczeniu.</td>
+          <td>VPN + logowanie 2FA; unikaj wrażliwych operacji bez tunelu.</td>
+        </tr>
+        <tr>
+          <td>Wstrzykiwanie reklam/DNS</td>
+          <td>Hotspot podmienia odpowiedzi DNS/HTML.</td>
+          <td>Wymuś DNS przez tunel; sprawdź <a href="/blog/vpn-optymalne-ustawienia.html">optymalne ustawienia</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-publiczne-wifi.webp"
-             alt="Bezpieczne korzystanie z publicznego Wi-Fi z VPN"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="jak-vpn-chroni">
+    <h2>Jak VPN chroni w hotspotach</h2>
+    <ul>
+      <li><strong>Szyfruje cały ruch</strong> na poziomie systemu (WireGuard/OpenVPN), więc nawet właściciel sieci nie widzi treści.</li>
+      <li><strong>Ukrywa IP</strong> i maskuje geolokalizację (pomaga także w <a href="/blog/vpn-geoblokady.html">omijaniu geoblokad</a> podczas podróży).</li>
+      <li><strong>Wymusza DNS przez tunel</strong>, co minimalizuje ryzyko podsłuchu/podmiany odpowiedzi.</li>
+      <li><strong>Kill Switch</strong> blokuje ruch poza tunelem — zero przypadkowych wycieków.</li>
+    </ul>
+    <p>Jeśli korzystasz z iPhone’a lub Androida, zobacz konfiguracje: <a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a> i <a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a>.</p>
+  </section>
 
-      <p>Sieci w <strong>kawiarniach, hotelach i na lotniskach</strong> są wygodne, ale często słabo zabezpieczone. <strong>VPN</strong> szyfruje Twój ruch, a funkcje takie jak <a href="/blog/vpn-kill-switch.html">Kill Switch</a> i ochrona DNS pomagają uniknąć wycieków danych.</p>
+  <section id="ustawienia">
+    <h2>Szybkie ustawienia (PL/UE)</h2>
+    <ol>
+      <li><strong>Protokół:</strong> WireGuard (na iOS/Android i desktop).</li>
+      <li><strong>Kill Switch:</strong> włącz, aby ruch nie wychodził poza tunel.</li>
+      <li><strong>Serwer:</strong> najbliższy (PL/DE/NL) — najlepszy kompromis ping/szybkość.</li>
+      <li><strong>DNS:</strong> wymuś użycie DNS przez VPN; przeglądarka w trybie prywatnym.</li>
+      <li><strong>Auto-connect:</strong> włącz „automatyczne łączenie” dla niezaufanych Wi-Fi.</li>
+    </ol>
+    <p>Dla całego domu rozważ <a href="/blog/vpn-na-routerze.html">VPN na routerze</a> — wtedy każde urządzenie w sieci korzysta z ochrony.</p>
+  </section>
 
-      <section class="cta">
-        <h2>Najprostszy sposób na bezpieczne Wi-Fi</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/test-vpn.html">Szybki test połączenia</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section id="testy">
+    <h2>Jak sprawdzić, czy VPN działa</h2>
+    <ol>
+      <li><strong>IP/region:</strong> przed i po włączeniu — czy kraj/miasto się zmienił?</li>
+      <li><strong>DNS leak:</strong> wykonaj test wg poradnika: <a href="/blog/vpn-dns-leak.html">VPN DNS leak</a>.</li>
+      <li><strong>Prędkość:</strong> porównaj ping/pobieranie — w razie potrzeby zmień serwer lub protokół.</li>
+    </ol>
+  </section>
 
-      <h2>Dlaczego publiczne Wi-Fi jest ryzykowne?</h2>
-      <ul>
-        <li><strong>Podsłuch (sniffing)</strong> — niezabezpieczone sieci pozwalają podglądać niezaszyfrowany ruch.</li>
-        <li><strong>Fałszywe hotspoty</strong> — sieć o podobnej nazwie podstawiona przez atakującego.</li>
-        <li><strong>Ataki typu man-in-the-middle</strong> — wstrzykiwanie treści, przekierowania, phishing.</li>
-      </ul>
+  <section id="praktyka">
+    <h2>Dobre praktyki bezpieczeństwa</h2>
+    <ul>
+      <li>Unikaj logowania do banku bez aktywnego tunelu (poradnik: <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość online</a>).</li>
+      <li>Używaj uwierzytelniania <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a> i menedżera haseł.</li>
+      <li>Aktualizuj system/przeglądarkę; włącz blokadę śledzenia.</li>
+    </ul>
+  </section>
 
-      <h2>Checklista 5 minut — kawiarnia/hotel/lotnisko</h2>
-      <ol>
-        <li>Połącz się z właściwą siecią (sprawdź dokładną nazwę u obsługi).</li>
-        <li>Jeśli jest <strong>strona powitalna (captive portal)</strong>, zaloguj się, a dopiero potem <strong>włącz VPN</strong>.</li>
-        <li>W aplikacji VPN ustaw <strong>WireGuard/NordLynx</strong> i włącz <strong>Kill Switch</strong>.</li>
-        <li>W przeglądarce preferuj <strong>HTTPS</strong>; unikaj logowania do banku, jeśli nie musisz.</li>
-        <li>Po zakończeniu rozłącz VPN i zapomnij sieć w ustawieniach, jeśli była otwarta.</li>
-      </ol>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — ochrona w publicznym Wi-Fi</a>
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — dobry cenowo</a>
+  </section>
 
-      <h2>Ustawienia, które warto włączyć</h2>
-      <ul>
-        <li><strong>Auto-connect</strong> w sieciach publicznych — VPN połączy się sam.</li>
-        <li><strong>Kill Switch</strong> w trybie systemowym — brak ruchu poza tunelem.</li>
-        <li><strong>Ochrona DNS/WebRTC</strong> — mniej wycieków identyfikujących.</li>
-        <li><strong>2FA/MFA</strong> w serwisach, do których się logujesz (patrz <a href="/blog/vpn-2fa-mfa.html">VPN + 2FA</a>).</li>
-      </ul>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>
+      <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a> •
+      <a href="/blog/vpn-kill-switch.html">VPN Kill Switch</a> •
+      <a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>
+    </p>
+  </aside>
 
-      <h2>iOS / Android / Windows / macOS — szybkie wskazówki</h2>
-      <ul>
-        <li><strong>iPhone</strong>: ustaw „<em>Połącz automatycznie</em>” w aplikacji VPN; rozważ wyłączenie „Private Relay” przy testach.</li>
-        <li><strong>Android</strong>: włącz „<em>Zawsze-aktywny VPN</em>” oraz „<em>Blokuj połączenia bez VPN</em>”.</li>
-        <li><strong>Windows/macOS</strong>: dodaj aplikację VPN do autostartu; używaj sieci 5 GHz zamiast 2,4 GHz.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>Jak rozpoznać fałszywy hotspot?</h2>
-      <ul>
-        <li>Brak strony powitalnej tam, gdzie zwykle jest.</li>
-        <li>Słaby sygnał i częste rozłączanie.</li>
-        <li>Sieć o niemal tej samej nazwie, ale z literówką (np. „Airport-Free-WiFi” vs „Airport-Free-Wifi”).</li>
-      </ul>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: publiczne Wi-Fi — jak chroni VPN</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-publiczne-wifi.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>Co zrobić, gdy coś nie działa?</h2>
-      <ul>
-        <li>Wyłącz VPN → zaakceptuj stronę powitalną → włącz VPN ponownie.</li>
-        <li>Zmień serwer na bliższy; sprawdź <a href="/blog/test-vpn.html">ping i prędkość</a>.</li>
-        <li>Wyczyść DNS/Cache przeglądarki, jeśli strona się nie ładuje.</li>
-      </ul>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — stabilny w hotspotach, szybki (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — nieograniczone urządzenia, dobra cena. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile streamingu (wkrótce). <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-      <section class="cta">
-        <h2>Bezpieczne Wi-Fi w praktyce</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-dns-leak.html">Sprawdź wycieki DNS</a>
-        </div>
-      </section>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-kill-switch.html">Kill Switch — ochrona po zerwaniu</a></li>
-          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
-          <li><a href="/blog/vpn-geolokalizacja.html">VPN i geolokalizacja</a></li>
-          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-          <li><a href="/blog/vpn-2fa-mfa.html">VPN + 2FA/MFA</a></li>
-        </ul>
-      </aside>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-      <p class="small disclaimer">Poradnik ma charakter informacyjny. Zawsze przestrzegaj regulaminów sieci publicznych i lokalnego prawa.</p>
-    </article>
-  </main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN w publicznym Wi-Fi — czy to bezpieczne? (2025)",
+  "description":"Czy publiczne Wi-Fi jest bezpieczne? Jak VPN chroni w kawiarniach, hotelach i na lotniskach. Checklista ustawień, test DNS leak i praktyczne porady.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-publiczne-wifi.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"
+}
+</script>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"VPN w publicznym Wi-Fi","item":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy publiczne Wi-Fi jest bezpieczne z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak — VPN szyfruje ruch i utrudnia podsłuch. Pamiętaj o włączeniu Kill Switch i sprawdzeniu wycieków DNS."}},
+    {"@type":"Question","name":"Czy mogę robić przelewy w hotelowym Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale tylko przy aktywnym VPN i 2FA. Unikaj działań wrażliwych bez tunelu."}},
+    {"@type":"Question","name":"Czy VPN spowolni Wi-Fi w kawiarni?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Wybierz najbliższy serwer i protokół WireGuard dla najlepszej prędkości."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (szybkie ustawienia Wi-Fi) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Bezpieczne użycie publicznego Wi-Fi z VPN",
+  "description":"Krótka procedura ustawień dla hotspotów w PL/UE.",
+  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Wybierz protokół","text":"Ustaw WireGuard w aplikacji VPN."},
+    {"@type":"HowToStep","name":"Włącz Kill Switch","text":"Zablokuj ruch poza tunelem na wypadek zerwania połączenia."},
+    {"@type":"HowToStep","name":"Połącz i sprawdź","text":"Wybierz najbliższy serwer, sprawdź IP/region i wykonaj test DNS leak."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"Publiczne Wi-Fi — jak chroni VPN",
+  "description":"Najważniejsze ustawienia VPN i testy w publicznych hotspotach.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-publiczne-wifi.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/vpn-publiczne-wifi.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
