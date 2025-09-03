@@ -20,13 +20,13 @@
     const res = await fetch('/data/posts.json?v=' + Date.now(), { cache: 'no-store' });
     const all = await res.json();
 
-    // фильтруем: только опубликованные и без vpn-na-routerze
+    // только опубликованные и без vpn-na-routerze
     const posts = all.filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
 
     const grid = document.getElementById('grid');
     const q = document.getElementById('q');
 
-    // берём анонс с обрезкой
+    // анонс с фолбэком и обрезкой
     const getDesc = (p) => {
       const d = (p.desc || '').toString().trim();
       if (!d) return 'Czytaj więcej →';
