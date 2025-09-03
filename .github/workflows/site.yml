@@ -30,21 +30,33 @@ jobs:
 
       - run: mkdir -p articles data
 
+      # 1) scaffold новых html (опционально)
       - run: node scripts/scaffold-articles.mjs || true
+
+      # 2) собрать posts.json (берёт meta/первый <p> и т.п.)
       - run: node scripts/build-manifest.mjs
+
+      # 3) дополнить desc из HTML там, где заглушки/пусто
+      - name: Backfill desc from HTML
+        run: node scripts/backfill-desc.mjs
+
+      # 4) валидатор ассетов (не падаем, только лог)
       - run: node scripts/validate.mjs || true
+
+      # 5) sitemap + rss
       - run: node scripts/gen-sitemap.mjs
       - run: node scripts/gen-rss.mjs
 
+      # 6) коммитим артефакты
       - name: Commit generated files
         run: |
           git config user.name "seo-bot"
           git config user.email "seo-bot@users.noreply.github.com"
           git add data/posts.json sitemap.xml rss.xml || true
-          git add articles/*.html || true
-          git commit -m "Auto build blog (articles/*) [skip ci]" || echo "No changes"
+          git commit -m "Auto build blog (desc backfilled) [skip ci]" || echo "No changes"
           git push
 
-      - name: Ping Google (best-effort)
+      # 7) ping Google (best-effort)
+      - name: Ping Google
         run: |
           curl -s "https://www.google.com/ping?sitemap=https://Dloran1.github.io/sitemap.xml" || true
