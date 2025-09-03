@@ -2,56 +2,76 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN Blog</title>
-  <meta name="description" content="Artykuły o VPN: konfiguracja, prywatność, streaming, bezpieczeństwo.">
+  <title>Blog o VPN</title>
+  <meta name="description" content="Artykuły o VPN, bezpieczeństwie online i prywatności.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
 <body>
-  <section id="blog" class="wrap">
+  <div class="wrap">
     <h1>Blog</h1>
-    <p>Nowe wpisy ładują się z <code>data/posts.json</code> – po prostu dodaj HTML do <code>/articles</code> i zrób push.</p>
-    <div class="filters">
-      <input id="q" class="filter-input" type="search" placeholder="Szukaj po tytule/opisie…">
-      <a class="btn" href="/rss.xml">RSS</a>
-    </div>
-    <div id="grid" class="blog-grid" aria-live="polite"></div>
-  </section>
-  <footer class="site">© Dloran1 • Built from /articles via GitHub Actions</footer>
-<script>
-(async () => {
-  try {
-    const res = await fetch('/data/posts.json', {cache:'no-store'});
-    const posts = (await res.json()).filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
+    <input id="q" type="search" placeholder="Szukaj po tytule/opisie…">
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <script>
+  (async () => {
+    // грузим posts.json без кеша
+    const res = await fetch('/data/posts.json?v=' + Date.now(), { cache: 'no-store' });
+    const all = await res.json();
+
+    // фильтруем: только опубликованные и без vpn-na-routerze
+    const posts = all.filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
+
     const grid = document.getElementById('grid');
     const q = document.getElementById('q');
-    function render(list){
-      grid.innerHTML='';
-      list.sort((a,b)=>(b.date||'').localeCompare(a.date||'')).forEach(p=>{
-        const el=document.createElement('article'); el.className='card';
-        el.innerHTML = `
-          <a href="/${p.slug}" aria-label="${p.title}">
-            <img class="card-thumb" src="${p.thumb}" width="640" height="360" alt="${p.title}">
+
+    // берём анонс с обрезкой
+    const getDesc = (p) => {
+      const d = (p.desc || '').toString().trim();
+      if (!d) return 'Czytaj więcej →';
+      return d.length > 160 ? d.slice(0, 157) + '…' : d;
+    };
+
+    const escapeHtml = s => s.replace(/[&<>"']/g, m => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[m]));
+
+    function cardHTML(p) {
+      const desc = escapeHtml(getDesc(p));
+      return `
+        <article class="card">
+          <a href="/${p.slug}" aria-label="${escapeHtml(p.title)}">
+            <img class="card-thumb" src="${p.thumb}" width="640" height="360" alt="${escapeHtml(p.title)}">
           </a>
           <div class="card-body">
-            <h3 class="card-title"><a href="/${p.slug}">${p.title}</a></h3>
+            <h3 class="card-title"><a href="/${p.slug}">${escapeHtml(p.title)}</a></h3>
             <div class="card-meta">
-              <time datetime="${p.date}">${p.date}</time>
-              ${(p.tags||[]).slice(0,3).map(t=>`<span class='badge'>${t}</span>`).join('')}
+              ${p.date ? `<time datetime="${p.date}">${p.date}</time>` : ''}
+              ${(p.tags || []).slice(0,3).map(t => `<span class="badge">${escapeHtml(String(t))}</span>`).join('')}
             </div>
-            <p>${p.desc}</p>
+            <p class="card-desc">${desc}</p>
           </div>
-          <div class="card-footer"><a class="btn" href="/${p.slug}">Czytaj</a></div>`;
-        grid.appendChild(el);
-      });
-      if (!list.length) grid.innerHTML='<p>Brak wpisów – dodaj pliki do folderu <code>/articles</code>.</p>';
+          <div class="card-footer"><a class="btn" href="/${p.slug}">Czytaj</a></div>
+        </article>`;
     }
-    function apply(){ const qv=(q.value||'').toLowerCase(); render(posts.filter(p=> (p.title+p.desc).toLowerCase().includes(qv))); }
-    q.addEventListener('input', apply); render(posts);
-  } catch (e) {
-    document.getElementById('grid').innerHTML = '<p>Jeszcze nie ma manifestu. Zrób pierwszy push z artykułami.</p>';
-  }
-})();
-</script>
+
+    function render(list){
+      grid.innerHTML = list
+        .sort((a,b) => (b.date||'').localeCompare(a.date||''))
+        .map(cardHTML)
+        .join('');
+      if (!list.length) grid.innerHTML = '<p>Nic nie znaleziono.</p>';
+    }
+
+    function apply(){
+      const qv = (q.value || '').toLowerCase();
+      render(posts.filter(p => (p.title + ' ' + p.desc).toLowerCase().includes(qv)));
+    }
+
+    q.addEventListener('input', apply);
+    render(posts);
+  })();
+  </script>
 </body>
 </html>
