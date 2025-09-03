@@ -10,7 +10,6 @@ on:
       - '.github/workflows/site.yml'
       - 'config/slugs.txt'
 
-# 👇 даём Actions право ПИСАТЬ в репозиторий
 permissions:
   contents: write
 
@@ -23,7 +22,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: true
 
-      # фиксим "unsafe repository"
       - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - uses: actions/setup-node@v4
@@ -32,9 +30,7 @@ jobs:
 
       - run: mkdir -p articles data
 
-      # по желанию: создаёт заготовки из config/slugs.txt, если файла нет
       - run: node scripts/scaffold-articles.mjs || true
-
       - run: node scripts/build-manifest.mjs
       - run: node scripts/validate.mjs || true
       - run: node scripts/gen-sitemap.mjs
