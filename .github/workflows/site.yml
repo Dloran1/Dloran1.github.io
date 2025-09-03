@@ -1,0 +1,36 @@
+name: Build Blog from /articles
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'articles/**'
+      - 'assets/**'
+      - 'scripts/**'
+      - '.github/workflows/site.yml'
+      - 'config/slugs.txt'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: mkdir -p articles data
+      - run: node scripts/scaffold-articles.mjs || true
+      - run: node scripts/build-manifest.mjs
+      - run: node scripts/validate.mjs || true
+      - run: node scripts/gen-sitemap.mjs
+      - run: node scripts/gen-rss.mjs
+      - name: Commit generated files
+        run: |
+          git config user.name "seo-bot"
+          git config user.email "seo-bot@users.noreply.github.com"
+          git add data/posts.json sitemap.xml rss.xml articles/*.html || true
+          git commit -m "Auto build blog (articles/*) [skip ci]" || echo "No changes"
+          git push
+      - name: Ping Google (best-effort)
+        run: |
+          curl -s "https://www.google.com/ping?sitemap=https://Dloran1.github.io/sitemap.xml" || true
