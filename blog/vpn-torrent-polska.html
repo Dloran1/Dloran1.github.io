@@ -3,133 +3,217 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Torrenty i P2P w Polsce z VPN — jak robić to bezpieczniej (2025)</title>
-  <meta name="description" content="Jak korzystać z P2P/torrentów w Polsce z poszanowaniem prawa? Wybór VPN, serwerów P2P, ustawienia (Kill Switch, DNS leak), qBittorrent, port forwarding i testy.">
-  <meta name="robots" content="index,follow">
+  <title>VPN a torrenty w Polsce — legalność i bezpieczne użycie (2025)</title>
+  <meta name="description" content="Czy korzystanie z torrentów w Polsce jest legalne? Jak VPN pomaga w ochronie prywatności przy P2P i jakie ustawienia wybrać, aby było szybciej i bezpieczniej.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-torrent-polska.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-torrent-polska.webp" imagesrcset="/assets/img/hero/vpn-torrent-polska.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Torrenty i P2P w Polsce z VPN — jak robić to bezpieczniej">
-  <meta property="og:description" content="Praktyczny poradnik: legalność, wybór dostawcy i serwerów P2P, ustawienia klienta torrent oraz ochrona przed wyciekami.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN a torrenty w Polsce — legalność i bezpieczne użycie (2025)">
+  <meta property="og:description" content="Czy torrenty są legalne i jak VPN chroni użytkownika w Polsce. Praktyczne ustawienia, bezpieczeństwo i FAQ.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-torrent-polska.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-torrent-polska.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-torrent-polska.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Torrenty i P2P w Polsce z VPN — jak robić to bezpieczniej">
-  <meta name="twitter:description" content="Wybór serwera P2P, Kill Switch, DNS leak, port forwarding i ustawienia qBittorrent.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-torrent-polska.webp">
+  <meta name="twitter:title" content="VPN a torrenty w Polsce — legalność i bezpieczne użycie (2025)">
+  <meta name="twitter:description" content="Jak działa VPN w P2P i jakie są zasady w Polsce.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-torrent-polska.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Torrenty i P2P w Polsce z VPN — jak robić to bezpieczniej (2025)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-torrent-polska.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-torrent-polska.webp"
-  }
-  </script>
-
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+  <style>
+    .article-hero img, .post img {display:block;max-width:100%;height:auto;border-radius:12px;}
+    video{max-width:100%;border-radius:12px;display:block}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN a torrenty w Polsce — legalność i bezpieczne użycie</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-torrent-polska.webp"
+         alt="VPN a torrenty w Polsce"
+         width="1200" height="630"
+         fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Korzystanie z torrentów w Polsce jest <em>legalne</em>, jeśli pobierasz treści objęte prawem autorskim wyłącznie w zakresie dozwolonego użytku.
+    W praktyce jednak łatwo naruszyć przepisy. Dlatego <strong>VPN</strong> zwiększa prywatność i bezpieczeństwo podczas wymiany plików P2P.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#legalnosc">Legalność torrentów w Polsce</a></li>
+      <li><a href="#dlaczego-vpn">Dlaczego VPN przy P2P</a></li>
+      <li><a href="#ustawienia">Optymalne ustawienia</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN do torrentów</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Torrenty i P2P w Polsce z VPN — jak robić to bezpieczniej</h1>
+  <section id="legalnosc">
+    <h2>Legalność torrentów w Polsce</h2>
+    <p>Pobieranie treści chronionych prawem autorskim bez zgody właściciela jest nielegalne. Legalne jest natomiast pobieranie i udostępnianie plików
+    <strong>open source</strong>, materiałów edukacyjnych czy filmów na wolnych licencjach.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-torrent-polska.webp"
-             alt="Torrenty i P2P w Polsce z VPN — poradnik"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="dlaczego-vpn">
+    <h2>Dlaczego warto używać VPN przy P2P</h2>
+    <ul>
+      <li>Ukrycie adresu IP przed innymi uczestnikami sieci torrent;</li>
+      <li>Ochrona przed monitorowaniem ze strony ISP;</li>
+      <li>Dostęp do serwerów zoptymalizowanych pod P2P (np. w <a href="/blog/vpn-dedykowany-ip.html">VPN z dedykowanym IP</a>);</li>
+      <li>Stabilniejsze połączenia przy <a href="/blog/vpn-port-forwarding.html">port forwardingu</a>.</li>
+    </ul>
+  </section>
 
-      <p>P2P i torrenty są legalną technologią dystrybucji danych, ale <strong>odpowiadasz za treści, które udostępniasz/pobierasz</strong>. Ten poradnik pokazuje, jak w Polsce korzystać z <strong>VPN</strong> przy P2P w sposób <strong>rozsądniejszy i bezpieczniejszy</strong> — zgodnie z prawem i regulaminami usług.</p>
+  <section id="ustawienia">
+    <h2>Optymalne ustawienia do torrentów</h2>
+    <ol>
+      <li>Wybierz serwer oznaczony jako <strong>P2P</strong> w aplikacji VPN.</li>
+      <li>Używaj protokołu <strong>WireGuard</strong> dla najlepszej prędkości.</li>
+      <li>Włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a>, aby uniknąć wycieków IP.</li>
+      <li>Sprawdź połączenie na <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>.</li>
+    </ol>
+  </section>
 
-      <section class="cta">
-        <h2>Szybki start: sprawdzony dostawca i serwery P2P</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN (P2P)</a>
-          <a class="btn btn-ghost" href="/blog/vpn-p2p-bezpiecznie.html">P2P — konfiguracja krok po kroku</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored noopener nofollow">✅ Zacznij z NordVPN</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored noopener nofollow">Surfshark — oferta</a>
+  </section>
 
-      <h2>1) Wybór VPN i serwerów</h2>
-      <ul>
-        <li>Szukaj serwerów <strong>oznaczonych jako P2P</strong> i możliwie <strong>blisko</strong> (PL/UE) — lepszy ping i przepustowość.</li>
-        <li>Domyślnie zacznij od <strong>WireGuard/NordLynx</strong>, a w razie problemów porównaj z <strong>OpenVPN UDP</strong>.</li>
-        <li>Włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a> oraz <a href="/blog/vpn-dns-leak.html">ochronę przed wyciekami DNS/WebRTC</a>.</li>
-      </ul>
+  <aside class="readmore">
+    <h2>Powiązane artykuły</h2>
+    <p>Zobacz też: <a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P bezpiecznie</a>,
+       <a href="/blog/vpn-port-forwarding.html">Port forwarding w VPN</a>,
+       <a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></p>
+  </aside>
 
-      <h2>2) Ustawienia klienta torrent (np. qBittorrent)</h2>
-      <ul>
-        <li><strong>Bind to interface</strong>: wybierz adapter VPN, jeśli program wspiera.</li>
-        <li><strong>UPnP/NAT-PMP</strong>: wyłącz, chyba że używasz <a href="/blog/vpn-port-forwarding.html">port forwardingu</a>.</li>
-        <li><strong>Limit upload</strong>: ustaw na ~70–80% maks. wysyłania, aby nie dusić łącza.</li>
-        <li>Włącz szyfrowanie połączeń peerów, jeśli jest dostępne.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>3) Port forwarding — czy warto?</h2>
-      <p>Może zwiększyć liczbę peerów i prędkość, ale <strong>zwiększa powierzchnię ataku</strong>. Używaj tylko, gdy wiesz po co i masz aktualny, dobrze zabezpieczony klient. Więcej: <a href="/blog/vpn-port-forwarding.html">VPN + port forwarding</a>.</p>
+  <!-- Video -->
+  <section id="video">
+    <h2>Wideo: VPN i torrenty</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-torrent-polska.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>4) Stabilność i prędkość</h2>
-      <ul>
-        <li>Testuj 2–3 serwery P2P w tym samym kraju: <a href="/blog/vpn-szybkosc-test.html">procedura testów</a>.</li>
-        <li>Preferuj <strong>Ethernet</strong> lub Wi-Fi 5 GHz; zamknij zbędne aplikacje.</li>
-        <li>Gdy sieć jest niestabilna, porównaj z <strong>OpenVPN TCP</strong> (wolniej, ale bywa odporniej).</li>
-      </ul>
+  <h2 id="top3">TOP-3 VPN do torrentów</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — serwery P2P, świetna prędkość. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored noopener nofollow">Oferta</a></li>
+    <li><strong>Surfshark</strong> — brak limitów urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored noopener nofollow">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile streaming/P2P. <a href="#" target="_blank" rel="sponsored noopener nofollow">Wkrótce</a></li>
+  </ol>
 
-      <h2>5) Prywatność i prawo</h2>
-      <ul>
-        <li>W Polsce <strong>używanie VPN jest legalne</strong>; pamiętaj o <a href="/blog/no-logs.html">polityce no-logs</a> dostawcy.</li>
-        <li>Udostępniaj/pobieraj tylko legalne treści. Za naruszenia odpowiada użytkownik.</li>
-        <li>Unikaj publicznych Wi-Fi bez VPN; stosuj <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a> w serwisach.</li>
-      </ul>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <section class="cta">
-        <h2>Gotowa konfiguracja P2P na start</h2>
-        <ul class="cta-list">
-          <li>Serwer: <strong>P2P</strong>, możliwie blisko</li>
-          <li>Protokół: <strong>WireGuard/NordLynx</strong></li>
-          <li><strong>Kill Switch</strong> + ochrona <strong>DNS/WebRTC</strong></li>
-          <li>Klient: <strong>qBittorrent</strong> (aktualna wersja)</li>
-        </ul>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj VPN dla P2P</a>
-          <a class="btn btn-ghost" href="/blog/vpn-p2p-bezpiecznie.html">Pełny poradnik P2P</a>
-        </div>
-      </section>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-p2p-bezpiecznie.html">P2P/Torrenty z VPN — bezpieczniej</a></li>
-          <li><a href="/blog/vpn-port-forwarding.html">Port forwarding — kiedy ma sens</a></li>
-          <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
-          <li><a href="/blog/vpn-szybkosc-test.html">Jak testować prędkość VPN</a></li>
-          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-        </ul>
-      </aside>
+<!-- JSON-LD Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN a torrenty w Polsce — legalność i bezpieczne użycie",
+  "description":"Czy torrenty w Polsce są legalne? Jak VPN pomaga przy P2P: ustawienia, bezpieczeństwo i prędkość.",
+  "datePublished":"2025-09-03",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-torrent-polska.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-torrent-polska.html"
+}
+</script>
 
-      <p class="small disclaimer">Poradnik edukacyjny. Zawsze przestrzegaj prawa i regulaminów serwisów. Autor nie zachęca do naruszeń praw autorskich.</p>
-    </article>
-  </main>
+<!-- JSON-LD Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"VPN a torrenty w Polsce","item":"https://dloran1.github.io/blog/vpn-torrent-polska.html"}
+  ]
+}
+</script>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy torrenty są legalne w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, o ile pobierasz treści na wolnych licencjach lub w zakresie dozwolonego użytku. Pobieranie materiałów chronionych prawem autorskim bez zgody jest nielegalne."}},
+    {"@type":"Question","name":"Czy VPN chroni mnie przy torrentach?","acceptedAnswer":{"@type":"Answer","text":"Tak. VPN szyfruje ruch i ukrywa Twój adres IP przed innymi użytkownikami sieci P2P."}},
+    {"@type":"Question","name":"Jakie ustawienia VPN są najlepsze do torrentów?","acceptedAnswer":{"@type":"Answer","text":"Serwer P2P, protokół WireGuard, Kill Switch i test IP/DNS po połączeniu."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"VPN i torrenty — poradnik",
+  "description":"Jak korzystać z torrentów w Polsce i dlaczego warto używać VPN.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-torrent-polska.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-torrent-polska.html#video"
+}
+</script>
+
 </body>
 </html>
