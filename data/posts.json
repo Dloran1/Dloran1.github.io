@@ -1,25 +1,5 @@
 [
   {
-    "slug": "articles/blog/co-to-jest-vpn.html",
-    "title": "Co to jest VPN? Wyjaśnienie i zastosowania",
-    "desc": "VPN (Virtual Private Network) szyfruje Twój ruch internetowy i ukrywa adres IP. Dzięki temu korzystasz z sieci bezpieczniej i bardziej prywatnie.",
-    "date": "2025-09-02",
-    "tags": [],
-    "thumb": "/assets/img/thumbs/co-to-jest-vpn.webp",
-    "hero": "https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
-    "status": "published"
-  },
-  {
-    "slug": "articles/co-to-jest-vpn.html",
-    "title": "Co To Jest Vpn",
-    "desc": "Treść artykułu do uzupełnienia.",
-    "date": "2025-09-03",
-    "tags": [],
-    "thumb": "/assets/img/thumbs/co-to-jest-vpn.webp",
-    "hero": "https://Dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
-    "status": "published"
-  },
-  {
     "slug": "articles/darmowe-vs-platne-vpn.html",
     "title": "Darmowe vs Płatne VPN — co wybrać w 2025?",
     "desc": "Skrót: darmowe VPN bywają dobre do okazjonalnego użycia, ale mają limity transferu, gorszą prędkość i często słabszą ochronę prywatności. Płatne VPN oferują sta",
@@ -477,6 +457,16 @@
     "tags": [],
     "thumb": "/assets/img/thumbs/zalety-vpn.webp",
     "hero": "https://Dloran1.github.io/assets/img/hero/zalety-vpn.webp",
+    "status": "published"
+  },
+  {
+    "slug": "articles/blog/co-to-jest-vpn.html",
+    "title": "Co to jest VPN? Wyjaśnienie i zastosowania",
+    "desc": "VPN (Virtual Private Network) szyfruje Twój ruch internetowy i ukrywa adres IP. Dzięki temu korzystasz z sieci bezpieczniej i bardziej prywatnie.",
+    "date": "2025-09-02",
+    "tags": [],
+    "thumb": "/assets/img/thumbs/co-to-jest-vpn.webp",
+    "hero": "https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
     "status": "published"
   }
 ]
