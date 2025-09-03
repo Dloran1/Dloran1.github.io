@@ -3,136 +3,303 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proxy vs VPN — czym się różnią i co wybrać? (2025)</title>
-  <meta name="description" content="Czym różni się proxy od VPN? Anonimowość, szyfrowanie, geoblokady, prędkość i prywatność. Praktyczne porównanie i rekomendacje zastosowań.">
-  <meta name="robots" content="index,follow">
+  <title>Proxy vs VPN — różnice, bezpieczeństwo i co wybrać (2025)</title>
+  <meta name="description" content="Czym różni się proxy od VPN? Szyfrowanie, prywatność, VOD, gry i praca zdalna. Kiedy wystarczy proxy, a kiedy konieczny jest VPN. Tabela różnic, checklista i FAQ.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-proxy-vs-vpn.webp" imagesrcset="/assets/img/hero/vpn-proxy-vs-vpn.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Proxy vs VPN — czym się różnią i co wybrać?">
-  <meta property="og:description" content="Porównanie w praktyce: bezpieczeństwo, prywatność, prędkość, omijanie geoblokad.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Proxy vs VPN — różnice, bezpieczeństwo i co wybrać (2025)">
+  <meta property="og:description" content="Szyfrowanie, prywatność, VOD, gry i praca zdalna: proxy vs VPN. Tabela różnic, checklista wyboru i FAQ.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-proxy-vs-vpn.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-proxy-vs-vpn.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Proxy vs VPN — czym się różnią i co wybrać?">
+  <meta name="twitter:title" content="Proxy vs VPN — różnice, bezpieczeństwo i co wybrać (2025)">
   <meta name="twitter:description" content="Kiedy wystarczy proxy, a kiedy potrzebujesz VPN?">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-proxy-vs-vpn.webp">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-proxy-vs-vpn.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Proxy vs VPN — czym się różnią i co wybrać? (2025)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-proxy-vs-vpn.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+    .table{ width:100%; border-collapse:collapse }
+    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.65rem .8rem; vertical-align:top }
+    .cta .btn{ margin-right:.5rem }
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Proxy vs VPN — różnice, bezpieczeństwo i co wybrać (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/vpn-proxy-vs-vpn.webp"
+      alt="Proxy vs VPN — porównanie różnic i zastosowań"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    <strong>Proxy</strong> maskuje adres IP pojedynczej aplikacji lub przeglądarki. <strong>VPN</strong> szyfruje <em>cały</em> ruch
+    i chroni go przed podglądem operatora, sieci Wi-Fi i trackerami. Poniżej szybkie porównanie, praktyczne przykłady i checklista wyboru.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#roznice">Najważniejsze różnice</a></li>
+      <li><a href="#kiedy-proxy">Kiedy wystarczy proxy?</a></li>
+      <li><a href="#kiedy-vpn">Kiedy wybrać VPN?</a></li>
+      <li><a href="#bezpieczenstwo">Bezpieczeństwo i prywatność</a></li>
+      <li><a href="#checklista">Checklista wyboru</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Proxy vs VPN — czym się różnią i co wybrać?</h1>
+  <section id="roznice">
+    <h2>Najważniejsze różnice</h2>
+    <table class="table">
+      <caption>Proxy vs VPN — w skrócie</caption>
+      <thead><tr><th>Aspekt</th><th>Proxy</th><th>VPN</th></tr></thead>
+      <tbody>
+        <tr><td>Zakres działania</td><td>Pojedyncza aplikacja/przeglądarka</td><td>Cały ruch urządzenia</td></tr>
+        <tr><td>Szyfrowanie</td><td>Zwykle brak lub TLS tylko do serwera proxy</td><td>Silne szyfrowanie tunelu (np. WireGuard/OpenVPN)</td></tr>
+        <tr><td>Prywatność</td><td>Operator wciąż widzi ruch</td><td>Operator nie widzi treści, ukryty jest też DNS*</td></tr>
+        <tr><td>Stabilność/VOD</td><td>Niestabilne, częściej blokowane</td><td>Wyższa skuteczność i profile streamingu</td></tr>
+        <tr><td>Gry/praca</td><td>Ryzyko wysokich lagów, brak ochrony</td><td>Lepsze trasy, ochrona w Wi-Fi, dostęp do zasobów</td></tr>
+        <tr><td>Konfiguracja</td><td>Szybka, per-aplikacja</td><td>Aplikacja systemowa, polityki bezpieczeństwa</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">*Po stronie VPN warto wymusić DNS przez tunel i sprawdzić wycieki: <a href="/blog/vpn-dns-leak.html">VPN DNS leak — test</a>.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-proxy-vs-vpn.webp"
-             alt="Proxy vs VPN — porównanie"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="kiedy-proxy">
+    <h2>Kiedy wystarczy proxy?</h2>
+    <ul>
+      <li>Szybkie sprawdzenie treści z innego regionu bez logowania.</li>
+      <li>Proste zadania automatyzacji (np. testy frontu) bez danych wrażliwych.</li>
+      <li>Gdy nie potrzebujesz szyfrowania całego ruchu.</li>
+    </ul>
+    <p>Jeśli jednak dotykasz płatności, kont użytkowników lub firmowych narzędzi — rozważ <a href="/blog/co-to-jest-vpn.html">pełny VPN</a>.</p>
+  </section>
 
-      <p><strong>Proxy</strong> i <strong>VPN</strong> pozwalają zmienić adres IP i czasem ominąć geoblokady, ale działają inaczej. W skrócie: <strong>proxy</strong> przekierowuje ruch wybranej aplikacji bez szyfrowania, a <strong>VPN</strong> szyfruje cały ruch systemu i zwiększa prywatność.</p>
+  <section id="kiedy-vpn">
+    <h2>Kiedy wybrać VPN?</h2>
+    <ul>
+      <li><strong>Publiczne Wi-Fi</strong> (kawiarnie, lotniska) — szyfrowanie całego ruchu.</li>
+      <li><strong>Praca zdalna</strong> — dostęp do zasobów, polityki bezpieczeństwa, dedykowane IP (patrz <a href="/blog/vpn-praca-zdalna.html">VPN a praca zdalna</a> oraz <a href="/blog/vpn-dedykowany-ip.html">VPN z dedykowanym IP</a>).</li>
+      <li><strong>Streaming</strong> — wyższa skuteczność omijania geoblokad (zobacz <a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a> i <a href="/blog/vpn-netflix-polska.html">Netflix PL</a>).</li>
+      <li><strong>Bankowość i płatności</strong> — spójne IP i szyfrowanie (poradnik: <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość online</a>).</li>
+    </ul>
+  </section>
 
-      <section class="cta">
-        <h2>Szybka rekomendacja</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-geoblokady.html">VPN a geoblokady</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section id="bezpieczenstwo">
+    <h2>Bezpieczeństwo i prywatność</h2>
+    <p>W proxy zaufanie przesuwa się na operatora proxy i przeglądarkę. W VPN ruch jest szyfrowany na poziomie systemu
+       i przekazywany przez serwer VPN. Wybieraj usługi z <a href="/blog/no-logs.html">polityką no-logs</a>, audytami i
+       protokołem <a href="/blog/wireguard-vs-openvpn.html">WireGuard lub OpenVPN</a>. Włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a>
+       i przetestuj wycieki DNS.</p>
+  </section>
 
-      <h2>Różnice w pigułce</h2>
-      <ul>
-        <li><strong>Szyfrowanie:</strong> VPN — tak (cały ruch), proxy — zwykle nie (lub tylko przeglądarka/aplikacja).</li>
-        <li><strong>Prywatność:</strong> VPN ukrywa ruch przed operatorem Wi-Fi/ISP; proxy — często nie.</li>
-        <li><strong>Zakres działania:</strong> VPN obejmuje cały system; proxy — pojedynczą aplikację.</li>
-        <li><strong>Stabilność/zgodność:</strong> VPN lepiej radzi sobie z aplikacjami, VoIP, P2P i mobilnymi.</li>
-      </ul>
+  <section id="checklista">
+    <h2>Checklista wyboru (PL/UE)</h2>
+    <ol>
+      <li><strong>Cel:</strong> tylko maskowanie IP (proxy) czy pełna ochrona i stabilność (VPN)?</li>
+      <li><strong>Prywatność:</strong> no-logs, audyty, jurysdykcja.</li>
+      <li><strong>Technologia:</strong> WireGuard, Kill Switch, DNS przez VPN.</li>
+      <li><strong>Zastosowania:</strong> VOD, praca zdalna, bankowość — przetestuj skuteczność.</li>
+      <li><strong>Wsparcie:</strong> 24/7 i 30-dniowa gwarancja zwrotu.</li>
+    </ol>
+  </section>
 
-      <h2>Kiedy wystarczy proxy?</h2>
-      <ul>
-        <li>Szybkie sprawdzenie strony w innym regionie.</li>
-        <li>Proste obejście blokady na poziomie <em>przeglądarki</em>.</li>
-        <li>Gdy nie potrzebujesz szyfrowania całego ruchu.</li>
-      </ul>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — pełna ochrona i VOD</a>
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — dobry cenowo</a>
+  </section>
 
-      <h2>Kiedy potrzebny jest VPN?</h2>
-      <ul>
-        <li><strong>Publiczne Wi-Fi</strong> — ochrona przed podsłuchem (patrz <a href="/blog/vpn-publiczne-wifi.html">poradnik</a>).</li>
-        <li><strong>Praca zdalna</strong> i dostęp do zasobów firmowych (<a href="/blog/vpn-praca-zdalna.html">VPN dla pracy</a>).</li>
-        <li><strong>Streaming/VOD</strong> i stabilność połączeń (<a href="/blog/vpn-netflix-polska.html">Netflix PL</a>).</li>
-        <li><strong>P2P</strong> — prywatność i mniej problemów z ISP (<a href="/blog/vpn-p2p-bezpiecznie.html">P2P bezpieczniej</a>).</li>
-      </ul>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>
+      <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a> •
+      <a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a> •
+      <a href="/blog/vpn-na-routerze.html">VPN na routerze</a>
+    </p>
+  </aside>
 
-      <h2>Proxy typu HTTP/SOCKS vs Smart DNS vs VPN</h2>
-      <ul>
-        <li><strong>HTTP/SOCKS proxy</strong> — działa na poziomie aplikacji; brak pełnego szyfrowania.</li>
-        <li><strong>Smart DNS</strong> — zmienia ścieżkę <em>zapytania DNS</em>, dobre do VOD na TV, ale nie szyfruje ruchu.</li>
-        <li><strong>VPN</strong> — pełne szyfrowanie i ochrona całego ruchu, wszechstronność.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>Wpływ na prędkość</h2>
-      <p>Proxy bywa minimalnie szybsze, bo nie szyfruje ruchu. VPN (np. <strong>WireGuard/NordLynx</strong>) zwykle jest wystarczająco szybki do 4K/gier, a zyskujesz prywatność i stabilność. Zobacz <a href="/blog/vpn-szybkosc-test.html">jak testować prędkość VPN</a>.</p>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: Proxy vs VPN — szybkie porównanie</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-proxy-vs-vpn.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>Prywatność i logi</h2>
-      <p>U proxy trudno zweryfikować politykę logów. Przy VPN wybieraj dostawców z <a href="/blog/no-logs.html">polityką no-logs</a> i dobrą reputacją. Dodatkowo włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a> i <a href="/blog/vpn-dns-leak.html">ochronę DNS</a>.</p>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — stabilny do VOD/pracy. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — nieograniczone urządzenia. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile streamingu. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-      <section class="cta">
-        <h2>Praktyczny wybór na 2025</h2>
-        <ul class="cta-list">
-          <li>Do prywatności i uniwersalnego zastosowania — <strong>VPN</strong></li>
-          <li>Do szybkich testów w przeglądarce — proxy / Smart DNS</li>
-          <li>Do TV i konsol — <a href="/blog/vpn-na-routerze.html">VPN na routerze</a> lub <a href="/blog/vpn-dla-smart-tv.html">Smart DNS</a></li>
-        </ul>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Ustawienia dla szybkości</a>
-        </div>
-      </section>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a></li>
-          <li><a href="/blog/vpn-publiczne-wifi.html">Publiczne Wi-Fi z VPN</a></li>
-          <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-          <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
-          <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a></li>
-        </ul>
-      </aside>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-      <p class="small disclaimer">Materiał informacyjny. Zawsze przestrzegaj lokalnego prawa i regulaminów usług.</p>
-    </article>
-  </main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Proxy vs VPN — różnice, bezpieczeństwo i co wybrać (2025)",
+  "description":"Czym różni się proxy od VPN: szyfrowanie, prywatność, VOD, gry i praca zdalna. Kiedy wystarczy proxy, a kiedy konieczny jest VPN.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-proxy-vs-vpn.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html"
+}
+</script>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"Proxy vs VPN","item":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy proxy szyfruje ruch tak jak VPN?","acceptedAnswer":{"@type":"Answer","text":"Nie. Typowe proxy nie szyfruje całego ruchu. VPN tworzy szyfrowany tunel dla całego urządzenia."}},
+    {"@type":"Question","name":"Czy proxy wystarczy do Netflixa?","acceptedAnswer":{"@type":"Answer","text":"Zwykle nie. Serwisy VOD często blokują proxy. Lepszą skuteczność daje VPN z profilami streamingu."}},
+    {"@type":"Question","name":"Które rozwiązanie jest lepsze do pracy zdalnej?","acceptedAnswer":{"@type":"Answer","text":"VPN. Zapewnia szyfrowanie całego ruchu, polityki bezpieczeństwa i dostęp do zasobów firmowych."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (wybór rozwiązania) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak wybrać między proxy a VPN",
+  "description":"Krótka procedura wyboru rozwiązania pod cel.",
+  "step":[
+    {"@type":"HowToStep","name":"Określ cel","text":"Czy potrzebujesz tylko maskowania IP (proxy), czy też szyfrowania całego ruchu i stabilności (VPN)?"},
+    {"@type":"HowToStep","name":"Sprawdź prywatność","text":"W przypadku VPN wybierz usługę z polityką no-logs i audytami."},
+    {"@type":"HowToStep","name":"Przetestuj zastosowania","text":"VOD, praca zdalna, bankowość — sprawdź skuteczność przed wyborem planu."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"Proxy vs VPN — szybkie porównanie",
+  "description":"Wyjaśniamy najważniejsze różnice i kiedy co wybrać.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-proxy-vs-vpn.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/vpn-proxy-vs-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
