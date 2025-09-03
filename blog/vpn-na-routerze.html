@@ -3,125 +3,330 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN na routerze — dodatkowa ochrona sieci</title>
-  <meta name="description" content="Jak skonfigurować VPN na routerze? Pełna ochrona wszystkich urządzeń w domu i w firmie, stabilniejsze połączenie, mniejsze ryzyko wycieków DNS.">
-  <meta name="robots" content="index,follow">
+  <title>VPN na routerze — konfiguracja i najlepsze praktyki (2025)</title>
+  <meta name="description" content="Jak uruchomić VPN na routerze: korzyści, wady, kompatybilność, firmware (AsusWRT/OpenWrt/GL.iNet), polityki routingu, test IP/DNS i FAQ. Przewodnik krok po kroku.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-na-routerze.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-na-routerze.webp" imagesrcset="/assets/img/hero/vpn-na-routerze.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN na routerze — dodatkowa ochrona sieci">
-  <meta property="og:description" content="Konfiguracja VPN na routerze: zabezpiecz wszystkie urządzenia w sieci jednocześnie.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN na routerze — konfiguracja i najlepsze praktyki (2025)">
+  <meta property="og:description" content="Uruchom VPN na routerze: pełna ochrona całej sieci, polityki routingu, test IP/DNS i szybkie poprawki.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-na-routerze.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-na-routerze.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-na-routerze.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN na routerze — dodatkowa ochrona sieci">
-  <meta name="twitter:description" content="Instrukcja: jak włączyć VPN na routerze, aby chronić wszystkie urządzenia jednocześnie.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-na-routerze.webp">
+  <meta name="twitter:title" content="VPN na routerze — konfiguracja i najlepsze praktyki (2025)">
+  <meta name="twitter:description" content="Krok po kroku: konfiguracja VPN na routerze, polityki routingu i testy IP/DNS.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-na-routerze.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"VPN na routerze — dodatkowa ochrona sieci",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-na-routerze.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-na-routerze.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
+    .table caption{caption-side:top;font-weight:700;margin-bottom:.4rem}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN na routerze — konfiguracja i najlepsze praktyki (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/vpn-na-routerze.webp"
+      alt="VPN na routerze — jak skonfigurować i kiedy warto"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    VPN na routerze chroni <em>całą sieć domową</em> — Smart TV, konsole, dekodery, gości i IoT — nawet jeśli urządzenia
+    nie wspierają aplikacji VPN. Poniżej dostajesz <strong>kompletny przewodnik</strong>: kompatybilność, firmware,
+    polityki routingu (split tunneling), testy IP/DNS i szybkie poprawki.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#dlaczego">Dlaczego VPN na routerze</a></li>
+      <li><a href="#wymagania">Kompatybilność i firmware</a></li>
+      <li><a href="#konfiguracja">Konfiguracja krok po kroku</a></li>
+      <li><a href="#policy-routing">Polityki routingu (split tunneling)</a></li>
+      <li><a href="#testy">Test IP/DNS i diagnostyka</a></li>
+      <li><a href="#wskazowki">Wydajność i typowe błędy</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>VPN na routerze — dodatkowa ochrona sieci</h1>
+  <section id="dlaczego">
+    <h2>Dlaczego VPN na routerze</h2>
+    <ul>
+      <li><strong>Jedna konfiguracja</strong> — wszystkie urządzenia w sieci są chronione automatycznie.</li>
+      <li><strong>Smart TV i konsole</strong> — działają przez VPN nawet bez natywnych aplikacji (<a href="/blog/vpn-dla-smart-tv.html">VPN na Smart TV</a>, <a href="/blog/vpn-dla-konsol-ps5-xbox.html">VPN na PS5/Xbox</a>).</li>
+      <li><strong>Stała geolokalizacja</strong> — wygodne przy VOD i Player/TVP (<a href="/blog/player-tvp-vpn.html">Player/TVP z VPN</a>, <a href="/blog/vpn-geoblokady.html">VPN i geoblokady</a>).</li>
+    </ul>
+    <p>Jeśli dopiero zaczynasz, zobacz krótko <a href="/blog/co-to-jest-vpn.html">co to jest VPN</a> i
+       czym różni się od instalacji na komputerze (<a href="/blog/vpn-na-mac.html">macOS</a>,
+       <a href="/blog/vpn-android-konfiguracja.html">Android</a>, <a href="/blog/vpn-iphone-konfiguracja.html">iPhone</a>).</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-na-routerze.webp" alt="VPN na routerze — poradnik konfiguracji" width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="wymagania">
+    <h2>Kompatybilność i firmware</h2>
+    <ul>
+      <li><strong>Stock firmware</strong>: część routerów ma wbudowany klient OpenVPN/WireGuard.</li>
+      <li><strong>AsusWRT / AsusWRT-Merlin</strong>: prosta konfiguracja OpenVPN + <em>policy routing</em>.</li>
+      <li><strong>OpenWrt / GL.iNet</strong>: elastyczne, szybki WireGuard, łatwe polityki.</li>
+      <li><strong>DD-WRT</strong>: alternatywnie dla starszych modeli (gł. OpenVPN).</li>
+    </ul>
+    <p><em>Tip:</em> do streamingu i wielu urządzeń rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany adres IP</a>
+       — mniej blokad po stronie usług.</p>
+  </section>
 
-      <p><strong>VPN na routerze</strong> oznacza, że każde urządzenie w sieci — telefon, TV, konsola, laptop — korzysta z tunelu automatycznie. To wygodne rozwiązanie, szczególnie w domu i firmie, kiedy wiele urządzeń łączy się równocześnie.</p>
+  <section id="konfiguracja">
+    <h2>Konfiguracja krok po kroku</h2>
+    <ol>
+      <li><strong>Sprawdź wsparcie</strong> w panelu routera: klient OpenVPN / WireGuard.</li>
+      <li><strong>Pobierz konfigurację</strong> od dostawcy (np. pliki <code>.ovpn</code> / <code>.conf</code> z kluczami).</li>
+      <li><strong>Import/utworzenie tunelu</strong> w routerze (serwer, port, DNS przez VPN, MTU/fragmentacja).</li>
+      <li><strong>Kill Switch</strong>: włącz blokadę ruchu WAN, gdy tunel spadnie (zapobiegnie wyciekom).</li>
+      <li><strong>DNS</strong>: używaj DNS od VPN, by uniknąć <a href="/blog/vpn-dns-leak.html">DNS leak</a>.</li>
+      <li><strong>Zapisz i połącz</strong>, test: IP/DNS i działanie usług VOD/bankowości.</li>
+    </ol>
+    <p>Jeśli chcesz selektywnie łączyć tylko część urządzeń przez VPN — przejdź do <a href="#policy-routing">polityk routingu</a>.</p>
+  </section>
 
-      <section class="cta">
-        <h2>Zabezpiecz całą sieć jednym kliknięciem</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-smart-dns.html">Alternatywa: Smart DNS</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty.</p>
-      </section>
+  <section id="policy-routing">
+    <h2>Polityki routingu (split tunneling)</h2>
+    <p>Ustaw, które urządzenia lub domeny idą przez VPN, a które bezpośrednio przez ISP:</p>
+    <ul>
+      <li><strong>Po IP/MAC</strong>: np. Smart TV i konsola przez VPN, komputer/printer bez.</li>
+      <li><strong>Po porcie/aplikacji</strong>: gry poza VPN, reszta przez VPN (jeśli firmware wspiera).</li>
+      <li><strong>Po sieci/SSID</strong>: osobny VLAN/SSID dla ruchu z VPN — wygodne dla gości/TV.</li>
+    </ul>
+    <p>Do serwisów wymagających polskich płatności/bankowości możesz dodać wyjątki <em>poza</em> VPN
+       (zobacz <a href="/blog/vpn-bankowosc-online.html">VPN i bankowość online</a>).</p>
+  </section>
 
-      <h2>Najważniejsze zalety</h2>
-      <ul>
-        <li>Ochrona <strong>wszystkich urządzeń</strong> podłączonych do sieci.</li>
-        <li>Brak konieczności instalowania aplikacji VPN na każdym sprzęcie.</li>
-        <li>Stabilne połączenie, mniej problemów z DNS leak.</li>
-        <li>Możliwość stosowania także na <strong>Smart TV i konsolach</strong>.</li>
-      </ul>
+  <section id="testy">
+    <h2>Test IP/DNS i diagnostyka</h2>
+    <ol>
+      <li>Na telefonie/TV wejdź na <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a> — IP ma wskazywać <em>serwer VPN</em>.</li>
+      <li>Sprawdź <strong>DNS leak</strong> — serwery DNS powinny należeć do dostawcy VPN.</li>
+      <li>Jeśli VOD blokuje — zmień serwer, wyczyść cookies/cache, ewentualnie dedykowane IP.</li>
+    </ol>
+    <p>Poradniki: <a href="/blog/vpn-szybkosc-test.html">test szybkości VPN</a>,
+       <a href="/blog/vpn-geolokalizacja.html">jak działa geolokalizacja IP</a>.</p>
+  </section>
 
-      <h2>Wymagania</h2>
-      <ul>
-        <li>Router obsługujący OpenVPN, WireGuard lub dedykowaną aplikację.</li>
-        <li>Subskrypcja VPN (np. NordVPN, Surfshark).</li>
-        <li>Dostęp do panelu konfiguracyjnego routera.</li>
-      </ul>
+  <section id="wskazowki">
+    <h2>Wydajność i typowe błędy</h2>
+    <table class="table">
+      <caption>Najczęstsze problemy i szybkie poprawki</caption>
+      <thead><tr><th>Problem</th><th>Rozwiązanie</th></tr></thead>
+      <tbody>
+        <tr><td>Wolny transfer</td><td>WireGuard, bliższy serwer, wyłącz podwójny NAT, sprawdź akcelerację sprzętową.</td></tr>
+        <tr><td>Usługi blokują</td><td>Zmień serwer/kraj, użyj profili „streaming”, rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany IP</a>.</td></tr>
+        <tr><td>Wycieki DNS</td><td>Wymuś DNS przez tunel, nie używaj DNS routera/ISP dla sieci z VPN (<a href="/blog/vpn-dns-leak.html">instrukcja</a>).</td></tr>
+        <tr><td>Brak internetu przy zerwaniu</td><td>To Kill Switch — prawidłowe zachowanie. Przywróć tunel lub tymczasowo wyłącz blokadę.</td></tr>
+      </tbody>
+    </table>
+    <p>Jeśli chcesz porównać dostawców pod kątem routerów, sprawdź <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a>.</p>
+  </section>
 
-      <h2>Instrukcja konfiguracji (ogólna)</h2>
-      <ol>
-        <li>Zaloguj się do panelu routera (192.168.0.1 lub 192.168.1.1).</li>
-        <li>Włącz obsługę klienta VPN (OpenVPN / WireGuard).</li>
-        <li>Pobierz pliki konfiguracyjne od dostawcy (np. NordVPN).</li>
-        <li>Zaimportuj plik do routera i wprowadź dane logowania VPN.</li>
-        <li>Zapisz i uruchom ponownie router.</li>
-      </ol>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN (konfiguracje dla routerów)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
+  </section>
 
-      <h2>Kiedy to ma sens?</h2>
-      <p><strong>VPN na routerze</strong> sprawdza się, jeśli chcesz:</p>
-      <ul>
-        <li>Zabezpieczyć <strong>cały dom</strong> jedną konfiguracją.</li>
-        <li>Chronić urządzenia bez aplikacji VPN (Smart TV, konsole, Apple TV).</li>
-        <li>Mieć spójny adres IP dla wszystkich sprzętów.</li>
-      </ul>
+  <!-- Czytaj też (перелинковка 3+) -->
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: 
+      <a href="/blog/vpn-port-forwarding.html">Port forwarding z VPN</a>, 
+      <a href="/blog/vpn-dla-smart-tv.html">VPN na Smart TV</a>,
+      <a href="/blog/vpn-dla-konsol-ps5-xbox.html">VPN na konsole</a>,
+      <a href="/blog/vpn-kill-switch.html">Kill Switch</a>,
+      <a href="/blog/vpn-geoblokady.html">Geoblokady</a>
+    </p>
+  </aside>
 
-      <section class="cta">
-        <h2>Chroń prywatność wszystkich urządzeń</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN na routerze</a>
-          <a class="btn btn-ghost" href="/blog/vpn-dla-smart-tv.html">VPN dla Smart TV</a>
-        </div>
-        <p class="cta-note">Rekomendowane dla domów i firm.</p>
-      </section>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-dla-smart-tv.html">VPN dla Smart TV</a></li>
-          <li><a href="/blog/vpn-dla-konsol-ps5-xbox.html">VPN dla konsol</a></li>
-          <li><a href="/blog/vpn-dns-leak.html">VPN i DNS leak</a></li>
-          <li><a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a></li>
-        </ul>
-      </aside>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: VPN na routerze — w pigułce</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-na-routerze.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <p class="disclaimer small">Uwaga: nie każdy router obsługuje VPN. Jeśli Twój model nie ma tej funkcji, możesz użyć firmware’u alternatywnego (np. DD-WRT, OpenWRT) lub skonfigurować VPN na osobnym routerze.</p>
-    </article>
-  </main>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — bardzo szybki (NordLynx/WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — nieograniczone urządzenia. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN na routerze — konfiguracja i najlepsze praktyki (2025)",
+  "description":"Jak uruchomić VPN na routerze: korzyści, wady, firmware, polityki routingu, test IP/DNS i FAQ. Przewodnik krok po kroku.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-na-routerze.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-na-routerze.html"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"VPN na routerze","item":"https://dloran1.github.io/blog/vpn-na-routerze.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy każdy router obsłuży VPN?","acceptedAnswer":{"@type":"Answer","text":"Nie. Szukaj wsparcia dla OpenVPN lub WireGuard (stock firmware) albo rozważ firmware AsusWRT-Merlin, OpenWrt lub routery GL.iNet."}},
+    {"@type":"Question","name":"Czy VPN na routerze spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Może, szczególnie na słabszym CPU. Użyj WireGuard i bliskich serwerów, a prędkość będzie wyraźnie lepsza."}},
+    {"@type":"Question","name":"Jak dodać wyjątki poza VPN?","acceptedAnswer":{"@type":"Answer","text":"Skorzystaj z policy routing (split tunneling) po IP/MAC/SSID. Przy bankowości wybierz ruch poza VPN."}},
+    {"@type":"Question","name":"Jak sprawdzić, czy działa?","acceptedAnswer":{"@type":"Answer","text":"Na urządzeniu wejdź na ipleak.net i sprawdź IP oraz DNS. Powinny wskazywać serwer VPN, nie ISP."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (router) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"VPN na routerze — szybki start",
+  "description":"Import konfiguracji OpenVPN/WireGuard, Kill Switch, DNS przez tunel i test IP/DNS.",
+  "tool":[{"@type":"HowToTool","name":"Router z klientem VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Import profilu VPN","text":"W panelu routera dodaj profil OpenVPN/WireGuard od dostawcy."},
+    {"@type":"HowToStep","name":"Włącz Kill Switch i DNS","text":"Zablokuj ruch poza tunelem i kieruj DNS przez VPN."},
+    {"@type":"HowToStep","name":"Połącz i przetestuj","text":"Sprawdź IP/DNS na ipleak.net i działanie serwisów VOD."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"VPN na routerze — w pigułce",
+  "description":"Dlaczego warto i jak skonfigurować VPN na routerze (WireGuard/OpenVPN, polityki routingu).",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-na-routerze.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-na-routerze.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/vpn-na-routerze.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/vpn-na-routerze.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/vpn-na-routerze.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
