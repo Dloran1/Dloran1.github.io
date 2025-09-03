@@ -3,117 +3,322 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Checklista bezpieczeństwa Wi-Fi — audyt w 10 minut (2025)</title>
-  <meta name="description" content="Szybka checklista audytu Wi-Fi: WPA3, silne hasła, wyłączenie WPS, gościnne SSID, segmentacja IoT, aktualizacje routera, DNS i VPN. Wersja do przejścia w 10 minut.">
-  <meta name="robots" content="index,follow">
+  <title>Checklista bezpieczeństwa Wi-Fi (dom i miejsca publiczne) — 2025</title>
+  <meta name="description" content="Gotowa do odhaczenia checklista: jak zabezpieczyć Wi-Fi w domu i w miejscach publicznych. Router, hasła, WPA3, sieć gościnna, VPN, testy IP/DNS i FAQ.">
   <link rel="canonical" href="https://dloran1.github.io/blog/wifi-checklista.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/wifi-checklista.webp" imagesrcset="/assets/img/hero/wifi-checklista.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Checklista bezpieczeństwa Wi-Fi — audyt w 10 minut">
-  <meta property="og:description" content="10 kroków, które realnie podnoszą bezpieczeństwo domowej i firmowej sieci Wi-Fi.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Checklista bezpieczeństwa Wi-Fi (dom i miejsca publiczne) — 2025">
+  <meta property="og:description" content="Krok po kroku: jak zabezpieczyć domowe Wi-Fi i bezpiecznie korzystać z publicznego. Plus: testy IP/DNS, VPN i szybkie ustawienia.">
   <meta property="og:url" content="https://dloran1.github.io/blog/wifi-checklista.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/wifi-checklista.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/wifi-checklista.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Checklista bezpieczeństwa Wi-Fi — audyt w 10 minut">
-  <meta name="twitter:description" content="WPA3, silne hasła, WPS OFF, sieć gościnna, segmentacja IoT, DNS i VPN.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/wifi-checklista.webp">
+  <meta name="twitter:title" content="Checklista bezpieczeństwa Wi-Fi (dom i miejsca publiczne) — 2025">
+  <meta name="twitter:description" content="Gotowa lista do odhaczenia: router, WPA3, hasła, sieć gościnna, VPN i testy.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/wifi-checklista.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Checklista bezpieczeństwa Wi-Fi — audyt w 10 minut (2025)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/wifi-checklista.html"},
-    "image":"https://dloran1.github.io/assets/img/wifi-checklista.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .wrap{max-width:880px;margin:0 auto;padding:0 16px;}
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    figure.article-hero{ margin:0 0 12px; }
+    .article-hero img,
+    .author__media img,
+    .post img{ display:block; max-width:100%; height:auto; }
+    .article-hero img{ border-radius:12px; aspect-ratio:1200/630; object-fit:cover; }
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
+    .table caption{caption-side:top;font-weight:700;margin-bottom:.4rem}
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+    .cta{ margin:1.2rem 0 1.6rem; }
+    .btn-primary{background:#e63946;color:#fff;border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;font-weight:700;display:inline-block}
+    .btn-ghost{border:2px solid #e63946;color:#fff;border-radius:12px;padding:.8rem 1rem;text-decoration:none;font-weight:700;display:inline-block}
+    .author{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);padding:16px;border-radius:14px}
+    .author__media img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+    .toc a{text-decoration:underline}
+    .backtop{margin:2rem 0}
+    .note{opacity:.9}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner wrap" style="padding-top:12px;padding-bottom:12px">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Checklista bezpieczeństwa Wi-Fi (dom i miejsca publiczne)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/wifi-checklista.webp"
+      alt="Checklista bezpieczeństwa Wi-Fi — grafika tytułowa"
+      width="1200" height="630" fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Gotowa <strong>lista do odhaczenia</strong> — jak zabezpieczyć domowe Wi-Fi i jak bezpiecznie korzystać
+    z hot-spotów w kawiarniach, hotelach i na lotniskach. W środku: router, <a href="/blog/wifi-bezpieczenstwo.html">podstawy bezpieczeństwa Wi-Fi</a>,
+    <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>, testy IP/DNS i szybkie ustawienia.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#tldr">TL;DR — szybki skrót</a></li>
+      <li><a href="#dom">Domowe Wi-Fi: checklista</a></li>
+      <li><a href="#publiczne">Publiczne Wi-Fi: checklista</a></li>
+      <li><a href="#testy">Testy i diagnostyka</a></li>
+      <li><a href="#ustawienia">Szybkie ustawienia (PL/UE)</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Checklista bezpieczeństwa Wi-Fi — audyt w 10 minut</h1>
+  <section id="tldr">
+    <h2>TL;DR — szybki skrót</h2>
+    <ul>
+      <li>Aktualizuj firmware routera, wyłącz WPS, ustaw <strong>WPA3</strong> (lub WPA2-AES).</li>
+      <li>Silne hasła: unikalne do Wi-Fi i do panelu admina; rozważ <strong>sieć gościnną</strong>.</li>
+      <li>Oddziel IoT na osobną sieć/VLAN; ogranicz UPnP; loguj urządzenia po MAC (opcjonalnie).</li>
+      <li>Poza domem: unikaj otwartych sieci; używaj <strong>VPN</strong> z <a href="/blog/vpn-kill-switch.html">Kill Switch</a>; sprawdzaj IP/DNS.</li>
+    </ul>
+    <p class="note">Chcesz VPN na wszystkich urządzeniach naraz? Zobacz <a href="/blog/vpn-na-routerze.html">VPN na routerze</a> oraz <a href="/blog/vpn-optymalne-ustawienia.html">optymalne ustawienia VPN</a>.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/wifi-checklista.webp"
-             alt="Checklista bezpieczeństwa Wi-Fi — audyt krok po kroku"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="dom">
+    <h2>Domowe Wi-Fi: checklista</h2>
+    <ol>
+      <li><strong>Aktualizacje:</strong> zaktualizuj firmware routera i zmień domyślne hasło do panelu.</li>
+      <li><strong>Szyfrowanie:</strong> ustaw <em>WPA3-Personal</em> (lub WPA2-AES); wyłącz WEP/WPA/WPA2-TKIP.</li>
+      <li><strong>WPS:</strong> wyłącz — to częsty wektor ataku.</li>
+      <li><strong>SSID i hasło:</strong> unikalna nazwa (bez danych osobowych) i długie hasło (min. 14-16 znaków).</li>
+      <li><strong>Sieć gościnna:</strong> włącz dla gości; izoluj klientów (Client Isolation).</li>
+      <li><strong>IoT:</strong> przenieś urządzenia smart do osobnej sieci/SSID (2.4 GHz) lub VLAN.</li>
+      <li><strong>Firewall/UPnP:</strong> włącz firewall; wyłącz UPnP, chyba że wiesz, po co go używasz.</li>
+      <li><strong>DNS:</strong> rozważ DNS-over-HTTPS/DNS-over-TLS lub użycie DNS dostawcy VPN (mniej wycieków).</li>
+      <li><strong>VPN na routerze:</strong> jeśli chcesz ochrony „zawsze-on”, zobacz <a href="/blog/vpn-na-routerze.html">poradnik</a>.</li>
+      <li><strong>Harmonogram Wi-Fi:</strong> na noc/wyjazdy — oszczędność i mniej ataku „po godzinach”.</li>
+    </ol>
+  </section>
 
-      <p>Przejdź te punkty po kolei. Każdy z nich realnie zmniejsza ryzyko przejęcia sieci lub wycieku danych.</p>
+  <section id="publiczne">
+    <h2>Publiczne Wi-Fi: checklista</h2>
+    <ul>
+      <li><strong>Preferuj sieci z hasłem</strong> (WPA2/WPA3). Unikaj otwartych bez szyfrowania.</li>
+      <li><strong>VPN on:</strong> przed logowaniem do poczty/bankowości włącz VPN z <a href="/blog/vpn-kill-switch.html">Kill Switch</a>.</li>
+      <li><strong>Captive portal:</strong> po zalogowaniu wyczyść cookies, a potem dopiero połącz VPN.</li>
+      <li><strong>Udostępnianie/airdrop:</strong> wyłącz na czas korzystania z hot-spotu; włącz zaporę.</li>
+      <li><strong>Hot-spoty o tej samej nazwie:</strong> uważaj na „złe bliźniaki” (Evil Twin).</li>
+      <li><strong>Autopołączenia:</strong> usuń zapamiętane sieci, by nie łączyło „w tle”.</li>
+      <li><strong>Aktualizacje i 2FA:</strong> trzymaj OS/appki aktualne, loguj się z 2FA.</li>
+    </ul>
+    <p class="note">Więcej praktyki: <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a> oraz <a href="/blog/wifi-bezpieczenstwo.html">bezpieczeństwo Wi-Fi — poradnik</a>.</p>
+  </section>
 
-      <section class="cta">
-        <h2>Szybka ochrona ruchu (1 klik)</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/wifi-bezpieczenstwo.html">Pełny poradnik Wi-Fi</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section id="testy">
+    <h2>Testy i diagnostyka</h2>
+    <ol>
+      <li><strong>IP i kraj:</strong> po połączeniu z VPN sprawdź geolokalizację IP (np. ipleak.net).</li>
+      <li><strong>DNS leak:</strong> wykonaj test i potwierdź, że widoczne są serwery DNS dostawcy VPN. Zobacz <a href="/blog/vpn-dns-leak.html">instrukcję</a>.</li>
+      <li><strong>Prędkość:</strong> porównaj ping/pobieranie/przesyłanie z <a href="/blog/vpn-szybkosc-test.html">testem szybkości VPN</a>.</li>
+    </ol>
+  </section>
 
-      <h2>Checklist — 10 szybkich kroków</h2>
-      <ol>
-        <li><strong>Firmware routera</strong> — zaktualizuj do najnowszej wersji; włącz auto-aktualizacje, jeśli są.</li>
-        <li><strong>Hasło do panelu</strong> — zmień domyślne admin/admin; użyj długiego, unikalnego hasła + MFA, jeśli dostępne.</li>
-        <li><strong>Szyfrowanie Wi-Fi</strong> — ustaw <strong>WPA3-Personal</strong> (albo WPA2-AES, jeśli brak WPA3). Wyłącz WEP/TKIP.</li>
-        <li><strong>Hasło do Wi-Fi</strong> — min. 14–16 znaków; fraza + cyfry; nie używaj danych osobowych.</li>
-        <li><strong>WPS OFF</strong> — wyłącz przycisk/parowanie PIN.</li>
-        <li><strong>SSID gościnne</strong> — osobna sieć tylko do internetu; brak dostępu do LAN.</li>
-        <li><strong>Segmentacja IoT</strong> — urządzenia IoT/TV/konsole na osobnym SSID/VLAN.</li>
-        <li><strong>5 GHz / kanały</strong> — preferuj 5 GHz; ustaw automatyczny dobór kanału lub wybierz najmniej zatłoczony.</li>
-        <li><strong>DNS i wycieki</strong> — użyj DNS dostawcy VPN lub zaufanych; sprawdź <a href="/blog/vpn-dns-leak.html">DNS leak</a>.</li>
-        <li><strong>VPN</strong> — włącz na urządzeniach lub <a href="/blog/vpn-na-routerze.html">na routerze</a>; aktywuj <a href="/blog/vpn-kill-switch.html">Kill Switch</a>.</li>
-      </ol>
+  <section id="ustawienia">
+    <h2>Szybkie ustawienia (PL/UE)</h2>
+    <ol>
+      <li><strong>Protokół:</strong> WireGuard (lub OpenVPN-UDP, jeśli szybciej działa u Ciebie).</li>
+      <li><strong>Serwer:</strong> Polska; alternatywnie DE/NL/SE przy przeciążeniu.</li>
+      <li><strong>Profil:</strong> streaming/gaming (jeśli dostępny u dostawcy).</li>
+      <li><strong>Weryfikacja:</strong> IP/DNS zgodnie z punktem wyżej; w razie problemów wyczyść cookies.</li>
+    </ol>
 
-      <h2>Bonus — nawyki użytkowników</h2>
-      <ul>
-        <li>Nie podawaj hasła do głównego SSID gościom (od tego jest sieć gościnna).</li>
-        <li>Wyłącz dostęp administracyjny do routera z internetu (WAN).</li>
-        <li>Regularnie czyść listę znanych urządzeń; usuwaj nieznane.</li>
-        <li>Dla pracy zdalnej: <a href="/blog/vpn-praca-zdalna.html">VPN + MFA</a>, bez logowania do wrażliwych systemów z otwartych sieci.</li>
-      </ul>
+    <!-- CTA -->
+    <div class="cta">
+      <a class="btn-primary"
+         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+         target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
+      &nbsp;
+      <a class="btn-ghost"
+         href="https://www.tkqlhce.com/click-101525886-17061430"
+         target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
+    </div>
+  </section>
 
-      <section class="cta">
-        <h2>Chcesz ochronić cały dom jednocześnie?</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">VPN na wszystkie urządzenia</a>
-          <a class="btn btn-ghost" href="/blog/vpn-na-routerze.html">VPN na routerze — poradnik</a>
-        </div>
-      </section>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a>,
+       <a href="/blog/vpn-na-routerze.html">VPN na routerze</a>,
+       <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a></p>
+  </aside>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi — pełny przewodnik</a></li>
-          <li><a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a></li>
-          <li><a href="/blog/vpn-dns-leak.html">Wycieki DNS — test i naprawa</a></li>
-          <li><a href="/blog/vpn-na-routerze.html">VPN na routerze</a></li>
-          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-        </ul>
-      </aside>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+    </div>
+  </section>
 
-      <p class="small disclaimer">Układ opcji różni się w zależności od modelu routera. Zawsze aktualizuj urządzenia i stosuj dobre praktyki haseł.</p>
-    </article>
-  </main>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: Wi-Fi — szybka checklista</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/wifi-checklista.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Checklista bezpieczeństwa Wi-Fi (dom i miejsca publiczne) — 2025",
+  "description":"Gotowa do odhaczenia checklista: jak zabezpieczyć domowe Wi-Fi i bezpiecznie korzystać z publicznych hot-spotów. Router, WPA3, hasła, sieć gościnna, VPN i testy.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-02",
+  "image":"https://dloran1.github.io/assets/img/hero/wifi-checklista.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/wifi-checklista.html"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"Checklista Wi-Fi","item":"https://dloran1.github.io/blog/wifi-checklista.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy wyłączać WPS w routerze?","acceptedAnswer":{"@type":"Answer","text":"Tak — WPS bywa podatny na ataki. Zamiast tego użyj silnego hasła i WPA3/WPA2-AES."}},
+    {"@type":"Question","name":"Czy sieć gościnna ma sens w domu?","acceptedAnswer":{"@type":"Answer","text":"Tak. Izoluje urządzenia gości od Twojej sieci domowej; włącz Client Isolation."}},
+    {"@type":"Question","name":"Jak bezpiecznie używać publicznego Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"Najlepiej łączyć się tylko z sieciami zabezpieczonymi hasłem i zawsze używać VPN z Kill Switch. Po zalogowaniu do captive portalu wyczyść cookies i dopiero włącz VPN."}},
+    {"@type":"Question","name":"Jak sprawdzić wycieki DNS?","acceptedAnswer":{"@type":"Answer","text":"Wykonaj test na serwisie typu ipleak.net. Jeśli widzisz DNS dostawcy VPN, jest OK. Szczegóły: poradnik „VPN DNS leak” na blogu."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (domowe Wi-Fi) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak zabezpieczyć domowe Wi-Fi (5 kroków)",
+  "description":"Szybka ścieżka konfiguracji domowego Wi-Fi.",
+  "tool":[{"@type":"HowToTool","name":"Panel administracyjny routera"},{"@type":"HowToTool","name":"Aplikacja VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Zaktualizuj router","text":"Wgraj najnowszy firmware i zmień domyślne hasło admina."},
+    {"@type":"HowToStep","name":"Ustaw WPA3","text":"Wybierz WPA3-Personal (lub WPA2-AES); wyłącz WPS."},
+    {"@type":"HowToStep","name":"Hasła i SSID","text":"Nadaj unikalny SSID i silne hasło do Wi-Fi."},
+    {"@type":"HowToStep","name":"Sieć gościnna","text":"Włącz izolację klientów i oddziel IoT na osobny SSID."},
+    {"@type":"HowToStep","name":"VPN na routerze","text":"Skonfiguruj VPN always-on lub używaj aplikacji VPN na urządzeniach."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"Wi-Fi — szybka checklista",
+  "description":"Najważniejsze kroki, aby zabezpieczyć Wi-Fi w domu i bezpiecznie korzystać z publicznego.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/wifi-checklista.webp",
+  "uploadDate":"2025-09-02",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/wifi-checklista.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3 z Product) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/wifi-checklista.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/wifi-checklista.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/wifi-checklista.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
