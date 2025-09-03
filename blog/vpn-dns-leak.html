@@ -3,153 +3,251 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Wycieki DNS (DNS Leak) — jak sprawdzić i naprawić w 2025</title>
-  <meta name="description" content="Czym jest wyciek DNS, jak go wykryć i jak naprawić na Windows, macOS, Android i iOS. Prosta checklista: test, WebRTC/IPv6, ustawienia klienta VPN i routera.">
-  <meta name="robots" content="index,follow">
+  <title>VPN a DNS leak — jak sprawdzić i się chronić?</title>
+  <meta name="description" content="DNS leak może ujawnić Twój prawdziwy adres IP mimo VPN. Sprawdź, jak wykryć wyciek DNS i jak się zabezpieczyć.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dns-leak.html">
+
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-dns-leak.webp" imagesrcset="/assets/img/hero/vpn-dns-leak.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Wycieki DNS (DNS Leak) — jak sprawdzić i naprawić">
-  <meta property="og:description" content="Test krok po kroku, typowe przyczyny (IPv6, WebRTC, split tunneling) i szybkie naprawy.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN a DNS leak — jak sprawdzić i się chronić?">
+  <meta property="og:description" content="Dowiedz się, czym jest DNS leak, jak go wykryć i jak się zabezpieczyć podczas korzystania z VPN.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dns-leak.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-dns-leak.webp">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-dns-leak.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Wycieki DNS (DNS Leak) — jak sprawdzić i naprawić">
-  <meta name="twitter:description" content="Prosty test + 8 szybkich napraw dla Windows/macOS/Android/iOS.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-dns-leak.webp">
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Wycieki DNS (DNS Leak) — jak sprawdzić i naprawić w 2025",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-08-31",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-dns-leak.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-dns-leak.webp"
-  }
-  </script>
+  <meta name="twitter:title" content="VPN a DNS leak — jak sprawdzić i się chronić?">
+  <meta name="twitter:description" content="Wyciek DNS może ujawnić Twój adres IP mimo VPN. Sprawdź jak się chronić.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-dns-leak.webp">
 
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN a DNS leak — jak sprawdzić i się chronić?</h1>
+
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-dns-leak.webp"
+         alt="VPN a DNS leak — jak sprawdzić i chronić się przed wyciekami"
+         width="1200" height="630" fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    <strong>DNS leak</strong> oznacza wyciek zapytań DNS poza tunel VPN. To poważny problem, bo może ujawnić Twój
+    <em>prawdziwy adres IP i odwiedzane strony</em>. Zobacz, jak sprawdzić wyciek i jak się zabezpieczyć.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#co-to">Czym jest DNS leak?</a></li>
+      <li><a href="#test">Jak sprawdzić wyciek DNS?</a></li>
+      <li><a href="#ochrona">Jak się chronić?</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Wycieki DNS (DNS Leak) — jak sprawdzić i naprawić</h1>
+  <section id="co-to">
+    <h2>Czym jest DNS leak?</h2>
+    <p>Każde połączenie z Internetem wymaga tłumaczenia adresów stron (DNS). Jeśli te zapytania trafiają do serwerów dostawcy Internetu zamiast do tunelu VPN, mamy <strong>DNS leak</strong>.</p>
+    <p>Oznacza to, że Twój operator wciąż widzi odwiedzane domeny — nawet gdy korzystasz z VPN.</p>
+    <p>Podobnie jak przy <a href="/blog/no-logs.html">polityce no-logs</a>, DNS leak wpływa na realną prywatność użytkownika.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-dns-leak.webp" alt="Test i naprawa wycieków DNS w VPN" width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="test">
+    <h2>Jak sprawdzić wyciek DNS?</h2>
+    <ol>
+      <li>Włącz VPN.</li>
+      <li>Wejdź na stronę testową np. <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>.</li>
+      <li>Porównaj adresy serwerów DNS z adresem IP serwera VPN.</li>
+    </ol>
+    <p>Jeśli widzisz DNS od swojego ISP — masz wyciek. Zobacz też poradnik: <a href="/blog/test-vpn.html">jak testować VPN</a>.</p>
+  </section>
 
-      <p><strong>Wyciek DNS</strong> to sytuacja, gdy Twoje zapytania DNS (czyli „jakie strony odwiedzasz”) trafiają poza tunel VPN — np. do DNS-a Twojego dostawcy internetu. Nawet jeśli IP jest ukryte, wyciek DNS może zdradzić Twoją aktywność i lokalizację.</p>
+  <section id="ochrona">
+    <h2>Jak się chronić?</h2>
+    <ul>
+      <li>Wybierz VPN z ochroną przed DNS leak (np. NordVPN, Surfshark).</li>
+      <li>Aktywuj <strong>Kill Switch</strong> w aplikacji (więcej: <a href="/blog/vpn-2fa-mfa.html">VPN a MFA/2FA</a>).</li>
+      <li>Ręcznie ustaw publiczne DNS-y (np. Cloudflare 1.1.1.1).</li>
+    </ul>
+  </section>
 
-      <section class="cta">
-        <h2>Szybka naprawa: DNS przez tunel</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN (ochrona przed DNS leak)</a>
-          <a class="btn btn-ghost" href="/blog/test-vpn.html">Checklista testu VPN</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Sprawdź NordVPN</a>
+  </section>
 
-      <h2>Jak szybko sprawdzić wyciek DNS</h2>
-      <ol>
-        <li>Połącz się z VPN (najlepiej protokołem <strong>WireGuard/NordLynx</strong>).</li>
-        <li>Wykonaj <strong>test DNS</strong> w przeglądarce (sprawdź, kto odpowiada na zapytania DNS).</li>
-        <li>Jeśli widzisz serwery DNS Twojego ISP, uczelni lub lokalne IP z sieci domowej — to <strong>wyciek</strong>.</li>
-      </ol>
-      <p>Więcej kontekstu i kompletna <em>procedura testowa</em> w artykule: <a href="/blog/test-vpn.html">Test VPN — checklista</a>.</p>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: 
+       <a href="/blog/vpn-dns-leak-test-i-ochrona.html">Test DNS leak i ochrona</a>, 
+       <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>, 
+       <a href="/blog/mity-o-vpn.html">Mity o VPN</a>
+    </p>
+  </aside>
 
-      <h2>Najczęstsze przyczyny DNS leak</h2>
-      <ul>
-        <li><strong>IPv6</strong> działa obok IPv4 i omija tunel VPN.</li>
-        <li><strong>WebRTC</strong> w przeglądarce ujawnia adresy (m.in. lokalne i czasem DNS).</li>
-        <li><strong>Split tunneling</strong> wysyła przeglądarkę poza VPN.</li>
-        <li><strong>Ustawienia routera</strong> wymuszają własny DNS (np. na poziomie DHCP lub DoH).</li>
-        <li><strong>Klient VPN bez ochrony DNS</strong> — brak wymuszenia serwerów DNS dostawcy VPN.</li>
-      </ul>
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>8 szybkich napraw (Windows / macOS / Android / iOS)</h2>
-      <ol>
-        <li><strong>Włącz ochronę DNS w kliencie VPN</strong> (opcja typu „DNS leak protection” / „Use VPN DNS”).</li>
-        <li><strong>Wyłącz IPv6</strong> w systemie/adapterze sieci, jeśli klient VPN nie obsługuje go w tunelu.</li>
-        <li><strong>WebRTC</strong>: w przeglądarce wyłącz/ogranicz WebRTC lub użyj rozszerzenia blokującego wycieki.</li>
-        <li><strong>Wyłącz split tunneling</strong> dla przeglądarki i aplikacji wrażliwych (lub dodaj je do listy „zawsze przez VPN”).</li>
-        <li><strong>Ustaw DNS ręcznie</strong> w systemie na adresy dostawcy VPN (jeśli taka opcja jest podana w aplikacji/panelu).</li>
-        <li><strong>Router</strong>: wyłącz „DNS rebind protection” wymuszający lokalny DNS, albo dopisz DNS dostawcy VPN do DHCP.</li>
-        <li><strong>DoH/DoT</strong> w przeglądarce: wyłącz lub ustaw tak, by używał DNS VPN zamiast globalnych (Cloudflare/Google).</li>
-        <li><strong>Restart</strong> klienta VPN i systemu po zmianach — zrób ponowny test.</li>
-      </ol>
+  <section id="video">
+    <h2>Wideo: DNS leak w praktyce</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-dns-leak.webp"
+           width="960" height="540" style="max-width:100%;border-radius:12px;">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>Instrukcje skrócone per system</h2>
-      <h3>Windows 10/11</h3>
-      <ul>
-        <li>Ustawienia klienta VPN: „Use VPN DNS” / „Prevent DNS leak”.</li>
-        <li>Wyłącz IPv6 w właściwościach karty sieciowej (jeśli klient nie obsługuje tunelowania IPv6).</li>
-        <li>Sprawdź, czy przeglądarka nie wymusza DoH poza VPN.</li>
-      </ul>
-      <h3>macOS</h3>
-      <ul>
-        <li>Preferencje sieci → kolejność usług: interfejs VPN nad Wi-Fi/Ethernet.</li>
-        <li>Wyłącz prywatny przekaźnik iCloud (iCloud Private Relay) na czas testów.</li>
-        <li>Jeśli trzeba, wyłącz IPv6 dla interfejsu (lub używaj klienta obsługującego IPv6).</li>
-      </ul>
-      <h3>Android</h3>
-      <ul>
-        <li>Używaj aplikacji dostawcy VPN z włączoną ochroną DNS.</li>
-        <li>Wyłącz „Prywatny DNS” systemowy, gdy koliduje (Ustawienia → Sieć → Prywatny DNS).</li>
-      </ul>
-      <h3>iOS/iPadOS</h3>
-      <ul>
-        <li>Włącz „Połącz zawsze przez VPN” (jeśli dostępne) w profilu dostawcy.</li>
-        <li>Wyłącz prywatny przekaźnik iCloud na czas testu.</li>
-      </ul>
+  <h2 id="top3">TOP-3 VPN</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — ochrona przed DNS leak, szybki WireGuard. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — MultiHop i zabezpieczenia. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile streaming/gaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-      <h2>Jak ponownie potwierdzić, że jest OK</h2>
-      <ol>
-        <li>Po zmianach zrestartuj aplikację VPN i przeglądarkę/system.</li>
-        <li>Połącz z VPN → powtórz <strong>test DNS</strong>.</li>
-        <li>Wynik prawidłowy: widzisz <strong>DNS z puli dostawcy VPN</strong> (nie ISP/uczelnia/router).</li>
-      </ol>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <section class="cta">
-        <h2>Chroń zapytania DNS jednym kliknięciem</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">NordVPN z ochroną DNS</a>
-          <a class="btn btn-ghost" href="/blog/jaki-serwer-vpn.html">Dobór najlepszego serwera</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/test-vpn.html">Test VPN — checklista</a></li>
-          <li><a href="/blog/jaki-serwer-vpn.html">Jaki serwer VPN wybrać?</a></li>
-          <li><a href="/blog/no-logs.html">Polityka no-logs — co to znaczy?</a></li>
-          <li><a href="/blog/vpn-2fa-mfa.html">VPN + 2FA/MFA</a></li>
-          <li><a href="/blog/vpn-netflix-polska.html">VPN i Netflix — wskazówki</a></li>
-          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-        </ul>
-      </aside>
-    </article>
-  </main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN a DNS leak — jak sprawdzić i się chronić?",
+  "description":"DNS leak może ujawnić Twój prawdziwy adres IP mimo VPN. Sprawdź, jak wykryć wyciek DNS i jak się zabezpieczyć.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-dns-leak.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dns-leak.html"
+}
+</script>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"VPN a DNS leak","item":"https://dloran1.github.io/blog/vpn-dns-leak.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Co to jest DNS leak?","acceptedAnswer":{"@type":"Answer","text":"DNS leak oznacza, że zapytania DNS trafiają poza tunel VPN, ujawniając odwiedzane strony."}},
+    {"@type":"Question","name":"Jak sprawdzić DNS leak?","acceptedAnswer":{"@type":"Answer","text":"Najprościej wejść na stronę testową np. ipleak.net i porównać widoczne serwery DNS."}},
+    {"@type":"Question","name":"Jak chronić się przed DNS leak?","acceptedAnswer":{"@type":"Answer","text":"Używaj VPN z wbudowaną ochroną, aktywuj Kill Switch i sprawdzaj połączenia testem DNS."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak sprawdzić DNS leak",
+  "description":"Prosta instrukcja sprawdzania DNS leak podczas korzystania z VPN.",
+  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Włącz VPN","text":"Uruchom aplikację i połącz się z serwerem."},
+    {"@type":"HowToStep","name":"Przejdź na stronę testową","text":"Wejdź np. na ipleak.net."},
+    {"@type":"HowToStep","name":"Zweryfikuj DNS","text":"Sprawdź, czy widoczne są DNS serwera VPN, a nie Twojego ISP."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: Video -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"DNS leak w praktyce",
+  "description":"Szybkie wyjaśnienie czym jest DNS leak i jak się chronić.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-dns-leak.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-dns-leak.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/vpn-dns-leak.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/vpn-dns-leak.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/vpn-dns-leak.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
