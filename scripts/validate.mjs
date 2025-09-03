@@ -9,11 +9,11 @@ const missing = [];
 for (const p of posts) {
   for (const k of ['slug','thumb','hero']) {
     const v = p[k];
-    const local = v.startsWith('/') ? `.{v}`.replace('{v}', v) : `./{v}`.replace('{v}', v);
+    const local = v.startsWith('/') ? `.${v}` : `./${v}`;
     try { await fs.access(local); }
     catch { missing.push({slug:p.slug, field:k, path:local}); }
   }
-  const fp = p.slug.startsWith('/') ? `.{p}`.replace('{p}', p.slug) : `./{p}`.replace('{p}', p.slug);
+  const fp = p.slug.startsWith('/') ? `.${p.slug}` : `./${p.slug}`;
   try { await fs.access(fp); }
   catch { missing.push({slug:p.slug, field:'file', path:fp}); }
 }
