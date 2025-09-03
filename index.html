@@ -2,21 +2,26 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Blog o VPN</title>
+  <title>Blog o VPN — BUILD v3</title>
   <meta name="description" content="Artykuły o VPN, bezpieczeństwie online i prywatności.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
+  <style>
+    .build-banner{background:#ffd100;color:#111;padding:8px 12px;border-radius:10px;display:inline-block;font-weight:700;margin:8px 0}
+    .muted{color:#9aa4b2}
+  </style>
 </head>
 <body>
   <div class="wrap">
+    <div class="build-banner">BUILD v3 — если вы это видите, главная обновилась</div>
     <h1>Blog</h1>
+    <p class="muted">Ta strona ładuje <code>data/posts.json</code> i (jeśli potrzeba) dociąga opis prosto z HTML artykułu.</p>
     <input id="q" type="search" placeholder="Szukaj po tytule/opisie…">
     <div id="posts" class="grid"></div>
   </div>
 
   <script>
   (async () => {
-    // --- helpers ---
     const esc = s => (s||'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
     const PLACEHOLDER = /Treść artykułu do uzupełnienia|Opis do uzupełnienia|Czytaj więcej/i;
     const trimDesc = t => {
@@ -24,28 +29,21 @@
       return d ? (d.length > 160 ? d.slice(0,157) + '…' : d) : 'Czytaj więcej →';
     };
 
-    // вытянуть первый <p> из <article> на странице статьи
     async function fetchDescFromHtml(slug){
       try{
-        const res = await fetch('/' + slug + '?v=' + Date.now(), { cache: 'no-store' });
-        if (!res.ok) return '';
+        const url = '/' + slug.replace(/^\/+/,'') + '?v=' + Date.now();
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) { console.warn('HTML fetch fail', slug, res.status); return ''; }
         const html = await res.text();
-
-        // вырежем <script>/<style>, чтобы они не мешали
-        const noCode = html
-          .replace(/<script[\s\S]*?<\/script>/gi,'')
-          .replace(/<style[\s\S]*?<\/style>/gi,'');
-
+        const noCode = html.replace(/<script[\s\S]*?<\/script>/gi,'').replace(/<style[\s\S]*?<\/style>/gi,'');
         const article = (noCode.match(/<article[\s\S]*?<\/article>/i)||[])[0] || noCode;
-        let p = (article.match(/<p[^>]*>([\s\S]*?)<\/p>/i)||[])[1] ||
-                (noCode.match(/<p[^>]*>([\s\S]*?)<\/p>/i)||[])[1] || '';
-        // убираем теги
+        let p = (article.match(/<p[^>]*>([\s\S]*?)<\/p>/i)||[])[1] || (noCode.match(/<p[^>]*>([\s\S]*?)<\/p>/i)||[])[1] || '';
         p = p.replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
         return trimDesc(p);
-      }catch(e){ return ''; }
+      }catch(e){ console.error('HTML fetch err', slug, e); return ''; }
     }
 
-    // --- загрузка manifest ---
+    // загружаем manifest без кэша
     const res = await fetch('/data/posts.json?v=' + Date.now(), { cache: 'no-store' });
     const all = await res.json();
     const posts = all.filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
@@ -53,8 +51,8 @@
     const container = document.getElementById('posts');
     const q = document.getElementById('q');
 
-    function card(p, idx){
-      const id = 'desc-' + idx;
+    function card(p, i){
+      const id = 'desc-' + i;
       const desc = trimDesc(p.desc);
       return `
         <article class="card">
@@ -70,29 +68,31 @@
             <p class="card-desc" id="${id}">${esc(desc)}</p>
           </div>
           <div class="card-footer"><a class="btn" href="/${p.slug}">Czytaj</a></div>
-        </article>
-      `;
-    }
-
-    async function hydrateMissingDescs(list){
-      // для карточек с пустым/заглушкой — дотягиваем из HTML
-      await Promise.all(list.map(async (p, i) => {
-        const current = (p.desc||'').toString();
-        if (!current.trim() || PLACEHOLDER.test(current)) {
-          const desc = await fetchDescFromHtml(p.slug);
-          if (desc) {
-            const el = document.getElementById('desc-' + i);
-            if (el) el.textContent = desc;
-          }
-        }
-      }));
+        </article>`;
     }
 
     function render(list){
       const sorted = [...list].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
       container.innerHTML = sorted.map((p,i)=>card(p,i)).join('');
-      hydrateMissingDescs(sorted);
+      hydrate(sorted);
       if (!sorted.length) container.innerHTML = '<p>Nic nie znaleziono.</p>';
+    }
+
+    async function hydrate(list){
+      await Promise.all(list.map(async (p, i) => {
+        const cur = (p.desc||'').toString();
+        if (!cur.trim() || PLACEHOLDER.test(cur)) {
+          console.log('[AUTO] try fetch desc from:', p.slug);
+          const newDesc = await fetchDescFromHtml(p.slug);
+          if (newDesc) {
+            const el = document.getElementById('desc-' + i);
+            if (el) { el.textContent = newDesc + ' (auto)'; }
+            console.log('[AUTO] ok:', p.slug);
+          } else {
+            console.log('[AUTO] no-desc:', p.slug);
+          }
+        }
+      }));
     }
 
     function apply(){
