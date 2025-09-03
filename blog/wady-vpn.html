@@ -3,156 +3,341 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Wady VPN — uczciwie o minusach i jak je ograniczyć (2025)</title>
-  <meta name="description" content="VPN ma też wady: spadek prędkości, kaprysy serwisów VOD/banków, CAPTCHy, wycieki DNS/WebRTC, problemy w hotelowym Wi-Fi. Zobacz, jak je zminimalizować w praktyce.">
-  <meta name="robots" content="index,follow">
+  <title>Wady VPN — na co uważać i jak je minimalizować (2025)</title>
+  <meta name="description" content="Poznaj realne wady VPN: spadek prędkości, blokady VOD, zaufanie do dostawcy, problemy z płatnościami, captche i inne. Podpowiadamy, jak je zminimalizować.">
   <link rel="canonical" href="https://dloran1.github.io/blog/wady-vpn.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/wady-vpn.webp" imagesrcset="/assets/img/hero/wady-vpn.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Wady VPN — uczciwie o minusach i jak je ograniczyć">
-  <meta property="og:description" content="Spadek prędkości, blokady serwisów, CAPTCHy, wycieki — praktyczne obejścia i ustawienia.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Wady VPN — na co uważać i jak je minimalizować (2025)">
+  <meta property="og:description" content="Najczęstsze minusy VPN i praktyczne sposoby na ich obejście: prędkość, VOD, płatności, zaufanie do dostawcy, captche i inne.">
   <meta property="og:url" content="https://dloran1.github.io/blog/wady-vpn.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/wady-vpn.webp">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/wady-vpn.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Wady VPN — uczciwie o minusach i jak je ograniczyć">
-  <meta name="twitter:description" content="Lista realnych minusów i szybkie sposoby na ich obejście.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/wady-vpn.webp">
+  <meta name="twitter:title" content="Wady VPN — na co uważać i jak je minimalizować (2025)">
+  <meta name="twitter:description" content="Praktyczny przewodnik po minusach VPN i ich obejściach.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/wady-vpn.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Wady VPN — uczciwie o minusach i jak je ograniczyć (2025)",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/wady-vpn.html"},
-    "image":"https://dloran1.github.io/assets/img/wady-vpn.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img,.author__media img,.post img{ display:block; max-width:100%; height:auto; border-radius:12px; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+    .table{ width:100%; border-collapse:collapse }
+    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.6rem .8rem; vertical-align:top }
+    .table caption{ caption-side:top; font-weight:700; margin-bottom:.4rem }
+    .toc a{text-decoration:underline}
+    .note{opacity:.9}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Wady VPN — na co uważać i jak je minimalizować</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/wady-vpn.webp"
+      alt="Wady VPN — przegląd najczęstszych problemów i rozwiązań"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    VPN rozwiązuje wiele problemów prywatności i dostępu, ale ma też <strong>realne wady</strong>.
+    Poniżej znajdziesz listę najczęstszych minusów i <em>praktyczne obejścia</em> — tak, aby korzystać z VPN świadomie.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#szybkosc">Spadek prędkości i ping</a></li>
+      <li><a href="#vod">Blokady VOD i treści</a></li>
+      <li><a href="#zaufanie">Zaufanie do dostawcy (no-logs)</a></li>
+      <li><a href="#banki">Problemy z bankowością i płatnościami</a></li>
+      <li><a href="#captcha">CAPTCHA, blokady IP i reputacja adresów</a></li>
+      <li><a href="#zgodnosc">Zgodność z aplikacjami/urządzeniami</a></li>
+      <li><a href="#koszt">Koszt i zarządzanie subskrypcją</a></li>
+      <li><a href="#checklista">Checklist: jak minimalizować wady</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#video">Wideo</a></li>
+      <li><a href="#top3">TOP-3 VPN 2025</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Wady VPN — uczciwie o minusach i jak je ograniczyć</h1>
+  <section id="szybkosc">
+    <h2>Spadek prędkości i ping</h2>
+    <p>VPN dodaje warstwę szyfrowania i „objazd” przez serwer, więc <strong>prędkość może spaść</strong>, a <strong>ping wzrosnąć</strong>.
+      Skala zależy od odległości do serwera, przeciążenia i protokołu.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> wybierz <em>WireGuard</em>, najbliższy serwer, unikaj godzin szczytu.</li>
+      <li>Wykonaj pomiary: <a href="/blog/vpn-szybkosc-test.html">Jak testować szybkość VPN</a>.</li>
+      <li>Optymalizacja klienta: <a href="/blog/vpn-optymalne-ustawienia.html">optymalne ustawienia VPN</a>.</li>
+    </ul>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/wady-vpn.webp"
-             alt="Wady korzystania z VPN i sposoby ich ograniczania"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="vod">
+    <h2>Blokady VOD i treści</h2>
+    <p>Platformy streamingowe aktywnie wykrywają i blokują IP należące do VPN, co skutkuje komunikatami o błędzie lub
+      ograniczonym katalogiem.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> zmień serwer/kraj, wyczyść cookies, używaj profili „streaming”.
+        Praktyka: <a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a>,
+        <a href="/blog/vpn-netflix-polska.html">VPN i Netflix PL</a>.</li>
+    </ul>
+  </section>
 
-      <p><strong>VPN</strong> daje sporo korzyści, ale ma też <strong>realne wady</strong>. Dobra wiadomość: większość z nich da się ograniczyć odpowiednimi ustawieniami. Poniżej lista problemów i gotowe obejścia.</p>
+  <section id="zaufanie">
+    <h2>Zaufanie do dostawcy (no-logs)</h2>
+    <p>VPN po prostu zastępuje zaufanie wobec operatora — <strong>musisz ufać dostawcy VPN</strong>. Dlatego ważna jest polityka
+      <em>no-logs</em>, audyty i transparentność.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> wybieraj sprawdzonych dostawców z audytami i przejrzystymi zasadami:
+        <a href="/blog/no-logs.html">co oznacza no-logs</a>.</li>
+      <li>Rozważ <a href="/blog/vpn-double-vpn.html">Double VPN</a> lub <a href="/blog/vpn-proxy-vs-vpn.html">porównanie Proxy vs VPN</a> pod kątem modelu zaufania.</li>
+    </ul>
+  </section>
 
-      <section class="cta">
-        <h2>Chcesz rozwiązanie z minimalnymi problemami?</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/zalety-vpn.html">Zalety VPN</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty dla Ciebie.</p>
-      </section>
+  <section id="banki">
+    <h2>Bankowość i płatności</h2>
+    <p>Logowanie z innego kraju/IP może wywołać alert bezpieczeństwa lub odmowę płatności.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> łącz się przez <strong>serwer w Polsce</strong> lub użyj funkcji
+        <a href="/blog/vpn-split-tunneling.html">Split Tunneling</a>, by bank działał poza VPN.
+        Zobacz też: <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość online</a>.</li>
+    </ul>
+  </section>
 
-      <h2>1) Spadek prędkości i wyższy ping</h2>
-      <p><em>Dlaczego?</em> Szyfrowanie i dodatkowy „skok” przez serwer VPN. <em>Jak ograniczyć?</em></p>
-      <ul>
-        <li>Użyj <strong>WireGuard/NordLynx</strong> zamiast OpenVPN TCP.</li>
-        <li>Wybierz <strong>najbliższy serwer</strong> w PL/UE; testuj kilka (<a href="/blog/vpn-szybkosc-test.html">procedura testów</a>).</li>
-        <li>Przełącz na <strong>Ethernet / Wi-Fi 5 GHz</strong>; zamknij aplikacje w tle.</li>
-        <li>Rozważ <a href="/blog/vpn-split-tunneling.html">split tunneling</a> dla ciężkich aplikacji.</li>
-      </ul>
+  <section id="captcha">
+    <h2>CAPTCHA, blokady IP i reputacja adresów</h2>
+    <p>Współdzielone adresy VPN bywają na listach antyspamowych, co skutkuje <strong>nadmiarem CAPTCHA</strong> lub blokadą formularzy.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> przełącz lokalizację/serwer, użyj <strong>dedykowanego IP</strong>:
+        <a href="/blog/vpn-dedykowany-ip.html">VPN z dedykowanym adresem IP</a>.</li>
+    </ul>
+  </section>
 
-      <h2>2) Blokady VOD/serwisów, CAPTCHy</h2>
-      <p><em>Dlaczego?</em> Część usług blokuje współdzielone IP; bot-protection wyświetla CAPTCHA. <em>Obejścia:</em></p>
-      <ul>
-        <li>Zmień serwer/kraj; wybieraj lokalizacje zalecane do <a href="/blog/vpn-geoblokady.html">VOD</a>.</li>
-        <li>Wyczyść cookies/LocalStorage przeglądarki; użyj profilu „czystego”.</li>
-        <li>Rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany adres IP</a> u dostawcy VPN.</li>
-      </ul>
+  <section id="zgodnosc">
+    <h2>Zgodność z aplikacjami i urządzeniami</h2>
+    <p>Niektóre aplikacje VoIP/gry mają anty-cheat/anty-proxy; na Smart TV lub konsolach nie zainstalujesz klienta VPN natywnie.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> konfiguracja na <a href="/blog/vpn-na-routerze.html">routerze</a> lub
+        <a href="/blog/vpn-dla-smart-tv.html">Smart TV</a>; w grach rozważ <a href="/blog/vpn-split-tunneling.html">Split Tunneling</a>.</li>
+      <li>Poradniki platformowe: <a href="/blog/vpn-windows-konfiguracja.html">Windows</a>,
+        <a href="/blog/vpn-android-konfiguracja.html">Android</a>, <a href="/blog/vpn-iphone-konfiguracja.html">iPhone</a>,
+        <a href="/blog/vpn-linux-konfiguracja.html">Linux</a>, <a href="/blog/vpn-na-mac.html">macOS</a>.</li>
+    </ul>
+  </section>
 
-      <h2>3) Problemy z bankowością i wrażliwymi serwisami</h2>
-      <p><em>Dlaczego?</em> Logowania z wielu krajów wyglądają podejrzanie. <em>Rozwiązania:</em></p>
-      <ul>
-        <li>Używaj <strong>polskich/stałych</strong> lokalizacji; włącz <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a>.</li>
-        <li>W razie potrzeby wyklucz bank w <a href="/blog/vpn-split-tunneling.html">split tunneling</a>.</li>
-        <li>Przy firmowych panelach — whitelisty i/lub <a href="/blog/vpn-dedykowany-ip.html">dedykowane IP</a>.</li>
-      </ul>
+  <section id="koszt">
+    <h2>Koszt i zarządzanie subskrypcją</h2>
+    <p>Dobry VPN kosztuje (choć w planach długich relatywnie niewiele). Darmowe alternatywy zwykle mają limity i gorszą prywatność.</p>
+    <ul>
+      <li><strong>Jak zminimalizować:</strong> wybierz plan długoterminowy, poluj na promo; porównanie:
+        <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</li>
+    </ul>
+  </section>
 
-      <h2>4) Wyciek DNS/WebRTC (przeglądarka)</h2>
-      <p><em>Dlaczego?</em> System lub przeglądarka wysyła zapytania poza tunel. <em>Jak naprawić?</em></p>
-      <ul>
-        <li>Włącz ochronę w aplikacji VPN; używaj DNS dostawcy.</li>
-        <li>W przeglądarce zablokuj WebRTC lub ogranicz jego „leaki”.</li>
-        <li>Sprawdź test: <a href="/blog/vpn-dns-leak.html">DNS leak — jak wykryć</a>.</li>
-      </ul>
+  <section id="checklista">
+    <h2>Checklist: jak minimalizować wady</h2>
+    <ol>
+      <li>Wybierz dostawcę z <a href="/blog/no-logs.html">no-logs</a>, audytami i Kill Switch:
+        <a href="/blog/vpn-kill-switch.html">jak działa Kill Switch</a>.</li>
+      <li>Ustaw <em>WireGuard</em>, najbliższy serwer; porównaj z <a href="/blog/wireguard-vs-openvpn.html">OpenVPN</a>.</li>
+      <li>Streaming? Zobacz <a href="/blog/vpn-netflix-polska.html">VPN i Netflix PL</a> oraz <a href="/blog/vpn-geoblokady.html">geoblokady</a>.</li>
+      <li>Bankowość? <a href="/blog/vpn-bankowosc-online.html">Zasady bezpiecznego logowania</a>.</li>
+      <li>Walcz z CAPTCHA przez zmianę węzła lub <a href="/blog/vpn-dedykowany-ip.html">dedykowane IP</a>.</li>
+      <li>Test połączenia: IP/DNS i szybkość — patrz <a href="/blog/vpn-dns-leak.html">DNS leak</a> i
+        <a href="/blog/vpn-szybkosc-test.html">speed test</a>.</li>
+    </ol>
+  </section>
 
-      <h2>5) Problemy z captive portal (hotel/kawiarnia)</h2>
-      <p><em>Objaw:</em> strona logowania Wi-Fi nie ładuje się przez VPN. <em>Co robić?</em></p>
-      <ul>
-        <li>Połącz z Wi-Fi → zaakceptuj portal → <strong>włącz VPN ponownie</strong>.</li>
-        <li>Jeśli portal wraca, użyj serwera bliżej i sprawdź <a href="/blog/vpn-publiczne-wifi.html">poradnik</a>.</li>
-      </ul>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Sprawdź NordVPN</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — dobra cena</a>
+  </section>
 
-      <h2>6) Zgodność z aplikacjami/gra</h2>
-      <p>Niektóre gry, VoIP lub aplikacje P2P mogą działać gorzej.</p>
-      <ul>
-        <li>Zmień protokół: WG ⇄ OpenVPN UDP ⇄ TCP; testuj porty/serwery.</li>
-        <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a> dla konkretnej aplikacji.</li>
-        <li>Dla P2P: rozważ <a href="/blog/vpn-port-forwarding.html">port forwarding</a> (ostrożnie!).</li>
-      </ul>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Podstawy: <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a>,
+       <a href="/blog/proxy-vs-vpn.html">Proxy vs VPN</a> (alias: <a href="/blog/vpn-proxy-vs-vpn.html">VPN vs Proxy</a>),
+       <a href="/blog/mity-o-vpn.html">Mity o VPN</a></p>
+  </aside>
 
-      <h2>7) Prywatność ≠ anonimowość absolutna</h2>
-      <p>VPN zwiększa prywatność, ale nie zastąpi higieny: aktualizacji, haseł, MFA i rozsądku.</p>
-      <ul>
-        <li>Wybieraj dostawców z <a href="/blog/no-logs.html">no-logs</a> i dobrą reputacją.</li>
-        <li>Unikaj logowania na to samo konto z wielu krajów „co chwilę”.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <section class="cta">
-        <h2>Konfiguracja z minimalnymi wadami — gotowy zestaw</h2>
-        <ul class="cta-list">
-          <li>Protokół: <strong>WireGuard/NordLynx</strong></li>
-          <li>Serwer: <strong>najbliższy</strong> (PL/UE) lub dedykowany IP</li>
-          <li><strong>Kill Switch</strong> + ochrona <a href="/blog/vpn-dns-leak.html">DNS/WebRTC</a></li>
-          <li><a href="/blog/vpn-split-tunneling.html">Split tunneling</a> dla wrażliwych aplikacji</li>
-        </ul>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Pobierz NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a>
-        </div>
-      </section>
+  <!-- Wideo -->
+  <section id="video">
+    <h2>Wideo: wady VPN — szybkie wyjaśnienie</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/wady-vpn.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/zalety-vpn.html">Zalety VPN</a></li>
-          <li><a href="/blog/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-          <li><a href="/blog/vpn-publiczne-wifi.html">Publiczne Wi-Fi z VPN</a></li>
-          <li><a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-          <li><a href="/blog/vpn-dedykowany-ip.html">Dedykowany adres IP</a></li>
-        </ul>
-      </aside>
+  <h2 id="top3">TOP-3 VPN 2025</h2>
+  <ol class="product-mini">
+    <li><strong>NordVPN</strong> — szybki, stabilny, dobre profile streaming. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>Surfshark</strong> — nieograniczone urządzenia, bardzo dobry stosunek cena/jakość. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
+    <li><strong>CyberGhost</strong> — profile pod streaming/gaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
+  </ol>
 
-      <p class="small disclaimer">Materiał edukacyjny. Zawsze korzystaj z VPN zgodnie z prawem i regulaminami usług.</p>
-    </article>
-  </main>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Wady VPN — na co uważać i jak je minimalizować (2025)",
+  "description":"Najczęstsze minusy VPN i praktyczne sposoby na ich obejście: prędkość, VOD, płatności, zaufanie do dostawcy, captche i inne.",
+  "datePublished":"2025-09-03",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/wady-vpn.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/wady-vpn.html"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+    {"@type":"ListItem","position":3,"name":"Wady VPN","item":"https://dloran1.github.io/blog/wady-vpn.html"}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy VPN zawsze spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Nie zawsze. Dodatkowa latencja i spadek prędkości to norma, ale przy protokole WireGuard i bliskim serwerze różnica bywa niewielka."}},
+    {"@type":"Question","name":"Dlaczego VOD czasem nie działa na VPN?","acceptedAnswer":{"@type":"Answer","text":"Platformy blokują adresy IP VPN. Zmień serwer/kraj, wyczyść cookies lub użyj profilu streaming."}},
+    {"@type":"Question","name":"Czy mogę ufać dostawcy VPN?","acceptedAnswer":{"@type":"Answer","text":"Wybieraj usługi z polityką no-logs i audytami. Transparentność i renoma mają kluczowe znaczenie."}},
+    {"@type":"Question","name":"Czy VPN utrudnia bankowość online?","acceptedAnswer":{"@type":"Answer","text":"Może wywołać dodatkowe weryfikacje. Połącz się z serwerem w kraju banku lub użyj Split Tunneling dla aplikacji bankowej."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (ograniczanie wad) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "inLanguage":"pl-PL",
+  "name":"Jak ograniczyć wady VPN",
+  "description":"Krótka lista kroków, które zmniejszą minusy VPN.",
+  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
+  "step":[
+    {"@type":"HowToStep","name":"Ustaw protokół i serwer","text":"Wybierz WireGuard i najbliższą lokalizację (PL/UE)."},
+    {"@type":"HowToStep","name":"Włącz Kill Switch","text":"Zabezpiecza przed wyciekiem IP przy zerwaniu połączenia."},
+    {"@type":"HowToStep","name":"Testuj połączenie","text":"Sprawdź IP/DNS (ipleak.net) i wykonaj speed test."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"Wady VPN — szybkie wyjaśnienie",
+  "description":"Najczęstsze minusy VPN i jak je zminimalizować.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/wady-vpn.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/wady-vpn.html#video"
+}
+</script>
+
+<!-- JSON-LD: ItemList (TOP-3) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"TOP-3 VPN 2025",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{
+      "@type":"Product","name":"NordVPN",
+      "brand":{"@type":"Brand","name":"NordVPN"},
+      "url":"https://dloran1.github.io/blog/wady-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":2,"item":{
+      "@type":"Product","name":"Surfshark",
+      "brand":{"@type":"Brand","name":"Surfshark"},
+      "url":"https://dloran1.github.io/blog/wady-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+    }},
+    {"@type":"ListItem","position":3,"item":{
+      "@type":"Product","name":"CyberGhost",
+      "brand":{"@type":"Brand","name":"CyberGhost"},
+      "url":"https://dloran1.github.io/blog/wady-vpn.html#top3",
+      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
+    }}
+  ]
+}
+</script>
+
 </body>
 </html>
