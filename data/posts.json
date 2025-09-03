@@ -21,10 +21,14 @@
   },
   {
     "slug": "articles/darmowe-vs-platne-vpn.html",
-    "title": "Darmowe Vs Platne Vpn",
-    "desc": "Opis do uzupełnienia.",
+    "title": "Darmowe vs Płatne VPN — co wybrać w 2025?",
+    "desc": "Porównanie darmowych i płatnych VPN: szybkość, bezpieczeństwo, limity, prywatność i kiedy darmowy ma sens.",
     "date": "2025-09-03",
-    "tags": [],
+    "tags": [
+      "porównanie",
+      "bezpieczeństwo",
+      "VPN"
+    ],
     "thumb": "/assets/img/thumbs/darmowe-vs-platne-vpn.webp",
     "hero": "/assets/img/hero/darmowe-vs-platne-vpn.webp",
     "status": "published"
