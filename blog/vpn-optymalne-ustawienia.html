@@ -3,141 +3,205 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Optymalne ustawienia VPN — szybkość i bezpieczeństwo</title>
-  <meta name="description" content="Jakie ustawienia VPN wybrać? WireGuard czy OpenVPN, TCP czy UDP, Kill Switch, Auto-connect, Split Tunneling, DNS i zaciemnianie. Praktyczna konfiguracja dla Polski.">
-  <meta name="robots" content="index,follow">
+  <title>VPN — optymalne ustawienia (2025): szybkość, prywatność, streaming</title>
+  <meta name="description" content="Najlepsze ustawienia VPN na 2025: protokół, serwer, Kill Switch, DNS, split tunneling. Profile dla VOD, gier i prywatności + checklista i FAQ.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-optymalne-ustawienia.webp" imagesrcset="/assets/img/hero/vpn-optymalne-ustawienia.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Optymalne ustawienia VPN — szybkość i bezpieczeństwo">
-  <meta property="og:description" content="Prosty przewodnik po ustawieniach: protokół, Kill Switch, split tunneling, DNS i więcej.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN — optymalne ustawienia (2025)">
+  <meta property="og:description" content="Protokół, serwer, Kill Switch, DNS, split tunneling. Profile dla VOD, gier i prywatności.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-optymalne-ustawienia.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Optymalne ustawienia VPN — szybkość i bezpieczeństwo">
-  <meta name="twitter:description" content="Jak ustawić VPN dla najlepszego balansu między prędkością i ochroną.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-optymalne-ustawienia.webp">
+  <meta name="twitter:title" content="VPN — optymalne ustawienia (2025)">
+  <meta name="twitter:description" content="Najlepsze ustawienia VPN: szybkość, prywatność, streaming.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Optymalne ustawienia VPN — szybkość i bezpieczeństwo",
-    "author": { "@type": "Person", "name": "VPN Polska" },
-    "publisher": { "@type": "Organization", "name": "VPN Polska" },
-    "datePublished": "2025-09-01",
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html" },
-    "image": "https://dloran1.github.io/assets/img/vpn-optymalne-ustawienia.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
+    figure.article-hero{ margin:0; }
+    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
+    .table{ width:100%; border-collapse:collapse }
+    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.65rem .8rem; vertical-align:top }
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN — optymalne ustawienia (2025)</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/vpn-optymalne-ustawienia.webp"
+      alt="Optymalne ustawienia VPN – prędkość, prywatność, streaming"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    Ten poradnik pokazuje <strong>jak ustawić VPN</strong> pod trzy główne cele: <em>VOD/streaming</em>, <em>gry</em> i <em>prywatność</em>.
+    Po drodze podlinkujemy krótkie instrukcje: 
+    <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, 
+    <a href="/blog/jaki-serwer-vpn.html">jaki serwer wybrać</a> oraz 
+    <a href="/blog/vpn-kill-switch.html">co to jest Kill Switch</a>.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- Spis treści -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#kroki">Szybkie kroki</a></li>
+      <li><a href="#profile">Profile ustawień</a></li>
+      <li><a href="#tabela">Tabela ustawień</a></li>
+      <li><a href="#zaawansowane">Ustawienia zaawansowane</a></li>
+      <li><a href="#diagnostyka">Diagnostyka i testy</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>Optymalne ustawienia VPN — szybkość i bezpieczeństwo</h1>
+  <section id="kroki">
+    <h2>Szybkie kroki</h2>
+    <ol>
+      <li><strong>Protokół:</strong> zacznij od <a href="/blog/wireguard-vs-openvpn.html">WireGuard</a>. Jeśli coś nie działa — OpenVPN UDP.</li>
+      <li><strong>Serwer:</strong> wybierz <a href="/blog/jaki-serwer-vpn.html">najbliższą lokalizację</a> lub konkretny kraj pod VOD.</li>
+      <li><strong>Kill Switch:</strong> włącz — opisaliśmy go w <a href="/blog/vpn-kill-switch.html">tym poradniku</a>.</li>
+      <li><strong>DNS:</strong> używaj DNS dostawcy, sprawdzaj <a href="/blog/vpn-dns-leak.html">DNS leak</a>.</li>
+      <li><strong>Split tunneling:</strong> opcjonalnie wyklucz aplikacje (np. bankowość).</li>
+    </ol>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-optymalne-ustawienia.webp"
-             alt="Optymalne ustawienia VPN"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="profile">
+    <h2>Profile ustawień</h2>
+    <h3>Streaming / VOD</h3>
+    <p>Protokół: WireGuard, serwer PL/US/UK. W razie problemów zmień lokalizację i <em>wyczyść cookies</em>. Zobacz: <a href="/blog/vpn-netflix-polska.html">VPN i Netflix</a>.</p>
 
-      <p>Konfiguracja VPN może być prosta, jeśli wiesz, które opcje naprawdę mają znaczenie. Poniżej krótki przewodnik, jak ustawić VPN, aby uzyskać najlepszy balans między <strong>prędkością</strong> a <strong>ochroną</strong>.</p>
+    <h3>Gry online</h3>
+    <p>Protokół: WireGuard lub OpenVPN UDP. Serwer: najbliżej serwera gry (często DE/NL). Więcej: <a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a>.</p>
 
-      <section class="cta">
-        <h2>Chcesz gotowe, szybkie ustawienia?</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/test-vpn.html">Sprawdź prędkość VPN</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty.</p>
-      </section>
+    <h3>Prywatność</h3>
+    <p>Protokół: WireGuard / OpenVPN TCP. Serwer: PL/DE/NL. Opcje: Kill Switch, brak split tunneling. Zobacz też: <a href="/blog/no-logs.html">VPN no-logs</a>.</p>
+  </section>
 
-      <h2>1) Protokół: <span class="nowrap">WireGuard</span> / NordLynx vs OpenVPN</h2>
-      <ul>
-        <li><strong>WireGuard / NordLynx</strong> — zwykle najszybszy i stabilny. Dobry wybór na co dzień, streaming i gry.</li>
-        <li><strong>OpenVPN UDP</strong> — alternatywa, gdy dany serwer działa szybciej lub potrzebujesz kompatybilności.</li>
-        <li><strong>OpenVPN TCP</strong> — gdy sieć jest niestabilna lub zrywa połączenia (bardziej „odporny”, ale wolniejszy).</li>
-      </ul>
+  <section id="tabela">
+    <h2>Tabela ustawień</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Zastosowanie</th><th>Protokół</th><th>Serwer</th><th>Opcje</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>VOD</td><td>WireGuard</td><td>PL/US/UK</td><td>Wyczyszczone cookies</td></tr>
+        <tr><td>Gry</td><td>WireGuard/UDP</td><td>DE/NL</td><td>Brak split tunneling</td></tr>
+        <tr><td>Prywatność</td><td>WireGuard/TCP</td><td>PL/DE/NL</td><td>Kill Switch ON</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-      <h2>2) Lokalizacja serwera</h2>
-      <ul>
-        <li><strong>Najbliżej geograficznie</strong> = zwykle najlepsza prędkość i ping.</li>
-        <li>Dla VOD wybierz kraj <strong>katalogu</strong> (np. PL/US/UK) — patrz artykuł o <a href="/blog/vpn-netflix-polska.html">VPN i Netflix</a>.</li>
-      </ul>
+  <section id="zaawansowane">
+    <h2>Ustawienia zaawansowane</h2>
+    <ul>
+      <li><strong>Threat blocking:</strong> wyłącz przy problemach z VOD.</li>
+      <li><strong>Double VPN:</strong> dla prywatności kosztem prędkości — zobacz <a href="/blog/vpn-double-vpn.html">opis</a>.</li>
+      <li><strong>Bankowość:</strong> wyklucz w split tunneling — <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość</a>.</li>
+    </ul>
+  </section>
 
-      <h2>3) Kill Switch</h2>
-      <p>Włącz <strong>Kill Switch</strong>, aby ruch nie wyciekał poza tunel przy zerwaniu połączenia. Warto w trybie „systemowym” (blokuje cały ruch bez VPN).</p>
-      <p>Więcej: <a href="/blog/vpn-kill-switch.html">Kill Switch — jak działa</a>.</p>
+  <section id="diagnostyka">
+    <h2>Diagnostyka i testy</h2>
+    <ol>
+      <li>Sprawdź IP/DNS: <a href="/blog/vpn-dns-leak.html">test DNS leak</a>.</li>
+      <li>Zrób test prędkości: <a href="/blog/vpn-szybkosc-test.html">instrukcja</a>.</li>
+      <li>Nie działa? Zmień serwer lub protokół. Zobacz: <a href="/blog/vpn-geoblokady.html">VPN i geoblokady</a>.</li>
+    </ol>
+  </section>
 
-      <h2>4) Auto-connect</h2>
-      <p>Włącz <strong>automatyczne łączenie</strong> po starcie systemu i na <strong>sieciach publicznych Wi-Fi</strong>. Dzięki temu nie zapomnisz o ochronie.</p>
-      <p>Bezpieczeństwo w hotspotach: <a href="/blog/vpn-publiczne-wifi.html">publiczne Wi-Fi — zasady</a>.</p>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — szybkie profile</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — wiele urządzeń</a>
+  </section>
 
-      <h2>5) Split tunneling</h2>
-      <p>Jeśli chcesz, aby wybrane aplikacje omijały VPN (np. gry LAN, bankowość), użyj <strong>split tunneling</strong>. Zmniejsza to obciążenie i bywa szybsze.</p>
-      <p>Szczegóły: <a href="/blog/vpn-split-tunneling.html">split tunneling — poradnik</a>.</p>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>
+      <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a> •
+      <a href="/blog/vpn-geolokalizacja.html">Geolokalizacja</a> •
+      <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne</a>
+    </p>
+  </aside>
 
-      <h2>6) DNS i ochrona przed wyciekami</h2>
-      <ul>
-        <li>Włącz ochronę przed <strong>DNS leak</strong> w aplikacji.</li>
-        <li>Możesz ustawić własne DNS (np. operatora VPN lub publiczne), ale najlepiej pozostać przy DNS dostawcy VPN, aby zachować spójność tunelu.</li>
-      </ul>
-      <p>Więcej: <a href="/blog/vpn-dns-leak.html">DNS leak — co to i jak sprawdzić</a>.</p>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+    </div>
+  </section>
 
-      <h2>7) Zaciemnianie (Obfuscation)</h2>
-      <p>Gdy sieć ogranicza VPN (np. w pracy, hotelu), włącz <strong>obfuscation/ukrywanie ruchu</strong>. Może nieco obniżyć prędkość, ale zwiększa szanse na połączenie.</p>
+  <!-- Video -->
+  <section id="video">
+    <h2>Wideo: szybkie ustawienia VPN</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-optymalne-ustawienia.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <h2>8) Autostart i „pozwól aplikacji działać w tle”</h2>
-      <p>W systemach mobilnych i na laptopach ze „śpiącymi” aplikacjami pozwól klientowi VPN działać w tle. Zapobiega to zrywaniu tunelu przy przechodzeniu urządzenia w uśpienie.</p>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <section class="cta">
-        <h2>Szybki zestaw ustawień (polecany start)</h2>
-        <ul class="cta-list">
-          <li>Protokół: <strong>WireGuard / NordLynx</strong></li>
-          <li>Serwer: <strong>najbliższy</strong> (lub kraj katalogu VOD)</li>
-          <li><strong>Kill Switch: włączony</strong></li>
-          <li><strong>Auto-connect</strong> przy starcie i w publicznym Wi-Fi</li>
-          <li>DNS leak protection: <strong>włączony</strong></li>
-        </ul>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-szybkosc-test.html">Zmierz prędkość po zmianach</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty.</p>
-      </section>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/test-vpn.html">Test VPN — praktyczna checklist</a></li>
-          <li><a href="/blog/vpn-szybkosc-test.html">Jak testować prędkość VPN</a></li>
-          <li><a href="/blog/no-logs.html">Polityka no-logs — na czym polega</a></li>
-          <li><a href="/blog/vpn-kill-switch.html">Kill Switch — ochrona po zerwaniu</a></li>
-          <li><a href="/blog/vpn-split-tunneling.html">Split tunneling — jak używać</a></li>
-        </ul>
-      </aside>
-
-      <p class="small disclaimer">Uwaga: konkretne nazwy opcji różnią się w zależności od aplikacji i systemu. Korzystaj z najnowszej wersji klienta VPN.</p>
-    </article>
-  </main>
-
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN — optymalne ustawienia (2025)",
+  "description":"Najlepsze ustawienia VPN: protokół, serwer, Kill Switch, DNS i split tunneling.",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-02",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp",
+  "author":{"@type":"Person","name":"Denys Shchur"},
+  "publisher":{"@type":"Organization","name":"VPN Polska"}
+}
+</script>
 </body>
 </html>
