@@ -31,10 +31,14 @@
   },
   {
     "slug": "articles/darmowy-vpn-polska.html",
-    "title": "Darmowy Vpn Polska",
-    "desc": "Opis do uzupełnienia.",
+    "title": "Darmowy VPN Polska — co działa naprawdę?",
+    "desc": "Przegląd darmowych VPN w Polsce: ograniczenia, ryzyka, alternatywy i kiedy mają sens.",
     "date": "2025-09-03",
-    "tags": [],
+    "tags": [
+      "darmowe vpn",
+      "bezpieczeństwo",
+      "poradnik"
+    ],
     "thumb": "/assets/img/thumbs/darmowy-vpn-polska.webp",
     "hero": "/assets/img/hero/darmowy-vpn-polska.webp",
     "status": "published"
