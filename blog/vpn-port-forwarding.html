@@ -3,122 +3,213 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN i Port Forwarding — co to jest i jak używać</title>
-  <meta name="description" content="Port forwarding w VPN pozwala na zdalny dostęp do usług i lepsze prędkości P2P. Dowiedz się kiedy ma sens, jak go włączyć i jakie niesie ryzyka.">
-  <meta name="robots" content="index,follow">
+  <title>VPN i port forwarding — jak to działa w 2025?</title>
+  <meta name="description" content="Czym jest port forwarding w VPN, do czego się przydaje i jak go ustawić. Plus: zastosowania w P2P, grach online i bezpieczeństwie.">
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-port-forwarding.html">
 
-  <!-- Open Graph -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-port-forwarding.webp" imagesrcset="/assets/img/hero/vpn-port-forwarding.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="VPN i Port Forwarding — co to jest i jak używać">
-  <meta property="og:description" content="Wyjaśnienie krok po kroku: co daje port forwarding w VPN, w jakich sytuacjach go używać i jakie są zagrożenia.">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VPN i port forwarding — jak to działa w 2025?">
+  <meta property="og:description" content="Jak działa port forwarding w VPN, kiedy ma sens i jak go skonfigurować.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-port-forwarding.html">
-  <meta property="og:image" content="https://dloran1.github.io/assets/img/vpn-port-forwarding.webp">
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN i Port Forwarding — co to jest i jak używać">
-  <meta name="twitter:description" content="Kiedy warto włączyć port forwarding w VPN, a kiedy lepiej tego unikać.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/vpn-port-forwarding.webp">
+  <meta name="twitter:title" content="VPN i port forwarding — jak to działa w 2025?">
+  <meta name="twitter:description" content="Port forwarding w VPN — poradnik krok po kroku.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp">
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"VPN i Port Forwarding — co to jest i jak używać",
-    "author":{"@type":"Person","name":"VPN Polska"},
-    "publisher":{"@type":"Organization","name":"VPN Polska"},
-    "datePublished":"2025-09-01",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://dloran1.github.io/blog/vpn-port-forwarding.html"},
-    "image":"https://dloran1.github.io/assets/img/vpn-port-forwarding.webp"
-  }
-  </script>
-
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe -->
+  <style>
+    .btn{ -webkit-tap-highlight-color: transparent; }
+    .article-hero img,.author__media img,.post img{display:block;max-width:100%;height:auto;}
+    figure.article-hero{margin:0;}
+    video{max-width:100%;height:auto;border-radius:12px;display:block;}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.65rem .8rem;vertical-align:top}
+  </style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
     <a class="logo" href="/">VPN Polska</a>
-    <div class="menu">
-      <a href="/">Strona główna</a> • <a href="/blog/index.html">Blog</a> • <a href="/kontakt.html">Kontakt</a>
-    </div>
+    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>VPN i port forwarding — jak to działa w 2025?</h1>
+
+  <!-- HERO -->
+  <figure class="article-hero">
+    <img
+      src="/assets/img/hero/vpn-port-forwarding.webp"
+      alt="VPN i port forwarding — poradnik"
+      width="1200" height="630"
+      fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+
+  <p class="lead">
+    <strong>Port forwarding</strong> w VPN to funkcja, która pozwala przekierować ruch z Internetu
+    na Twój komputer lub konsolę. Przydaje się w <a href="/blog/vpn-p2p-bezpiecznie.html">P2P</a>, grach online
+    i zdalnym dostępie. Sprawdź, jak działa i kiedy warto go używać.
+  </p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <ol>
+      <li><a href="#co-to">Co to jest port forwarding?</a></li>
+      <li><a href="#zastosowania">Zastosowania</a></li>
+      <li><a href="#bezpieczenstwo">Bezpieczeństwo</a></li>
+      <li><a href="#konfiguracja">Konfiguracja</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
   </nav>
 
-  <main class="wrap">
-    <article>
-      <h1>VPN i Port Forwarding — co to jest i jak używać</h1>
+  <section id="co-to">
+    <h2>Co to jest port forwarding?</h2>
+    <p>Port forwarding (przekierowanie portów) umożliwia <strong>dostęp z zewnątrz</strong> do wybranych aplikacji 
+    działających na Twoim urządzeniu. Dzięki temu inni użytkownicy sieci mogą połączyć się bezpośrednio z Twoim klientem torrent,
+    serwerem gry czy aplikacją zdalnego dostępu.</p>
+  </section>
 
-      <figure class="cover">
-        <img src="/assets/img/vpn-port-forwarding.webp"
-             alt="Port forwarding z VPN"
-             width="1200" height="630" loading="lazy">
-      </figure>
+  <section id="zastosowania">
+    <h2>Zastosowania</h2>
+    <ul>
+      <li><strong>Torrenty:</strong> szybsze i stabilniejsze połączenia w sieci P2P (<a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P</a>).</li>
+      <li><strong>Gry online:</strong> lepsze połączenie z serwerami lub hostowanie gier (<a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a>).</li>
+      <li><strong>Zdalny dostęp:</strong> możliwość pracy zdalnej i korzystania z prywatnych serwerów.</li>
+    </ul>
+  </section>
 
-      <p><strong>Port forwarding</strong> w VPN pozwala na przekierowanie ruchu z internetu do twojego urządzenia przez tunel VPN. To rozwiązanie popularne przy P2P, serwerach gier i dostępie zdalnym.</p>
+  <section id="bezpieczenstwo">
+    <h2>Bezpieczeństwo</h2>
+    <p>Port forwarding otwiera dodatkowe „okno” w Twoim połączeniu. Dlatego:</p>
+    <ul>
+      <li>Używaj <a href="/blog/vpn-kill-switch.html">Kill Switch</a>, aby uniknąć wycieku IP.</li>
+      <li>Włącz funkcję tylko wtedy, gdy jest potrzebna.</li>
+      <li>Sprawdź, czy dostawca ma <a href="/blog/no-logs.html">politykę no-logs</a>.</li>
+    </ul>
+  </section>
 
-      <section class="cta">
-        <h2>Chcesz korzystać bezpiecznie?</h2>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Włącz NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-p2p-bezpiecznie.html">VPN dla P2P</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty.</p>
-      </section>
+  <section id="konfiguracja">
+    <h2>Konfiguracja krok po kroku</h2>
+    <ol>
+      <li>Sprawdź, czy Twój dostawca VPN obsługuje port forwarding (np. <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN czy Surfshark</a>).</li>
+      <li>W panelu/aplikacji włącz opcję „Port Forwarding”.</li>
+      <li>Skopiuj numer portu i wklej go w ustawieniach programu (np. klient torrent).</li>
+      <li>Przetestuj na <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>, czy port działa.</li>
+    </ol>
+  </section>
 
-      <h2>Kiedy port forwarding ma sens?</h2>
-      <ul>
-        <li>Serwer gier lub multimediów w domu.</li>
-        <li>Szybsze torrenty — więcej peerów.</li>
-        <li>Zdalny dostęp do usług (np. monitoring, NAS).</li>
-      </ul>
+  <!-- CTA -->
+  <section class="cta">
+    <a class="btn btn-primary"
+       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — serwery P2P</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="https://www.tkqlhce.com/click-101525886-17061430"
+       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — wsparcie portów</a>
+  </section>
 
-      <h2>Jak włączyć?</h2>
-      <ol>
-        <li>Sprawdź, czy dostawca VPN obsługuje port forwarding (np. ProtonVPN, Mullvad).</li>
-        <li>W aplikacji lub panelu wybierz port do przekierowania.</li>
-        <li>Skonfiguruj aplikację P2P lub usługę, by nasłuchiwała na tym porcie.</li>
-      </ol>
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>
+      <a href="/blog/vpn-p2p-bezpiecznie.html">VPN i P2P</a> •
+      <a href="/blog/vpn-dns-leak.html">Test DNS leak</a> •
+      <a href="/blog/vpn-double-vpn.html">Double VPN</a>
+    </p>
+  </aside>
 
-      <h2>Zagrożenia</h2>
-      <p>Port forwarding otwiera twój komputer na połączenia przychodzące. To zwiększa ryzyko ataków. Dlatego:</p>
-      <ul>
-        <li>Używaj go tylko, gdy naprawdę potrzebujesz.</li>
-        <li>Zabezpiecz aplikacje hasłem i aktualizuj je.</li>
-        <li>Rozważ <a href="/blog/vpn-kill-switch.html">Kill Switch</a> dla dodatkowej ochrony.</li>
-      </ul>
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
+    </div>
+  </section>
 
-      <section class="cta">
-        <h2>Bezpieczna alternatywa</h2>
-        <ul class="cta-list">
-          <li>Wybierz VPN z serwerami P2P</li>
-          <li>Włącz <strong>Kill Switch</strong></li>
-          <li>Chroń się przed <a href="/blog/vpn-dns-leak.html">DNS leak</a></li>
-        </ul>
-        <div class="btns">
-          <a class="btn btn-primary" rel="nofollow sponsored"
-             href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584">Aktywuj NordVPN</a>
-          <a class="btn btn-ghost" href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>
-        </div>
-        <p class="cta-note">Link partnerski — bez dopłaty.</p>
-      </section>
+  <!-- Video -->
+  <section id="video">
+    <h2>Wideo: port forwarding w VPN</h2>
+    <video controls preload="metadata"
+           poster="/assets/img/thumbs/vpn-port-forwarding.webp"
+           width="960" height="540">
+      <source src="/assets/video/intro.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje wideo.
+    </video>
+  </section>
 
-      <aside class="related">
-        <h2>Powiązane artykuły</h2>
-        <ul>
-          <li><a href="/blog/vpn-p2p-bezpiecznie.html">P2P/Torrenty z VPN — jak robić to bezpieczniej</a></li>
-          <li><a href="/blog/vpn-kill-switch.html">Kill Switch w VPN</a></li>
-          <li><a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-          <li><a href="/blog/no-logs.html">Polityka no-logs</a></li>
-        </ul>
-      </aside>
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
 
-      <p class="small disclaimer">Uwaga: Port forwarding wiąże się z ryzykiem. Korzystasz na własną odpowiedzialność.</p>
-    </article>
-  </main>
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
-  <footer class="wrap small">© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></footer>
-  <script src="/assets/affiliates.js"></script>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN i port forwarding — jak to działa w 2025?",
+  "description":"Czym jest port forwarding w VPN, jak go ustawić i kiedy się przydaje (P2P, gry, zdalny dostęp).",
+  "datePublished":"2025-08-30",
+  "dateModified":"2025-09-03",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp",
+  "author":{"@type":"Person","name":"Denys Shchur"},
+  "publisher":{"@type":"Organization","name":"VPN Polska"}
+}
+</script>
+
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy każdy VPN obsługuje port forwarding?","acceptedAnswer":{"@type":"Answer","text":"Nie. Obsługa zależy od dostawcy — sprawdź w ofercie."}},
+    {"@type":"Question","name":"Czy port forwarding jest bezpieczny?","acceptedAnswer":{"@type":"Answer","text":"Tak, jeśli używasz go świadomie i tylko w razie potrzeby. Ważny jest Kill Switch i ochrona przed DNS leak."}},
+    {"@type":"Question","name":"Czy forwarding zwiększa prędkość torrentów?","acceptedAnswer":{"@type":"Answer","text":"Tak, często poprawia stabilność i szybkość połączeń P2P."}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "inLanguage":"pl-PL",
+  "name":"VPN i port forwarding — poradnik",
+  "description":"Czym jest port forwarding i jak działa w VPN.",
+  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-port-forwarding.webp",
+  "uploadDate":"2025-09-03",
+  "duration":"PT40S",
+  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
+  "embedUrl":"https://dloran1.github.io/blog/vpn-port-forwarding.html#video"
+}
+</script>
+
 </body>
 </html>
