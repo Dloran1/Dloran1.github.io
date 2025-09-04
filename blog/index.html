@@ -1,114 +1,133 @@
 <!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog – VPN Polska</title>
-<meta name="description" content="Poradniki, testy i konfiguracje VPN — zebrane w jednym miejscu.">
-<link rel="canonical" href="https://dloran1.github.io/blog/index.html">
-<link rel="stylesheet" href="/assets/style.css">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog – VPN Polska">
-<meta property="og:description" content="Poradniki, testy i konfiguracje VPN.">
-<meta property="og:url" content="https://dloran1.github.io/blog/index.html">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog o VPN</title>
+  <meta name="description" content="Artykuły o VPN: poradniki, testy, bezpieczeństwo online.">
+
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .article-content { padding:2rem; max-width:900px; margin:auto; }
+    .article-content img, .article-content video { max-width:100%; height:auto; display:block; margin:1rem auto; }
+  </style>
 </head>
 <body>
-<nav class="nav"><div class="inner">
-  <a class="logo" href="/">VPN Polska</a>
-  <div class="menu"><a href="/">Strona główna</a><strong>Blog</strong></div>
-</div></nav>
 
 <header class="wrap">
   <h1>Blog</h1>
-  <p class="muted">Poradniki, testy i konfiguracje VPN — wszystko w jednym miejscu.</p>
+  <p>Ta strona ładuje <code>data/posts.json</code> i (jeśli trzeba) wczytuje treść prosto z HTML artykułu.</p>
+  <input type="search" id="search" placeholder="Szukaj po tytule/opisie…">
 </header>
 
-<main class="wrap">
-  <div class="search"><input id="q" type="search" placeholder="Szukaj po tytułach…"></div>
-  <div id="list" class="postlist" aria-live="polite"></div>
-</main>
+<main class="wrap" id="app"></main>
 
-<footer class="foot"><p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p></footer>
+<div id="reader" hidden>
+  <div id="article-content" class="article-content"></div>
+</div>
 
 <script>
-/* ЕДИНОЕ место для офферов (на будущее) */
-window.AFF = window.AFF || {
-  nordvpn: "https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-};
-
-/* Список статей: slug + заголовок (можешь дополнять) */
-const POSTS = [
-  {slug:"co-to-jest-vpn",title:"Co to jest VPN?"},
-  {slug:"darmowe-vs-platne-vpn",title:"Darmowe vs płatne VPN"},
-  {slug:"darmowy-vpn-polska",title:"Darmowy VPN w Polsce"},
-  {slug:"dlaczego-vpn-2025",title:"Dlaczego VPN w 2025 roku?"},
-  {slug:"jaki-serwer-vpn-wybrac",title:"Jaki serwer VPN wybrać"},
-  {slug:"jaki-serwer-vpn",title:"Jaki serwer VPN (poradnik)"},
-  {slug:"mity-o-vpn",title:"Mity o VPN — fakty i rzeczywistość"},
-  {slug:"no-logs",title:"Polityka no-logs"},
-  {slug:"nordvpn-vs-surfshark-pl",title:"NordVPN vs Surfshark"},
-  {slug:"player-tvp-vpn",title:"TVP / Player z VPN"},
-  {slug:"test-vpn",title:"Test prędkości VPN"},
-  {slug:"vpn-android-konfiguracja",title:"VPN na Android — konfiguracja"},
-  {slug:"vpn-iphone-konfiguracja",title:"VPN na iPhone — konfiguracja"},
-  {slug:"vpn-windows-konfiguracja",title:"VPN na Windows — konfiguracja"},
-  {slug:"vpn-kill-switch",title:"Kill Switch — jak działa"},
-  {slug:"vpn-geoblokady",title:"Omijanie blokad geograficznych"},
-  {slug:"vpn-netflix-polska",title:"VPN i Netflix w Polsce"},
-  {slug:"vpn-dns-leak",title:"DNS leak — jak sprawdzić"},
-  {slug:"vpn-double-vpn",title:"Double VPN — co to?"},
-  {slug:"vpn-publiczne-wifi",title:"VPN w publicznym Wi-Fi"},
-  {slug:"vpn-split-tunneling",title:"Split tunneling — jak używać"},
-  {slug:"vpn-port-forwarding",title:"Port forwarding z VPN"},
-  {slug:"vpn-praca-zdalna",title:"VPN do pracy zdalnej"},
-  {slug:"vpn-szybkosc-test",title:"Jak testować szybkość VPN"},
-  {slug:"vpn-torrent",title:"VPN i torrenty: poradnik"},
-  {slug:"vpn-torrent-polska",title:"VPN i torrenty w Polsce"},
-  {slug:"wifi-bezpieczenstwo",title:"Bezpieczeństwo Wi-Fi"},
-  {slug:"wireguard-vs-openvpn",title:"WireGuard vs OpenVPN"},
-  {slug:"zalety-vpn",title:"Zalety VPN"},
-  {slug:"vpn-kontrola-routera",title:"VPN na routerze — dodatkowa ochrona"},
-  {slug:"vpn-optymalne-ustawienia",title:"Optymalne ustawienia VPN"},
-  {slug:"vpn-p2p-bezpiecznie",title:"P2P/Torrenty bezpiecznie"},
-  {slug:"vpn-dla-apple-tv",title:"VPN dla Apple TV"},
-  {slug:"vpn-dla-firm-msp",title:"VPN dla firm (SMB)"},
-  {slug:"vpn-dla-graczy",title:"VPN dla graczy"},
-  {slug:"vpn-dla-konsol-ps5-xbox",title:"VPN na konsole (PS5/Xbox)"},
-  {slug:"vpn-dla-smart-tv",title:"VPN dla Smart TV"},
-  {slug:"vpn-bankowosc-online",title:"VPN a bankowość online"},
-  {slug:"vpn-a-prawo-w-polsce",title:"VPN a prawo w Polsce"}
-];
-
-/* Рендер карточек. Пытаемся загрузить миниатюру по слагу; если ошибки — ставим placeholder */
-function card(post){
-  const href = `/blog/${post.slug}.html`;
-  const thumb = `/assets/img/thumbs/${post.slug}.webp`;
-  const fallback = `/assets/img/thumbs/placeholder.webp`;
-  return `
-  <article class="card">
-    <a class="thumb" href="${href}">
-      <img src="${thumb}" alt="${post.title}"
-           loading="lazy"
-           onerror="this.onerror=null;this.src='${fallback}'">
-    </a>
-    <h3><a href="${href}">${post.title}</a></h3>
-    <p class="muted">Poradnik i praktyczne wskazówki dotyczące VPN.</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="${href}">Czytaj dalej</a>
-    </div>
-  </article>`;
+// 1) Lista kart
+async function loadPosts(){
+  const res = await fetch('/data/posts.json');
+  const posts = await res.json();
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  posts.forEach(p=>{
+    if(p.status!=='published') return;
+    const card = document.createElement('article');
+    card.className = 'post-card';
+    card.innerHTML = `
+      <figure class="thumb"><img src="${p.thumb}" alt="${p.title}"></figure>
+      <h2>${p.title}</h2>
+      <p class="date">${p.date}</p>
+      <p class="desc">${p.desc}</p>
+      <a class="btn" href="/${p.slug}" data-open="${p.slug}">Czytaj</a>
+    `;
+    app.appendChild(card);
+  });
 }
-
-const list = document.getElementById('list');
-function render(arr){ list.innerHTML = arr.map(card).join(''); }
-render(POSTS);
-
-/* Поиск */
-document.getElementById('q').addEventListener('input', e=>{
-  const q = e.target.value.trim().toLowerCase();
-  if(!q){ render(POSTS); return; }
-  render(POSTS.filter(p=>p.title.toLowerCase().includes(q)));
-});
+loadPosts();
 </script>
+
+<script>
+// 2) Czytnik artykułów + autokorekta ścieżek i afiliacji
+(function(){
+  const modal   = document.getElementById('reader');
+  const content = document.getElementById('article-content');
+
+  // подгружаем /assets/style.css если кто-то удалит в head
+  if(!document.querySelector('link[href="/assets/style.css"]')){
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/assets/style.css';
+    document.head.appendChild(link);
+  }
+
+  // mapowanie partnerów -> lokalne przejścia
+  const AFF_MAP = new Map([
+    [/tkqlhce\.com/i, '/go/surfshark.html'],
+    [/go\.nordvpn\.net/i, '/go/nordvpn.html']
+  ]);
+
+  function rewriteAffiliates(root){
+    root.querySelectorAll('a[href]').forEach(a=>{
+      const href = a.getAttribute('href');
+      for(const [rx, local] of AFF_MAP){
+        if(rx.test(href)) { a.setAttribute('href', local); break; }
+      }
+      a.setAttribute('rel', (a.getAttribute('rel')||'') + ' nofollow sponsored noopener');
+      a.setAttribute('target','_blank');
+    });
+  }
+
+  function fixRelativeUrls(root, base){
+    root.querySelectorAll('img,source,video,iframe,a,link').forEach(el=>{
+      ['src','srcset','href','poster'].forEach(attr=>{
+        if(!el.hasAttribute(attr)) return;
+        const val = el.getAttribute(attr);
+        if(!val) return;
+        if(/^https?:|^\/|^#|^mailto:|^tel:/i.test(val)) return;
+        el.setAttribute(attr, new URL(val, base).pathname);
+      });
+    });
+  }
+
+  window.openPost = async function(slug){
+    try{
+      const res = await fetch('/'+slug, {cache:'no-store'});
+      if(!res.ok) throw new Error(res.status);
+      const html = await res.text();
+      const doc  = new DOMParser().parseFromString(html,'text/html');
+
+      let node = doc.querySelector('main.wrap.post')
+             || doc.querySelector('article.article')
+             || doc.querySelector('main')
+             || doc.body;
+
+      const base = new URL('/'+slug, location.origin);
+      fixRelativeUrls(node, base);
+      rewriteAffiliates(node);
+
+      content.innerHTML = '';
+      content.appendChild(node.cloneNode(true));
+      modal.hidden = false;
+      scrollTo({top:0, behavior:'instant'});
+    }catch(e){
+      console.error(e);
+      alert('Nie udało się otworzyć artykułu.');
+    }
+  };
+
+  document.addEventListener('click', e=>{
+    const a = e.target.closest('[data-open]');
+    if(!a) return;
+    e.preventDefault();
+    openPost(a.getAttribute('data-open'));
+  });
+})();
+</script>
+
 </body>
 </html>
