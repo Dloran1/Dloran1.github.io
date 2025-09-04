@@ -3,114 +3,72 @@
 <head>
   <meta charset="utf-8">
   <title>Blog o VPN</title>
-  <meta name="description" content="Artykuły o VPN, prywatności i bezpieczeństwie online.">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Artykuły o VPN: porady, testy, konfiguracje i bezpieczeństwo online.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
-  <style>
-    .wrap{max-width:960px;margin:0 auto;padding:1rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:1rem}
-    .card{background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
-    .card-thumb{width:100%;height:auto;display:block}
-    .card-body{padding:1rem}
-    .card-title{margin:.25rem 0 .5rem;font-size:1.12rem;line-height:1.25}
-    .card-meta{font-size:.85rem;color:#666;margin-bottom:.6rem}
-    .badge{display:inline-block;background:#eef1f4;border-radius:4px;font-size:.75rem;padding:.15rem .45rem;margin-right:.25rem}
-    .card-desc{color:#333;font-size:.95rem}
-    .card-footer{padding:.8rem 1rem;background:#fafafa;text-align:right}
-    .btn{background:#0b66ff;color:#fff;padding:.45rem .8rem;border-radius:6px;text-decoration:none}
-    #q{width:100%;padding:.6rem .8rem;border:1px solid #ddd;border-radius:10px}
-    .note{background:#ffd600;color:#111;padding:.6rem .8rem;border-radius:8px;margin:.5rem 0}
-  </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="note">BUILD v3 — если видишь это, главная обновилась</div>
     <h1>Blog</h1>
-    <p>Ta strona ładuje <code>data/posts.json</code> i (jeśli istnieje) dociąga opis z pliku w <code>/descriptions/&lt;slug&gt;.txt</code>.</p>
-    <input id="q" type="search" placeholder="Szukaj po tytule/opisie…">
-    <div id="posts" class="grid" aria-live="polite"></div>
+    <div id="posts" class="posts"></div>
   </div>
 
   <script>
-  (async () => {
-    const esc = s => (s||'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-    const baseName = slug => (slug||'').split('/').pop().replace(/\.html$/,'');
-    const bust = () => 'ts=' + Date.now();
+  // Загружаем список статей
+  async function loadPosts() {
+    const resp = await fetch("/data/posts.json");
+    const posts = await resp.json();
+    const container = document.getElementById("posts");
 
-    // 1) грузим свежий posts.json
-    let posts = [];
-    try{
-      const r = await fetch('/data/posts.json?' + bust(), {cache:'no-store'});
-      posts = await r.json();
-    }catch(e){
-      console.error('Nie mogę pobrać posts.json', e);
-      posts = [];
+    for (const post of posts) {
+      // создаем карточку
+      const card = document.createElement("div");
+      card.className = "post-card";
+      card.dataset.slug = post.slug;
+
+      card.innerHTML = `
+        <a href="${post.slug}">
+          <img src="${post.thumb}" alt="${post.title}">
+          <h2>${post.title}</h2>
+        </a>
+        <p class="date">${post.date}</p>
+        <p class="desc">Ładowanie opisu...</p>
+        <a class="readmore" href="${post.slug}">Czytaj</a>
+      `;
+
+      container.appendChild(card);
+
+      // тянем описание из HTML статьи
+      const descBox = card.querySelector(".desc");
+      const desc = await getDescription(post.slug);
+      descBox.textContent = desc;
     }
-    posts = (posts||[]).filter(p => p && p.slug && p.status !== 'draft');
+  }
 
-    const container = document.getElementById('posts');
-    const q = document.getElementById('q');
+  // Функция для вытягивания description из HTML
+  async function getDescription(slug) {
+    try {
+      const resp = await fetch("/" + slug);
+      if (!resp.ok) return "Treść artykułu do uzupełnienia.";
 
-    function cardHTML(p){
-      return `
-        <article class="card">
-          <a href="/${p.slug}" aria-label="${esc(p.title)}">
-            <img class="card-thumb" src="${p.thumb}" alt="${esc(p.title)}">
-          </a>
-          <div class="card-body">
-            <h3 class="card-title"><a href="/${p.slug}">${esc(p.title)}</a></h3>
-            <div class="card-meta">
-              ${p.date ? `<time datetime="${esc(p.date)}">${esc(p.date)}</time>` : ''}
-              ${(p.tags||[]).slice(0,3).map(t=>`<span class="badge">${esc(t)}</span>`).join('')}
-            </div>
-            <p class="card-desc" data-slug="${esc(p.slug)}">${esc(p.desc||'')}</p>
-          </div>
-          <div class="card-footer">
-            <a class="btn" href="/${p.slug}">Czytaj</a>
-          </div>
-        </article>`;
+      const html = await resp.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+
+      // берем meta description или первый абзац
+      let desc = doc.querySelector('meta[name="description"]')?.content;
+      if (!desc) {
+        desc = doc.querySelector("article p")?.innerText || "";
+      }
+
+      return desc.trim();
+    } catch (e) {
+      console.error("Błąd pobierania opisu:", e);
+      return "Treść artykułu do uzupełnienia.";
     }
+  }
 
-    function render(list){
-      const sorted = [...list].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-      container.innerHTML = sorted.map(cardHTML).join('') || '<p>Nic nie znaleziono.</p>';
-      hydrate(sorted); // подтянуть описания из /descriptions
-    }
-
-    // 2) вытягиваем описание из /descriptions/<slug>.txt, если файл есть — ВСЕГДА подменяем
-    async function fetchDescFile(name){
-      // абсолютный путь (user pages)
-      try{
-        const r1 = await fetch('/descriptions/' + name + '.txt?' + bust(), {cache:'no-store'});
-        if (r1.ok) return (await r1.text()).trim();
-      }catch{}
-      // относительный путь (project pages)
-      try{
-        const r2 = await fetch('descriptions/' + name + '.txt?' + bust(), {cache:'no-store'});
-        if (r2.ok) return (await r2.text()).trim();
-      }catch{}
-      return '';
-    }
-
-    async function hydrate(list){
-      await Promise.all(list.map(async (p) => {
-        const el = container.querySelector(`.card-desc[data-slug="${CSS.escape(p.slug)}"]`);
-        if (!el) return;
-        const name = baseName(p.slug);              // напр. "co-to-jest-vpn"
-        const txt = await fetchDescFile(name);      // читаем descriptions/co-to-jest-vpn.txt
-        if (txt) el.textContent = txt.length > 180 ? txt.slice(0,177) + '…' : txt;
-      }));
-    }
-
-    function apply(){
-      const v = (q.value||'').toLowerCase();
-      const filtered = posts.filter(p => (p.title + ' ' + (p.desc||'')).toLowerCase().includes(v));
-      render(filtered);
-    }
-
-    q.addEventListener('input', apply);
-    render(posts);
-  })();
+  loadPosts();
   </script>
 </body>
 </html>
