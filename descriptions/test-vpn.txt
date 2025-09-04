@@ -1,0 +1,1 @@
+Rzetelny test VPN: download, upload, ping, stabilność i wycieki DNS/IP. Narzędzia i metodologia krok po kroku.

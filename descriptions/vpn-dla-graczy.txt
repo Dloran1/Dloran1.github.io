@@ -1,0 +1,1 @@
+VPN dla graczy: ochrona przed DDoS, niższy ping i dostęp do serwerów. Jak dobrać lokalizacje.
