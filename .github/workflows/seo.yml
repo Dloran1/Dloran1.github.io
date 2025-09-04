@@ -1,0 +1,112 @@
+name: Build sitemap & RSS
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - "blog/**"
+      - "data/posts.json"
+      - ".github/workflows/seo.yml"
+  workflow_dispatch:
+
+jobs:
+  build-seo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate sitemap.xml & feed.xml
+        run: |
+          python - << 'PY'
+          import os, re, datetime, xml.etree.ElementTree as ET
+          from email.utils import formatdate
+
+          DOMAIN = "https://dloran1.github.io"
+          BLOG_DIR = "blog"
+          TODAY = datetime.date.today().isoformat()
+
+          slugs, titles, descs, dates = [], {}, {}, {}
+
+          for name in sorted(os.listdir(BLOG_DIR)):
+            if not name.endswith(".html"):
+              continue
+            path = os.path.join(BLOG_DIR, name)
+            slugs.append(name)
+            try:
+              txt = open(path, encoding="utf-8").read()
+            except Exception:
+              txt = ""
+
+            m = re.search(r"<title>(.*?)</title>", txt, re.S)
+            titles[name] = (m.group(1).strip() if m else name.replace(".html","").replace("-"," ").title())
+            m = re.search(r'<meta name="description" content="([^"]*)"', txt)
+            descs[name] = (m.group(1).strip() if m else titles[name])
+            m = re.search(r'<time[^>]*datetime="([^"]+)"', txt)
+            dates[name] = (m.group(1) if m else TODAY)
+
+          # SITEMAP
+          urlset = ET.Element("urlset", attrib={"xmlns":"http://www.sitemaps.org/schemas/sitemap/0.9"})
+          for url in [f"{DOMAIN}/", f"{DOMAIN}/blog/"]:
+            u = ET.SubElement(urlset, "url")
+            ET.SubElement(u, "loc").text = url
+            ET.SubElement(u, "lastmod").text = TODAY
+            ET.SubElement(u, "changefreq").text = "weekly"
+            ET.SubElement(u, "priority").text = "0.8"
+          for slug in slugs:
+            u = ET.SubElement(urlset, "url")
+            ET.SubElement(u, "loc").text = f"{DOMAIN}/blog/{slug}"
+            ET.SubElement(u, "lastmod").text = dates[slug]
+            ET.SubElement(u, "changefreq").text = "monthly"
+            ET.SubElement(u, "priority").text = "0.7"
+          ET.ElementTree(urlset).write("sitemap.xml", encoding="utf-8", xml_declaration=True)
+
+          # RSS FEED
+          now_rfc = formatdate()
+          items_xml = []
+          for slug in slugs:
+            title = titles[slug]
+            url = f"{DOMAIN}/blog/{slug}"
+            desc = descs[slug]
+            pub = now_rfc
+            items_xml.append(f"""
+            <item>
+              <title>{title}</title>
+              <link>{url}</link>
+              <guid isPermaLink="true">{url}</guid>
+              <pubDate>{pub}</pubDate>
+              <description><![CDATA[{desc}]]></description>
+            </item>""")
+          feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>VPN Polska — Blog</title>
+    <link>{DOMAIN}/blog/</link>
+    <description>Nowe artykuły o VPN, bezpieczeństwie i streamingu.</description>
+    <language>pl-PL</language>
+    <lastBuildDate>{now_rfc}</lastBuildDate>
+    {''.join(items_xml)}
+  </channel>
+</rss>
+"""
+          open("feed.xml","w",encoding="utf-8").write(feed)
+
+          # robots.txt
+          if not os.path.exists("robots.txt"):
+            open("robots.txt","w",encoding="utf-8").write(f"User-agent: *\\nAllow: /\\n\\nSitemap: {DOMAIN}/sitemap.xml\\n")
+
+          print("Generated sitemap.xml, feed.xml (and robots.txt if missing).")
+          PY
+
+      - name: Commit & push
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "sitemap.xml feed.xml robots.txt"
+          message: "chore(seo): auto-update sitemap & feed"
+          push: true
