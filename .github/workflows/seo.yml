@@ -10,13 +10,25 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # даём экшену право писать в репо
 
 jobs:
   build-seo:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Show branch & tree (debug)
+        run: |
+          echo "BRANCH: $GITHUB_REF_NAME"
+          echo "PWD   : $(pwd)"
+          ls -la
+          echo "Blog dir:"
+          ls -la blog || true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,14 +41,14 @@ jobs:
           import os, re, datetime, xml.etree.ElementTree as ET
           from email.utils import formatdate
 
-          DOMAIN = "https://dloran1.github.io"   # при необходимости поменяй
+          DOMAIN = "https://dloran1.github.io"   # поменяй при необходимости
           BLOG_DIR = "blog"
           TODAY = datetime.date.today().isoformat()
 
-          slugs, titles, descs, dates = [], {}, {}, {}
-
           if not os.path.isdir(BLOG_DIR):
-            raise SystemExit("Missing blog/ directory")
+            raise SystemExit("ERROR: missing blog/ directory")
+
+          slugs, titles, descs, dates = [], {}, {}, {}
 
           for name in sorted(os.listdir(BLOG_DIR)):
             if not name.endswith(".html"):
@@ -71,22 +83,20 @@ jobs:
             ET.SubElement(u, "priority").text = "0.7"
           ET.ElementTree(urlset).write("sitemap.xml", encoding="utf-8", xml_declaration=True)
 
-          # --- RSS (feed.xml) ---
+          # --- RSS ---
           now_rfc = formatdate()
-          items_xml = []
+          items = []
           for slug in slugs:
-            title = titles[slug]
             url = f"{DOMAIN}/blog/{slug}"
-            desc = descs[slug]
-            items_xml.append(f"""
+            items.append(f"""
             <item>
-              <title>{title}</title>
+              <title>{titles[slug]}</title>
               <link>{url}</link>
               <guid isPermaLink="true">{url}</guid>
               <pubDate>{now_rfc}</pubDate>
-              <description><![CDATA[{desc}]]></description>
+              <description><![CDATA[{descs[slug]}]]></description>
             </item>""")
-          feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+          rss = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
     <title>VPN Polska — Blog</title>
@@ -94,21 +104,31 @@ jobs:
     <description>Nowe artykuły o VPN, bezpieczeństwie i streamingu.</description>
     <language>pl-PL</language>
     <lastBuildDate>{now_rfc}</lastBuildDate>
-    {''.join(items_xml)}
+    {''.join(items)}
   </channel>
 </rss>
 """
-          open("feed.xml","w",encoding="utf-8").write(feed)
+          open("feed.xml","w",encoding="utf-8").write(rss)
 
-          # --- robots.txt (создаём только если отсутствует) ---
+          # --- robots.txt (только если нет) ---
           if not os.path.exists("robots.txt"):
             open("robots.txt","w",encoding="utf-8").write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
+
+          print("Generated files:")
+          for f in ["sitemap.xml","feed.xml","robots.txt"]:
+            print(" -", f, "exists:", os.path.exists(f))
           PY
 
-      - name: Commit & push generated files
+      - name: Show git status (debug)
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml feed.xml robots.txt
-          git commit -m "chore(seo): auto-update sitemap & feed" || echo "nothing to commit"
-          git push
+          git status --porcelain
+          echo "-------"
+          ls -la sitemap.xml feed.xml robots.txt || true
+
+      - name: Commit & push (EndBug/add-and-commit)
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "sitemap.xml feed.xml robots.txt"
+          default_author: github_actions
+          message: "chore(seo): auto-update sitemap & feed"
+          push: true
