@@ -1,1 +1,1 @@
-Split tunneling w VPN: jak działa i kiedy przydaje się w praktyce.
+Split tunneling: kierowanie wybranych aplikacji poza tunel dla wydajności.

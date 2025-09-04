@@ -1,1 +1,1 @@
-Przewodnik krok po kroku, jak zainstalować i skonfigurować VPN na komputerach Mac.
+VPN na Mac: instalacja, profil konfiguracji, wydajność i najlepsze praktyki.

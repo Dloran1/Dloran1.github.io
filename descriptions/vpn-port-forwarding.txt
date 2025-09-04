@@ -1,1 +1,1 @@
-Port forwarding w VPN: do czego służy, jakie ma zalety i kiedy warto go włączyć.
+Port forwarding: do czego służy i jak bezpiecznie skonfigurować.
