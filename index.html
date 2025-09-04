@@ -6,69 +6,66 @@
   <meta name="description" content="Artykuły o VPN: porady, testy, konfiguracje i bezpieczeństwo online.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
+  <style>
+    .version{background:#ffd400;color:#111;padding:14px 16px;border-radius:12px;margin:20px auto;max-width:920px;font-weight:700}
+    .wrap{max-width:920px;margin:0 auto;padding:12px}
+    .posts{display:grid;gap:16px}
+    .post-card{background:#fff;border-radius:12px;padding:16px}
+    .post-card h2{margin:12px 0 4px}
+    .post-card .date{opacity:.7;margin:0 0 8px}
+    .post-card img{width:100%;height:auto;border-radius:10px}
+    .readmore{display:inline-block;margin-top:8px}
+  </style>
 </head>
 <body>
+  <div class="version">BUILD v4 — если видишь это, главная обновилась</div>
+
   <div class="wrap">
     <h1>Blog</h1>
+    <p>Ta strona ładuje <code>data/posts.json</code> i dociąga opis prosto z HTML artykułu
+      (najpierw meta <code>description</code>, jeśli brak — pierwszy akapit).</p>
     <div id="posts" class="posts"></div>
   </div>
 
   <script>
-  // Загружаем список статей
-  async function loadPosts() {
-    const resp = await fetch("/data/posts.json");
-    const posts = await resp.json();
-    const container = document.getElementById("posts");
+    async function loadPosts(){
+      const res = await fetch('/data/posts.json', {cache:'no-store'});
+      const posts = await res.json();
+      const box = document.getElementById('posts');
 
-    for (const post of posts) {
-      // создаем карточку
-      const card = document.createElement("div");
-      card.className = "post-card";
-      card.dataset.slug = post.slug;
+      for (const p of posts){
+        const card = document.createElement('div');
+        card.className = 'post-card';
+        card.innerHTML = `
+          <a href="/${p.slug}">
+            <img src="${p.thumb}" alt="${p.title}">
+            <h2>${p.title}</h2>
+          </a>
+          <p class="date">${p.date}</p>
+          <p class="desc">Ładowanie opisu…</p>
+          <a class="readmore" href="/${p.slug}">Czytaj</a>
+        `;
+        box.appendChild(card);
 
-      card.innerHTML = `
-        <a href="${post.slug}">
-          <img src="${post.thumb}" alt="${post.title}">
-          <h2>${post.title}</h2>
-        </a>
-        <p class="date">${post.date}</p>
-        <p class="desc">Ładowanie opisu...</p>
-        <a class="readmore" href="${post.slug}">Czytaj</a>
-      `;
+        // подгружаем описание прямо из HTML статьи
+        try{
+          const htmlRes = await fetch('/' + p.slug, {cache:'no-store'});
+          if (!htmlRes.ok) throw new Error('HTTP '+htmlRes.status);
+          const html = await htmlRes.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
 
-      container.appendChild(card);
+          let desc = doc.querySelector('meta[name="description"]')?.content?.trim();
+          if (!desc) desc = doc.querySelector('article p')?.innerText?.trim();
+          if (!desc) desc = doc.querySelector('p')?.innerText?.trim();
 
-      // тянем описание из HTML статьи
-      const descBox = card.querySelector(".desc");
-      const desc = await getDescription(post.slug);
-      descBox.textContent = desc;
-    }
-  }
-
-  // Функция для вытягивания description из HTML
-  async function getDescription(slug) {
-    try {
-      const resp = await fetch("/" + slug);
-      if (!resp.ok) return "Treść artykułu do uzupełnienia.";
-
-      const html = await resp.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-
-      // берем meta description или первый абзац
-      let desc = doc.querySelector('meta[name="description"]')?.content;
-      if (!desc) {
-        desc = doc.querySelector("article p")?.innerText || "";
+          card.querySelector('.desc').textContent = desc || 'Treść artykułu do uzupełnienia.';
+        }catch(e){
+          console.warn('Opis fallback dla', p.slug, e);
+          card.querySelector('.desc').textContent = 'Treść artykułu do uzupełnienia.';
+        }
       }
-
-      return desc.trim();
-    } catch (e) {
-      console.error("Błąd pobierania opisu:", e);
-      return "Treść artykułu do uzupełnienia.";
     }
-  }
-
-  loadPosts();
+    loadPosts();
   </script>
 </body>
 </html>
