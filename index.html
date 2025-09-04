@@ -6,82 +6,91 @@
   <meta name="description" content="Artykuły o VPN, bezpieczeństwie online i prywatności.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
+  <style>
+    /* на случай, если css ещё не подцепился */
+    .wrap{max-width:960px;margin:0 auto;padding:1rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:1rem}
+    .card{background:#fff;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
+    .card-thumb{width:100%;height:auto;display:block}
+    .card-body{padding:1rem}
+    .card-title{margin:.25rem 0 .5rem;font-size:1.1rem}
+    .card-meta{font-size:.85rem;color:#666;margin-bottom:.6rem}
+    .badge{display:inline-block;background:#eee;border-radius:4px;font-size:.75rem;padding:.15rem .45rem;margin-right:.25rem}
+    .card-desc{color:#333;font-size:.95rem}
+    .card-footer{padding:.8rem 1rem;background:#fafafa;text-align:right}
+    .btn{background:#0056b3;color:#fff;padding:.45rem .8rem;border-radius:4px;text-decoration:none}
+  </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Blog</h1>
-    <input id="q" type="search" placeholder="Szukaj po tytule/opisie…">
-    <div id="posts" class="grid"></div>
+    <input id="q" type="search" placeholder="Szukaj po tytule/opisie…" style="width:100%;padding:.6rem .8rem;border:1px solid #ddd;border-radius:8px;">
+    <div id="posts" class="grid" aria-live="polite"></div>
   </div>
 
   <script>
   (async () => {
-    const esc = s => (s||'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
     const PLACEHOLDER = /Treść artykułu do uzupełnienia|Opis do uzupełnienia|Czytaj więcej/i;
-    const trimDesc = t => {
-      const d = (t||'').toString().trim();
-      return d ? (d.length>160 ? d.slice(0,157)+'…' : d) : 'Czytaj więcej →';
-    };
+    const esc = s => (s||'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
     const baseName = slug => (slug||'').split('/').pop().replace(/\.html$/,'');
-    async function fetchDescFile(slug){
-      try {
-        const name = baseName(slug);
-        const url = `/descriptions/${name}.txt?v=`+Date.now();
-        const res = await fetch(url, { cache:'no-store' });
-        if (!res.ok) return '';
-        const txt = (await res.text()).trim();
-        return trimDesc(txt);
-      } catch { return ''; }
-    }
 
-    // 1) тянем манифест
-    const res = await fetch('/data/posts.json?v='+Date.now(), { cache:'no-store' });
-    const all = await res.json();
-    const posts = all.filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
+    const res = await fetch('/data/posts.json?ts=' + Date.now());
+    let all = [];
+    try { all = await res.json(); } catch(e){ all = []; }
+
+    // можно скрыть черновики и лишние статьи здесь
+    const posts = (all || []).filter(p => p.status === 'published');
 
     const container = document.getElementById('posts');
     const q = document.getElementById('q');
 
-    function card(p, i){
-      const id = 'desc-'+i;
-      const desc = trimDesc(p.desc);
+    function cardHTML(p){
       return `
         <article class="card">
           <a href="/${p.slug}" aria-label="${esc(p.title)}">
-            <img class="card-thumb" src="${p.thumb}" alt="${esc(p.title)}" width="640" height="360">
+            <img class="card-thumb" src="${p.thumb}" alt="${esc(p.title)}">
           </a>
           <div class="card-body">
             <h3 class="card-title"><a href="/${p.slug}">${esc(p.title)}</a></h3>
             <div class="card-meta">
-              ${p.date ? `<time datetime="${p.date}">${p.date}</time>` : ''}
-              ${(p.tags||[]).slice(0,3).map(t=>`<span class="badge">${esc(String(t))}</span>`).join('')}
+              ${p.date ? `<time datetime="${esc(p.date)}">${esc(p.date)}</time>` : ''}
+              ${(p.tags||[]).slice(0,3).map(t => `<span class="badge">${esc(t)}</span>`).join('')}
             </div>
-            <p class="card-desc" id="${id}">${esc(desc)}</p>
+            <p class="card-desc" data-slug="${esc(p.slug)}">${esc(p.desc || '')}</p>
           </div>
-          <div class="card-footer"><a class="btn" href="/${p.slug}">Czytaj</a></div>
+          <div class="card-footer">
+            <a class="btn" href="/${p.slug}">Czytaj</a>
+          </div>
         </article>`;
-    }
-
-    async function hydrate(list){
-      await Promise.all(list.map(async (p,i) => {
-        const need = !p.desc || !p.desc.trim() || PLACEHOLDER.test(p.desc) || p.desc.trim().length < 60;
-        if (!need) return;
-        const el = document.getElementById('desc-'+i);
-        const txt = await fetchDescFile(p.slug);
-        if (txt && el) el.textContent = txt;
-      }));
     }
 
     function render(list){
       const sorted = [...list].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-      container.innerHTML = sorted.map((p,i)=>card(p,i)).join('');
+      container.innerHTML = sorted.map(p => cardHTML(p)).join('') || '<p>Nic nie znaleziono.</p>';
       hydrate(sorted);
-      if (!sorted.length) container.innerHTML = '<p>Nic nie znaleziono.</p>';
+    }
+
+    async function hydrate(list){
+      await Promise.all(list.map(async (p) => {
+        const el = container.querySelector(`.card-desc[data-slug="${CSS.escape(p.slug)}"]`);
+        if (!el) return;
+        const current = (el.textContent||'').trim();
+        if (current && !PLACEHOLDER.test(current) && current.length >= 60) return;
+
+        const name = baseName(p.slug);
+        try {
+          const r = await fetch('/descriptions/' + name + '.txt?ts=' + Date.now(), { cache:'no-store' });
+          if (!r.ok) return;
+          const txt = (await r.text()).trim();
+          if (txt) el.textContent = txt.length > 160 ? txt.slice(0,157) + '…' : txt;
+        } catch(_) {}
+      }));
     }
 
     function apply(){
       const v = (q.value||'').toLowerCase();
-      render(posts.filter(p => (p.title+' '+(p.desc||'')).toLowerCase().includes(v)));
+      const filtered = posts.filter(p => (p.title + ' ' + (p.desc||'')).toLowerCase().includes(v));
+      render(filtered);
     }
 
     q.addEventListener('input', apply);
