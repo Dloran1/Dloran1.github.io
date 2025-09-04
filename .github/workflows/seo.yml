@@ -1,8 +1,12 @@
-name: SEO test (sitemap only)
+name: Build sitemap & RSS
 
 on:
   push:
-    branches: [ "main" ]   # если у тебя master — замени на "master"
+    branches: [ "main" ]        # если у тебя master — замени на "master"
+    paths:
+      - "blog/**"
+      - "data/posts.json"
+      - ".github/workflows/seo.yml"
   workflow_dispatch:
 
 permissions:
@@ -14,20 +18,97 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate minimal sitemap.xml
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
-          echo '  <url>' >> sitemap.xml
-          echo '    <loc>https://dloran1.github.io/</loc>' >> sitemap.xml
-          echo '    <lastmod>'$(date -u +%Y-%m-%d)'</lastmod>' >> sitemap.xml
-          echo '  </url>' >> sitemap.xml
-          echo '</urlset>' >> sitemap.xml
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Commit & push sitemap.xml
+      - name: Generate sitemap.xml & feed.xml
+        run: |
+          python - << 'PY'
+          import os, re, datetime, xml.etree.ElementTree as ET
+          from email.utils import formatdate
+
+          DOMAIN = "https://dloran1.github.io"   # при необходимости поменяй
+          BLOG_DIR = "blog"
+          TODAY = datetime.date.today().isoformat()
+
+          slugs, titles, descs, dates = [], {}, {}, {}
+
+          if not os.path.isdir(BLOG_DIR):
+            raise SystemExit("Missing blog/ directory")
+
+          for name in sorted(os.listdir(BLOG_DIR)):
+            if not name.endswith(".html"):
+              continue
+            path = os.path.join(BLOG_DIR, name)
+            slugs.append(name)
+            try:
+              txt = open(path, encoding="utf-8").read()
+            except Exception:
+              txt = ""
+
+            m = re.search(r"<title>(.*?)</title>", txt, re.S)
+            titles[name] = (m.group(1).strip() if m else name.replace(".html","").replace("-"," ").title())
+            m = re.search(r'<meta name="description" content="([^"]*)"', txt)
+            descs[name] = (m.group(1).strip() if m else titles[name])
+            m = re.search(r'<time[^>]*datetime="([^"]+)"', txt)
+            dates[name] = (m.group(1) if m else TODAY)
+
+          # --- SITEMAP ---
+          urlset = ET.Element("urlset", attrib={"xmlns":"http://www.sitemaps.org/schemas/sitemap/0.9"})
+          for url in [f"{DOMAIN}/", f"{DOMAIN}/blog/"]:
+            u = ET.SubElement(urlset, "url")
+            ET.SubElement(u, "loc").text = url
+            ET.SubElement(u, "lastmod").text = TODAY
+            ET.SubElement(u, "changefreq").text = "weekly"
+            ET.SubElement(u, "priority").text = "0.8"
+          for slug in slugs:
+            u = ET.SubElement(urlset, "url")
+            ET.SubElement(u, "loc").text = f"{DOMAIN}/blog/{slug}"
+            ET.SubElement(u, "lastmod").text = dates[slug]
+            ET.SubElement(u, "changefreq").text = "monthly"
+            ET.SubElement(u, "priority").text = "0.7"
+          ET.ElementTree(urlset).write("sitemap.xml", encoding="utf-8", xml_declaration=True)
+
+          # --- RSS (feed.xml) ---
+          now_rfc = formatdate()
+          items_xml = []
+          for slug in slugs:
+            title = titles[slug]
+            url = f"{DOMAIN}/blog/{slug}"
+            desc = descs[slug]
+            items_xml.append(f"""
+            <item>
+              <title>{title}</title>
+              <link>{url}</link>
+              <guid isPermaLink="true">{url}</guid>
+              <pubDate>{now_rfc}</pubDate>
+              <description><![CDATA[{desc}]]></description>
+            </item>""")
+          feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>VPN Polska — Blog</title>
+    <link>{DOMAIN}/blog/</link>
+    <description>Nowe artykuły o VPN, bezpieczeństwie i streamingu.</description>
+    <language>pl-PL</language>
+    <lastBuildDate>{now_rfc}</lastBuildDate>
+    {''.join(items_xml)}
+  </channel>
+</rss>
+"""
+          open("feed.xml","w",encoding="utf-8").write(feed)
+
+          # --- robots.txt (создаём только если отсутствует) ---
+          if not os.path.exists("robots.txt"):
+            open("robots.txt","w",encoding="utf-8").write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
+          PY
+
+      - name: Commit & push generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
-          git commit -m "ci: add minimal sitemap" || echo "nothing to commit"
+          git add sitemap.xml feed.xml robots.txt
+          git commit -m "chore(seo): auto-update sitemap & feed" || echo "nothing to commit"
           git push
