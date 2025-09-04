@@ -2,132 +2,142 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>Blog — VPN Polska</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Blog o VPN</title>
-  <meta name="description" content="Artykuły o VPN: poradniki, testy, bezpieczeństwo online.">
-
-  <link rel="stylesheet" href="/assets/css/blog.css">
+  <meta name="description" content="Artykuły o VPN: poradniki, bezpieczeństwo Wi-Fi, streaming VOD, konfiguracje i testy.">
   <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Карточки: фиксируем поведение прямо здесь, чтобы ничего больше не ломать -->
   <style>
-    .article-content { padding:2rem; max-width:900px; margin:auto; }
-    .article-content img, .article-content video { max-width:100%; height:auto; display:block; margin:1rem auto; }
+    .wrap { max-width: 1024px; margin: 0 auto; padding: 16px; }
+    .page-head { background:#fff; color:#111; border-radius:16px; padding:20px 16px; margin-bottom:16px; }
+    .page-head h1 { margin:0 0 6px; }
+    .search { margin:8px 0 0; }
+    .search input{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid #ddd; }
+
+    /* === Post cards (исправления) === */
+    .grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+    @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr; } }
+
+    .post-card{
+      position:relative; display:block; border-radius:12px; overflow:hidden;
+      background:#0b0b0b; color:#fff; text-decoration:none; box-shadow:0 1px 0 rgba(255,255,255,.04) inset;
+    }
+    .post-card figure{ margin:0; }
+    .post-card img{
+      display:block; width:100%; height:auto; aspect-ratio:1200/628; object-fit:cover;
+      background:#111;
+    }
+
+    /* растянутый линк — кликается вся карточка */
+    .post-card .stretched-link{ position:static; }
+    .post-card .stretched-link::after{ content:""; position:absolute; inset:0; z-index:5; }
+
+    .post-card .card-body{ position:relative; z-index:6; padding:16px; }
+    .post-card h3{ margin:0 0 6px; line-height:1.25; }
+    .post-card .meta{ margin:0 0 8px; color:#bfbfbf; font-size:.9rem; }
+    .post-card .excerpt{ margin:0 0 12px; color:#d7d7d7; line-height:1.45; }
+    .post-card .btn{ position:relative; z-index:7; }
+
+    /* любые декоративные оверлеи не перехватывают клики */
+    .post-card::before, .post-card::after,
+    .post-card figure::before, .post-card figure::after{ pointer-events:none; }
   </style>
 </head>
 <body>
 
-<header class="wrap">
-  <h1>Blog</h1>
-  <p>Ta strona ładuje <code>data/posts.json</code> i (jeśli trzeba) wczytuje treść prosto z HTML artykułu.</p>
-  <input type="search" id="search" placeholder="Szukaj po tytule/opisie…">
-</header>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Blog</h1>
+      <p>Ta strona ładuje <code>data/posts.json</code> i buduje listę kart. Miniatury bierzemy z <code>/assets/img/thumbs/&lt;slug&gt;.webp</code>.</p>
+      <div class="search">
+        <label class="sr-only" for="q">Szukaj</label>
+        <input id="q" type="search" placeholder="Szukaj po tytule/opisie…">
+      </div>
+    </header>
 
-<main class="wrap" id="app"></main>
+    <section id="list" class="grid" aria-live="polite"></section>
+  </div>
 
-<div id="reader" hidden>
-  <div id="article-content" class="article-content"></div>
-</div>
+  <template id="card-tpl">
+    <article class="post-card">
+      <a class="stretched-link" href="#"></a>
+      <figure>
+        <img loading="lazy" decoding="async" width="400" height="209" alt="">
+      </figure>
+      <div class="card-body">
+        <h3></h3>
+        <p class="meta"></p>
+        <p class="excerpt"></p>
+        <a class="btn btn-primary" href="#">Czytaj</a>
+      </div>
+    </article>
+  </template>
 
-<script>
-// 1) Lista kart
-async function loadPosts(){
-  const res = await fetch('/data/posts.json');
-  const posts = await res.json();
-  const app = document.getElementById('app');
-  app.innerHTML = '';
-  posts.forEach(p=>{
-    if(p.status!=='published') return;
-    const card = document.createElement('article');
-    card.className = 'post-card';
-    card.innerHTML = `
-      <figure class="thumb"><img src="${p.thumb}" alt="${p.title}"></figure>
-      <h2>${p.title}</h2>
-      <p class="date">${p.date}</p>
-      <p class="desc">${p.desc}</p>
-      <a class="btn" href="/${p.slug}" data-open="${p.slug}">Czytaj</a>
-    `;
-    app.appendChild(card);
-  });
-}
-loadPosts();
-</script>
+  <script>
+    const LIST = document.getElementById('list');
+    const TPL  = document.getElementById('card-tpl');
 
-<script>
-// 2) Czytnik artykułów + autokorekta ścieżek i afiliacji
-(function(){
-  const modal   = document.getElementById('reader');
-  const content = document.getElementById('article-content');
+    // fallback миниатюры, если файла нет/не прогрузился
+    const FALLBACK = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="209" viewBox="0 0 1200 628">
+         <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#1a1a1a"/><stop offset="1" stop-color="#111"/></linearGradient></defs>
+         <rect width="1200" height="628" fill="url(#g)"/>
+         <text x="600" y="330" text-anchor="middle" fill="#cccccc" font-size="64" font-family="system-ui, -apple-system, Segoe UI, Roboto">VPN Polska</text>
+       </svg>`);
 
-  // подгружаем /assets/style.css если кто-то удалит в head
-  if(!document.querySelector('link[href="/assets/style.css"]')){
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/assets/style.css';
-    document.head.appendChild(link);
-  }
+    const fmtDate = s => s;
 
-  // mapowanie partnerów -> lokalne przejścia
-  const AFF_MAP = new Map([
-    [/tkqlhce\.com/i, '/go/surfshark.html'],
-    [/go\.nordvpn\.net/i, '/go/nordvpn.html']
-  ]);
+    async function loadPosts(){
+      const res = await fetch('/data/posts.json', {cache:'no-store'});
+      const posts = await res.json();
 
-  function rewriteAffiliates(root){
-    root.querySelectorAll('a[href]').forEach(a=>{
-      const href = a.getAttribute('href');
-      for(const [rx, local] of AFF_MAP){
-        if(rx.test(href)) { a.setAttribute('href', local); break; }
+      function render(items){
+        LIST.innerHTML = '';
+        for(const p of items){
+          const node = TPL.content.cloneNode(true);
+          const a1 = node.querySelector('.stretched-link');
+          const a2 = node.querySelector('.btn');
+          const img = node.querySelector('img');
+          const h3  = node.querySelector('h3');
+          const meta= node.querySelector('.meta');
+          const ex  = node.querySelector('.excerpt');
+
+          const href = '/blog/' + p.slug;
+          a1.href = href; a2.href = href;
+          a1.setAttribute('aria-label', p.title);
+
+          const thumb = '/assets/img/thumbs/' + p.slug.replace('.html','.webp');
+          img.src = thumb; img.alt = p.title;
+          img.onerror = () => { img.src = FALLBACK; };
+
+          h3.textContent = p.title;
+          meta.textContent = fmtDate(p.date || '');
+          ex.textContent = p.excerpt || '';
+
+          LIST.appendChild(node);
+        }
       }
-      a.setAttribute('rel', (a.getAttribute('rel')||'') + ' nofollow sponsored noopener');
-      a.setAttribute('target','_blank');
-    });
-  }
 
-  function fixRelativeUrls(root, base){
-    root.querySelectorAll('img,source,video,iframe,a,link').forEach(el=>{
-      ['src','srcset','href','poster'].forEach(attr=>{
-        if(!el.hasAttribute(attr)) return;
-        const val = el.getAttribute(attr);
-        if(!val) return;
-        if(/^https?:|^\/|^#|^mailto:|^tel:/i.test(val)) return;
-        el.setAttribute(attr, new URL(val, base).pathname);
+      // init render
+      render(posts);
+
+      // search
+      const q = document.getElementById('q');
+      q.addEventListener('input', () => {
+        const v = q.value.trim().toLowerCase();
+        if(!v){ render(posts); return; }
+        render(posts.filter(p =>
+          (p.title||'').toLowerCase().includes(v) ||
+          (p.excerpt||'').toLowerCase().includes(v)
+        ));
       });
-    });
-  }
-
-  window.openPost = async function(slug){
-    try{
-      const res = await fetch('/'+slug, {cache:'no-store'});
-      if(!res.ok) throw new Error(res.status);
-      const html = await res.text();
-      const doc  = new DOMParser().parseFromString(html,'text/html');
-
-      let node = doc.querySelector('main.wrap.post')
-             || doc.querySelector('article.article')
-             || doc.querySelector('main')
-             || doc.body;
-
-      const base = new URL('/'+slug, location.origin);
-      fixRelativeUrls(node, base);
-      rewriteAffiliates(node);
-
-      content.innerHTML = '';
-      content.appendChild(node.cloneNode(true));
-      modal.hidden = false;
-      scrollTo({top:0, behavior:'instant'});
-    }catch(e){
-      console.error(e);
-      alert('Nie udało się otworzyć artykułu.');
     }
-  };
 
-  document.addEventListener('click', e=>{
-    const a = e.target.closest('[data-open]');
-    if(!a) return;
-    e.preventDefault();
-    openPost(a.getAttribute('data-open'));
-  });
-})();
-</script>
-
+    loadPosts().catch(err => {
+      LIST.innerHTML = '<p>Błąd ładowania listy postów.</p>';
+      console.error(err);
+    });
+  </script>
 </body>
 </html>
