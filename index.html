@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
   <style>
-    /* на случай, если css ещё не подцепился */
     .wrap{max-width:960px;margin:0 auto;padding:1rem}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:1rem}
     .card{background:#fff;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
@@ -30,16 +29,21 @@
 
   <script>
   (async () => {
-    const PLACEHOLDER = /Treść artykułu do uzupełnienia|Opis do uzupełnienia|Czytaj więcej/i;
     const esc = s => (s||'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
     const baseName = slug => (slug||'').split('/').pop().replace(/\.html$/,'');
+    const ts = () => Date.now();
 
-    const res = await fetch('/data/posts.json?ts=' + Date.now());
+    // 1) грузим свежий posts.json
     let all = [];
-    try { all = await res.json(); } catch(e){ all = []; }
+    try {
+      const res = await fetch('/data/posts.json?ts=' + ts());
+      all = await res.json();
+    } catch (e) {
+      console.error('Nie mogę pobrać posts.json', e);
+      all = [];
+    }
 
-    // можно скрыть черновики и лишние статьи здесь
-    const posts = (all || []).filter(p => p.status === 'published');
+    const posts = (all||[]).filter(p => p && p.slug && p.status !== 'draft');
 
     const container = document.getElementById('posts');
     const q = document.getElementById('q');
@@ -56,7 +60,7 @@
               ${p.date ? `<time datetime="${esc(p.date)}">${esc(p.date)}</time>` : ''}
               ${(p.tags||[]).slice(0,3).map(t => `<span class="badge">${esc(t)}</span>`).join('')}
             </div>
-            <p class="card-desc" data-slug="${esc(p.slug)}">${esc(p.desc || '')}</p>
+            <p class="card-desc" data-slug="${esc(p.slug)}">${esc(p.desc||'')}</p>
           </div>
           <div class="card-footer">
             <a class="btn" href="/${p.slug}">Czytaj</a>
@@ -70,20 +74,28 @@
       hydrate(sorted);
     }
 
+    // 2) ВСЕГДА подменяем описание, если есть descriptions/<slug>.txt
+    async function fetchDescFile(name){
+      // пробуем абсолютный путь (user pages)
+      try {
+        const r1 = await fetch('/descriptions/' + name + '.txt?ts=' + ts(), {cache:'no-store'});
+        if (r1.ok) return (await r1.text()).trim();
+      } catch {}
+      // пробуем относительный путь (project pages)
+      try {
+        const r2 = await fetch('descriptions/' + name + '.txt?ts=' + ts(), {cache:'no-store'});
+        if (r2.ok) return (await r2.text()).trim();
+      } catch {}
+      return '';
+    }
+
     async function hydrate(list){
       await Promise.all(list.map(async (p) => {
         const el = container.querySelector(`.card-desc[data-slug="${CSS.escape(p.slug)}"]`);
         if (!el) return;
-        const current = (el.textContent||'').trim();
-        if (current && !PLACEHOLDER.test(current) && current.length >= 60) return;
-
         const name = baseName(p.slug);
-        try {
-          const r = await fetch('/descriptions/' + name + '.txt?ts=' + Date.now(), { cache:'no-store' });
-          if (!r.ok) return;
-          const txt = (await r.text()).trim();
-          if (txt) el.textContent = txt.length > 160 ? txt.slice(0,157) + '…' : txt;
-        } catch(_) {}
+        const txt = await fetchDescFile(name);
+        if (txt) el.textContent = txt.length > 160 ? txt.slice(0,157) + '…' : txt;
       }));
     }
 
