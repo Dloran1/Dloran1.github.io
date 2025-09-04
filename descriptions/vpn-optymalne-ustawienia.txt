@@ -1,1 +1,0 @@
-Optymalne ustawienia VPN: protokoły, MTU, split tunneling i DNS.

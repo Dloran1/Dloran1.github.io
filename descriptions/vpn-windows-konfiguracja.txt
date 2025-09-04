@@ -1,1 +1,0 @@
-VPN na Windows: konfiguracja, firewall, DNS i autostart.

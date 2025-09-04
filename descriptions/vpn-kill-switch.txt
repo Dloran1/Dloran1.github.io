@@ -1,1 +1,0 @@
-Kill Switch — ochrona przed wyciekiem IP. Jak włączyć i przetestować.

@@ -1,1 +1,0 @@
-Jak przetestować szybkość VPN i poprawić wydajność połączenia.

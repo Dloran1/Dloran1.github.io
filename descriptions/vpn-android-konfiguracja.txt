@@ -1,1 +1,0 @@
-VPN na Androidzie — konfiguracja, protokoły, autostart, split tunneling i wskazówki wydajnościowe.

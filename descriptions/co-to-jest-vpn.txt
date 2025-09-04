@@ -1,1 +1,0 @@
-VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy podstawy działania, zastosowania i korzyści.

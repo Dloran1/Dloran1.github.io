@@ -1,1 +1,0 @@
-VPN w pracy zdalnej: dostęp do zasobów, MFA i polityki bezpieczeństwa.

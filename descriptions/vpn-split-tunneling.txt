@@ -1,1 +1,0 @@
-Split tunneling: kierowanie wybranych aplikacji poza tunel dla wydajności.
