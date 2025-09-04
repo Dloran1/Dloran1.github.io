@@ -2,297 +2,206 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>Darmowy VPN w Polsce — czy warto korzystać?</title>
+  <meta name="description" content="Darmowy VPN w Polsce: czy jest bezpieczny, jakie ma ograniczenia i kiedy lepiej wybrać płatną usługę. Poradnik 2025.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Darmowy VPN w Polsce — czy warto i które działają?</title>
-  <meta name="description" content="Jak działa darmowy VPN w Polsce, jakie ma limity i ryzyka? Przegląd opcji, zastosowania (Wi-Fi, VOD, praca), alternatywy oraz FAQ i checklista wyboru.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/darmowy-vpn-polska.html">
 
-  <!-- Perf & robots -->
-  <link rel="preload" as="image" href="/assets/img/hero/darmowy-vpn-polska.webp" imagesrcset="/assets/img/hero/darmowy-vpn-polska.webp" imagesizes="100vw">
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/darmowy-vpn-polska.webp"
+        imagesrcset="/assets/img/hero/darmowy-vpn-polska.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Darmowy VPN w Polsce — czy warto i które działają?">
-  <meta property="og:description" content="Limity, szybkość, prywatność i zastosowania. Co wybrać i kiedy darmowy VPN ma sens.">
+  <meta property="og:title" content="Darmowy VPN w Polsce — czy warto korzystać?">
+  <meta property="og:description" content="Darmowy VPN w Polsce: czy jest bezpieczny, jakie ma ograniczenia i kiedy lepiej wybrać płatną usługę. Poradnik 2025.">
   <meta property="og:url" content="https://dloran1.github.io/blog/darmowy-vpn-polska.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/darmowy-vpn-polska.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Darmowy VPN w Polsce — czy warto i które działają?">
-  <meta name="twitter:description" content="Najważniejsze różnice, ryzyka i alternatywy.">
+  <meta name="twitter:title" content="Darmowy VPN w Polsce — czy warto korzystać?">
+  <meta name="twitter:description" content="Darmowy VPN w Polsce: czy jest bezpieczny, jakie ma ograniczenia i kiedy lepiej wybrać płatną usługę. Poradnik 2025.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/darmowy-vpn-polska.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Fail-safe (не ломает /assets/style.css) -->
-  <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
-    figure.article-hero{ margin:0; }
-  </style>
+  <!-- BreadcrumbList JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Darmowy VPN w Polsce","item":"https://dloran1.github.io/blog/darmowy-vpn-polska.html"}
+    ]
+  }
+  </script>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>Darmowy VPN w Polsce — czy warto i które działają?</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/darmowy-vpn-polska.webp"
-      alt="Darmowy VPN w Polsce — przegląd możliwości, limitów i ryzyk"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    Darmowy VPN jest kuszący, ale zwykle ma <em>limity danych</em>, <em>mniejszą szybkość</em> i <em>gorszą prywatność</em>.
-    Sprawdź, kiedy ma sens w Polsce i jakie masz bezpieczniejsze alternatywy.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#co-to">Co oferuje darmowy VPN?</a></li>
-      <li><a href="#limity">Limity i ryzyka</a></li>
-      <li><a href="#zastosowania">Kiedy darmowy ma sens</a></li>
-      <li><a href="#alternatywy">Lepsze alternatywy</a></li>
-      <li><a href="#checklista">Checklista wyboru</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-    </ol>
+  <!-- Видимые breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Darmowy VPN w Polsce</span>
+    </div>
   </nav>
 
-  <section id="co-to">
-    <h2>Co oferuje darmowy VPN?</h2>
-    <ul>
-      <li>Podstawowe szyfrowanie i ukrycie IP;</li>
-      <li>Dostęp do kilku lokalizacji (często 3–5);</li>
-      <li>Proste aplikacje na telefon i przeglądarkę;</li>
-      <li>Brak opłat — dobry do krótkich, okazjonalnych zadań.</li>
-    </ul>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="limity">
-    <h2>Limity i ryzyka</h2>
-    <table class="table">
-      <caption>Darmowy VPN — na co uważać</caption>
-      <thead><tr><th>Aspekt</th><th>Co to oznacza</th></tr></thead>
-      <tbody>
-        <tr><td>Limit transferu</td><td>Zwykle 0.5–10 GB/mies. — szybko się kończy przy VOD.</td></tr>
-        <tr><td>Szybkość/serwery</td><td>Mniej lokalizacji, przeciążone węzły, kolejki do połączeń.</td></tr>
-        <tr><td>Prywatność</td><td>Ryzyko logów i monetyzacji danych; czytaj politykę prywatności.</td></tr>
-        <tr><td>VOD/gry/praca</td><td>Często blokowane, brak wsparcia technicznego.</td></tr>
-        <tr><td>Reklamy</td><td>W darmowych planach bywają reklamy lub tracking.</td></tr>
-      </tbody>
-    </table>
-  </section>
+      <h1>Darmowy VPN w Polsce — czy warto korzystać?</h1>
 
-  <section id="zastosowania">
-    <h2>Kiedy darmowy ma sens</h2>
-    <ul>
-      <li>Krótkie użycie w publicznym Wi-Fi (kawiarnia, lotnisko);</li>
-      <li>Jednorazowy dostęp do strony bez wrażliwych danych;</li>
-      <li>Test: sprawdzenie, czy VPN w ogóle rozwiązuje Twój problem.</li>
-    </ul>
-    <p>Do stałego użytku (VOD, praca zdalna, bankowość) rekomendujemy plan płatny.</p>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/darmowy-vpn-polska.webp"
+             width="1200" height="628"
+             alt="Darmowy VPN w Polsce — bezpieczeństwo i ograniczenia"
+             fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Darmowe VPN-y są popularne, ale mają sporo ograniczeń</figcaption>
+      </figure>
 
-  <section id="alternatywy">
-    <h2>Lepsze alternatywy (niedrogie)</h2>
-    <p>W dłuższej perspektywie tańszy plan płatny da więcej prywatności, szybkości i stabilności, a zwykle kosztuje
-       kilka–kilkanaście zł miesięcznie w pakiecie długoterminowym.</p>
+      <p><strong>Darmowy VPN</strong> kusi zerową ceną, ale często oznacza kompromisy: limity transferu, wolniejsze prędkości i gorszą prywatność. W Polsce dostępnych jest kilka darmowych opcji, lecz nie zawsze są one bezpieczne. Zobacz, kiedy darmowy VPN ma sens, a kiedy lepiej zainwestować w płatną usługę.</p>
 
-    <!-- CTA -->
-    <div class="cta">
-      <a class="btn btn-primary"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-         target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
-      &nbsp;
-      <a class="btn btn-ghost"
-         href="https://www.tkqlhce.com/click-101525886-17061430"
-         target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
-    </div>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#plusy">Plusy darmowych VPN</a></li>
+          <li><a href="#minusy">Minusy i ryzyka</a></li>
+          <li><a href="#kiedy">Kiedy darmowy VPN w Polsce się sprawdzi</a></li>
+          <li><a href="#alternatywy">Alternatywy płatne</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
 
-  <section id="checklista">
-    <h2>Checklista wyboru (PL)</h2>
-    <ol>
-      <li><strong>Prywatność:</strong> polityka no-logs, audyty, siedziba.</li>
-      <li><strong>Technologia:</strong> WireGuard, Kill Switch, ochrona przed DNS leak.</li>
-      <li><strong>Serwery:</strong> Polska + kraje UE, obciążenie, ping.</li>
-      <li><strong>Zastosowania:</strong> VOD PL/UE, gry, praca zdalna.</li>
-      <li><strong>Wsparcie i zwrot:</strong> 24/7 chat, 30-dniowa gwarancja.</li>
-    </ol>
-  </section>
+      <h2 id="plusy">Plusy darmowych VPN</h2>
+      <ul>
+        <li>Brak opłat — szybki start.</li>
+        <li>Proste aplikacje mobilne.</li>
+        <li>Dobry wybór do krótkiego testu technologii.</li>
+      </ul>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Powiązane: <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>,
-       <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>,
-       <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a></p>
-  </aside>
+      <h2 id="minusy">Minusy i ryzyka</h2>
+      <ul>
+        <li>Limity transferu (np. 500 MB–2 GB miesięcznie).</li>
+        <li>Niższe prędkości i kolejki do serwerów.</li>
+        <li>Brak wsparcia dla streamingu (Netflix, HBO, TVP VOD).</li>
+        <li>Ryzyko logowania danych lub wstrzykiwania reklam.</li>
+      </ul>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
-    </div>
-  </section>
+      <h2 id="kiedy">Kiedy darmowy VPN w Polsce się sprawdzi</h2>
+      <p>Darmowy VPN ma sens w krótkich sesjach, np. przy logowaniu się do poczty w kawiarni albo szybkim sprawdzeniu wiadomości w publicznym Wi-Fi. Do regularnego korzystania i streamingu — lepiej wybrać płatny.</p>
 
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: darmowy VPN w Polsce</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/darmowy-vpn-polska.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <h2 id="alternatywy">Alternatywy płatne</h2>
+      <p>W Polsce najlepiej sprawdzają się usługi globalnych marek: stabilne połączenia, brak limitów, działający streaming i pełna polityka no-logs. Ceny zaczynają się od kilku zł miesięcznie przy planie rocznym.</p>
 
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
-  </ol>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy darmowy VPN w Polsce jest legalny?</summary>
+          <p>Tak, korzystanie z VPN jest legalne w Polsce — ważne, by używać go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy darmowe VPN-y logują dane?</summary>
+          <p>Część tak. Warto sprawdzać politykę prywatności — darmowe aplikacje mogą zarabiać na danych lub reklamach.</p>
+        </details>
+        <details>
+          <summary>Który darmowy VPN jest najlepszy?</summary>
+          <p>Najczęściej rekomendowane są wersje freemium dużych marek (ProtonVPN, Windscribe, AtlasVPN). Ale do streamingu i P2P potrzebny jest płatny plan.</p>
+        </details>
+      </section>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>,
+          <a href="/blog/wady-vpn.html">Wady VPN</a>,
+          <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>
+        </p>
+      </aside>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"Darmowy VPN w Polsce — czy warto i które działają?",
-  "description":"Jak działa darmowy VPN w Polsce, jakie ma limity i ryzyka? Przegląd opcji, zastosowania, alternatywy, FAQ i checklista wyboru.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-02",
-  "image":"https://dloran1.github.io/assets/img/hero/darmowy-vpn-polska.webp",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska",
-    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-  },
-  "mainEntityOfPage":"https://dloran1.github.io/blog/darmowy-vpn-polska.html"
-}
-</script>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"Darmowy VPN w Polsce","item":"https://dloran1.github.io/blog/darmowy-vpn-polska.html"}
-  ]
-}
-</script>
+      <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
 
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy darmowy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne. Pamiętaj jednak o przestrzeganiu prawa i regulaminów usług."}},
-    {"@type":"Question","name":"Czy darmowy VPN działa z polskimi serwisami VOD?","acceptedAnswer":{"@type":"Answer","text":"Rzadko i niestabilnie. Serwisy często blokują adresy IP darmowych usług."}},
-    {"@type":"Question","name":"Czy darmowy VPN jest bezpieczny?","acceptedAnswer":{"@type":"Answer","text":"Bywa, ale często wiąże się z limitami, reklamami i potencjalną monetyzacją danych. Wybieraj znane marki i czytaj politykę prywatności."}},
-    {"@type":"Question","name":"Czy darmowy VPN wystarczy do Wi-Fi w kawiarni?","acceptedAnswer":{"@type":"Answer","text":"Do krótkich sesji — tak. Do stałego użytku (VOD, praca, bankowość) lepszy jest płatny plan."}}
-  ]
-}
-</script>
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"Darmowy VPN w Polsce — czy warto korzystać?",
+    "description":"Darmowy VPN w Polsce: czy jest bezpieczny, jakie ma ograniczenia i kiedy lepiej wybrać płatną usługę. Poradnik 2025.",
+    "datePublished":"2025-09-03",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/darmowy-vpn-polska.webp",
+    "url":"https://dloran1.github.io/blog/darmowy-vpn-polska.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/darmowy-vpn-polska.html"
+  }
+  </script>
 
-<!-- JSON-LD: HowTo (checklista wyboru) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Jak wybrać VPN w Polsce (checklista)",
-  "description":"Kluczowe kryteria wyboru VPN dla użytkownika w Polsce.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
-  "step":[
-    {"@type":"HowToStep","name":"Sprawdź prywatność","text":"Polityka no-logs, audyty i siedziba firmy."},
-    {"@type":"HowToStep","name":"Zweryfikuj technologię","text":"WireGuard, Kill Switch, ochrona przed DNS leak."},
-    {"@type":"HowToStep","name":"Oceń zastosowania","text":"VOD PL/UE, gry, praca zdalna — sprawdź skuteczność i opinie."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"Darmowy VPN w Polsce — szybkie wyjaśnienie",
-  "description":"Kiedy darmowy VPN ma sens, a kiedy lepiej wybrać plan płatny.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/darmowy-vpn-polska.webp",
-  "uploadDate":"2025-09-02",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/darmowy-vpn-polska.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3 z Product) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{
-      "@type":"Product","name":"NordVPN",
-      "brand":{"@type":"Brand","name":"NordVPN"},
-      "url":"https://dloran1.github.io/blog/darmowy-vpn-polska.html#top3",
-      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":2,"item":{
-      "@type":"Product","name":"Surfshark",
-      "brand":{"@type":"Brand","name":"Surfshark"},
-      "url":"https://dloran1.github.io/blog/darmowy-vpn-polska.html#top3",
-      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":3,"item":{
-      "@type":"Product","name":"CyberGhost",
-      "brand":{"@type":"Brand","name":"CyberGhost"},
-      "url":"https://dloran1.github.io/blog/darmowy-vpn-polska.html#top3",
-      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
-    }}
-  ]
-}
-</script>
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Czy darmowy VPN w Polsce jest legalny?",
+        "acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne w Polsce — ważne, by używać go zgodnie z prawem."}
+      },
+      {
+        "@type":"Question",
+        "name":"Czy darmowe VPN-y logują dane?",
+        "acceptedAnswer":{"@type":"Answer","text":"Część tak. Warto sprawdzać politykę prywatności — darmowe aplikacje mogą zarabiać na danych lub reklamach."}
+      },
+      {
+        "@type":"Question",
+        "name":"Który darmowy VPN jest najlepszy?",
+        "acceptedAnswer":{"@type":"Answer","text":"Najczęściej rekomendowane są wersje freemium dużych marek (ProtonVPN, Windscribe, AtlasVPN). Ale do streamingu i P2P potrzebny jest płatny plan."}
+      }
+    ]
+  }
+  </script>
 
 </body>
 </html>
