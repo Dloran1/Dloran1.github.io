@@ -2,118 +2,57 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>VPN Polska — Bezpieczeństwo, prywatność i streaming</title>
+  <meta name="description" content="VPN Polska: poradniki, testy i rankingi najlepszych VPN w 2025 roku. Dowiedz się, jak chronić prywatność, oglądać VOD i grać online z VPN.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Blog o VPN</title>
-  <meta name="description" content="Artykuły o VPN: poradniki, testy, bezpieczeństwo online.">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/blog.css">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dloran1.github.io/">
+
+  <!-- OG / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VPN Polska — Bezpieczeństwo, prywatność i streaming">
+  <meta property="og:description" content="VPN Polska: poradniki, testy i rankingi najlepszych VPN w 2025 roku.">
+  <meta property="og:url" content="https://dloran1.github.io/">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="VPN Polska — RSS" href="/rss.xml">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css">
-
-  <style>
-    .article-content { padding:2rem; max-width:900px; margin:auto; }
-    .article-content img { max-width:100%; height:auto; display:block; margin:1rem auto; }
-    .article-content video { max-width:100%; border-radius:12px; display:block; margin:1rem auto; }
-  </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="inner">
+      <a class="logo" href="/">VPN Polska</a>
+      <div class="menu">
+        <a href="/">Strona główna</a> •
+        <a href="/blog/index.html">Blog</a> •
+        <a href="/vod.html">Vod</a> •
+        <a href="/kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
 
-<header class="wrap">
-  <h1>Blog</h1>
-  <p>Ta strona ładuje <code>data/posts.json</code> i (jeśli istnieje) dociąga opis prosto z HTML artykułu.</p>
-  <input type="search" id="search" placeholder="Szukaj po tytule/opisie…">
-</header>
+  <header class="wrap">
+    <h1>VPN Polska</h1>
+    <p>Przewodniki, testy i rankingi najlepszych VPN w 2025 roku.</p>
+  </header>
 
-<main class="wrap" id="app">
-  <!-- Tu JS wstawi karty artykułów -->
-</main>
+  <main class="wrap">
+    <h2>Ostatnie artykuły</h2>
+    <ul>
+      <li><a href="/blog/co-to-jest-vpn.html">Co to jest VPN? Jak działa i do czego służy</a></li>
+      <li><a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs Płatne VPN — co wybrać?</a></li>
+      <li><a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark — porównanie</a></li>
+    </ul>
+    <p><a href="/blog/index.html">→ Zobacz wszystkie artykuły</a></p>
+  </main>
 
-<div id="reader" hidden>
-  <div id="article-content"></div>
-</div>
-
-<script>
-// Ładowanie listy postów
-async function loadPosts(){
-  const res = await fetch('/data/posts.json');
-  const posts = await res.json();
-  const app = document.getElementById('app');
-  app.innerHTML = '';
-
-  posts.forEach(p=>{
-    if(p.status !== 'published') return;
-    const card = document.createElement('div');
-    card.className = 'post-card';
-    card.innerHTML = `
-      <figure class="thumb"><img src="${p.thumb}" alt="${p.title}"></figure>
-      <h2>${p.title}</h2>
-      <p class="date">${p.date}</p>
-      <p class="desc">${p.desc}</p>
-      <a class="btn" href="/${p.slug}" data-open="${p.slug}">Czytaj</a>
-    `;
-    app.appendChild(card);
-  });
-}
-loadPosts();
-</script>
-
-<script>
-// Obsługa otwierania artykułu
-(function(){
-  const modal = document.getElementById('reader');
-  const content = document.getElementById('article-content');
-
-  // upewnij się, że style.css jest
-  if(!document.querySelector('link[href="/assets/style.css"]')){
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/assets/style.css';
-    document.head.appendChild(link);
-  }
-
-  window.openPost = async function(slug){
-    try{
-      const res = await fetch('/' + slug, {cache:'no-store'});
-      if(!res.ok) throw new Error(res.status+' '+res.statusText);
-      const html = await res.text();
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-
-      let node = doc.querySelector('main.wrap.post')
-              || doc.querySelector('article.article')
-              || doc.querySelector('main')
-              || doc.body;
-
-      // popraw względne ścieżki
-      const base = new URL('/' + slug, location.origin);
-      node.querySelectorAll('img,source,video,iframe,a,link').forEach(el=>{
-        ['src','srcset','href','poster'].forEach(attr=>{
-          if(el.hasAttribute(attr)){
-            const val = el.getAttribute(attr);
-            if(val && !/^https?:|^\/|^#|^mailto:|^tel:/.test(val)){
-              el.setAttribute(attr, new URL(val, base).pathname);
-            }
-          }
-        });
-      });
-
-      content.innerHTML = '';
-      content.appendChild(node.cloneNode(true));
-      modal.hidden = false;
-      window.scrollTo({top:0, behavior:'instant'});
-    }catch(e){
-      console.error(e);
-      alert('Nie udało się otworzyć artykułu.');
-    }
-  };
-
-  document.addEventListener('click', ev=>{
-    const a = ev.target.closest('[data-open]');
-    if(!a) return;
-    ev.preventDefault();
-    openPost(a.getAttribute('data-open'));
-  });
-})();
-</script>
-
+  <footer class="foot">
+    <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+  </footer>
 </body>
 </html>
