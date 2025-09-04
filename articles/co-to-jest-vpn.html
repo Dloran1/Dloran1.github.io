@@ -2,30 +2,40 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Co To Jest Vpn</title>
-  <meta name="description" content="Opis do uzupełnienia.">
+  <title>Co To Jest VPN</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
-  <link rel="canonical" href="https://Dloran1.github.io/articles/co-to-jest-vpn.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Co To Jest Vpn">
-  <meta property="og:description" content="Opis do uzupełnienia.">
-  <meta property="og:url" content="https://Dloran1.github.io/articles/co-to-jest-vpn.html">
-  <meta property="og:image" content="https://Dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Co To Jest Vpn">
-  <meta name="twitter:description" content="Opis do uzupełnienia.">
-  <meta name="twitter:image" content="https://Dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
-  <script type="application/json" id="post-meta">{"slug":"articles/co-to-jest-vpn.html","title":"Co To Jest Vpn","desc":"Opis do uzupełnienia.","date":"2025-09-03","tags":[],"thumb":"/assets/img/thumbs/co-to-jest-vpn.webp","hero":"/assets/img/hero/co-to-jest-vpn.webp","status":"published"}</script>
 </head>
 <body>
   <div class="wrap">
-    <article class="article">
-      <h1>Co To Jest Vpn</h1>
-      <figure class="hero"><img src="/assets/img/hero/co-to-jest-vpn.webp" width="1200" height="628" alt=""><figcaption>Co To Jest Vpn</figcaption></figure>
-      <p>Treść artykułu do uzupełnienia.</p>
+    <article class="article" id="article-content">
+      <h1>Ładowanie...</h1>
+      <p>Proszę czekać, trwa wczytywanie artykułu.</p>
     </article>
   </div>
-  <script src="/assets/js/lead.js" defer></script>
+
+  <script>
+    async function loadArticle() {
+      try {
+        // Определяем имя файла, например co-to-jest-vpn.html
+        const slug = window.location.pathname.split('/').pop();
+        const url = '/blog/' + slug;
+
+        // Загружаем HTML из папки /blog/
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Błąd pobierania: " + url);
+
+        const html = await res.text();
+
+        // Вставляем внутрь <article>
+        document.getElementById("article-content").innerHTML = html;
+      } catch (err) {
+        document.getElementById("article-content").innerHTML =
+          "<p style='color:red'>Nie udało się wczytać artykułu.</p><pre>" + err + "</pre>";
+      }
+    }
+
+    loadArticle();
+  </script>
 </body>
 </html>
