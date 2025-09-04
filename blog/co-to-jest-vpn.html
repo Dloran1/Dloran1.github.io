@@ -4,42 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Co to jest VPN? Wyjaśnienie i zastosowania</title>
-  <meta name="description" content="VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy, jak działa, kiedy się przydaje i jak zacząć (3 kroki). Plus: wady/zalety, szybka diagnostyka i FAQ.">
+  <meta name="description" content="VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy podstawy działania, zastosowania i korzyści.">
   <link rel="canonical" href="https://dloran1.github.io/blog/co-to-jest-vpn.html">
 
-  <!-- Global styles / favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Perf: начни грузить героя сразу -->
-  <link rel="preload" as="image" href="/assets/img/hero/co-to-jest-vpn.webp"
-        imagesrcset="/assets/img/hero/co-to-jest-vpn.webp"
-        imagesizes="100vw">
-
-  <!-- Разрешаем крупные превью в сниппетах -->
+  <!-- Perf & robots -->
+  <link rel="preload" as="image" href="/assets/img/hero/co-to-jest-vpn.webp" imagesrcset="/assets/img/hero/co-to-jest-vpn.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
   <meta property="og:title" content="Co to jest VPN? Wyjaśnienie i zastosowania">
-  <meta property="og:description" content="Jak działa VPN, do czego służy i jak zacząć w 3 krokach.">
+  <meta property="og:description" content="VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy podstawy działania, zastosowania i korzyści.">
   <meta property="og:url" content="https://dloran1.github.io/blog/co-to-jest-vpn.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
-  <meta property="og:locale" content="pl_PL">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Co to jest VPN? Wyjaśnienie i zastosowania">
-  <meta name="twitter:description" content="Proste wyjaśnienie + praktyczne wskazówki.">
+  <meta name="twitter:description" content="VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy podstawy działania, zastosowania i korzyści.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp">
 
-  <!-- Микро-UX и страховка по картинкам (не ломает общий /assets/style.css) -->
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Fail-safe (не ломает /assets/style.css) -->
   <style>
     .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img,
-    .author__media img,
-    .post img{ display:block; max-width:100%; height:auto; }
+    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
     figure.article-hero{ margin:0; }
   </style>
 </head>
@@ -55,95 +49,50 @@
 <header class="wrap">
   <h1>Co to jest VPN? Wyjaśnienie i zastosowania</h1>
 
-  <!-- HERO -->
   <figure class="article-hero">
     <img
       src="/assets/img/hero/co-to-jest-vpn.webp"
-      alt="Czym jest VPN — wyjaśnienie i zastosowania"
+      alt="Co to jest VPN — podstawy działania"
       width="1200" height="630"
-      fetchpriority="high" loading="eager">
+      fetchpriority="high" loading="eager" decoding="async">
   </figure>
 
   <p class="lead">
-    <strong>VPN (Virtual Private Network)</strong> szyfruje Twój ruch internetowy i ukrywa adres IP.
-    Dzięki temu korzystasz z sieci <em>bezpieczniej i bardziej prywatnie</em>.
+    VPN (Virtual Private Network) szyfruje Twój ruch internetowy i ukrywa adres IP.
+    Dzięki temu korzystasz z sieci bezpieczniej i bardziej prywatnie.
   </p>
 </header>
 
 <main class="wrap post" id="top">
 
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#jak-dziala">Jak działa VPN?</a></li>
-      <li><a href="#zastosowania">Zastosowania VPN</a></li>
-      <li><a href="#zalety-wady">Zalety i wady</a></li>
-      <li><a href="#diagnostyka">Szybka diagnostyka</a></li>
-      <li><a href="#start">Jak zacząć (3 kroki)</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-    </ol>
-  </nav>
+  <!-- ====== TWÓJ ISTNIEJĄCY KONTENT ======
+       Jeśli chcesz — wklej tu swoją treść z obecnej strony.
+       Poniżej оставил базовый, чтобы страница была самодостаточной. -->
 
-  <section id="jak-dziala">
-    <h2>Jak działa VPN?</h2>
-    <p>Po włączeniu VPN Twój ruch przechodzi przez szyfrowany tunel do serwera dostawcy. Serwisy widzą adres IP serwera VPN, a nie Twój. Operator, reklamodawcy i osoby trzecie nie widzą odwiedzanych stron ani realnego IP.</p>
-  </section>
+  <h2>Jak działa VPN (w skrócie)</h2>
+  <ul>
+    <li><strong>Szyfrowanie:</strong> tunel między urządzeniem a serwerem VPN.</li>
+    <li><strong>Maskowanie IP:</strong> serwisy widzą IP serwera, nie Twoje.</li>
+    <li><strong>Routing:</strong> możesz “wybrać kraj” połączenia.</li>
+  </ul>
 
-  <section id="zastosowania">
-    <h2>Zastosowania VPN</h2>
-    <ul>
-      <li>Bezpieczne Wi-Fi w hotelach i kawiarniach;</li>
-      <li>Stały dostęp do VOD (podróże, geoblokady);</li>
-      <li>Ochrona prywatności i mniej profilowania reklam;</li>
-      <li>Praca zdalna i dostęp do zasobów firmowych;</li>
-      <li>Niższe opóźnienia w grach (czasem — przez lepszą trasę).</li>
-    </ul>
-  </section>
+  <h2>Najczęstsze zastosowania</h2>
+  <ul>
+    <li>Więcej prywatności w sieci (publiczne Wi-Fi, praca zdalna).</li>
+    <li>Dostęp do treści z innych regionów (VOD, strony regionalne).</li>
+    <li>Stabilność i bezpieczeństwo połączeń.</li>
+  </ul>
 
-  <section id="zalety-wady">
-    <h2>Zalety i wady</h2>
-    <table class="table">
-      <caption>Zalety i wady VPN w skrócie</caption>
-      <thead><tr><th>Zalety</th><th>Wady / uwagi</th></tr></thead>
-      <tbody>
-        <tr><td>Szyfrowanie ruchu, ukrycie IP</td><td>Minimalny spadek prędkości (zależny od serwera)</td></tr>
-        <tr><td>Dostęp do treści z innych regionów</td><td>Nie każdy serwis VOD działa zawsze</td></tr>
-        <tr><td>Lepsza prywatność i bezpieczeństwo</td><td>Zaufanie do dostawcy (sprawdź politykę no-logs)</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="diagnostyka">
-    <h2>Szybka diagnostyka</h2>
-    <ol>
-      <li>Sprawdź IP: <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>.</li>
-      <li>Jeśli VOD nie działa — zmień serwer/kraj i wyczyść cookies.</li>
-      <li>Wolno? Wybierz bliższy serwer lub protokół WireGuard.</li>
-    </ol>
-  </section>
-
-  <section id="start">
-    <h2>Jak zacząć z VPN (3 kroki)</h2>
-    <ol>
-      <li>Wybierz sprawdzonego dostawcę (no-logs, wsparcie 24/7, zwrot).</li>
-      <li>Zainstaluj aplikację i zaloguj się.</li>
-      <li>Włącz Kill Switch, połącz się z serwerem (np. Polska/UE) i sprawdź IP.</li>
-    </ol>
-  </section>
-
-  <section class="cta">
+  <!-- CTA — 2 кнопки (локальные редиректы /go/...) -->
+  <div class="cta" style="margin-top:24px">
     <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
-  </section>
-
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Więcej: <a href="/blog/vpn-szybkosc-test.html">Jak testować szybkość VPN</a>,
-       <a href="/blog/vpn-port-forwarding.html">Port forwarding z VPN</a></p>
-  </aside>
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — sprawdź ofertę</a>
+  </div>
 
   <!-- Author -->
   <section class="author">
@@ -152,27 +101,9 @@
     </div>
     <div class="author__body">
       <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
     </div>
   </section>
-
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: VPN w pigułce</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/co-to-jest-vpn.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
-
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="YOUR_SURFSHARK_AFF_LINK" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="YOUR_CYBERGHOST_AFF_LINK" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-  </ol>
 
   <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
 </main>
@@ -188,104 +119,15 @@
   "@type":"Article",
   "inLanguage":"pl-PL",
   "headline":"Co to jest VPN? Wyjaśnienie i zastosowania",
-  "description":"Proste wyjaśnienie działania VPN, zastosowania, wady/zalety oraz jak zacząć.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-02",
+  "description":"VPN szyfruje ruch i ukrywa adres IP. Wyjaśniamy podstawy działania, zastosowania i korzyści.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-03",
   "image":"https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
   "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
   "publisher":{"@type":"Organization","name":"VPN Polska",
     "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
   },
   "mainEntityOfPage":"https://dloran1.github.io/blog/co-to-jest-vpn.html"
-}
-</script>
-
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"Co to jest VPN?","item":"https://dloran1.github.io/blog/co-to-jest-vpn.html"}
-  ]
-}
-</script>
-
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy VPN działa na telefonie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Aplikacje są dostępne na iOS i Androida. Wystarczy zalogować się i połączyć z serwerem."}},
-    {"@type":"Question","name":"Czy mogę oglądać Netflix z VPN?","acceptedAnswer":{"@type":"Answer","text":"Tak, ale skuteczność zależy od serwera. W razie problemów zmień kraj i wyczyść cookies."}},
-    {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie. Wybierz bliższy serwer i protokół WireGuard dla najlepszej prędkości."}},
-    {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Korzystaj zgodnie z prawem i regulaminami usług."}}
-  ]
-}
-</script>
-
-<!-- JSON-LD: HowTo -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Jak zacząć korzystać z VPN (3 kroki)",
-  "description":"Wybierz dostawcę, zainstaluj aplikację i połącz się z serwerem.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
-  "step":[
-    {"@type":"HowToStep","name":"Wybierz usługę VPN","text":"Sprawdź politykę prywatności/no-logs i warunki zwrotu."},
-    {"@type":"HowToStep","name":"Zainstaluj aplikację","text":"Pobierz aplikację na Windows/macOS/iOS/Android i zaloguj się."},
-    {"@type":"HowToStep","name":"Połącz i zweryfikuj","text":"Włącz Kill Switch, wybierz najbliższy serwer i sprawdź nowe IP."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: Video -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"VPN w pigułce",
-  "description":"Szybkie wyjaśnienie czym jest VPN i jak działa.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/co-to-jest-vpn.webp",
-  "uploadDate":"2025-09-02",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/co-to-jest-vpn.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3 z Product) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{
-      "@type":"Product","name":"NordVPN",
-      "brand":{"@type":"Brand","name":"NordVPN"},
-      "url":"https://dloran1.github.io/blog/co-to-jest-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":2,"item":{
-      "@type":"Product","name":"Surfshark",
-      "brand":{"@type":"Brand","name":"Surfshark"},
-      "url":"https://dloran1.github.io/blog/co-to-jest-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"YOUR_SURFSHARK_AFF_LINK","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":3,"item":{
-      "@type":"Product","name":"CyberGhost",
-      "brand":{"@type":"Brand","name":"CyberGhost"},
-      "url":"https://dloran1.github.io/blog/co-to-jest-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"YOUR_CYBERGHOST_AFF_LINK","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }}
-  ]
 }
 </script>
 
