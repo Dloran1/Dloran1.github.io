@@ -16,70 +16,26 @@
 
   <script>
   (async () => {
-    // --- utils ---
     const esc = s => (s||'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
     const PLACEHOLDER = /Treść artykułu do uzupełnienia|Opis do uzupełnienia|Czytaj więcej/i;
     const trimDesc = t => {
       const d = (t||'').toString().trim();
-      return d ? (d.length > 160 ? d.slice(0,157) + '…' : d) : 'Czytaj więcej →';
+      return d ? (d.length>160 ? d.slice(0,157)+'…' : d) : 'Czytaj więcej →';
     };
-    const cacheKey = slug => 'desc:' + slug;
-
-    function cleanHtml(html){
-      return html
-        .replace(/<script[\s\S]*?<\/script>/gi,'')
-        .replace(/<style[\s\S]*?<\/style>/gi,'')
-        .replace(/<!--[\s\S]*?-->/g,'');
-    }
-    function textOnly(s){ return (s||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim(); }
-
-    // Извлечь анонс из HTML: meta → og:desc → первый «нормальный» <p> → fallback
-    function extractDescFromHtml(html){
-      const h = cleanHtml(html);
-
-      // 1) meta description
-      const m1 = h.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i);
-      if (m1 && textOnly(m1[1]).length >= 60) return trimDesc(m1[1]);
-
-      // 2) og:description
-      const m2 = h.match(/<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']+)["']/i);
-      if (m2 && textOnly(m2[1]).length >= 60) return trimDesc(m2[1]);
-
-      // 3) первый содержательный <p> в <article>
-      const article = (h.match(/<article[\s\S]*?<\/article>/i)||[])[0] || h;
-      const ps = [...article.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
-        .map(m => textOnly(m[1]))
-        .map(t => t.replace(/^Skrót:\s*/i,''));
-      const goodP = ps.find(t => t && !PLACEHOLDER.test(t) && t.length >= 60);
-      if (goodP) return trimDesc(goodP);
-
-      // 4) общий фоллбэк: первые 200 символов текста статьи
-      const plain = textOnly(article);
-      if (plain) return trimDesc(plain.slice(0, 200));
-
-      return '';
-    }
-
-    async function getAutoDesc(slug){
-      try{
-        // кэш на клиенте
-        const ck = cacheKey(slug);
-        const cached = localStorage.getItem(ck);
-        if (cached) return cached;
-
-        const url = '/' + slug.replace(/^\/+/,'') + '?v=' + Date.now();
-        const res = await fetch(url, { cache: 'no-store' });
+    const baseName = slug => (slug||'').split('/').pop().replace(/\.html$/,'');
+    async function fetchDescFile(slug){
+      try {
+        const name = baseName(slug);
+        const url = `/descriptions/${name}.txt?v=`+Date.now();
+        const res = await fetch(url, { cache:'no-store' });
         if (!res.ok) return '';
-
-        const html = await res.text();
-        const desc = extractDescFromHtml(html);
-        if (desc) localStorage.setItem(ck, desc);
-        return desc;
-      }catch(e){ return ''; }
+        const txt = (await res.text()).trim();
+        return trimDesc(txt);
+      } catch { return ''; }
     }
 
-    // --- загрузка манифеста ---
-    const res = await fetch('/data/posts.json?v=' + Date.now(), { cache: 'no-store' });
+    // 1) тянем манифест
+    const res = await fetch('/data/posts.json?v='+Date.now(), { cache:'no-store' });
     const all = await res.json();
     const posts = all.filter(p => p.status === 'published' && !/\bvpn-na-routerze\.html$/.test(p.slug));
 
@@ -87,7 +43,7 @@
     const q = document.getElementById('q');
 
     function card(p, i){
-      const id = 'desc-' + i;
+      const id = 'desc-'+i;
       const desc = trimDesc(p.desc);
       return `
         <article class="card">
@@ -98,7 +54,7 @@
             <h3 class="card-title"><a href="/${p.slug}">${esc(p.title)}</a></h3>
             <div class="card-meta">
               ${p.date ? `<time datetime="${p.date}">${p.date}</time>` : ''}
-              ${(p.tags || []).slice(0,3).map(t => `<span class="badge">${esc(String(t))}</span>`).join('')}
+              ${(p.tags||[]).slice(0,3).map(t=>`<span class="badge">${esc(String(t))}</span>`).join('')}
             </div>
             <p class="card-desc" id="${id}">${esc(desc)}</p>
           </div>
@@ -107,13 +63,12 @@
     }
 
     async function hydrate(list){
-      await Promise.all(list.map(async (p, i) => {
-        const cur = (p.desc||'').toString();
-        if (!cur.trim() || PLACEHOLDER.test(cur) || cur.length < 60) {
-          const el = document.getElementById('desc-' + i);
-          const auto = await getAutoDesc(p.slug);
-          if (auto && el) el.textContent = auto;
-        }
+      await Promise.all(list.map(async (p,i) => {
+        const need = !p.desc || !p.desc.trim() || PLACEHOLDER.test(p.desc) || p.desc.trim().length < 60;
+        if (!need) return;
+        const el = document.getElementById('desc-'+i);
+        const txt = await fetchDescFile(p.slug);
+        if (txt && el) el.textContent = txt;
       }));
     }
 
@@ -126,7 +81,7 @@
 
     function apply(){
       const v = (q.value||'').toLowerCase();
-      render(posts.filter(p => (p.title + ' ' + (p.desc||'')).toLowerCase().includes(v)));
+      render(posts.filter(p => (p.title+' '+(p.desc||'')).toLowerCase().includes(v)));
     }
 
     q.addEventListener('input', apply);
