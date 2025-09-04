@@ -2,301 +2,258 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>Darmowe vs płatne VPN: co wybrać w 2025 roku?</title>
+  <meta name="description" content="Porównanie darmowych i płatnych VPN: prywatność, prędkość, limity, bezpieczeństwo, streaming i P2P. Proste zasady wyboru + checklista.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Darmowe vs płatne VPN — co wybrać w 2025?</title>
-  <meta name="description" content="Czy darmowy VPN jest bezpieczny i kiedy ma sens? Porównanie: limity, szybkość, prywatność, VOD i wsparcie. Plus checklista wyboru i FAQ.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html">
 
-  <!-- Perf & robots -->
-  <link rel="preload" as="image" href="/assets/img/hero/darmowe-vs-platne-vpn.webp" imagesrcset="/assets/img/hero/darmowe-vs-platne-vpn.webp" imagesizes="100vw">
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/darmowe-vs-platne-vpn.webp"
+        imagesrcset="/assets/img/hero/darmowe-vs-platne-vpn.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Darmowe vs płatne VPN — co wybrać w 2025?">
-  <meta property="og:description" content="Czy darmowy VPN jest bezpieczny i kiedy ma sens? Porównanie: limity, szybkość, prywatność, VOD i wsparcie.">
+  <meta property="og:title" content="Darmowe vs płatne VPN: co wybrać w 2025 roku?">
+  <meta property="og:description" content="Porównanie darmowych i płatnych VPN: prywatność, prędkość, limity, bezpieczeństwo, streaming i P2P. Proste zasady wyboru + checklista.">
   <meta property="og:url" content="https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/darmowe-vs-platne-vpn.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Darmowe vs płatne VPN — co wybrać w 2025?">
-  <meta name="twitter:description" content="Szybkie porównanie, kiedy darmowy ma sens i kiedy lepiej płatny.">
+  <meta name="twitter:title" content="Darmowe vs płatne VPN: co wybrać w 2025 roku?">
+  <meta name="twitter:description" content="Porównanie darmowych i płatnych VPN: prywatność, prędkość, limity, bezpieczeństwo, streaming i P2P. Proste zasady wyboru + checklista.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/darmowe-vs-platne-vpn.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Fail-safe (не ломает /assets/style.css) -->
-  <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
-    figure.article-hero{ margin:0; }
-  </style>
+  <!-- BreadcrumbList JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Darmowe vs płatne VPN","item":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html"}
+    ]
+  }
+  </script>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>Darmowe vs płatne VPN — co wybrać w 2025?</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/darmowe-vs-platne-vpn.webp"
-      alt="Darmowe vs płatne VPN — porównanie różnic i zastosowań"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    Darmowy VPN bywa kuszący, ale często ma <em>limity transferu</em>, <em>mniejszą szybkość</em> i <em>gorszą prywatność</em>.
-    Płatny VPN kosztuje kilka złotych miesięcznie, ale daje stabilność, wsparcie i lepszą ochronę.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#roznice">Najważniejsze różnice</a></li>
-      <li><a href="#free-pros-cons">Darmowe VPN: zalety i wady</a></li>
-      <li><a href="#paid-benefits">Płatne VPN: korzyści</a></li>
-      <li><a href="#kiedy-darmowy">Kiedy darmowy ma sens?</a></li>
-      <li><a href="#jak-wybrac">Jak wybrać (checklista)</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-    </ol>
+  <!-- Видимые breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Darmowe vs płatne VPN</span>
+    </div>
   </nav>
 
-  <section id="roznice">
-    <h2>Najważniejsze różnice</h2>
-    <table class="table">
-      <caption>Darmowe vs płatne VPN — w skrócie</caption>
-      <thead><tr><th>Aspekt</th><th>Darmowe</th><th>Płatne</th></tr></thead>
-      <tbody>
-        <tr><td>Szybkość i stabilność</td><td>Często ograniczona, kolejki, mało serwerów</td><td>Wysoka, wiele lokalizacji, mniej przeciążeń</td></tr>
-        <tr><td>Limity transferu</td><td>Typowo 0.5–10 GB/mies.</td><td>Brak limitów</td></tr>
-        <tr><td>Prywatność</td><td>Ryzyko logów/monetyzacji danych</td><td>Polityka no-logs, audyty</td></tr>
-        <tr><td>VOD/gry/praca</td><td>Często blokowane</td><td>Lepsza skuteczność, wsparcie</td></tr>
-        <tr><td>Wsparcie</td><td>Zazwyczaj brak</td><td>24/7 chat, zwrot pieniędzy</td></tr>
-        <tr><td>Koszt</td><td>0 zł</td><td>kilka–kilkanaście zł/mies. w planie</td></tr>
-      </tbody>
-    </table>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="free-pros-cons">
-    <h2>Darmowe VPN: zalety i wady</h2>
-    <ul>
-      <li><strong>Plusy:</strong> 0 zł, szybki start, przydatne do okazjonalnego sprawdzenia treści.</li>
-      <li><strong>Minusy:</strong> limity, reklamy, mniejsza szybkość, mniejsza skuteczność w VOD, niepewna prywatność.</li>
-    </ul>
-    <p>Jeśli wybierasz darmowy — wybieraj markę z dobrymi opiniami, jasnymi limitami i polityką prywatności.</p>
-  </section>
+      <h1>Darmowe vs płatne VPN: co wybrać w 2025 roku?</h1>
 
-  <section id="paid-benefits">
-    <h2>Płatne VPN: korzyści</h2>
-    <ul>
-      <li>Lepsza <strong>prywatność</strong>: audyty no-logs, nowoczesne protokoły (WireGuard/OpenVPN).</li>
-      <li><strong>Szybkość i stabilność</strong>: rozbudowana sieć serwerów, mniejszy overselling.</li>
-      <li><strong>VOD i gry</strong>: większa skuteczność omijania blokad, mniejsze opóźnienia.</li>
-      <li><strong>Wsparcie 24/7</strong> i <strong>gwarancja zwrotu</strong> (30 dni).</li>
-    </ul>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/darmowe-vs-platne-vpn.webp"
+             width="1200" height="628"
+             alt="Darmowe vs płatne VPN — porównanie prywatności, prędkości i bezpieczeństwa"
+             fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Darmowe usługi kuszą zerową ceną, ale mają istotne ograniczenia</figcaption>
+      </figure>
 
-  <section id="kiedy-darmowy">
-    <h2>Kiedy darmowy ma sens?</h2>
-    <ul>
-      <li>Sporadyczne użycie w publicznym Wi-Fi (np. na lotnisku).</li>
-      <li>Jednorazowy dostęp do strony bez wrażliwych danych.</li>
-      <li>Test, czy VPN w ogóle jest Ci potrzebny.</li>
-    </ul>
-    <p>Do stałego użycia (VOD, płatności, praca zdalna) rekomendujemy płatny plan.</p>
-  </section>
+      <p><strong>VPN</strong> zwiększa prywatność, szyfruje ruch i ukrywa IP. Pytanie brzmi: czy warto brać <em>darmowy</em> VPN, czy lepiej dopłacić do <em>płatnego</em>? Poniżej praktyczne porównanie i proste zasady wyboru.</p>
 
-  <section id="jak-wybrac">
-    <h2>Jak wybrać VPN (checklista)</h2>
-    <ol>
-      <li><strong>Prywatność:</strong> polityka no-logs, audyty, siedziba.</li>
-      <li><strong>Technologia:</strong> WireGuard, Kill Switch, ochrona przed DNS leak.</li>
-      <li><strong>Serwery:</strong> lokalizacje, przeciążenie, Ping.</li>
-      <li><strong>VOD/gry/praca:</strong> testy skuteczności, opinie użytkowników.</li>
-      <li><strong>Wsparcie i zwrot:</strong> 24/7 chat, 30-dniowa gwarancja.</li>
-    </ol>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#roznice">Kluczowe różnice</a></li>
+          <li><a href="#kiedy-darmowy">Kiedy darmowy VPN ma sens</a></li>
+          <li><a href="#kiedy-platny">Kiedy koniecznie płatny</a></li>
+          <li><a href="#checklista">Checklista wyboru</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Zacznij z NordVPN</a>
-    &nbsp;
-    <a class="btn btn-ghost"
-       href="https://www.tkqlhce.com/click-101525886-17061430"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
-  </section>
+      <h2 id="roznice">Kluczowe różnice: darmowy vs płatny</h2>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Powiązane: <a href="/blog/darmowy-vpn-polska.html">Darmowy VPN w Polsce</a>,
-       <a href="/blog/mity-o-vpn.html">Mity o VPN</a>,
-       <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></p>
-  </aside>
+      <table>
+        <thead>
+          <tr>
+            <th>Obszar</th>
+            <th>Darmowy VPN</th>
+            <th>Płatny VPN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prywatność i logi</td>
+            <td>Często niejasna polityka, ryzyko monetyzacji danymi, reklamy.</td>
+            <td>Polityka no-logs, zewnętrzne audyty, brak reklam.</td>
+          </tr>
+          <tr>
+            <td>Prędkość / stabilność</td>
+            <td>Limity transferu i przeciążone serwery.</td>
+            <td>Wyższe prędkości, więcej serwerów i protokołów (np. WireGuard).</td>
+          </tr>
+          <tr>
+            <td>Streaming VOD</td>
+            <td>Zwykle nie działa (geoblokady, czarne listy IP).</td>
+            <td>Dedykowane serwery do Netflix/HBO/Disney+ itp.</td>
+          </tr>
+          <tr>
+            <td>P2P / torrenty</td>
+            <td>Często blokowane lub limitowane.</td>
+            <td>Wybrane serwery P2P, lepsza stabilność.</td>
+          </tr>
+          <tr>
+            <td>Wsparcie i aplikacje</td>
+            <td>Podstawowe, wolne aktualizacje.</td>
+            <td>Wsparcie 24/7, aplikacje na każdy system, kill switch, split tunneling.</td>
+          </tr>
+          <tr>
+            <td>Bezpieczeństwo</td>
+            <td>Ryzyko przestarzałych protokołów/SDK, wstrzykiwania reklam.</td>
+            <td>Nowoczesne szyfrowanie, ochrona przed wyciekami DNS/IPv6.</td>
+          </tr>
+          <tr>
+            <td>Koszt</td>
+            <td>0 zł (ale często “płacisz” danymi i czasem).</td>
+            <td>Niewielki miesięczny koszt w zamian za jakość i spokój.</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
-    </div>
-  </section>
+      <h2 id="kiedy-darmowy">Kiedy darmowy VPN ma sens</h2>
+      <ul>
+        <li><strong>Okazjonalne</strong> sprawdzenie poczty w publicznym Wi-Fi.</li>
+        <li><strong>Test</strong> interfejsu i podstawowej obsługi przed zakupem.</li>
+        <li><strong>Mały transfer</strong>: krótka sesja, brak streamingu i P2P.</li>
+      </ul>
+      <p>Wybieraj tylko znane marki z limitem danych (freemium) i jasną polityką prywatności. Unikaj “nieograniczonych” darmowych VPN z reklamami i niejasnym pochodzeniem.</p>
 
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: darmowe vs płatne VPN</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/darmowe-vs-platne-vpn.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <h2 id="kiedy-platny">Kiedy koniecznie płatny</h2>
+      <ul>
+        <li><strong>Streaming VOD</strong> i dostęp do bibliotek zagranicznych.</li>
+        <li><strong>P2P/torrenty</strong> i stabilne długie sesje.</li>
+        <li><strong>Praca zdalna</strong>, bankowość, wrażliwe dane, długi uptime.</li>
+        <li><strong>Stała prędkość</strong> i niskie opóźnienia do gier/połączeń.</li>
+      </ul>
 
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — szybki i stabilny (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — świetny na wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
-  </ol>
+      <h2 id="checklista">Checklista wyboru VPN (w 1 min)</h2>
+      <ol>
+        <li><strong>Polityka no-logs</strong> + audyty zewnętrzne.</li>
+        <li><strong>Protokoły</strong>: WireGuard / IKEv2 / OpenVPN, kill switch, split tunneling.</li>
+        <li><strong>Streaming/P2P</strong>: dedykowane serwery i realne opinie użytkowników.</li>
+        <li><strong>Prędkość</strong>: własne testy lub wiarygodne benchmarki.</li>
+        <li><strong>Jurysdykcja</strong> i zgodność z RODO.</li>
+        <li><strong>Cena</strong> vs okres — najlepiej plan 1–2 lata z gwarancją zwrotu.</li>
+      </ol>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- CTA -->
+      <div class="cta" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener">Surfshark — sprawdź ofertę</a>
+      </div>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy darmowy VPN jest bezpieczny?</summary>
+          <p>Bywa, ale ryzyko jest wyższe: limity, reklamy, możliwa monetyzacja danymi. Lepszym wyborem są plany freemium znanych dostawców lub płatny plan.</p>
+        </details>
+        <details>
+          <summary>Czy darmowy VPN działa z Netflixem?</summary>
+          <p>Najczęściej nie. Dostawcy VOD aktywnie blokują publiczne adresy IP — płatne VPN mają na to dedykowane serwery.</p>
+        </details>
+        <details>
+          <summary>Ile kosztuje dobry VPN?</summary>
+          <p>Przy planie długoterminowym zwykle kilka–kilkanaście złotych miesięcznie, często z gwarancją zwrotu.</p>
+        </details>
+      </section>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"Darmowe vs płatne VPN — co wybrać w 2025?",
-  "description":"Czy darmowy VPN jest bezpieczny i kiedy ma sens? Porównanie: limity, szybkość, prywatność, VOD i wsparcie. Plus checklista wyboru i FAQ.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-02",
-  "image":"https://dloran1.github.io/assets/img/hero/darmowe-vs-platne-vpn.webp",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska",
-    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-  },
-  "mainEntityOfPage":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html"
-}
-</script>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/mity-o-vpn.html">Mity o VPN</a>,
+          <a href="/blog/wady-vpn.html">Wady VPN</a>,
+          <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>
+        </p>
+      </aside>
 
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"Darmowe vs płatne VPN","item":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html"}
-  ]
-}
-</script>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy darmowy VPN jest bezpieczny?","acceptedAnswer":{"@type":"Answer","text":"Bywa, ale często ma limity i gorszą prywatność. Wybieraj tylko znane marki z jasną polityką prywatności."}},
-    {"@type":"Question","name":"Czy darmowy VPN działa z Netflixem?","acceptedAnswer":{"@type":"Answer","text":"Rzadko i niestabilnie. Lepszą skuteczność zapewniają płatne usługi z profilami streamingowymi."}},
-    {"@type":"Question","name":"Ile kosztuje płatny VPN?","acceptedAnswer":{"@type":"Answer","text":"W planach długoterminowych najczęściej kilka–kilkanaście zł miesięcznie. Zazwyczaj jest też 30-dniowa gwarancja zwrotu."}},
-    {"@type":"Question","name":"Czy darmowe VPN mają limity?","acceptedAnswer":{"@type":"Answer","text":"Tak — zwykle ograniczenia transferu (np. 0.5–10 GB/mies.), mniej serwerów i gorsza prędkość."}}
-  ]
-}
-</script>
+      <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
 
-<!-- JSON-LD: HowTo (wybór VPN) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Jak wybrać VPN w 2025 (checklista)",
-  "description":"Krótka lista najważniejszych kryteriów wyboru VPN.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
-  "step":[
-    {"@type":"HowToStep","name":"Zweryfikuj prywatność","text":"Sprawdź politykę no-logs, audyty i siedzibę firmy."},
-    {"@type":"HowToStep","name":"Sprawdź technologię","text":"Wybierz usługę z WireGuard, Kill Switch i ochroną przed DNS leak."},
-    {"@type":"HowToStep","name":"Przetestuj zastosowania","text":"VOD, gry, praca zdalna — sprawdź skuteczność i opinie."}
-  ]
-}
-</script>
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"Darmowe vs płatne VPN: co wybrać w 2025 roku?",
+    "description":"Porównanie darmowych i płatnych VPN: prywatność, prędkość, limity, bezpieczeństwo, streaming i P2P. Proste zasady wyboru + checklista.",
+    "datePublished":"2025-09-03",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/darmowe-vs-platne-vpn.webp",
+    "url":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html"
+  }
+  </script>
 
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"Darmowe vs płatne VPN — wyjaśnienie",
-  "description":"Kiedy darmowy VPN ma sens, a kiedy lepiej płatny.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/darmowe-vs-platne-vpn.webp",
-  "uploadDate":"2025-09-02",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3 z Product) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{
-      "@type":"Product","name":"NordVPN",
-      "brand":{"@type":"Brand","name":"NordVPN"},
-      "url":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":2,"item":{
-      "@type":"Product","name":"Surfshark",
-      "brand":{"@type":"Brand","name":"Surfshark"},
-      "url":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":3,"item":{
-      "@type":"Product","name":"CyberGhost",
-      "brand":{"@type":"Brand","name":"CyberGhost"},
-      "url":"https://dloran1.github.io/blog/darmowe-vs-platne-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
-    }}
-  ]
-}
-</script>
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Czy darmowy VPN jest bezpieczny?",
+        "acceptedAnswer":{"@type":"Answer","text":"Bywa, ale ryzyko jest wyższe: limity, reklamy, możliwa monetyzacja danymi. Lepszym wyborem są plany freemium znanych dostawców lub płatny plan."}
+      },
+      {
+        "@type":"Question",
+        "name":"Czy darmowy VPN działa z Netflixem?",
+        "acceptedAnswer":{"@type":"Answer","text":"Najczęściej nie. Dostawcy VOD aktywnie blokują publiczne adresy IP — płatne VPN mają na to dedykowane serwery."}
+      },
+      {
+        "@type":"Question",
+        "name":"Ile kosztuje dobry VPN?",
+        "acceptedAnswer":{"@type":"Answer","text":"Przy planie długoterminowym zwykle kilka–kilkanaście złotych miesięcznie, często z gwarancją zwrotu."}
+      }
+    ]
+  }
+  </script>
 
 </body>
 </html>
