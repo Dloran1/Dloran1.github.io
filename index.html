@@ -3,69 +3,140 @@
 <head>
   <meta charset="utf-8">
   <title>Blog o VPN</title>
-  <meta name="description" content="Artykuły o VPN: porady, testy, konfiguracje i bezpieczeństwo online.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/css/blog.css">
-  <style>
-    .version{background:#ffd400;color:#111;padding:14px 16px;border-radius:12px;margin:20px auto;max-width:920px;font-weight:700}
-    .wrap{max-width:920px;margin:0 auto;padding:12px}
-    .posts{display:grid;gap:16px}
-    .post-card{background:#fff;border-radius:12px;padding:16px}
-    .post-card h2{margin:12px 0 4px}
-    .post-card .date{opacity:.7;margin:0 0 8px}
-    .post-card img{width:100%;height:auto;border-radius:10px}
-    .readmore{display:inline-block;margin-top:8px}
-  </style>
+  <meta name="robots" content="index,follow">
 </head>
 <body>
-  <div class="version">BUILD v4 — если видишь это, главная обновилась</div>
-
   <div class="wrap">
-    <h1>Blog</h1>
-    <p>Ta strona ładuje <code>data/posts.json</code> i dociąga opis prosto z HTML artykułu
-      (najpierw meta <code>description</code>, jeśli brak — pierwszy akapit).</p>
-    <div id="posts" class="posts"></div>
+    <header class="page-header">
+      <h1>Blog</h1>
+      <p class="muted">Ta strona ładuje <code>data/posts.json</code> i opis każdej karty
+        dociąga prosto z odpowiadającej strony HTML.</p>
+      <input id="q" type="search" placeholder="Szukaj po tytule/opisie…" aria-label="Szukaj">
+    </header>
+
+    <main id="posts" class="posts"></main>
   </div>
 
   <script>
-    async function loadPosts(){
-      const res = await fetch('/data/posts.json', {cache:'no-store'});
-      const posts = await res.json();
-      const box = document.getElementById('posts');
+  // ────────────────────────────────────────────────────────────────────────────
+  // Pomocnicze — извлечь краткий текст из HTML статьи
+  // ────────────────────────────────────────────────────────────────────────────
+  function excerptFromHTML(html, limit = 200) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
 
-      for (const p of posts){
-        const card = document.createElement('div');
-        card.className = 'post-card';
-        card.innerHTML = `
-          <a href="/${p.slug}">
-            <img src="${p.thumb}" alt="${p.title}">
-            <h2>${p.title}</h2>
-          </a>
-          <p class="date">${p.date}</p>
-          <p class="desc">Ładowanie opisu…</p>
-          <a class="readmore" href="/${p.slug}">Czytaj</a>
-        `;
-        box.appendChild(card);
+    // 1) Пытаемся взять текст из <article>
+    const article = doc.querySelector('article');
+    let text = article ? article.innerText.trim() : '';
 
-        // подгружаем описание прямо из HTML статьи
-        try{
-          const htmlRes = await fetch('/' + p.slug, {cache:'no-store'});
-          if (!htmlRes.ok) throw new Error('HTTP '+htmlRes.status);
-          const html = await htmlRes.text();
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-
-          let desc = doc.querySelector('meta[name="description"]')?.content?.trim();
-          if (!desc) desc = doc.querySelector('article p')?.innerText?.trim();
-          if (!desc) desc = doc.querySelector('p')?.innerText?.trim();
-
-          card.querySelector('.desc').textContent = desc || 'Treść artykułu do uzupełnienia.';
-        }catch(e){
-          console.warn('Opis fallback dla', p.slug, e);
-          card.querySelector('.desc').textContent = 'Treść artykułu do uzupełnienia.';
-        }
-      }
+    // 2) Если вдруг нет <article> — пробуем meta description
+    if (!text) {
+      const m = doc.querySelector('meta[name="description"]');
+      text = m ? (m.getAttribute('content') || '').trim() : '';
     }
-    loadPosts();
+
+    // 3) Фоллбек
+    if (!text) text = 'Treść artykułu do uzupełnienia.';
+
+    // 4) Усечём красиво
+    text = text.replace(/\s+/g, ' ');
+    if (text.length > limit) text = text.slice(0, limit).trim() + '…';
+    return text;
+  }
+
+  // Ограничитель параллелизма, чтобы не долбить браузер 47 запросами разом
+  async function mapWithConcurrency(items, worker, concurrency = 6) {
+    const out = new Array(items.length);
+    let i = 0;
+
+    async function next() {
+      const idx = i++;
+      if (idx >= items.length) return;
+      out[idx] = await worker(items[idx], idx);
+      return next();
+    }
+
+    const runners = Array.from({ length: Math.min(concurrency, items.length) }, next);
+    await Promise.all(runners);
+    return out;
+  }
+
+  // Рендер одной карточки
+  function cardHTML(p) {
+    return `
+      <article class="post-card">
+        <a class="thumb" href="${p.slug}">
+          <img src="${p.thumb}" alt="${p.title}" loading="lazy">
+        </a>
+        <div class="post-body">
+          <h2 class="post-title"><a href="${p.slug}">${p.title}</a></h2>
+          <div class="post-meta">${p.date || ''}</div>
+          <p class="post-desc">${p.desc || 'Treść artykułu do uzupełnienia.'}</p>
+          <p><a class="btn" href="${p.slug}" aria-label="Czytaj: ${p.title}">Czytaj</a></p>
+        </div>
+      </article>
+    `;
+  }
+
+  (async function init() {
+    // 1) Загружаем список статей
+    const posts = await fetch('/data/posts.json').then(r => r.json());
+
+    // 2) Сначала рендерим «скелеты» (без описаний), чтобы страница не была пустой
+    const $wrap = document.getElementById('posts');
+    $wrap.innerHTML = posts.map(p => cardHTML(p)).join('');
+
+    // 3) Тянем HTML каждой статьи и подставляем выжимку
+    const updated = await mapWithConcurrency(
+      posts,
+      async (p) => {
+        try {
+          const html = await fetch('/' + p.slug.replace(/^\//, '')).then(r => r.text());
+          const desc = excerptFromHTML(html, 220);
+          return { ...p, desc };
+        } catch (e) {
+          console.warn('Nie udało się pobrać', p.slug, e);
+          return { ...p, desc: p.desc || 'Treść artykułu do uzupełnienia.' };
+        }
+      },
+      6
+    );
+
+    // 4) Финальный рендер с настоящими описаниями
+    $wrap.innerHTML = updated.map(p => cardHTML(p)).join('');
+
+    // 5) Поиск
+    const $q = document.getElementById('q');
+    function applyFilter() {
+      const v = ($q.value || '').toLowerCase();
+      const filtered = updated.filter(p =>
+        (p.title + ' ' + (p.desc || '')).toLowerCase().includes(v)
+      );
+      $wrap.innerHTML = filtered.map(p => cardHTML(p)).join('');
+    }
+    $q.addEventListener('input', applyFilter);
+  })();
   </script>
+
+  <style>
+    /* Немного базовой стилизации, чтобы без зависания от внешнего CSS всё было читабельно */
+    body{margin:0;background:#0b0d10;color:#e9edf1;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    .page-header h1{margin:.2em 0 0}
+    .muted{opacity:.8}
+    #q{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #2a2f36;background:#0f1216;color:#e9edf1;margin:18px 0 10px}
+    .posts{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:820px){.posts{grid-template-columns:1fr 1fr}}
+    .post-card{background:#12161c;border-radius:16px;overflow:hidden;border:1px solid #222831}
+    .thumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#0f1216}
+    .post-body{padding:16px}
+    .post-title{margin:.2em 0 .4em;font-size:1.25rem}
+    .post-title a{color:#6db3ff;text-decoration:none}
+    .post-meta{opacity:.8;margin-bottom:.4em}
+    .post-desc{margin:.4em 0 1em;line-height:1.5}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#2d84ff;color:#fff;text-decoration:none}
+  </style>
 </body>
 </html>
