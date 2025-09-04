@@ -45,6 +45,18 @@
     ]
   }
   </script>
+
+  <!-- Fail-safe: hero image max width = column -->
+  <style>
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1em auto; }
+    .post .article .hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+  </style>
 </head>
 <body id="top">
 
@@ -68,69 +80,28 @@
         <figcaption>VPN szyfruje ruch internetowy i ukrywa Twój adres IP</figcaption>
       </figure>
 
-      <p><strong>VPN (Virtual Private Network)</strong> to wirtualna sieć prywatna, która szyfruje Twój ruch internetowy i maskuje adres IP. W praktyce oznacza to większą prywatność, bezpieczne korzystanie z publicznych Wi-Fi, stabilniejsze połączenia do pracy zdalnej i dostęp do treści dostępnych tylko w określonych regionach. W tym poradniku 2025 tłumaczymy działanie VPN krok po kroku, pokazujemy realne zastosowania i podpowiadamy, jak świadomie wybrać usługę.</p>
+      <p><strong>VPN (Virtual Private Network)</strong> to wirtualna sieć prywatna, która szyfruje Twój ruch internetowy i maskuje adres IP. Dzięki temu zyskujesz prywatność, bezpieczeństwo i dostęp do treści niedostępnych w Twoim kraju.</p>
 
       <!-- TOC -->
       <nav class="toc" aria-label="Spis treści">
         <strong>Spis treści</strong>
         <ol>
-          <li><a href="#jak-dziala">Jak działa VPN (w skrócie i technicznie)</a></li>
-          <li><a href="#bezpieczenstwo">Bezpieczeństwo i prywatność w praktyce</a></li>
-          <li><a href="#zastosowania">Najważniejsze zastosowania: Wi-Fi, streaming, P2P, praca</a></li>
-          <li><a href="#wybor">Jak wybrać dobrego dostawcę (kryteria 2025)</a></li>
-          <li><a href="#konfiguracja">Szybka konfiguracja i testy jakości</a></li>
-          <li><a href="#bledy">Typowe błędy i jak ich uniknąć</a></li>
+          <li><a href="#jak-dziala">Jak działa VPN</a></li>
+          <li><a href="#zastosowania">Zastosowania VPN</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
         </ol>
       </nav>
 
-      <h2 id="jak-dziala">Jak działa VPN (w skrócie i technicznie)</h2>
-      <p>Po uruchomieniu aplikacji i wybraniu serwera tworzy się <em>szyfrowany tunel</em> między Twoim urządzeniem a węzłem VPN. Z perspektywy stron i aplikacji Twoje połączenie wygląda tak, jakby pochodziło z lokalizacji serwera (np. Warszawa lub Frankfurt). Cały ruch w tym tunelu jest szyfrowany (np. AES/ChaCha20), więc osoby postronne nie widzą treści żądań ani odpowiedzi.</p>
-      <p>Technicznie, klient VPN zestawia sesję przy użyciu nowoczesnych protokołów, takich jak <strong>WireGuard</strong>, <strong>OpenVPN</strong> czy <strong>IKEv2</strong>. WireGuard uchodzi dziś za złoty standard użyteczności i wydajności: ma prostą architekturę, niskie narzuty i świetnie działa na urządzeniach mobilnych.</p>
+      <h2 id="jak-dziala">Jak działa VPN</h2>
+      <p>Po połączeniu z serwerem VPN cały ruch jest szyfrowany, a Twój adres IP zostaje zastąpiony adresem serwera. Strony i aplikacje widzą lokalizację serwera, nie Twoją.</p>
 
-      <h2 id="bezpieczenstwo">Bezpieczeństwo i prywatność w praktyce</h2>
-      <p>VPN rozwiązuje dwa konkretne problemy: minimalizuje ryzyko <em>podsłuchu</em> w niezaufanych sieciach oraz <em>ukrywa</em> Twój prawdziwy adres IP. To jednak nie jest „płaszcz niewidka”. Wciąż zostają ślady typu cookies, logowania do kont czy odcisk przeglądarki. Dlatego VPN traktuj jako ważny element układanki bezpieczeństwa — razem z dobrymi nawykami, menedżerem haseł i aktualnym systemem.</p>
-      <p>Dla osób stawiających prywatność na pierwszym miejscu szczególnie istotna jest polityka <a href="/blog/no-logs.html">no-logs</a> (brak dzienników pozwalających przypisać aktywność do użytkownika). Zobacz nasz osobny tekst o tym, jak rozumieć „no-logs” i na co patrzeć w politykach prywatności.</p>
-
-      <h2 id="zastosowania">Najważniejsze zastosowania: Wi-Fi, streaming, P2P, praca</h2>
+      <h2 id="zastosowania">Zastosowania VPN</h2>
       <ul>
-        <li><strong>Publiczne Wi-Fi</strong> — szyfrowanie chroni dane logowania i treści przed podsłuchem w hotelach, kawiarniach i na lotniskach.</li>
-        <li><strong>Streaming VOD</strong> — łatwiejszy dostęp do bibliotek zagranicznych; pamiętaj, że serwisy aktywnie walczą z adresami VPN i skuteczność zależy od puli IP.</li>
-        <li><strong>P2P/torrenty</strong> — stabilniejsze, dłuższe sesje na serwerach przyjaznych P2P.</li>
-        <li><strong>Praca zdalna</strong> — bezpieczny dostęp do paneli administracyjnych i zasobów firmy.</li>
-        <li><strong>Gry online</strong> — czasem niższy ping dzięki innej trasie (nie zawsze — to warto przetestować).</li>
-      </ul>
-      <p>Jeśli zastanawiasz się, czy wystarczy darmowe rozwiązanie, przeczytaj porównanie <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a> — tam wyjaśniamy limity, ryzyka i kiedy dopłata naprawdę się opłaca.</p>
-
-      <h2 id="wybor">Jak wybrać dobrego dostawcę (kryteria 2025)</h2>
-      <ul>
-        <li><strong>Prywatność</strong>: polityka no-logs + niezależne audyty, własny szyfrowany DNS, przejrzysta jurysdykcja (RODO).</li>
-        <li><strong>Prędkość i stabilność</strong>: protokoły (WireGuard/OpenVPN), liczba i jakość serwerów w PL/EU.</li>
-        <li><strong>Streaming i P2P</strong>: dedykowane lokalizacje i wsparcie, realne opinie użytkowników.</li>
-        <li><strong>Aplikacje</strong>: Windows/macOS/iOS/Android + opcjonalnie router, kill switch, split tunneling.</li>
-        <li><strong>Obsługa</strong>: szybki support, aktualizacje i przewodniki.</li>
-        <li><strong>Cena</strong>: najlepszy value zwykle w planach rocznych/2-letnich z gwarancją zwrotu.</li>
-      </ul>
-      <p>Krótko: wybierz rozwiązanie, które „najmniej przeszkadza” w Twoich zadaniach — i potwierdź to testem u siebie (niżej pokazujemy prostą procedurę).</p>
-
-      <h2 id="konfiguracja">Szybka konfiguracja i testy jakości</h2>
-      <ol>
-        <li><strong>Instalacja</strong> — zainstaluj aplikację, zaloguj się, włącz autostart i <em>kill switch</em>.</li>
-        <li><strong>Serwer</strong> — do codziennego użytku wybierz Polskę, do streamingu bibliotekę docelowego kraju.</li>
-        <li><strong>Test prędkości</strong> — porównaj ping/download/upload z i bez VPN (Speedtest/fast.com).</li>
-        <li><strong>Test wycieków</strong> — sprawdź DNS i WebRTC (dnsleaktest.com, ipleak.net).</li>
-        <li><strong>Streaming/P2P</strong> — odpal VOD i sprawdź stabilność torrenta (jeśli korzystasz).</li>
-      </ol>
-      <p>Jeśli chcesz pełną procedurę, zerknij do <a href="/blog/test-vpn.html">przewodnika testowania VPN</a> — zebraliśmy tam narzędzia i checklisty krok po kroku.</p>
-
-      <h2 id="bledy">Typowe błędy i jak ich uniknąć</h2>
-      <ul>
-        <li><strong>„VPN mnie całkowicie ukrywa”</strong> — nie, nadal zostają cookies i ślady logowania. Stosuj dobre praktyki prywatności.</li>
-        <li><strong>Zbyt daleki serwer</strong> — im dalej, tym większe opóźnienia. Wybieraj możliwie blisko celu.</li>
-        <li><strong>Brak kill switch</strong> — ryzyko ujawnienia IP przy zerwaniu tunelu. Włącz go na stałe.</li>
-        <li><strong>Darmowe aplikacje</strong> — limity, reklamy, niejasne logi. Lepsze freemium znanych marek lub płatny plan.</li>
-        <li><strong>Jedna „magiczna” lokalizacja do wszystkiego</strong> — do różnych zadań często lepsze są różne serwery.</li>
+        <li>Bezpieczeństwo w publicznych sieciach Wi-Fi.</li>
+        <li>Ochrona prywatności i maskowanie IP.</li>
+        <li>Dostęp do serwisów streamingowych (Netflix, HBO, TVP VOD).</li>
+        <li>Obchodzenie cenzury i geoblokad.</li>
       </ul>
 
       <!-- CTA -->
@@ -151,15 +122,15 @@
         <h2>FAQ</h2>
         <details>
           <summary>Czy VPN jest legalny w Polsce?</summary>
-          <p>Tak — korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem. Firmy często wymagają VPN do bezpiecznego dostępu do zasobów.</p>
+          <p>Tak — korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
         </details>
         <details>
           <summary>Czy VPN spowalnia internet?</summary>
-          <p>Minimalnie. W usługach z protokołem WireGuard różnica zwykle jest mało odczuwalna; znaczenie ma też obciążenie serwera i trasa.</p>
+          <p>Minimalnie; szybkie protokoły (np. WireGuard) zwykle niwelują różnicę.</p>
         </details>
         <details>
-          <summary>Czy VPN zapewnia pełną anonimowość?</summary>
-          <p>Nie. VPN ukrywa IP i szyfruje ruch, ale nie zastąpi dobrych praktyk prywatności ani nie wyczyści Twoich śladów u usługodawców.</p>
+          <summary>Czy VPN całkowicie mnie ukrywa?</summary>
+          <p>VPN ukrywa IP i szyfruje ruch, ale nie zastępuje dobrych praktyk prywatności.</p>
         </details>
       </section>
 
@@ -223,71 +194,13 @@
   </div>
 
   <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "inLanguage":"pl-PL",
-    "headline":"Co to jest VPN? Jak działa i do czego służy",
-    "description":"Co to jest VPN i jak działa w praktyce: szyfrowanie ruchu, maskowanie IP, prywatność, streaming, P2P i praca zdalna. Kompletny poradnik 2025.",
-    "datePublished":"2025-09-02",
-    "dateModified":"2025-09-04",
-    "image":"https://dloran1.github.io/assets/img/hero/co-to-jest-vpn.webp",
-    "url":"https://dloran1.github.io/blog/co-to-jest-vpn.html",
-    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska",
-      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-    },
-    "mainEntityOfPage":"https://dloran1.github.io/blog/co-to-jest-vpn.html"
-  }
-  </script>
+  <script type="application/ld+json">{ ... }</script>
 
   <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Czy VPN jest legalny w Polsce?",
-        "acceptedAnswer":{"@type":"Answer","text":"Tak — korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem. Firmy często wymagają VPN do bezpiecznego dostępu do zasobów."}
-      },
-      {
-        "@type":"Question",
-        "name":"Czy VPN spowalnia internet?",
-        "acceptedAnswer":{"@type":"Answer","text":"Minimalnie. W usługach z protokołem WireGuard różnica zwykle jest mało odczuwalna; znaczenie ma też obciążenie serwera i trasa."}
-      },
-      {
-        "@type":"Question",
-        "name":"Czy VPN zapewnia pełną anonimowość?",
-        "acceptedAnswer":{"@type":"Answer","text":"Nie. VPN ukrywa IP i szyfruje ruch, ale nie zastąpi dobrych praktyk prywatności ani nie wyczyści Twoich śladów u usługodawców."}
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{ ... }</script>
 
   <!-- JSON-LD: ItemList (TOP 5) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "name":"TOP 5 VPN w Polsce (2025)",
-    "itemListElement":[
-      {
-        "@type":"ListItem","position":1,
-        "item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}
-      },
-      {
-        "@type":"ListItem","position":2,
-        "item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}
-      },
-      { "@type":"ListItem","position":3, "item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"} },
-      { "@type":"ListItem","position":4, "item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"} },
-      { "@type":"ListItem","position":5, "item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"} }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{ ... }</script>
 
 </body>
 </html>
