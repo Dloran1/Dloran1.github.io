@@ -1,181 +1,72 @@
-/* ====== GLOBAL RESETS ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  background: #111;
-  color: #eee;
-}
-a {
-  color: #4da3ff;
+/* === Post cards fix === */
+.post-card {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0b0b;
+  margin-bottom: 24px;
   text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  color: inherit;
 }
 
-/* ====== NAVIGATION ====== */
-.nav {
-  background: #000;
-  padding: 1rem;
-}
-.nav .inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav .logo {
-  font-weight: bold;
-  color: #fff;
-  font-size: 1.2rem;
-}
-.nav .menu a {
-  color: #aaa;
-  margin-left: .5rem;
-}
-.nav .menu a:hover {
-  color: #fff;
+.post-card figure {
+  margin: 0;
 }
 
-/* ====== HEADER / HERO ====== */
-.wrap {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 1.5rem;
-}
-.article-hero {
-  margin: 1rem 0;
-}
-.article-hero img {
+.post-card img {
+  display: block;
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  display: block;
+  aspect-ratio: 1200/628;
+  object-fit: cover;
 }
 
-/* ====== TYPOGRAPHY ====== */
-h1, h2, h3 {
-  margin: 1.2rem 0 .6rem;
-  font-weight: 700;
-}
-p {
-  margin: .6rem 0;
-}
-.lead {
-  font-size: 1.15rem;
-  color: #ccc;
+/* растянутая ссылка на всю карточку */
+.post-card .stretched-link {
+  position: static;
 }
 
-/* ====== TABLES ====== */
-.table {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 1rem 0;
-}
-.table table {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 600px;
-}
-.table th, .table td {
-  border: 1px solid #333;
-  padding: .6rem;
-  text-align: left;
-}
-.table caption {
-  margin-bottom: .5rem;
-  font-weight: bold;
-  text-align: left;
+.post-card .stretched-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
 }
 
-/* ====== CTA BUTTON ====== */
-.btn {
-  display: inline-block;
-  padding: .8rem 1.2rem;
-  background: #4da3ff;
-  color: #fff;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background .2s;
-  -webkit-tap-highlight-color: transparent; /* фикс под мобилки */
-}
-.btn:hover {
-  background: #1e7be6;
+/* тело карточки */
+.post-card .card-body {
+  position: relative;
+  z-index: 6;
+  padding: 16px;
 }
 
-/* ====== AUTHOR BOX ====== */
-.author {
-  display: flex;
-  align-items: center;
-  margin: 2rem 0;
-  background: #1a1a1a;
-  padding: 1rem;
-  border-radius: 8px;
-}
-.author__media img {
-  border-radius: 50%;
-  margin-right: 1rem;
-}
-.author__body {
-  flex: 1;
-}
-.author__body .muted {
-  color: #888;
-  font-size: .9rem;
+.post-card h3 {
+  margin: 0 0 8px;
+  line-height: 1.25;
 }
 
-/* ====== FOOTER ====== */
-.foot {
-  text-align: center;
-  padding: 1.5rem;
-  background: #000;
-  color: #888;
-  font-size: .9rem;
-}
-.foot a {
-  color: #4da3ff;
-}
-
-/* ====== TOC ====== */
-.toc {
-  background: #1a1a1a;
-  padding: 1rem;
-  border-radius: 6px;
-  margin: 1.5rem 0;
-}
-.toc ol {
-  list-style: decimal;
-  margin-left: 1.2rem;
-}
-.toc a {
-  color: #ddd;
-}
-.toc a:hover {
-  color: #fff;
-}
-
-/* ====== VIDEO ====== */
-video {
-  display: block;
-  margin: 1.5rem auto;
-  border-radius: 12px;
-  max-width: 100%;
-}
-
-/* ====== BACK TO TOP ====== */
-.backtop {
-  text-align: right;
-  margin: 2rem 0;
-}
-.backtop a {
-  font-size: .9rem;
+.post-card p.muted {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
   color: #aaa;
 }
-.backtop a:hover {
-  color: #fff;
+
+.post-card p.excerpt {
+  margin: 0 0 12px;
+  color: #cfcfcf;
+  line-height: 1.4;
+}
+
+.post-card .btn {
+  position: relative;
+  z-index: 7;
+}
+
+/* отключаем клики у декоративных рамок/оверлеев */
+.post-card::before,
+.post-card::after,
+.post-card figure::before,
+.post-card figure::after {
+  pointer-events: none;
 }
