@@ -2,14 +2,16 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>VPN z dedykowanym IP — kiedy warto?</title>
+  <meta name="description" content="Etalon artykułu: VPN z dedykowanym IP — kiedy warto?. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Dedykowany adres IP w VPN — kiedy warto i jak działa (2025)</title>
-  <meta name="description" content="Czym jest dedykowany (stały) adres IP w VPN, kiedy ma sens i jakie ma wady/zalety. Różnice vs współdzielone IP, zastosowania, bezpieczeństwo, konfiguracja i FAQ.">
-  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dedykowany-ip.html">
 
-  <!-- Global styles / favicon -->
+  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
   <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dedykowany-ip.html">
 
   <!-- Perf -->
   <link rel="preload" as="image" href="/assets/img/hero/vpn-dedykowany-ip.webp" imagesrcset="/assets/img/hero/vpn-dedykowany-ip.webp" imagesizes="100vw">
@@ -19,298 +21,258 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Dedykowany adres IP w VPN — kiedy warto i jak działa (2025)">
-  <meta property="og:description" content="Wyjaśniamy różnice między dedykowanym i współdzielonym IP w VPN, zastosowania, prywatność i konfigurację.">
+  <meta property="og:title" content="VPN z dedykowanym IP — kiedy warto?">
+  <meta property="og:description" content="Etalon artykułu: VPN z dedykowanym IP — kiedy warto?. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dedykowany-ip.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-dedykowany-ip.webp">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dedykowany adres IP w VPN — kiedy warto i jak działa (2025)">
-  <meta name="twitter:description" content="Różnice, zastosowania, prywatność i konfiguracja dedykowanego IP w VPN.">
+  <meta name="twitter:title" content="VPN z dedykowanym IP — kiedy warto?">
+  <meta name="twitter:description" content="Etalon artykułu: VPN z dedykowanym IP — kiedy warto?. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-dedykowany-ip.webp">
 
-  <!-- Local fail-safe -->
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN z dedykowanym IP — kiedy warto?","item":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html"}
+    ]
+  }
+  </script>
+
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .wrap{max-width:880px;margin:0 auto;padding:0 16px}
-    figure.article-hero{margin:0 0 16px}
-    .article-hero img,.post img,.author__media img{display:block;max-width:100%;height:auto;border-radius:12px}
-    .article-hero img{aspect-ratio:1200/630;object-fit:cover}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
-    .table caption{caption-side:top;font-weight:700;margin:.4rem 0}
-    .toc{margin:1.25rem 0 2rem}.toc a{text-decoration:underline}
-    .btn{display:inline-block;padding:.9rem 1.1rem;border-radius:12px;font-weight:700;text-decoration:none;-webkit-tap-highlight-color:transparent}
-    .btn-primary{background:#e63946;color:#fff}.btn-ghost{background:transparent;border:2px solid #e63946;color:#fff}
-    .cta{margin:1.25rem 0 1.5rem}
-    .author{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);padding:16px;border-radius:14px}
-    .author__media img{width:96px;height:96px;object-fit:cover;border-radius:50%}
-    .muted{opacity:.8}
-    video{max-width:100%;height:auto;border-radius:12px;display:block}
-    .backtop{margin:2rem 0}
-    .badge{display:inline-block;padding:.32rem .55rem;border-radius:.5rem;background:#2a2a2a}
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner wrap" style="padding:12px 16px">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <p class="crumbs"><a href="/">VPN Polska</a> / <a href="/blog/index.html">Blog</a></p>
-  <h1>Dedykowany adres IP w VPN — kiedy warto i jak działa</h1>
-
-  <figure class="article-hero">
-    <img src="/assets/img/hero/vpn-dedykowany-ip.webp" alt="Dedykowany adres IP w VPN — kiedy warto i jak działa" width="1200" height="630" fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    <strong>Dedykowany (stały) adres IP</strong> to unikalny adres przypisany tylko do Ciebie.
-    W odróżnieniu od <a href="/blog/co-to-jest-vpn.html">współdzielonych IP</a> pomaga przy whitelistach w pracy, stabilnym logowaniu do
-    <a href="/blog/vpn-bankowosc-online.html">bankowości online</a> i ogranicza CAPTCHA — ale zmniejsza „anonimowość w tłumie”.
-  </p>
-  <p class="muted">Najpierw sprawdź <a href="/blog/mity-o-vpn.html">mity o VPN</a> oraz <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.
-     Jeśli wybierasz usługę, zobacz porównanie <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a>.</p>
-</header>
-
-<main class="wrap post" id="top">
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#co-to">Co to jest dedykowany IP w VPN?</a></li>
-      <li><a href="#roznice">Dedykowany vs współdzielony IP</a></li>
-      <li><a href="#zastosowania">Zastosowania</a></li>
-      <li><a href="#plusy-minusy">Zalety i wady</a></li>
-      <li><a href="#bezpieczenstwo">Prywatność i bezpieczeństwo</a></li>
-      <li><a href="#konfiguracja">Konfiguracja (3 kroki)</a></li>
-      <li><a href="#diag">Szybka diagnostyka</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>VPN z dedykowanym IP — kiedy warto?</span>
+    </div>
   </nav>
 
-  <section id="co-to">
-    <h2>Co to jest dedykowany IP w VPN?</h2>
-    <p>To dodatkowa opcja u dostawcy VPN, która przydziela Ci <strong>stały, unikalny</strong> adres IP. Za każdym połączeniem z odpowiednim profilem otrzymujesz ten sam adres. Standardem w VPN jest <a href="/blog/mity-o-vpn.html">współdzielony IP</a>, co podbija prywatność, ale bywa kłopotliwe dla VOD i logowania.</p>
-    <p>Jeśli dopiero zaczynasz, zobacz <a href="/blog/co-to-jest-vpn.html">co to jest VPN</a> i <a href="/blog/vpn-android-konfiguracja.html">konfigurację na Androidzie</a>.</p>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="roznice">
-    <h2>Dedykowany vs współdzielony IP</h2>
-    <table class="table">
-      <caption>W skrócie: różnice adresów IP w VPN</caption>
-      <thead><tr><th>Cecha</th><th>Współdzielony IP</th><th>Dedykowany IP</th></tr></thead>
-      <tbody>
-        <tr><td>Anonimowość</td><td>Wyższa (tłum użytkowników)</td><td>Niższa (IP „charakteryzuje” użytkownika)</td></tr>
-        <tr><td>CAPTCHA/blokady</td><td>Częstsze</td><td>Rzadziej</td></tr>
-        <tr><td>Whitelista (praca, API)</td><td>Trudne</td><td>Łatwe</td></tr>
-        <tr><td>Bankowość</td><td>Bywa niestabilna</td><td>Stabilniejsze logowanie (<a href="/blog/vpn-bankowosc-online.html">poradnik</a>)</td></tr>
-        <tr><td>Koszt</td><td>W cenie planu</td><td>Dopłata</td></tr>
-      </tbody>
-    </table>
-    <p class="muted">Dla prędkości/stabilności wybieraj <a href="/blog/wireguard-vs-openvpn.html">WireGuard</a>. Przy pracy z serwerami pomocny bywa <a href="/blog/vpn-port-forwarding.html">port forwarding</a>.</p>
-  </section>
+      <h1>VPN z dedykowanym IP — kiedy warto?</h1>
 
-  <section id="zastosowania">
-    <h2>Zastosowania</h2>
-    <ul>
-      <li><strong>Praca zdalna:</strong> dostęp do paneli po whiteliście IP.</li>
-      <li><strong>Bankowość/płatności:</strong> mniej podejrzanych logowań (zobacz <a href="/blog/vpn-bankowosc-online.html">best practices</a>).</li>
-      <li><strong>API, SSH, SFTP:</strong> stałe reguły firewall.</li>
-      <li><strong>VOD:</strong> rzadziej CAPTCHA; w razie problemów patrz <a href="/blog/jaki-serwer-vpn.html">jaki serwer wybrać</a> i <a href="/blog/vpn-netflix-polska.html">VPN + Netflix PL</a>.</li>
-      <li><strong>Gry:</strong> whitelista w serwerach/antycheatach (<a href="/blog/vpn-szybkosc-test.html">jak testować ping</a>).</li>
-    </ul>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-dedykowany-ip.webp" width="1200" height="628"
+             alt="VPN z dedykowanym IP — kiedy warto?" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>VPN z dedykowanym IP — kiedy warto?</figcaption>
+      </figure>
 
-  <section id="plusy-minusy">
-    <h2>Zalety i wady</h2>
-    <table class="table">
-      <caption>Plusy i minusy dedykowanego IP</caption>
-      <thead><tr><th>Zalety</th><th>Wady / uwagi</th></tr></thead>
-      <tbody>
-        <tr><td>Mniej CAPTCHA, stabilne logowanie</td><td>Dodatkowy koszt</td></tr>
-        <tr><td>Łatwe dodanie do whitelisty</td><td>Mniejsza „anonimowość w tłumie”</td></tr>
-        <tr><td>Mniejsza szansa na blacklista IP</td><td>IP łączy się z Twoim kontem u dostawcy</td></tr>
-      </tbody>
-    </table>
-  </section>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-  <section id="bezpieczenstwo">
-    <h2>Prywatność i bezpieczeństwo</h2>
-    <ul>
-      <li><strong>No-logs:</strong> wybieraj dostawców z audytami — co to znaczy wyjaśniamy w <a href="/blog/no-logs.html">no-logs</a>.</li>
-      <li><strong>Kill Switch &amp; DNS leak:</strong> włącz zanim zalogujesz się do banku (<a href="/blog/vpn-2fa-mfa.html">VPN + 2FA/MFA</a>).</li>
-      <li><strong>Prawo:</strong> w PL VPN jest legalny — szczegóły w <a href="/blog/vpn-a-prawo-w-polsce.html">VPN a prawo w Polsce</a>.</li>
-    </ul>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-  <section id="konfiguracja">
-    <h2>Konfiguracja (3 kroki)</h2>
-    <ol>
-      <li><strong>Wybierz usługę:</strong> plan z Dedicated IP (porównanie <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a>).</li>
-      <li><strong>Aktywuj IP:</strong> zamów „dedyk” w panelu, wybierz kraj/miasto (PL/UE do bankowości).</li>
-      <li><strong>Połącz i sprawdź:</strong> wybierz profil Dedicated IP, sprawdź na ipleak.net i zrób <a href="/blog/vpn-szybkosc-test.html">test prędkości</a>.</li>
-    </ol>
-  </section>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <section id="diag">
-    <h2>Szybka diagnostyka</h2>
-    <ol>
-      <li><strong>IP inne niż powinno?</strong> Upewnij się, że łączysz profil „Dedicated IP”.</li>
-      <li><strong>VOD dalej blokuje?</strong> Wyczyść cookies lub użyj zwykłego współdzielonego IP (<a href="/blog/jaki-serwer-vpn.html">wybór serwera</a>).</li>
-      <li><strong>Wolno?</strong> Zmień na WireGuard i bliższy region.</li>
-    </ol>
-  </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary" href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Dedykowany IP w NordVPN</a>
-    &nbsp;
-    <a class="btn btn-ghost" href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — sprawdź ofertę</a>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <!-- Czytaj też -->
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>
-      <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a> •
-      <a href="/blog/mity-o-vpn.html">Mity o VPN</a> •
-      <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a> •
-      <a href="/blog/no-logs.html">No-logs w VPN</a> •
-      <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość online</a> •
-      <a href="/blog/vpn-2fa-mfa.html">VPN + 2FA/MFA</a> •
-      <a href="/blog/vpn-android-konfiguracja.html">VPN na Androidzie</a> •
-      <a href="/blog/vpn-a-prawo-w-polsce.html">VPN a prawo w Polsce</a>
-    </p>
-  </aside>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
-    </div>
-  </section>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: dedykowany IP w VPN — w pigułce</h2>
-    <video controls preload="metadata" poster="/assets/img/thumbs/vpn-dedykowany-ip.webp" width="960" height="540">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
 
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — Dedicated IP, szybki i stabilny. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — wiele urządzeń, opcje IP. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile streaming. <span class="badge">Wkrótce</span></li>
-  </ol>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"Dedykowany adres IP w VPN — kiedy warto i jak działa (2025)",
-  "description":"Czym jest dedykowany (stały) adres IP w VPN, kiedy ma sens i jakie ma wady/zalety. Różnice vs współdzielone IP, zastosowania, bezpieczeństwo, konfiguracja i FAQ.",
-  "datePublished":"2025-09-03",
-  "dateModified":"2025-09-03",
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-dedykowany-ip.webp",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}},
-  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html"
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"VPN z dedykowanym IP — kiedy warto?",
+    "description":"Etalon artykułu: VPN z dedykowanym IP — kiedy warto?. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-dedykowany-ip.webp",
+    "url":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "VPN z dedykowanym IP — kiedy warto? — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-dedykowany-ip.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
-
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"Dedykowany IP w VPN","item":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html"}
-  ]
-}
-</script>
-
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy dedykowany IP zwiększa prywatność?","acceptedAnswer":{"@type":"Answer","text":"Nie. Zwiększa wygodę (whitelista, mniej CAPTCHA), ale obniża anonimowość w tłumie. Do maksymalnej prywatności lepsze jest współdzielone IP."}},
-    {"@type":"Question","name":"Czy to legalne w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak. Używaj zgodnie z prawem i regulaminami usług (szczegóły w artykule „VPN a prawo w Polsce”)."}},
-    {"@type":"Question","name":"Czy warto do VOD?","acceptedAnswer":{"@type":"Answer","text":"Czasem pomaga, ale skuteczność zależy od platformy. Niekiedy lepiej działa zwykły, współdzielony IP."}},
-    {"@type":"Question","name":"Ile kosztuje?","acceptedAnswer":{"@type":"Answer","text":"To dopłata do planu VPN; kwota zależy od dostawcy i kraju IP."}}
-  ]
-}
-</script>
-
-<!-- JSON-LD: HowTo -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Jak uzyskać dedykowany IP w VPN (3 kroki)",
-  "description":"Szybka instrukcja zamówienia i konfiguracji dedykowanego IP.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN z opcją Dedicated IP"}],
-  "step":[
-    {"@type":"HowToStep","name":"Wybierz dostawcę","text":"Wybierz plan z Dedicated IP (porównanie NordVPN vs Surfshark)."},
-    {"@type":"HowToStep","name":"Aktywuj adres","text":"Kup Dedicated IP w panelu, wybierz kraj/miasto (PL/UE do bankowości)."},
-    {"@type":"HowToStep","name":"Połącz i sprawdź","text":"W aplikacji wybierz Dedicated IP, sprawdź IP na ipleak.net i wykonaj test prędkości."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"Dedykowany IP w VPN — w pigułce",
-  "description":"Kiedy warto kupić dedykowany IP w VPN i jak go używać.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-dedykowany-ip.webp",
-  "uploadDate":"2025-09-03",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3 z Product) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","brand":{"@type":"Brand","name":"NordVPN"},"url":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html#top3","offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}}},
-    {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","brand":{"@type":"Brand","name":"Surfshark"},"url":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html#top3","offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}}},
-    {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"CyberGhost","brand":{"@type":"Brand","name":"CyberGhost"},"url":"https://dloran1.github.io/blog/vpn-dedykowany-ip.html#top3","offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}}}
-  ]
-}
-</script>
+  </script>
 
 </body>
 </html>

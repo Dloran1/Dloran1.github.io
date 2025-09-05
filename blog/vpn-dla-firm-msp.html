@@ -2,224 +2,277 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>VPN dla firm (MSP) — wymagania i wdrożenie</title>
+  <meta name="description" content="Etalon artykułu: VPN dla firm (MSP) — wymagania i wdrożenie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN dla firm i MSP — bezpieczeństwo i zdalna praca</title>
-  <meta name="description" content="Dlaczego małe i średnie firmy potrzebują VPN? Zabezpieczenie danych, zdalny dostęp, kontrola pracowników. Przewodnik 2025 + najlepsze usługi.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-firm-msp.html">
+
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-dla-firm-msp.webp" imagesrcset="/assets/img/hero/vpn-dla-firm-msp.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="VPN dla firm i MSP — bezpieczeństwo i zdalna praca">
-  <meta property="og:description" content="Dlaczego warto wdrożyć VPN w małej i średniej firmie? Przewodnik 2025.">
+  <meta property="og:title" content="VPN dla firm (MSP) — wymagania i wdrożenie">
+  <meta property="og:description" content="Etalon artykułu: VPN dla firm (MSP) — wymagania i wdrożenie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-firm-msp.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-dla-firm-msp.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN dla firm i MSP — bezpieczeństwo i zdalna praca">
-  <meta name="twitter:description" content="Jak VPN chroni firmę i umożliwia bezpieczną pracę zdalną?">
+  <meta name="twitter:title" content="VPN dla firm (MSP) — wymagania i wdrożenie">
+  <meta name="twitter:description" content="Etalon artykułu: VPN dla firm (MSP) — wymagania i wdrożenie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-dla-firm-msp.webp">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN dla firm (MSP) — wymagania i wdrożenie","item":"https://dloran1.github.io/blog/vpn-dla-firm-msp.html"}
+    ]
+  }
+  </script>
 
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .article-hero img,.author__media img,.post img{display:block;max-width:100%;height:auto}
-    video{max-width:100%;height:auto;border-radius:12px;display:block}
-    figure.article-hero{margin:0}
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>VPN dla firm i MSP — bezpieczeństwo i zdalna praca</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img src="/assets/img/hero/vpn-dla-firm-msp.webp"
-         alt="VPN dla firm i małych przedsiębiorstw — bezpieczeństwo i zdalna praca"
-         width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
-  </figure>
-
-  <p class="lead">
-    <strong>Małe i średnie firmy</strong> coraz częściej działają zdalnie i przetwarzają wrażliwe dane klientów.
-    VPN pozwala chronić te informacje, ułatwia bezpieczne logowanie i dostęp do systemów firmowych.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- TOC -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#dlaczego">Dlaczego firma potrzebuje VPN?</a></li>
-      <li><a href="#korzysci">Korzyści dla MSP</a></li>
-      <li><a href="#wdrozenie">Jak wdrożyć VPN w firmie</a></li>
-      <li><a href="#bezpieczenstwo">Bezpieczeństwo pracowników</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN dla firm 2025</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>VPN dla firm (MSP) — wymagania i wdrożenie</span>
+    </div>
   </nav>
 
-  <section id="dlaczego">
-    <h2>Dlaczego firma potrzebuje VPN?</h2>
-    <p>W erze pracy zdalnej dane firmowe przesyłane są przez różne sieci — także publiczne Wi-Fi.
-    VPN szyfruje połączenie, uniemożliwiając przechwycenie poufnych informacji (np. loginy, faktury, dane klientów).</p>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="korzysci">
-    <h2>Korzyści dla MSP</h2>
-    <ul>
-      <li>Bezpieczny dostęp do systemów księgowych, CRM czy ERP;</li>
-      <li>Kontrola i centralizacja połączeń pracowników;</li>
-      <li>Zabezpieczenie przed atakami phishingowymi i podsłuchem;</li>
-      <li>Możliwość pracy zdalnej bez ryzyka utraty danych.</li>
-    </ul>
-  </section>
+      <h1>VPN dla firm (MSP) — wymagania i wdrożenie</h1>
 
-  <section id="wdrozenie">
-    <h2>Jak wdrożyć VPN w firmie</h2>
-    <ol>
-      <li>Wybierz dostawcę z planami biznesowymi i wsparciem technicznym 24/7.</li>
-      <li>Skonfiguruj konta dla pracowników i włącz <strong>zarządzanie centralne</strong>.</li>
-      <li>Ustal politykę haseł, włącz <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a> i monitoruj logi połączeń.</li>
-    </ol>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-dla-firm-msp.webp" width="1200" height="628"
+             alt="VPN dla firm (MSP) — wymagania i wdrożenie" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>VPN dla firm (MSP) — wymagania i wdrożenie</figcaption>
+      </figure>
 
-  <section id="bezpieczenstwo">
-    <h2>Bezpieczeństwo pracowników</h2>
-    <p>VPN w firmie to nie tylko szyfrowanie, ale także możliwość ochrony pracowników przed wyciekiem danych.
-    Warto dodać szkolenia z cyberbezpieczeństwa oraz wdrożyć <a href="/blog/vpn-bankowosc-online.html">dobre praktyki dla bankowości online</a>.</p>
-  </section>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored noopener nofollow">✅ NordVPN dla firm</a>
-    &nbsp;
-    <a class="btn btn-ghost"
-       href="https://www.tkqlhce.com/click-101525886-17061430"
-       target="_blank" rel="sponsored noopener nofollow">Surfshark — oferta biznesowa</a>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Zobacz także:
-      <a href="/blog/vpn-dedykowany-ip.html">VPN z dedykowanym IP</a>,
-      <a href="/blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a>,
-      <a href="/blog/vpn-a-prawo-w-polsce.html">VPN a prawo w Polsce</a>
-    </p>
-  </aside>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur"
-           width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
-    </div>
-  </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- Video -->
-  <section id="video">
-    <h2>Wideo: VPN dla firm</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/vpn-dla-firm-msp.webp"
-           width="960" height="540" style="border-radius:12px">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <h2 id="top3">TOP-3 VPN dla firm 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN Teams</strong> — centralne zarządzanie, wysoka stabilność. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored noopener nofollow">Oferta</a></li>
-    <li><strong>Surfshark Business</strong> — korzystny cenowo, wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored noopener nofollow">Oferta</a></li>
-    <li><strong>CyberGhost for Teams</strong> — dobre profile pod firmy. <a href="#" target="_blank" rel="sponsored noopener nofollow">Wkrótce</a></li>
-  </ol>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <h2 id="faq">FAQ</h2>
-  <details><summary>Czy VPN jest potrzebny w małej firmie?</summary><p>Tak, szczególnie przy pracy zdalnej i przetwarzaniu danych klientów.</p></details>
-  <details><summary>Ile kosztuje VPN dla firm?</summary><p>Zazwyczaj kilka–kilkanaście € za użytkownika miesięcznie w planie biznesowym.</p></details>
-  <details><summary>Czy pracownicy muszą coś instalować?</summary><p>Tak, aplikację VPN na komputer/telefon, z gotową konfiguracją od firmy.</p></details>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "headline":"VPN dla firm i MSP — bezpieczeństwo i zdalna praca",
-  "description":"Przewodnik: dlaczego firmy potrzebują VPN, jak wdrożyć i jakie są korzyści dla MSP.",
-  "datePublished":"2025-09-03",
-  "dateModified":"2025-09-03",
-  "inLanguage":"pl-PL",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska","logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}},
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-dla-firm-msp.webp",
-  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dla-firm-msp.html"
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"VPN dla firm (MSP) — wymagania i wdrożenie",
+    "description":"Etalon artykułu: VPN dla firm (MSP) — wymagania i wdrożenie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-dla-firm-msp.webp",
+    "url":"https://dloran1.github.io/blog/vpn-dla-firm-msp.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dla-firm-msp.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "VPN dla firm (MSP) — wymagania i wdrożenie — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-dla-firm-msp.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy VPN jest potrzebny w małej firmie?","acceptedAnswer":{"@type":"Answer","text":"Tak, szczególnie przy pracy zdalnej i przetwarzaniu danych klientów."}},
-    {"@type":"Question","name":"Ile kosztuje VPN dla firm?","acceptedAnswer":{"@type":"Answer","text":"Kilka–kilkanaście € za użytkownika miesięcznie w planie biznesowym."}},
-    {"@type":"Question","name":"Czy pracownicy muszą coś instalować?","acceptedAnswer":{"@type":"Answer","text":"Tak, aplikację VPN na komputer/telefon z gotową konfiguracją od firmy."}}
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "name":"VPN dla firm i MSP",
-  "description":"Dlaczego warto wdrożyć VPN w firmie i jakie są korzyści dla MSP.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-dla-firm-msp.webp",
-  "uploadDate":"2025-09-03",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/vpn-dla-firm-msp.html#video"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN dla firm 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN Teams","brand":{"@type":"Brand","name":"NordVPN"},"offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock"}}},
-    {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark Business","brand":{"@type":"Brand","name":"Surfshark"},"offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock"}}},
-    {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"CyberGhost for Teams","brand":{"@type":"Brand","name":"CyberGhost"},"offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder"}}}
-  ]
-}
-</script>
+  </script>
 
 </body>
 </html>

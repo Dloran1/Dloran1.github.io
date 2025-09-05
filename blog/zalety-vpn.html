@@ -2,191 +2,277 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Zalety VPN – po co używać VPN w 2025 roku?</title>
-  <meta name="description" content="Najważniejsze korzyści z używania VPN: prywatność, bezpieczeństwo w publicznym Wi-Fi, dostęp do treści, niższe ceny i ochrona całej rodziny. Konkretne przykłady i krótkie checklisty.">
+  <title>Zalety VPN — korzyści w codziennym użyciu</title>
+  <meta name="description" content="Etalon artykułu: Zalety VPN — korzyści w codziennym użyciu. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="https://twojadomena.com/zalety-vpn.html">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dloran1.github.io/blog/zalety-vpn.html">
+
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/zalety-vpn.webp" imagesrcset="/assets/img/hero/zalety-vpn.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Zalety VPN – po co używać VPN w 2025 roku?">
-  <meta property="og:description" content="Prywatność, bezpieczeństwo, dostęp do treści i oszczędności – wszystkie plusy VPN w jednym miejscu.">
-  <meta property="og:url" content="https://twojadomena.com/zalety-vpn.html">
-  <meta property="og:image" content="https://twojadomena.com/assets/img/hero/zalety-vpn.webp">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Zalety VPN — korzyści w codziennym użyciu">
+  <meta property="og:description" content="Etalon artykułu: Zalety VPN — korzyści w codziennym użyciu. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/zalety-vpn.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/zalety-vpn.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Zalety VPN – po co używać VPN w 2025 roku?">
-  <meta name="twitter:description" content="Najważniejsze korzyści z używania VPN + checklisty.">
-  <meta name="twitter:image" content="https://twojadomena.com/assets/img/hero/zalety-vpn.webp">
+  <meta name="twitter:title" content="Zalety VPN — korzyści w codziennym użyciu">
+  <meta name="twitter:description" content="Etalon artykułu: Zalety VPN — korzyści w codziennym użyciu. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/zalety-vpn.webp">
 
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Zalety VPN — korzyści w codziennym użyciu","item":"https://dloran1.github.io/blog/zalety-vpn.html"}
+    ]
+  }
+  </script>
+
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    :root { color-scheme: dark light; }
-    body{margin:0;background:#0e0f12;color:#111;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto}
-    .wrap{max-width:980px;margin:auto;padding:20px}
-    .article{background:#fff;color:#111;border-radius:14px;padding:28px}
-    .breadcrumbs{font-size:.9rem;opacity:.8;margin:0 0 12px}
-    .breadcrumbs a{color:#666;text-decoration:none}
-    h1{margin-top:0;line-height:1.2}
-    .hero{margin:8px 0 18px;text-align:center}
-    .hero img{max-width:100%;height:auto;border-radius:12px}
-    .toc{background:#f5f7fa;border:1px solid #e7ebf0;border-radius:12px;padding:14px;margin:18px 0}
-    .toc a{color:#0b69c7;text-decoration:none}
-    .cta{background:#0b69c7;color:#fff;padding:18px;border-radius:12px;margin:24px 0}
-    .note{background:#eaf7ff;border:1px solid #c9e9ff;border-radius:10px;padding:12px}
-    .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .related{background:#f5f7fa;border:1px solid #e7ebf0;border-radius:12px;padding:16px}
-    .author{display:flex;gap:14px;align-items:center;margin-top:26px;padding-top:18px;border-top:1px solid #e7ebf0}
-    .author img{width:64px;height:64px;border-radius:50%;object-fit:cover}
-    a{color:#0b69c7}
-    code,kbd{background:#f3f3f3;border-radius:6px;padding:0 6px}
-    ul.check{list-style: none; padding-left: 0}
-    ul.check li::before{content:"✓ "; font-weight:700}
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <nav class="breadcrumbs" aria-label="breadcrumbs">
-      <a href="/">Start</a> › <a href="/#blog">Blog</a> › Zalety VPN
-    </nav>
+<body id="top">
 
-    <article class="article" itemscope itemtype="https://schema.org/Article">
-      <header>
-        <h1 itemprop="headline">Zalety VPN – po co używać VPN w 2025 roku?</h1>
-        <p><time itemprop="datePublished" datetime="2025-09-03">03.09.2025</time> · Aktualizacja: <time itemprop="dateModified" datetime="2025-09-03">03.09.2025</time></p>
-        <figure class="hero">
-          <img src="/assets/img/hero/zalety-vpn.webp" width="1200" height="628" alt="Zalety używania VPN w 2025 roku" loading="eager">
-          <figcaption>VPN zwiększa prywatność, bezpieczeństwo i dostęp do treści – na wszystkich urządzeniach.</figcaption>
-        </figure>
-      </header>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Zalety VPN — korzyści w codziennym użyciu</span>
+    </div>
+  </nav>
 
-      <nav class="toc">
+  <div class="wrap post">
+    <article class="article">
+
+      <h1>Zalety VPN — korzyści w codziennym użyciu</h1>
+
+      <figure class="hero">
+        <img src="/assets/img/hero/zalety-vpn.webp" width="1200" height="628"
+             alt="Zalety VPN — korzyści w codziennym użyciu" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Zalety VPN — korzyści w codziennym użyciu</figcaption>
+      </figure>
+
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
+
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
         <strong>Spis treści</strong>
         <ol>
-          <li><a href="#prywatnosc">Prywatność i brak śledzenia</a></li>
-          <li><a href="#bezpieczenstwo">Bezpieczeństwo w publicznym Wi-Fi</a></li>
-          <li><a href="#dostep">Dostęp do treści i streamingu</a></li>
-          <li><a href="#oszczednosci">Oszczędności i ceny dynamiczne</a></li>
-          <li><a href="#rodzina">Ochrona rodziny i pracy zdalnej</a></li>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
         </ol>
       </nav>
 
-      <section id="prywatnosc">
-        <h2>Prywatność i brak śledzenia</h2>
-        <div class="grid">
-          <div>
-            <p>VPN ukrywa Twój adres IP i szyfruje ruch – dostawca internetu nie widzi odwiedzanych stron, a reklamodawcy trudniej tworzą profil użytkownika.</p>
-            <ul class="check">
-              <li>Maskowanie IP i geolokalizacji</li>
-              <li>Szyfrowanie end-to-end między Tobą a serwerem VPN</li>
-              <li>Mniej śledzenia i retargetingu</li>
-            </ul>
-          </div>
-          <div class="note">
-            <strong>Wybór dostawcy:</strong> stawiaj na politykę <a href="/no-logs.html">no-logs</a> i niezależne audyty. Sprawdź też domyślne DNS – unikniesz wycieków.
-          </div>
-        </div>
-      </section>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-      <section id="bezpieczenstwo">
-        <h2>Bezpieczeństwo w publicznym Wi-Fi</h2>
-        <p>W sieciach na lotniskach, dworcach czy kawiarniach ataki typu MITM i podsłuch są częste. VPN szyfruje cały ruch, utrudniając przechwycenie danych logowania, ciasteczek i zapytań DNS.</p>
-        <p>Zobacz poradnik: <a href="/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>.</p>
-      </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-      <section id="dostep">
-        <h2>Dostęp do treści i streamingu</h2>
-        <p>Zmiana węzła (kraju IP) pozwala odblokować biblioteki VOD, serwisy informacyjne czy aplikacje działające tylko w wybranych regionach.</p>
-        <ul class="check">
-          <li>Serwery „Streaming/Media” – stabilne IP dla VOD</li>
-          <li>Lepsze pingi do gier przy dobrym doborze trasy</li>
-          <li>Możliwość ominięcia restrykcji w pracy/szkole</li>
-        </ul>
-        <p>Więcej: <a href="/vpn-netflix-polska.html">VPN & Netflix Polska</a>.</p>
-      </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-      <section id="oszczednosci">
-        <h2>Oszczędności i ceny dynamiczne</h2>
-        <p>Niektóre sklepy i linie lotnicze pokazują różne ceny w zależności od kraju lub historii przeglądania. VPN pomaga porównywać oferty „na czysto”.</p>
-        <ul class="check">
-          <li>Porównuj ceny z kilku lokalizacji</li>
-          <li>Tryb prywatny + nowy węzeł = mniejszy wpływ cookies</li>
-          <li>Sprawdzaj też walutę i opłaty bankowe</li>
-        </ul>
-      </section>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-      <section id="rodzina">
-        <h2>Ochrona rodziny i pracy zdalnej</h2>
-        <ul class="check">
-          <li>Stała ochrona na wielu urządzeniach (subskrypcje rodzinne)</li>
-          <li><em>Kill Switch</em> + Split Tunneling dla bankowości i lokalnych usług</li>
-          <li>Zdalny dostęp do zasobów firmy przez bezpieczny tunel</li>
-        </ul>
-        <div class="cta">
-          Chcesz najlepszą prędkość? Wybierz <strong>WireGuard</strong>. Potrzebujesz kompatybilności z legacy? Zobacz <a href="/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.
-        </div>
-      </section>
-
-      <section id="faq">
+      <!-- FAQ -->
+      <section class="faq" id="faq">
         <h2>FAQ</h2>
-        <details><summary>Czy VPN spowalnia internet?</summary><p>Przy nowoczesnych protokołach (WireGuard) spadek zwykle 10–30% w zależności od serwera i łącza.</p></details>
-        <details><summary>Czy VPN jest legalny?</summary><p>W większości krajów tak. Pamiętaj jednak o regulaminach serwisów i lokalnym prawie.</p></details>
-        <details><summary>Czy darmowe VPN są bezpieczne?</summary><p>Często nie. Mogą sprzedawać dane lub wstrzykiwać reklamy. Wybieraj sprawdzonych dostawców z audytami.</p></details>
-        <details><summary>Na ilu urządzeniach działa?</summary><p>Zależnie od planu – u wielu providerów 5–10 urządzeń, czasem nielimitowane.</p></details>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
       </section>
 
-      <aside class="related">
-        <h3>Powiązane artykuły</h3>
-        <ul>
-          <li><a href="/co-to-jest-vpn.html">Co to jest VPN?</a></li>
-          <li><a href="/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-          <li><a href="/vpn-proxy-vs-vpn.html">Proxy vs VPN</a></li>
-          <li><a href="/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
-          <li><a href="/vpn-szybkosc-test.html">Test prędkości i wycieków</a></li>
-        </ul>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
       </aside>
 
-      <footer class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-        <img src="/assets/img/author/denis.webp" width="128" height="128" alt="Autor: Denis">
-        <div>
-          <strong itemprop="name">Denis</strong><br>
-          <small>Autor poradników o prywatności i bezpieczeństwie online.</small>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
         </div>
-      </footer>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
+
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
     </article>
   </div>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD: Article -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList",
-   "itemListElement":[
-     {"@type":"ListItem","position":1,"name":"Start","item":"https://twojadomena.com/"},
-     {"@type":"ListItem","position":2,"name":"Blog","item":"https://twojadomena.com/#blog"},
-     {"@type":"ListItem","position":3,"name":"Zalety VPN","item":"https://twojadomena.com/zalety-vpn.html"}]}
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"Zalety VPN — korzyści w codziennym użyciu",
+    "description":"Etalon artykułu: Zalety VPN — korzyści w codziennym użyciu. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/zalety-vpn.webp",
+    "url":"https://dloran1.github.io/blog/zalety-vpn.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/zalety-vpn.html"
+  }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article",
-   "headline":"Zalety VPN – po co używać VPN w 2025 roku?",
-   "image":"https://twojadomena.com/assets/img/hero/zalety-vpn.webp",
-   "datePublished":"2025-09-03","dateModified":"2025-09-03",
-   "author":{"@type":"Person","name":"Denis"},
-   "mainEntityOfPage":{"@type":"WebPage","@id":"https://twojadomena.com/zalety-vpn.html"}}
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
   </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage",
-   "mainEntity":[
-     {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Na WireGuard spadek zwykle 10–30%."}},
-     {"@type":"Question","name":"Czy VPN jest legalny?","acceptedAnswer":{"@type":"Answer","text":"W większości krajów tak, ale respektuj lokalne prawo i regulaminy."}},
-     {"@type":"Question","name":"Czy darmowe VPN są bezpieczne?","acceptedAnswer":{"@type":"Answer","text":"Często nie – mogą zbierać dane lub wstrzykiwać reklamy."}},
-     {"@type":"Question","name":"Na ilu urządzeniach działa?","acceptedAnswer":{"@type":"Answer","text":"Zależnie od planu – zwykle 5–10 urządzeń."}}
-   ]}
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
   </script>
+
+
+  <!-- JSON-LD: VideoObject -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"Powiązane artykuły",
-   "itemListElement":[
-     {"@type":"ListItem","position":1,"url":"https://twojadomena.com/co-to-jest-vpn.html"},
-     {"@type":"ListItem","position":2,"url":"https://twojadomena.com/vpn-optymalne-ustawienia.html"},
-     {"@type":"ListItem","position":3,"url":"https://twojadomena.com/vpn-proxy-vs-vpn.html"}
-   ]}
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Zalety VPN — korzyści w codziennym użyciu — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/zalety-vpn.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+}
   </script>
+
 </body>
 </html>

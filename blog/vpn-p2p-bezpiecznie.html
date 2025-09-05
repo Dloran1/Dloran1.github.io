@@ -2,12 +2,18 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>P2P/torrenty z VPN — jak robić to bezpiecznie</title>
+  <meta name="description" content="Etalon artykułu: P2P/torrenty z VPN — jak robić to bezpiecznie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN i P2P — jak pobierać bezpiecznie w 2025?</title>
-  <meta name="description" content="Czy torrentowanie z VPN jest bezpieczne? Jak ustawić serwer P2P, protokół i Kill Switch. Poradnik z testem IP/DNS i FAQ.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
 
-  <!-- Perf & robots -->
+  <!-- Perf -->
   <link rel="preload" as="image" href="/assets/img/hero/vpn-p2p-bezpiecznie.webp" imagesrcset="/assets/img/hero/vpn-p2p-bezpiecznie.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
@@ -15,198 +21,258 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="VPN i P2P — jak pobierać bezpiecznie w 2025?">
-  <meta property="og:description" content="Serwery P2P, protokoły, Kill Switch i test IP/DNS.">
+  <meta property="og:title" content="P2P/torrenty z VPN — jak robić to bezpiecznie">
+  <meta property="og:description" content="Etalon artykułu: P2P/torrenty z VPN — jak robić to bezpiecznie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-p2p-bezpiecznie.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN i P2P — jak pobierać bezpiecznie w 2025?">
-  <meta name="twitter:description" content="Jak pobierać torrenty z VPN i uniknąć wycieków.">
+  <meta name="twitter:title" content="P2P/torrenty z VPN — jak robić to bezpiecznie">
+  <meta name="twitter:description" content="Etalon artykułu: P2P/torrenty z VPN — jak robić to bezpiecznie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-p2p-bezpiecznie.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"P2P/torrenty z VPN — jak robić to bezpiecznie","item":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html"}
+    ]
+  }
+  </script>
 
-  <!-- Fail-safe -->
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img,.author__media img,.post img{display:block;max-width:100%;height:auto;}
-    figure.article-hero{margin:0;}
-    video{max-width:100%;height:auto;border-radius:12px;display:block;}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.65rem .8rem;vertical-align:top}
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>VPN i P2P — jak pobierać bezpiecznie w 2025?</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/vpn-p2p-bezpiecznie.webp"
-      alt="VPN i torrenty — jak pobierać bezpiecznie"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    Pobieranie torrentów z VPN jest <strong>bezpieczniejsze</strong>, o ile wybierzesz odpowiedni serwer P2P,
-    protokół oraz włączysz <a href="/blog/vpn-kill-switch.html">Kill Switch</a>. Sprawdź, jak ustawić klienta
-    i jakie testy zrobić, by uniknąć wycieków.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- TOC -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#serwery">Serwery P2P</a></li>
-      <li><a href="#protokoly">Protokóły i porty</a></li>
-      <li><a href="#bezpieczenstwo">Bezpieczeństwo</a></li>
-      <li><a href="#testy">Testy i diagnostyka</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>P2P/torrenty z VPN — jak robić to bezpiecznie</span>
+    </div>
   </nav>
 
-  <section id="serwery">
-    <h2>Serwery P2P</h2>
-    <p>Nie każdy serwer VPN pozwala na torrenty. Wybierz te oznaczone jako <strong>P2P</strong>. 
-    Jeśli nie wiesz, zobacz nasz poradnik <a href="/blog/vpn-torrent.html">VPN a torrenty</a>.</p>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="protokoly">
-    <h2>Protokoły i porty</h2>
-    <ul>
-      <li><strong>WireGuard</strong> — najlepszy balans szybkość/bezpieczeństwo.</li>
-      <li><strong>OpenVPN UDP</strong> — alternatywa przy problemach.</li>
-      <li>Port w kliencie torrent → ustaw na <a href="/blog/vpn-port-forwarding.html">forwarding</a>, jeśli dostępny.</li>
-    </ul>
-  </section>
+      <h1>P2P/torrenty z VPN — jak robić to bezpiecznie</h1>
 
-  <section id="bezpieczenstwo">
-    <h2>Bezpieczeństwo</h2>
-    <ul>
-      <li>Włącz <a href="/blog/vpn-kill-switch.html">Kill Switch</a>, by uniknąć wycieków przy zerwaniu.</li>
-      <li>Sprawdź, czy dostawca ma <a href="/blog/no-logs.html">politykę no-logs</a>.</li>
-      <li>Rozważ <a href="/blog/vpn-double-vpn.html">Double VPN</a> dla prywatności kosztem prędkości.</li>
-    </ul>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-p2p-bezpiecznie.webp" width="1200" height="628"
+             alt="P2P/torrenty z VPN — jak robić to bezpiecznie" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>P2P/torrenty z VPN — jak robić to bezpiecznie</figcaption>
+      </figure>
 
-  <section id="testy">
-    <h2>Testy i diagnostyka</h2>
-    <ol>
-      <li>Sprawdź IP/DNS na <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>.</li>
-      <li>Porównaj prędkość — zobacz <a href="/blog/vpn-szybkosc-test.html">jak testować</a>.</li>
-      <li>Jeśli torrenty nie startują — zmień serwer/kraj.</li>
-    </ol>
-  </section>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — serwery P2P</a>
-    &nbsp;
-    <a class="btn btn-ghost"
-       href="https://www.tkqlhce.com/click-101525886-17061430"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — bez limitów</a>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>
-      <a href="/blog/vpn-torrent.html">VPN a torrenty</a> •
-      <a href="/blog/vpn-port-forwarding.html">Port forwarding</a> •
-      <a href="/blog/vpn-dns-leak.html">DNS leak</a>
-    </p>
-  </aside>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
-    </div>
-  </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- Video -->
-  <section id="video">
-    <h2>Wideo: jak pobierać bezpiecznie</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/vpn-p2p-bezpiecznie.webp"
-           width="960" height="540">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"VPN i P2P — jak pobierać bezpiecznie w 2025?",
-  "description":"Jak pobierać torrenty z VPN bezpiecznie. Serwery P2P, protokoły, Kill Switch i testy.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-03",
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-p2p-bezpiecznie.webp",
-  "author":{"@type":"Person","name":"Denys Shchur"},
-  "publisher":{"@type":"Organization","name":"VPN Polska"}
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
+
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
+
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"P2P/torrenty z VPN — jak robić to bezpiecznie",
+    "description":"Etalon artykułu: P2P/torrenty z VPN — jak robić to bezpiecznie. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-p2p-bezpiecznie.webp",
+    "url":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "P2P/torrenty z VPN — jak robić to bezpiecznie — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-p2p-bezpiecznie.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
-
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy torrenty z VPN są legalne w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, torrentowanie samo w sobie jest legalne, ale pobieranie chronionych treści może naruszać prawo."}},
-    {"@type":"Question","name":"Który protokół jest najlepszy do P2P?","acceptedAnswer":{"@type":"Answer","text":"WireGuard zapewnia najlepszy balans szybkości i bezpieczeństwa. Alternatywnie OpenVPN UDP."}},
-    {"@type":"Question","name":"Czy potrzebuję port forwarding do torrentów?","acceptedAnswer":{"@type":"Answer","text":"Nie zawsze. Bez niego prędkość bywa niższa, ale nadal działa. Jeśli dostępny, warto włączyć."}}
-  ]
-}
-</script>
-
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"VPN i P2P — jak pobierać bezpiecznie",
-  "description":"Krótki poradnik jak korzystać z VPN do torrentów w 2025 roku.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-p2p-bezpiecznie.webp",
-  "uploadDate":"2025-09-03",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/vpn-p2p-bezpiecznie.html#video"
-}
-</script>
+  </script>
 
 </body>
 </html>

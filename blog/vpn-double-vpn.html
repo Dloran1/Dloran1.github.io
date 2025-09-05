@@ -2,308 +2,277 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>Double VPN — kiedy podwójne szyfrowanie ma sens</title>
+  <meta name="description" content="Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Double VPN (MultiHop) — kiedy warto i jak używać?</title>
-  <meta name="description" content="Double VPN (MultiHop) to połączenie przez dwa serwery VPN dla większej prywatności. Zobacz, kiedy ma sens, jak go włączyć i jakie ma wady/zalety.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-double-vpn.html">
 
-  <!-- Perf & robots -->
-  <link rel="preload" as="image" href="/assets/img/hero/vpn-double-vpn.webp"
-        imagesrcset="/assets/img/hero/vpn-double-vpn.webp" imagesizes="100vw">
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/vpn-double-vpn.webp" imagesrcset="/assets/img/hero/vpn-double-vpn.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Double VPN (MultiHop) — kiedy warto i jak używać?">
-  <meta property="og:description" content="Kiedy Double VPN (MultiHop) ma sens, jak działa i jak go włączyć w NordVPN/Surfshark. Zalety, wady, FAQ i szybka instrukcja.">
+  <meta property="og:title" content="Double VPN — kiedy podwójne szyfrowanie ma sens">
+  <meta property="og:description" content="Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-double-vpn.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Double VPN (MultiHop) — kiedy warto i jak używać?">
-  <meta name="twitter:description" content="Double VPN przez dwa serwery: więcej prywatności kosztem prędkości. Zobacz ustawienia i praktyczne porady.">
+  <meta name="twitter:title" content="Double VPN — kiedy podwójne szyfrowanie ma sens">
+  <meta name="twitter:description" content="Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Double VPN — kiedy podwójne szyfrowanie ma sens","item":"https://dloran1.github.io/blog/vpn-double-vpn.html"}
+    ]
+  }
+  </script>
 
-  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
-    figure.article-hero{ margin:0; }
-    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
-    .table{ width:100%; border-collapse:collapse }
-    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.6rem .8rem; vertical-align:top }
-    .table caption{ caption-side:top; font-weight:700; margin-bottom:.4rem }
-    .cta{ margin:1.25rem 0 1.5rem }
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>Double VPN (MultiHop) — kiedy warto i jak używać?</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/vpn-double-vpn.webp"
-      alt="Double VPN (MultiHop) — połączenie przez dwa serwery"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    <strong>Double VPN</strong> (znany też jako <em>MultiHop</em>) kieruje Twój ruch przez dwa kolejne serwery VPN.
-    Daje to wyższy poziom prywatności niż standardowe połączenie, ale <em>kosztem prędkości</em>.
-    Poniżej — kiedy ma sens, jak go włączyć i na co zwrócić uwagę.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#co-to">Co to jest Double VPN?</a></li>
-      <li><a href="#kiedy">Kiedy warto używać?</a></li>
-      <li><a href="#zalety-wady">Zalety i wady</a></li>
-      <li><a href="#jak-wlaczyc">Jak włączyć w NordVPN/Surfshark</a></li>
-      <li><a href="#porady">Porady praktyczne</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Double VPN — kiedy podwójne szyfrowanie ma sens</span>
+    </div>
   </nav>
 
-  <section id="co-to">
-    <h2>Co to jest Double VPN?</h2>
-    <p>W standardowym połączeniu VPN ruch przechodzi przez jeden serwer. W <strong>Double VPN</strong> najpierw trafia do <em>pierwszego</em> serwera, a następnie jest przekazywany do <em>drugiego</em> — dopiero stamtąd wychodzi do Internetu.</p>
-    <p>To dodatkowa warstwa prywatności. Pamiętaj jednak, że <a href="/blog/mity-o-vpn.html">VPN nie daje pełnej anonimowości</a>, a realny poziom ochrony zależy też od <a href="/blog/no-logs.html">polityki no-logs</a> dostawcy i braku <a href="/blog/vpn-dns-leak.html">wycieków DNS</a>.</p>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="kiedy">
-    <h2>Kiedy warto używać?</h2>
-    <ul>
-      <li>Gdy chcesz <strong>ukryć trasę</strong> (np. kraj pośredni → kraj docelowy).</li>
-      <li>Przy pracy z danymi wrażliwymi lub wzmożonej inwigilacji sieci.</li>
-      <li>Gdy łączysz Double VPN z <a href="/blog/vpn-2fa-mfa.html">MFA/2FA</a> i dobrymi nawykami bezpieczeństwa.</li>
-    </ul>
-    <p>Do streamingu i gamingu lepszy bywa pojedynczy serwer z <a href="/blog/wireguard-vs-openvpn.html">WireGuard</a>. Jeśli zależy Ci głównie na prędkości — sprawdź <a href="/blog/vpn-szybkosc-test.html">jak testować szybkość VPN</a>.</p>
-  </section>
+      <h1>Double VPN — kiedy podwójne szyfrowanie ma sens</h1>
 
-  <section id="zalety-wady">
-    <h2>Zalety i wady</h2>
-    <table class="table">
-      <caption>Double VPN — w skrócie</caption>
-      <thead><tr><th>Zalety</th><th>Wady / uwagi</th></tr></thead>
-      <tbody>
-        <tr><td>Dodatkowa warstwa prywatności (dwa serwery)</td><td>Mniejsza prędkość i wyższy ping</td></tr>
-        <tr><td>Utrudniona korelacja ruchu</td><td>Nie zawsze działa z VOD/bankowością</td></tr>
-        <tr><td>Możliwy wybór tras (np. PL→NL)</td><td>Wyższe obciążenie baterii/CPU na mobile</td></tr>
-      </tbody>
-    </table>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-double-vpn.webp" width="1200" height="628"
+             alt="Double VPN — kiedy podwójne szyfrowanie ma sens" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Double VPN — kiedy podwójne szyfrowanie ma sens</figcaption>
+      </figure>
 
-  <section id="jak-wlaczyc">
-    <h2>Jak włączyć w NordVPN/Surfshark</h2>
-    <h3>NordVPN (Double VPN)</h3>
-    <ol>
-      <li>Uruchom aplikację i zaloguj się.</li>
-      <li>Wejdź w kategorię <em>Double VPN</em> (lista specjalnych serwerów).</li>
-      <li>Wybierz parę krajów (np. PL → NL) i połącz.</li>
-    </ol>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-    <h3>Surfshark (MultiHop)</h3>
-    <ol>
-      <li>Uruchom aplikację i zaloguj się.</li>
-      <li>Przejdź do <em>MultiHop</em> i wybierz trasę (np. DE → NL).</li>
-      <li>Połącz i zweryfikuj IP oraz DNS.</li>
-    </ol>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-    <p class="note">Po włączeniu Double VPN/MultiHop zrób szybki test: IP + <a href="/blog/vpn-dns-leak.html">DNS leak</a>. W razie problemów ze streamingiem — wyłącz MultiHop i użyj pojedynczego serwera.</p>
-  </section>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <section id="porady">
-    <h2>Porady praktyczne</h2>
-    <ul>
-      <li>Na co dzień używaj pojedynczego serwera; Double VPN włączaj <em>tylko wtedy</em>, gdy potrzebujesz dodatkowej warstwy.</li>
-      <li>Łącz to z <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/wireguard-vs-openvpn.html">nowoczesnym protokołem</a> i higieną haseł.</li>
-      <li>Jeśli grasz — sprawdź dedykowane wskazówki w <a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a>.</li>
-    </ul>
-  </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ Double VPN w NordVPN</a>
-    &nbsp;
-    <a class="btn btn-ghost"
-       href="https://www.tkqlhce.com/click-101525886-17061430"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">MultiHop w Surfshark</a>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Powiązane: <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a>,
-       <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne VPN</a>,
-       <a href="/blog/mity-o-vpn.html">Mity o VPN</a></p>
-  </aside>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
-    </div>
-  </section>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: Double VPN w praktyce</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/vpn-double-vpn.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
 
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — Double VPN, szyfrowanie, NordLynx (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — MultiHop, dobre ceny, wiele urządzeń. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile streaming/gaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
-  </ol>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"Double VPN (MultiHop) — kiedy warto i jak używać?",
-  "description":"Double VPN kieruje ruch przez dwa serwery VPN. Zobacz, kiedy ma sens, jak włączyć w NordVPN/Surfshark oraz jakie ma wady i zalety.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-03",
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska",
-    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-  },
-  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-double-vpn.html"
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"Double VPN — kiedy podwójne szyfrowanie ma sens",
+    "description":"Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp",
+    "url":"https://dloran1.github.io/blog/vpn-double-vpn.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-double-vpn.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Double VPN — kiedy podwójne szyfrowanie ma sens — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-double-vpn.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
-
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"Double VPN (MultiHop)","item":"https://dloran1.github.io/blog/vpn-double-vpn.html"}
-  ]
-}
-</script>
-
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czym jest Double VPN (MultiHop)?","acceptedAnswer":{"@type":"Answer","text":"To połączenie przez dwa kolejne serwery VPN. Daje dodatkową warstwę prywatności kosztem prędkości."}},
-    {"@type":"Question","name":"Czy Double VPN jest potrzebny na co dzień?","acceptedAnswer":{"@type":"Answer","text":"Zwykle nie. Włączaj go, gdy potrzebujesz dodatkowej warstwy prywatności. Do streamingu/gier lepszy pojedynczy serwer."}},
-    {"@type":"Question","name":"Czy Double VPN działa z Netflixem?","acceptedAnswer":{"@type":"Answer","text":"Niekoniecznie. Jeśli masz problemy, wyłącz MultiHop i użyj pojedynczego serwera oraz wyczyść cookies."}}
-  ]
-}
-</script>
-
-<!-- JSON-LD: HowTo (włączenie Double VPN) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Jak włączyć Double VPN / MultiHop",
-  "description":"Szybkie kroki w NordVPN i Surfshark.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
-  "step":[
-    {"@type":"HowToStep","name":"Otwórz aplikację","text":"Zaloguj się do NordVPN lub Surfshark."},
-    {"@type":"HowToStep","name":"Wybierz tryb Double VPN / MultiHop","text":"Wybierz trasę np. PL→NL lub DE→NL."},
-    {"@type":"HowToStep","name":"Połącz i przetestuj","text":"Zweryfikuj IP i wykonaj test DNS leak."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"Double VPN w praktyce",
-  "description":"Krótkie wideo o MultiHop i kiedy go używać.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-double-vpn.webp",
-  "uploadDate":"2025-09-03",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/vpn-double-vpn.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{
-      "@type":"Product","name":"NordVPN",
-      "brand":{"@type":"Brand","name":"NordVPN"},
-      "url":"https://dloran1.github.io/blog/vpn-double-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":2,"item":{
-      "@type":"Product","name":"Surfshark",
-      "brand":{"@type":"Brand","name":"Surfshark"},
-      "url":"https://dloran1.github.io/blog/vpn-double-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":3,"item":{
-      "@type":"Product","name":"CyberGhost",
-      "brand":{"@type":"Brand","name":"CyberGhost"},
-      "url":"https://dloran1.github.io/blog/vpn-double-vpn.html#top3",
-      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
-    }}
-  ]
-}
-</script>
+  </script>
 
 </body>
 </html>

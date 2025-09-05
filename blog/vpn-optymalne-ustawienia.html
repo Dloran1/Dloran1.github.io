@@ -2,12 +2,18 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>Optymalne ustawienia VPN — praktyczne porady</title>
+  <meta name="description" content="Etalon artykułu: Optymalne ustawienia VPN — praktyczne porady. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN — optymalne ustawienia (2025): szybkość, prywatność, streaming</title>
-  <meta name="description" content="Najlepsze ustawienia VPN na 2025: protokół, serwer, Kill Switch, DNS, split tunneling. Profile dla VOD, gier i prywatności + checklista i FAQ.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
 
-  <!-- Perf & robots -->
+  <!-- Perf -->
   <link rel="preload" as="image" href="/assets/img/hero/vpn-optymalne-ustawienia.webp" imagesrcset="/assets/img/hero/vpn-optymalne-ustawienia.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
@@ -15,193 +21,258 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="VPN — optymalne ustawienia (2025)">
-  <meta property="og:description" content="Protokół, serwer, Kill Switch, DNS, split tunneling. Profile dla VOD, gier i prywatności.">
+  <meta property="og:title" content="Optymalne ustawienia VPN — praktyczne porady">
+  <meta property="og:description" content="Etalon artykułu: Optymalne ustawienia VPN — praktyczne porady. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN — optymalne ustawienia (2025)">
-  <meta name="twitter:description" content="Najlepsze ustawienia VPN: szybkość, prywatność, streaming.">
+  <meta name="twitter:title" content="Optymalne ustawienia VPN — praktyczne porady">
+  <meta name="twitter:description" content="Etalon artykułu: Optymalne ustawienia VPN — praktyczne porady. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Optymalne ustawienia VPN — praktyczne porady","item":"https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html"}
+    ]
+  }
+  </script>
 
-  <!-- Fail-safe -->
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
-    figure.article-hero{ margin:0; }
-    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
-    .table{ width:100%; border-collapse:collapse }
-    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.65rem .8rem; vertical-align:top }
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>VPN — optymalne ustawienia (2025)</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/vpn-optymalne-ustawienia.webp"
-      alt="Optymalne ustawienia VPN – prędkość, prywatność, streaming"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    Ten poradnik pokazuje <strong>jak ustawić VPN</strong> pod trzy główne cele: <em>VOD/streaming</em>, <em>gry</em> i <em>prywatność</em>.
-    Po drodze podlinkujemy krótkie instrukcje: 
-    <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, 
-    <a href="/blog/jaki-serwer-vpn.html">jaki serwer wybrać</a> oraz 
-    <a href="/blog/vpn-kill-switch.html">co to jest Kill Switch</a>.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#kroki">Szybkie kroki</a></li>
-      <li><a href="#profile">Profile ustawień</a></li>
-      <li><a href="#tabela">Tabela ustawień</a></li>
-      <li><a href="#zaawansowane">Ustawienia zaawansowane</a></li>
-      <li><a href="#diagnostyka">Diagnostyka i testy</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Optymalne ustawienia VPN — praktyczne porady</span>
+    </div>
   </nav>
 
-  <section id="kroki">
-    <h2>Szybkie kroki</h2>
-    <ol>
-      <li><strong>Protokół:</strong> zacznij od <a href="/blog/wireguard-vs-openvpn.html">WireGuard</a>. Jeśli coś nie działa — OpenVPN UDP.</li>
-      <li><strong>Serwer:</strong> wybierz <a href="/blog/jaki-serwer-vpn.html">najbliższą lokalizację</a> lub konkretny kraj pod VOD.</li>
-      <li><strong>Kill Switch:</strong> włącz — opisaliśmy go w <a href="/blog/vpn-kill-switch.html">tym poradniku</a>.</li>
-      <li><strong>DNS:</strong> używaj DNS dostawcy, sprawdzaj <a href="/blog/vpn-dns-leak.html">DNS leak</a>.</li>
-      <li><strong>Split tunneling:</strong> opcjonalnie wyklucz aplikacje (np. bankowość).</li>
-    </ol>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="profile">
-    <h2>Profile ustawień</h2>
-    <h3>Streaming / VOD</h3>
-    <p>Protokół: WireGuard, serwer PL/US/UK. W razie problemów zmień lokalizację i <em>wyczyść cookies</em>. Zobacz: <a href="/blog/vpn-netflix-polska.html">VPN i Netflix</a>.</p>
+      <h1>Optymalne ustawienia VPN — praktyczne porady</h1>
 
-    <h3>Gry online</h3>
-    <p>Protokół: WireGuard lub OpenVPN UDP. Serwer: najbliżej serwera gry (często DE/NL). Więcej: <a href="/blog/vpn-dla-graczy.html">VPN dla graczy</a>.</p>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-optymalne-ustawienia.webp" width="1200" height="628"
+             alt="Optymalne ustawienia VPN — praktyczne porady" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Optymalne ustawienia VPN — praktyczne porady</figcaption>
+      </figure>
 
-    <h3>Prywatność</h3>
-    <p>Protokół: WireGuard / OpenVPN TCP. Serwer: PL/DE/NL. Opcje: Kill Switch, brak split tunneling. Zobacz też: <a href="/blog/no-logs.html">VPN no-logs</a>.</p>
-  </section>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-  <section id="tabela">
-    <h2>Tabela ustawień</h2>
-    <table class="table">
-      <thead>
-        <tr><th>Zastosowanie</th><th>Protokół</th><th>Serwer</th><th>Opcje</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>VOD</td><td>WireGuard</td><td>PL/US/UK</td><td>Wyczyszczone cookies</td></tr>
-        <tr><td>Gry</td><td>WireGuard/UDP</td><td>DE/NL</td><td>Brak split tunneling</td></tr>
-        <tr><td>Prywatność</td><td>WireGuard/TCP</td><td>PL/DE/NL</td><td>Kill Switch ON</td></tr>
-      </tbody>
-    </table>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-  <section id="zaawansowane">
-    <h2>Ustawienia zaawansowane</h2>
-    <ul>
-      <li><strong>Threat blocking:</strong> wyłącz przy problemach z VOD.</li>
-      <li><strong>Double VPN:</strong> dla prywatności kosztem prędkości — zobacz <a href="/blog/vpn-double-vpn.html">opis</a>.</li>
-      <li><strong>Bankowość:</strong> wyklucz w split tunneling — <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość</a>.</li>
-    </ul>
-  </section>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <section id="diagnostyka">
-    <h2>Diagnostyka i testy</h2>
-    <ol>
-      <li>Sprawdź IP/DNS: <a href="/blog/vpn-dns-leak.html">test DNS leak</a>.</li>
-      <li>Zrób test prędkości: <a href="/blog/vpn-szybkosc-test.html">instrukcja</a>.</li>
-      <li>Nie działa? Zmień serwer lub protokół. Zobacz: <a href="/blog/vpn-geoblokady.html">VPN i geoblokady</a>.</li>
-    </ol>
-  </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — szybkie profile</a>
-    &nbsp;
-    <a class="btn btn-ghost"
-       href="https://www.tkqlhce.com/click-101525886-17061430"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — wiele urządzeń</a>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>
-      <a href="/blog/co-to-jest-vpn.html">Co to jest VPN?</a> •
-      <a href="/blog/vpn-geolokalizacja.html">Geolokalizacja</a> •
-      <a href="/blog/darmowe-vs-platne-vpn.html">Darmowe vs płatne</a>
-    </p>
-  </aside>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-02">02.09.2025</time></p>
-    </div>
-  </section>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-  <!-- Video -->
-  <section id="video">
-    <h2>Wideo: szybkie ustawienia VPN</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/vpn-optymalne-ustawienia.webp"
-           width="960" height="540">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"VPN — optymalne ustawienia (2025)",
-  "description":"Najlepsze ustawienia VPN: protokół, serwer, Kill Switch, DNS i split tunneling.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-02",
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp",
-  "author":{"@type":"Person","name":"Denys Shchur"},
-  "publisher":{"@type":"Organization","name":"VPN Polska"}
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"Optymalne ustawienia VPN — praktyczne porady",
+    "description":"Etalon artykułu: Optymalne ustawienia VPN — praktyczne porady. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-optymalne-ustawienia.webp",
+    "url":"https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-optymalne-ustawienia.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Optymalne ustawienia VPN — praktyczne porady — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-optymalne-ustawienia.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
+  </script>
+
 </body>
 </html>

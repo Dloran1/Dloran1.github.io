@@ -2,12 +2,18 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>Kill switch w VPN — co to jest i po co</title>
+  <meta name="description" content="Etalon artykułu: Kill switch w VPN — co to jest i po co. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VPN Kill Switch — co to jest i jak włączyć (2025)</title>
-  <meta name="description" content="Kill Switch blokuje ruch, gdy VPN się rozłączy. Wyjaśniamy typy (systemowy/app), konfigurację na Windows/macOS/Android/iOS, testy i szybkie naprawy.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-kill-switch.html">
 
-  <!-- Perf & robots -->
+  <!-- Perf -->
   <link rel="preload" as="image" href="/assets/img/hero/vpn-kill-switch.webp" imagesrcset="/assets/img/hero/vpn-kill-switch.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
@@ -15,298 +21,258 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="VPN Kill Switch — co to jest i jak włączyć (2025)">
-  <meta property="og:description" content="Blokada ruchu przy zerwaniu VPN. Konfiguracja na głównych systemach, testy i rozwiązywanie problemów.">
+  <meta property="og:title" content="Kill switch w VPN — co to jest i po co">
+  <meta property="og:description" content="Etalon artykułu: Kill switch w VPN — co to jest i po co. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-kill-switch.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-kill-switch.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN Kill Switch — co to jest i jak włączyć (2025)">
-  <meta name="twitter:description" content="Typy Kill Switch, ustawienia na Windows/macOS/Android/iOS i test IP/DNS.">
+  <meta name="twitter:title" content="Kill switch w VPN — co to jest i po co">
+  <meta name="twitter:description" content="Etalon artykułu: Kill switch w VPN — co to jest i po co. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-kill-switch.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Kill switch w VPN — co to jest i po co","item":"https://dloran1.github.io/blog/vpn-kill-switch.html"}
+    ]
+  }
+  </script>
 
-  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
-    figure.article-hero{ margin:0; }
-    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
-    .table{ width:100%; border-collapse:collapse }
-    .table th,.table td{ border:1px solid rgba(255,255,255,.12); padding:.6rem .8rem; vertical-align:top }
-    .table caption{ caption-side:top; font-weight:700; margin-bottom:.4rem }
-    .cta{ margin:1.25rem 0 1.5rem }
-    .note{opacity:.9}
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>VPN Kill Switch — co to jest i jak włączyć</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/vpn-kill-switch.webp"
-      alt="Kill Switch w aplikacji VPN — blokada ruchu bez tunelu"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    <strong>Kill Switch</strong> to funkcja, która <em>automatycznie blokuje cały ruch</em>,
-    gdy tunel VPN niespodziewanie się rozłączy. Dzięki temu Twój prawdziwy adres IP i DNS
-    nie wyciekną nawet na sekundę.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#co-to-jest">Co to jest Kill Switch?</a></li>
-      <li><a href="#typy">Typy Kill Switch: systemowy vs aplikacyjny</a></li>
-      <li><a href="#platformy">Gdzie włączyć (Windows/macOS/Android/iOS)</a></li>
-      <li><a href="#testy">Jak przetestować (IP/DNS)</a></li>
-      <li><a href="#naprawa">Gdy coś nie działa — szybkie naprawy</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Kill switch w VPN — co to jest i po co</span>
+    </div>
   </nav>
 
-  <section id="co-to-jest">
-    <h2>Co to jest Kill Switch?</h2>
-    <p>To „wyłącznik awaryjny” w kliencie VPN. Kiedy połączenie z serwerem padnie (np. przeciążenie, zmiana Wi-Fi, uśpienie),
-      Kill Switch zatrzymuje ruch sieciowy, aż tunel wróci. W połączeniu z ochroną przed <a href="/blog/vpn-dns-leak.html">DNS leak</a>
-      i polityką <a href="/blog/no-logs.html">no-logs</a> daje solidną osłonę prywatności.</p>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="typy">
-    <h2>Typy Kill Switch: systemowy vs aplikacyjny</h2>
-    <table class="table">
-      <caption>Kill Switch — dwa podejścia</caption>
-      <thead><tr><th>Typ</th><th>Jak działa</th><th>Zastosowanie</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>Systemowy (network-lock)</strong></td>
-          <td>Tworzy reguły w zaporze systemu i blokuje <em>cały</em> ruch, gdy brak tunelu.</td>
-          <td>Maksymalna prywatność (P2P, praca zdalna, bankowość — zobacz <a href="/blog/vpn-bankowosc-online.html">VPN a bankowość</a>).</td>
-        </tr>
-        <tr>
-          <td><strong>Aplikacyjny</strong></td>
-          <td>Zamyka wskazane procesy/aplikacje (np. klient torrent, przeglądarka).</td>
-          <td>Gdy chcesz, by np. komunikator działał, ale P2P milczało.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="note">W wielu klientach włączysz oba tryby równocześnie. Dodatkową warstwą bywa <a href="/blog/vpn-double-vpn.html">Double VPN</a>.</p>
-  </section>
+      <h1>Kill switch w VPN — co to jest i po co</h1>
 
-  <section id="platformy">
-    <h2>Gdzie włączyć Kill Switch (Windows / macOS / Android / iOS)</h2>
-    <ul>
-      <li><strong>Windows/macOS:</strong> w aplikacji dostawcy: <em>Settings → Connection/Security → Kill Switch</em> (czasem „Network Lock”).</li>
-      <li><strong>Android:</strong> w appce + opcjonalnie systemowo: <em>Ustawienia → Sieć i internet → VPN → koło zębate → Stały VPN / Blokuj bez VPN</em>. Poradnik: <a href="/blog/vpn-android-konfiguracja.html">VPN na Android</a>.</li>
-      <li><strong>iOS:</strong> Kill Switch jest zwykle wbudowany w aplikację (utrzymuje tunel); część dostawców ma opcję „Auto-connect”. Szczegóły: <a href="/blog/vpn-iphone-konfiguracja.html">VPN na iPhone</a>.</li>
-      <li><strong>Router:</strong> jeśli VPN jest na routerze, sprawdź funkcję „Block WAN on VPN failure”.</li>
-    </ul>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-kill-switch.webp" width="1200" height="628"
+             alt="Kill switch w VPN — co to jest i po co" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Kill switch w VPN — co to jest i po co</figcaption>
+      </figure>
 
-  <section id="testy">
-    <h2>Jak przetestować Kill Switch (IP/DNS)</h2>
-    <ol>
-      <li>Połącz VPN i otwórz test: <a href="https://ipleak.net" target="_blank" rel="nofollow noopener noreferrer">ipleak.net</a>.</li>
-      <li>W aplikacji VPN zatrzymaj połączenie (lub wyłącz Wi-Fi na 10–15 s).</li>
-      <li>Spróbuj odświeżyć stronę: przy poprawnym Kill Switch <strong>brak ruchu</strong> lub „offline”.</li>
-      <li>Po wznowieniu tunelu sprawdź ponownie IP/DNS (powinny być z kraju serwera). Więcej o geolokacji: <a href="/blog/vpn-geolokalizacja.html">VPN a geolokalizacja</a> i <a href="/blog/vpn-geoblokady.html">geoblokady</a>.</li>
-    </ol>
-  </section>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-  <section id="naprawa">
-    <h2>Gdy coś nie działa — szybkie naprawy</h2>
-    <ul>
-      <li><strong>Nie blokuje wszystkiego?</strong> Włącz tryb systemowy zamiast aplikacyjnego; dodaj regułę zapory.</li>
-      <li><strong>VOD się krztusi?</strong> Zmień serwer/kraj, wyczyść cookies. Dla Player/TVP: <a href="/blog/player-tvp-vpn.html">poradnik</a>.</li>
-      <li><strong>Wycieki DNS/IPv6:</strong> wymuś DNS dostawcy w appce, wyłącz IPv6 w systemie, wykonaj test: <a href="/blog/vpn-dns-leak.html">DNS leak</a>.</li>
-      <li><strong>Konflikty z 2FA/połączeniami aplikacji banku:</strong> sprawdź wskazówki w <a href="/blog/vpn-bankowosc-online.html">bankowości online</a> oraz <a href="/blog/vpn-2fa-mfa.html">VPN + 2FA/MFA</a>.</li>
-      <li><strong>Zmiany sieci (Wi-Fi ↔ LTE):</strong> włącz Auto-connect i „block traffic outside VPN”.</li>
-    </ul>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-  <!-- CTA -->
-  <section class="cta">
-    <a class="btn btn-primary"
-       href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN z Kill Switch — sprawdź</a>
-    &nbsp;
-    <a class="btn btn-ghost"
-       href="https://www.tkqlhce.com/click-101525886-17061430"
-       target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — Kill Switch & Always-on</a>
-  </section>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Powiązane: <a href="/blog/vpn-dns-leak.html">DNS leak — jak testować</a>,
-       <a href="/blog/no-logs.html">Polityka no-logs</a>,
-       <a href="/blog/mity-o-vpn.html">Mity o VPN</a></p>
-  </aside>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
-    </div>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: Kill Switch w praktyce</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/vpn-kill-switch.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — Kill Switch (desktop/mobilne), NordLynx, Threat Protection. <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — Always-on VPN, CleanWeb, MultiHop. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile streaming, ochrona Wi-Fi. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
-  </ol>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"VPN Kill Switch — co to jest i jak włączyć (2025)",
-  "description":"Jak działa Kill Switch, typy (systemowy/app), konfiguracja na Windows/macOS/Android/iOS, test IP/DNS i szybkie naprawy.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-03",
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-kill-switch.webp",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska",
-    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-  },
-  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-kill-switch.html"
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"Kill switch w VPN — co to jest i po co",
+    "description":"Etalon artykułu: Kill switch w VPN — co to jest i po co. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-kill-switch.webp",
+    "url":"https://dloran1.github.io/blog/vpn-kill-switch.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-kill-switch.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Kill switch w VPN — co to jest i po co — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-kill-switch.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
-
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"VPN Kill Switch","item":"https://dloran1.github.io/blog/vpn-kill-switch.html"}
-  ]
-}
-</script>
-
-<!-- JSON-LD: FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy Kill Switch blokuje cały ruch?","acceptedAnswer":{"@type":"Answer","text":"W trybie systemowym tak — ruch poza tunelem jest blokowany do czasu odnowienia połączenia VPN. W trybie aplikacyjnym blokowane są wskazane programy."}},
-    {"@type":"Question","name":"Czy Kill Switch działa na iPhone i Androidzie?","acceptedAnswer":{"@type":"Answer","text":"Tak. Na Androidzie możesz dodatkowo włączyć systemowe „Blokuj bez VPN/Stały VPN”. Na iOS funkcja jest w aplikacji dostawcy (Auto-connect)."}},
-    {"@type":"Question","name":"Jak sprawdzić, czy Kill Switch działa?","acceptedAnswer":{"@type":"Answer","text":"Rozłącz tunel (lub wyłącz Wi-Fi na chwilę) i spróbuj otworzyć stronę. Po poprawnej konfiguracji połączenie nie przejdzie do czasu wznowienia VPN. Zweryfikuj też IP/DNS na ipleak.net."}}
-  ]
-}
-</script>
-
-<!-- JSON-LD: HowTo (test Kill Switch) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Test Kill Switch — krok po kroku",
-  "description":"Jak zweryfikować działanie Kill Switch na komputerze lub telefonie.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
-  "step":[
-    {"@type":"HowToStep","name":"Włącz Kill Switch","text":"Aktywuj w aplikacji dostawcy (tryb systemowy lub aplikacyjny)."},
-    {"@type":"HowToStep","name":"Połącz VPN i otwórz test","text":"Wejdź na ipleak.net i sprawdź kraj IP/DNS."},
-    {"@type":"HowToStep","name":"Zerwij połączenie","text":"Wyłącz Wi-Fi lub zatrzymaj tunel. Strony nie powinny się ładować."},
-    {"@type":"HowToStep","name":"Wznów i potwierdź","text":"Po odnowieniu tunelu odśwież i sprawdź, czy IP/DNS znów wskazują serwer VPN."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"Kill Switch w praktyce — szybki test",
-  "description":"Jak działa Kill Switch i jak go sprawdzić IP/DNS.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-kill-switch.webp",
-  "uploadDate":"2025-09-03",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/vpn-kill-switch.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3 z Product) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{
-      "@type":"Product","name":"NordVPN",
-      "brand":{"@type":"Brand","name":"NordVPN"},
-      "url":"https://dloran1.github.io/blog/vpn-kill-switch.html#top3",
-      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":2,"item":{
-      "@type":"Product","name":"Surfshark",
-      "brand":{"@type":"Brand","name":"Surfshark"},
-      "url":"https://dloran1.github.io/blog/vpn-kill-switch.html#top3",
-      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":3,"item":{
-      "@type":"Product","name":"CyberGhost",
-      "brand":{"@type":"Brand","name":"CyberGhost"},
-      "url":"https://dloran1.github.io/blog/vpn-kill-switch.html#top3",
-      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
-    }}
-  ]
-}
-</script>
+  </script>
 
 </body>
 </html>

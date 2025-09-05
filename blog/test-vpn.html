@@ -2,8 +2,8 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Test VPN: jak sprawdzić prędkość, ping i stabilność (2025)</title>
-  <meta name="description" content="Jak przetestować VPN: prędkość, ping, streaming, P2P. Proste metody i darmowe narzędzia do sprawdzania jakości połączenia w 2025 roku.">
+  <title>Test VPN — jak sprawdzić prędkość, ping i wycieki</title>
+  <meta name="description" content="Etalon artykułu: Test VPN — jak sprawdzić prędkość, ping i wycieki. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Styles / Favicon -->
@@ -14,26 +14,25 @@
   <link rel="canonical" href="https://dloran1.github.io/blog/test-vpn.html">
 
   <!-- Perf -->
-  <link rel="preload" as="image" href="/assets/img/hero/test-vpn.webp"
-        imagesrcset="/assets/img/hero/test-vpn.webp" imagesizes="100vw">
+  <link rel="preload" as="image" href="/assets/img/hero/test-vpn.webp" imagesrcset="/assets/img/hero/test-vpn.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
-  <!-- OG / Twitter -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Test VPN: jak sprawdzić prędkość, ping i stabilność (2025)">
-  <meta property="og:description" content="Jak przetestować VPN: prędkość, ping, streaming, P2P. Proste metody i darmowe narzędzia do sprawdzania jakości połączenia w 2025 roku.">
+  <meta property="og:title" content="Test VPN — jak sprawdzić prędkość, ping i wycieki">
+  <meta property="og:description" content="Etalon artykułu: Test VPN — jak sprawdzić prędkość, ping i wycieki. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/test-vpn.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/test-vpn.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Test VPN: jak sprawdzić prędkość, ping i stabilność (2025)">
-  <meta name="twitter:description" content="Jak przetestować VPN: prędkość, ping, streaming, P2P. Proste metody i darmowe narzędzia do sprawdzania jakości połączenia w 2025 roku.">
+  <meta name="twitter:title" content="Test VPN — jak sprawdzić prędkość, ping i wycieki">
+  <meta name="twitter:description" content="Etalon artykułu: Test VPN — jak sprawdzić prędkość, ping i wycieki. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/test-vpn.webp">
 
-  <!-- BreadcrumbList JSON-LD -->
+  <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -41,67 +40,62 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-      {"@type":"ListItem","position":3,"name":"Test VPN","item":"https://dloran1.github.io/blog/test-vpn.html"}
+      {"@type":"ListItem","position":3,"name":"Test VPN — jak sprawdzić prędkość, ping i wycieki","item":"https://dloran1.github.io/blog/test-vpn.html"}
     ]
   }
   </script>
+
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
+  <style>
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
+  </style>
 </head>
 <body id="top">
 
   <!-- Widoczne breadcrumbs -->
   <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
     <div class="wrap">
-      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Test VPN</span>
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Test VPN — jak sprawdzić prędkość, ping i wycieki</span>
     </div>
   </nav>
 
   <div class="wrap post">
     <article class="article">
 
-      <h1>Test VPN: jak sprawdzić prędkość, ping i stabilność (2025)</h1>
+      <h1>Test VPN — jak sprawdzić prędkość, ping i wycieki</h1>
 
       <figure class="hero">
-        <img src="/assets/img/hero/test-vpn.webp"
-             width="1200" height="628"
-             alt="Test VPN — jak sprawdzić prędkość i ping"
-             fetchpriority="high" loading="eager" decoding="async">
-        <figcaption>Prosty test VPN pokaże różnice w prędkości i stabilności</figcaption>
+        <img src="/assets/img/hero/test-vpn.webp" width="1200" height="628"
+             alt="Test VPN — jak sprawdzić prędkość, ping i wycieki" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Test VPN — jak sprawdzić prędkość, ping i wycieki</figcaption>
       </figure>
 
-      <p>VPN szyfruje Twój ruch, ale czasem wpływa na prędkość i ping. Warto to sprawdzić, aby świadomie wybrać serwer i usługę. Poniżej znajdziesz proste metody testowania VPN w 2025 roku.</p>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
       <!-- TOC -->
       <nav class="toc" aria-label="Spis treści">
         <strong>Spis treści</strong>
         <ol>
-          <li><a href="#narzedzia">Darmowe narzędzia do testów</a></li>
-          <li><a href="#kroki">Test w 3 krokach</a></li>
-          <li><a href="#streaming">Test streaming/P2P</a></li>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
         </ol>
       </nav>
 
-      <h2 id="narzedzia">Darmowe narzędzia do testów</h2>
-      <ul>
-        <li><a href="https://www.speedtest.net/" rel="nofollow noopener" target="_blank">Speedtest.net</a> — pomiar prędkości pobierania, wysyłania i pingu.</li>
-        <li><a href="https://www.fast.com/" rel="nofollow noopener" target="_blank">Fast.com</a> — szybki test prędkości (od Netflixa).</li>
-        <li><a href="https://dnsleaktest.com/" rel="nofollow noopener" target="_blank">DNS Leak Test</a> — sprawdza wycieki DNS.</li>
-        <li><a href="https://ipleak.net/" rel="nofollow noopener" target="_blank">IPLeak.net</a> — weryfikacja IP i WebRTC.</li>
-      </ul>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-      <h2 id="kroki">Test w 3 krokach</h2>
-      <ol>
-        <li>Połącz się z VPN → wybierz serwer (Polska lub zagranica).</li>
-        <li>Uruchom <strong>Speedtest</strong> i zanotuj wyniki: ping, download, upload.</li>
-        <li>Powtórz test na różnych serwerach, aby wybrać najlepszy do swojego celu.</li>
-      </ol>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-      <h2 id="streaming">Test streaming/P2P</h2>
-      <ul>
-        <li>Sprawdź, czy działa Netflix/HBO/Disney+ w danym regionie.</li>
-        <li>Jeśli korzystasz z P2P, sprawdź stabilność pobierania torrentów.</li>
-        <li>Zwróć uwagę na ping w grach online — VPN może go zwiększyć lub obniżyć.</li>
-      </ul>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
       <!-- CTA -->
       <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
@@ -120,16 +114,16 @@
       <section class="faq" id="faq">
         <h2>FAQ</h2>
         <details>
-          <summary>Czy test prędkości na VPN różni się od zwykłego?</summary>
-          <p>Tak — przez szyfrowanie i trasę do serwera wyniki mogą być inne. Ważne, aby porównać je z testem bez VPN.</p>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
         </details>
         <details>
-          <summary>Czy darmowe VPN nadają się do streamingu?</summary>
-          <p>Zwykle nie — mają limity prędkości i transferu. Do streamingu lepszy jest płatny VPN.</p>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
         </details>
         <details>
-          <summary>Jak sprawdzić, czy VPN nie wycieka DNS?</summary>
-          <p>Skorzystaj z serwisów DNS Leak Test lub IPLeak.net — jeśli widzisz DNS spoza VPN, jest problem.</p>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
         </details>
       </section>
 
@@ -137,9 +131,9 @@
       <aside class="readmore">
         <h2>Czytaj też</h2>
         <p>Powiązane:
-          <a href="/blog/vpn-szybkosc-test.html">VPN i prędkość</a>,
-          <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>,
-          <a href="/blog/mity-o-vpn.html">Mity o VPN</a>
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
         </p>
       </aside>
 
@@ -154,7 +148,63 @@
         </div>
       </section>
 
-      <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
     </article>
   </div>
 
@@ -164,8 +214,8 @@
     "@context":"https://schema.org",
     "@type":"Article",
     "inLanguage":"pl-PL",
-    "headline":"Test VPN: jak sprawdzić prędkość, ping i stabilność (2025)",
-    "description":"Jak przetestować VPN: prędkość, ping, streaming, P2P. Proste metody i darmowe narzędzia do sprawdzania jakości połączenia w 2025 roku.",
+    "headline":"Test VPN — jak sprawdzić prędkość, ping i wycieki",
+    "description":"Etalon artykułu: Test VPN — jak sprawdzić prędkość, ping i wycieki. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
     "datePublished":"2025-09-04",
     "dateModified":"2025-09-04",
     "image":"https://dloran1.github.io/assets/img/hero/test-vpn.webp",
@@ -184,23 +234,44 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Czy test prędkości na VPN różni się od zwykłego?",
-        "acceptedAnswer":{"@type":"Answer","text":"Tak — przez szyfrowanie i trasę do serwera wyniki mogą być inne. Ważne, aby porównać je z testem bez VPN."}
-      },
-      {
-        "@type":"Question",
-        "name":"Czy darmowe VPN nadają się do streamingu?",
-        "acceptedAnswer":{"@type":"Answer","text":"Zwykle nie — mają limity prędkości i transferu. Do streamingu lepszy jest płatny VPN."}
-      },
-      {
-        "@type":"Question",
-        "name":"Jak sprawdzić, czy VPN nie wycieka DNS?",
-        "acceptedAnswer":{"@type":"Answer","text":"Skorzystaj z serwisów DNS Leak Test lub IPLeak.net — jeśli widzisz DNS spoza VPN, jest problem."}
-      }
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
     ]
   }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Test VPN — jak sprawdzić prędkość, ping i wycieki — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/test-vpn.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+}
   </script>
 
 </body>

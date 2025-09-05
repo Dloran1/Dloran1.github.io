@@ -2,190 +2,277 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>WireGuard vs OpenVPN – porównanie protokołów VPN (2025)</title>
-  <meta name="description" content="WireGuard czy OpenVPN? Który protokół VPN wybrać w 2025 roku: szybkość, bezpieczeństwo, kompatybilność i zastosowania.">
+  <title>WireGuard vs OpenVPN — co wybrać w 2025</title>
+  <meta name="description" content="Etalon artykułu: WireGuard vs OpenVPN — co wybrać w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="https://twojadomena.com/wireguard-vs-openvpn.html">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dloran1.github.io/blog/wireguard-vs-openvpn.html">
+
+  <!-- Perf -->
+  <link rel="preload" as="image" href="/assets/img/hero/wireguard-vs-openvpn.webp" imagesrcset="/assets/img/hero/wireguard-vs-openvpn.webp" imagesizes="100vw">
+  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="WireGuard vs OpenVPN – porównanie protokołów VPN (2025)">
-  <meta property="og:description" content="Szczegółowe porównanie protokołów VPN: WireGuard kontra OpenVPN.">
-  <meta property="og:url" content="https://twojadomena.com/wireguard-vs-openvpn.html">
-  <meta property="og:image" content="https://twojadomena.com/assets/img/hero/wireguard-vs-openvpn.webp">
+  <meta property="og:site_name" content="VPN Polska">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="WireGuard vs OpenVPN — co wybrać w 2025">
+  <meta property="og:description" content="Etalon artykułu: WireGuard vs OpenVPN — co wybrać w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:url" content="https://dloran1.github.io/blog/wireguard-vs-openvpn.html">
+  <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/wireguard-vs-openvpn.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WireGuard vs OpenVPN – porównanie protokołów VPN (2025)">
-  <meta name="twitter:description" content="Który protokół VPN lepszy w 2025 roku?">
-  <meta name="twitter:image" content="https://twojadomena.com/assets/img/hero/wireguard-vs-openvpn.webp">
+  <meta name="twitter:title" content="WireGuard vs OpenVPN — co wybrać w 2025">
+  <meta name="twitter:description" content="Etalon artykułu: WireGuard vs OpenVPN — co wybrać w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/wireguard-vs-openvpn.webp">
 
-  <style>
-    :root { color-scheme: dark light; }
-    body{margin:0;background:#0e0f12;color:#111;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto}
-    .wrap{max-width:980px;margin:auto;padding:20px}
-    .article{background:#fff;color:#111;border-radius:14px;padding:28px}
-    .breadcrumbs{font-size:.9rem;opacity:.8;margin:0 0 12px}
-    .breadcrumbs a{color:#666;text-decoration:none}
-    h1{margin-top:0;line-height:1.2}
-    .hero{margin:8px 0 18px;text-align:center}
-    .hero img{max-width:100%;height:auto;border-radius:12px}
-    .toc{background:#f5f7fa;border:1px solid #e7ebf0;border-radius:12px;padding:14px;margin:18px 0}
-    .toc a{color:#0b69c7;text-decoration:none}
-    .cta{background:#0b69c7;color:#fff;padding:18px;border-radius:12px;margin:24px 0}
-    .note{background:#fff7cc;border:1px solid #ffe38d;border-radius:10px;padding:12px}
-    .related{background:#f5f7fa;border:1px solid #e7ebf0;border-radius:12px;padding:16px}
-    .author{display:flex;gap:14px;align-items:center;margin-top:26px;padding-top:18px;border-top:1px solid #e7ebf0}
-    .author img{width:64px;height:64px;border-radius:50%;object-fit:cover}
-    a{color:#0b69c7}
-    code,kbd{background:#f3f3f3;border-radius:6px;padding:0 6px}
-    table{width:100%;border-collapse:collapse;margin:16px 0}
-    th,td{border:1px solid #ddd;padding:10px;text-align:left}
-    th{background:#f0f3f7}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <nav class="breadcrumbs" aria-label="breadcrumbs">
-      <a href="/">Start</a> › <a href="/#blog">Blog</a> › WireGuard vs OpenVPN
-    </nav>
-
-    <article class="article" itemscope itemtype="https://schema.org/Article">
-      <header>
-        <h1 itemprop="headline">WireGuard vs OpenVPN – porównanie protokołów VPN (2025)</h1>
-        <p><time itemprop="datePublished" datetime="2025-09-03">03.09.2025</time> · Aktualizacja: <time itemprop="dateModified" datetime="2025-09-03">03.09.2025</time></p>
-        <div class="hero">
-          <img src="/assets/img/hero/wireguard-vs-openvpn.webp" width="1200" height="628" alt="WireGuard kontra OpenVPN" loading="eager">
-          <figcaption>WireGuard kontra OpenVPN – szybkość, bezpieczeństwo i kompatybilność.</figcaption>
-        </div>
-      </header>
-
-      <nav class="toc">
-        <strong>Spis treści</strong>
-        <ol>
-          <li><a href="#wstep">Wstęp i znaczenie protokołów</a></li>
-          <li><a href="#szybkosc">Szybkość i wydajność</a></li>
-          <li><a href="#bezpieczenstwo">Bezpieczeństwo i kryptografia</a></li>
-          <li><a href="#kompatybilnosc">Kompatybilność i wdrożenia</a></li>
-          <li><a href="#uzycie">Kiedy wybrać który protokół</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ol>
-      </nav>
-
-      <section id="wstep">
-        <h2>Dlaczego protokół VPN ma znaczenie?</h2>
-        <p>Protokół to serce połączenia VPN – odpowiada za zestawienie tunelu, szyfrowanie i stabilność. W 2025 roku najczęściej wybierane są <strong>WireGuard</strong> i <strong>OpenVPN</strong>. Oba są open-source, ale różnią się architekturą i zastosowaniami.</p>
-      </section>
-
-      <section id="szybkosc">
-        <h2>Szybkość i wydajność</h2>
-        <table>
-          <tr><th>Cecha</th><th>WireGuard</th><th>OpenVPN</th></tr>
-          <tr><td>Kod źródłowy</td><td>~4 tys. linii</td><td>~400 tys. linii</td></tr>
-          <tr><td>Wydajność</td><td>Bardzo wysoka, bliska prędkości łącza</td><td>Średnia, większy narzut CPU</td></tr>
-          <tr><td>Zużycie energii</td><td>Niskie (ważne na mobilnych)</td><td>Wyższe</td></tr>
-        </table>
-        <p class="note">W testach WireGuard zwykle osiąga 2–4x większe prędkości niż OpenVPN przy tym samym serwerze.</p>
-      </section>
-
-      <section id="bezpieczenstwo">
-        <h2>Bezpieczeństwo i kryptografia</h2>
-        <ul>
-          <li><strong>WireGuard</strong>: nowoczesne, proste zestawy kryptograficzne (Curve25519, ChaCha20, Poly1305). Brak opcji legacy, mniej wektorów ataku.</li>
-          <li><strong>OpenVPN</strong>: elastyczny, obsługuje wiele algorytmów (AES-256, RSA, SHA). Dobre do kompatybilności z istniejącymi systemami.</li>
-        </ul>
-      </section>
-
-      <section id="kompatybilnosc">
-        <h2>Kompatybilność i wdrożenia</h2>
-        <p>OpenVPN działa praktycznie wszędzie: Windows XP, stare routery, systemy embedded. WireGuard wymaga nowszych kerneli lub aplikacji.</p>
-        <ul>
-          <li><strong>WireGuard:</strong> natywnie w Linux kernel, oficjalne klienty iOS/Android/macOS/Windows.</li>
-          <li><strong>OpenVPN:</strong> wsparcie w wielu firmware routerów, integracja w starych systemach.</li>
-        </ul>
-      </section>
-
-      <section id="uzycie">
-        <h2>Kiedy wybrać który protokół?</h2>
-        <ul>
-          <li><strong>WireGuard</strong>: gdy liczy się prędkość, prostota, nowoczesność. Idealny do streamingu, gier, mobilnych.</li>
-          <li><strong>OpenVPN</strong>: gdy wymagana jest maksymalna kompatybilność, TCP, wsparcie w legacy.</li>
-        </ul>
-        <div class="cta">👉 Jeśli Twój dostawca oferuje oba protokoły, w 2025 wybierz <strong>WireGuard</strong> jako główny, a <em>OpenVPN</em> jako fallback.</div>
-      </section>
-
-      <section id="faq">
-        <h2>FAQ</h2>
-        <details><summary>Czy WireGuard jest bezpieczniejszy niż OpenVPN?</summary><p>WireGuard używa nowoczesnej kryptografii i ma mniej kodu, więc potencjalnie mniej podatności. OpenVPN jest jednak sprawdzony od lat.</p></details>
-        <details><summary>Czy OpenVPN będzie dalej wspierany?</summary><p>Tak, OpenVPN ma ogromną bazę użytkowników i pozostanie kompatybilnym wyborem jeszcze przez wiele lat.</p></details>
-        <details><summary>Który protokół jest lepszy do Netflix?</summary><p>WireGuard zapewnia lepsze prędkości, ale istotne są serwery dostawcy – nie protokół sam w sobie.</p></details>
-        <details><summary>Czy mogę przełączać się między protokołami?</summary><p>Tak, większość aplikacji VPN pozwala zmieniać protokół w ustawieniach.</p></details>
-      </section>
-
-      <aside class="related">
-        <h3>Powiązane artykuły</h3>
-        <ul>
-          <li><a href="/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></li>
-          <li><a href="/vpn-szybkosc-test.html">Test prędkości VPN</a></li>
-          <li><a href="/vpn-proxy-vs-vpn.html">Proxy vs VPN</a></li>
-        </ul>
-      </aside>
-
-      <footer class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-        <img src="/assets/img/author/denis.webp" width="128" height="128" alt="Autor: Denis">
-        <div>
-          <strong itemprop="name">Denis</strong><br>
-          <small>Ekspert od sieci i protokołów VPN.</small>
-        </div>
-      </footer>
-    </article>
-  </div>
-
-  <!-- JSON-LD -->
+  <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
     "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Start","item":"https://twojadomena.com/"},
-      {"@type":"ListItem","position":2,"name":"Blog","item":"https://twojadomena.com/#blog"},
-      {"@type":"ListItem","position":3,"name":"WireGuard vs OpenVPN","item":"https://twojadomena.com/wireguard-vs-openvpn.html"}
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"WireGuard vs OpenVPN — co wybrać w 2025","item":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html"}
     ]
   }
   </script>
+
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
+  <style>
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>WireGuard vs OpenVPN — co wybrać w 2025</span>
+    </div>
+  </nav>
+
+  <div class="wrap post">
+    <article class="article">
+
+      <h1>WireGuard vs OpenVPN — co wybrać w 2025</h1>
+
+      <figure class="hero">
+        <img src="/assets/img/hero/wireguard-vs-openvpn.webp" width="1200" height="628"
+             alt="WireGuard vs OpenVPN — co wybrać w 2025" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>WireGuard vs OpenVPN — co wybrać w 2025</figcaption>
+      </figure>
+
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
+
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
+
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
+
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
+
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
+
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
+
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
+
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
+
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Article",
-    "headline":"WireGuard vs OpenVPN – porównanie protokołów VPN (2025)",
-    "image":"https://twojadomena.com/assets/img/hero/wireguard-vs-openvpn.webp",
-    "datePublished":"2025-09-03",
-    "dateModified":"2025-09-03",
-    "author":{"@type":"Person","name":"Denis"},
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://twojadomena.com/wireguard-vs-openvpn.html"}
+    "inLanguage":"pl-PL",
+    "headline":"WireGuard vs OpenVPN — co wybrać w 2025",
+    "description":"Etalon artykułu: WireGuard vs OpenVPN — co wybrać w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/wireguard-vs-openvpn.webp",
+    "url":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/wireguard-vs-openvpn.html"
   }
   </script>
+
+  <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"Czy WireGuard jest bezpieczniejszy niż OpenVPN?","acceptedAnswer":{"@type":"Answer","text":"WireGuard używa nowoczesnej kryptografii i ma mniej kodu, więc potencjalnie mniej podatności."}},
-      {"@type":"Question","name":"Czy OpenVPN będzie dalej wspierany?","acceptedAnswer":{"@type":"Answer","text":"Tak, ma ogromną bazę użytkowników i pozostanie kompatybilny."}},
-      {"@type":"Question","name":"Który protokół lepszy do Netflix?","acceptedAnswer":{"@type":"Answer","text":"WireGuard daje lepsze prędkości, ale kluczowe są serwery dostawcy."}},
-      {"@type":"Question","name":"Czy mogę przełączać się między protokołami?","acceptedAnswer":{"@type":"Answer","text":"Tak, większość aplikacji VPN ma tę opcję."}}
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
     ]
   }
   </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"ItemList",
-    "name":"Powiązane artykuły",
+    "name":"TOP 5 VPN w Polsce (2025)",
     "itemListElement":[
-      {"@type":"ListItem","position":1,"url":"https://twojadomena.com/vpn-optymalne-ustawienia.html"},
-      {"@type":"ListItem","position":2,"url":"https://twojadomena.com/vpn-szybkosc-test.html"},
-      {"@type":"ListItem","position":3,"url":"https://twojadomena.com/vpn-proxy-vs-vpn.html"}
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
     ]
   }
   </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "WireGuard vs OpenVPN — co wybrać w 2025 — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/wireguard-vs-openvpn.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+}
+  </script>
+
 </body>
 </html>

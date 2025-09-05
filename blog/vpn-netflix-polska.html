@@ -2,12 +2,18 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
+  <title>VPN a Netflix w Polsce — co działa w 2025</title>
+  <meta name="description" content="Etalon artykułu: VPN a Netflix w Polsce — co działa w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Netflix z VPN w Polsce — jak działa i jak ustawić (2025)</title>
-  <meta name="description" content="Jak oglądać Netflix z VPN w Polsce i za granicą: działanie, legalność, konfiguracja krok po kroku, wybór serwera, najczęstsze błędy i rozwiązania.">
+
+  <!-- Styles / Favicon -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="/assets/favicon.png">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-netflix-polska.html">
 
-  <!-- Perf & robots -->
+  <!-- Perf -->
   <link rel="preload" as="image" href="/assets/img/hero/vpn-netflix-polska.webp" imagesrcset="/assets/img/hero/vpn-netflix-polska.webp" imagesizes="100vw">
   <meta name="robots" content="max-image-preview:large">
 
@@ -15,314 +21,258 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="VPN Polska">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Netflix z VPN w Polsce — jak działa i jak ustawić (2025)">
-  <meta property="og:description" content="Instrukcja: Netflix + VPN w Polsce i za granicą, wybór serwera, czyszczenie cookies, DNS i typowe błędy.">
+  <meta property="og:title" content="VPN a Netflix w Polsce — co działa w 2025">
+  <meta property="og:description" content="Etalon artykułu: VPN a Netflix w Polsce — co działa w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-netflix-polska.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-netflix-polska.webp">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Netflix z VPN w Polsce — jak działa i jak ustawić (2025)">
-  <meta name="twitter:description" content="Konfiguracja Netflix + VPN, najlepsze praktyki i rozwiązywanie problemów.">
+  <meta name="twitter:title" content="VPN a Netflix w Polsce — co działa w 2025">
+  <meta name="twitter:description" content="Etalon artykułu: VPN a Netflix w Polsce — co działa w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
   <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-netflix-polska.webp">
 
-  <!-- Styles / Favicon -->
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN a Netflix w Polsce — co działa w 2025","item":"https://dloran1.github.io/blog/vpn-netflix-polska.html"}
+    ]
+  }
+  </script>
 
-  <!-- Fail-safe (nie koliduje ze style.css) -->
+  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
   <style>
-    .btn{ -webkit-tap-highlight-color: transparent; }
-    .article-hero img, .author__media img, .post img{ display:block; max-width:100%; height:auto; }
-    figure.article-hero{ margin:0; }
-    video{ max-width:100%; height:auto; border-radius:12px; display:block; }
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;vertical-align:top}
-    .table caption{caption-side:top;font-weight:700;margin-bottom:.4rem}
-    .cta .btn{margin:.25rem .35rem .25rem 0}
+    .post .article { max-width: 72ch; margin: 0 auto; }
+    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
+    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
+    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
+    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<nav class="nav" aria-label="Główna nawigacja">
-  <div class="inner">
-    <a class="logo" href="/">VPN Polska</a>
-    <div class="menu"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a></div>
-  </div>
-</nav>
-
-<header class="wrap">
-  <h1>Netflix z VPN w Polsce — jak działa i jak ustawić (2025)</h1>
-
-  <!-- HERO -->
-  <figure class="article-hero">
-    <img
-      src="/assets/img/hero/vpn-netflix-polska.webp"
-      alt="Netflix z VPN w Polsce — jak to działa"
-      width="1200" height="630"
-      fetchpriority="high" loading="eager" decoding="async">
-  </figure>
-
-  <p class="lead">
-    <strong>Netflix + VPN</strong> może pomóc w podróży, na wyjazdach i przy problemach z dostępem — pod warunkiem
-    prawidłowej konfiguracji. Poniżej znajdziesz <em>prosty przewodnik</em>: jak to działa, jak ustawić serwer, co zrobić,
-    gdy pojawia się komunikat o proxy oraz jak poprawić stabilność streamingu.
-  </p>
-</header>
-
-<main class="wrap post" id="top">
-
-  <!-- Spis treści -->
-  <nav class="toc" aria-label="Spis treści">
-    <ol>
-      <li><a href="#jak-dziala">Jak to działa (w skrócie)</a></li>
-      <li><a href="#krok-po-kroku">Konfiguracja krok po kroku</a></li>
-      <li><a href="#problemy">Najczęstsze problemy i rozwiązania</a></li>
-      <li><a href="#jakosc">Jakość, prędkość i serwery</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#video">Wideo</a></li>
-      <li><a href="#top3">TOP-3 VPN 2025</a></li>
-    </ol>
+  <!-- Widoczne breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
+    <div class="wrap">
+      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>VPN a Netflix w Polsce — co działa w 2025</span>
+    </div>
   </nav>
 
-  <section id="jak-dziala">
-    <h2>Jak to działa (w skrócie)</h2>
-    <p>Netflix identyfikuje Twój <strong>kraj</strong> głównie po adresie IP. VPN tworzy szyfrowany tunel i „pożycza” IP
-       z wybranego kraju. Jeśli jedziesz poza Polskę, połączenie z <em>polskim</em> serwerem VPN często pozwala zachować
-       dostęp do polskiej biblioteki lub uzyskać stabilniejszy dostęp do serwisu.</p>
-    <p>W praktyce pomagają też ustawienia:
-      <a href="/blog/vpn-geoblokady.html">omijanie geoblokad</a>,
-      <a href="/blog/vpn-geolokalizacja.html">geolokalizacja IP</a> i
-      <a href="/blog/vpn-dns-leak.html">brak wycieków DNS</a>.
-    </p>
-  </section>
+  <div class="wrap post">
+    <article class="article">
 
-  <section id="krok-po-kroku">
-    <h2>Konfiguracja krok po kroku</h2>
-    <ol>
-      <li><strong>Zainstaluj aplikację VPN</strong> na urządzeniu (Windows/macOS/Android/iOS) lub na routerze
-          (<a href="/blog/vpn-na-routerze.html">VPN na routerze</a>, <a href="/blog/vpn-dla-smart-tv.html">Smart TV</a>, <a href="/blog/vpn-dla-konsol-ps5-xbox.html">konsole</a>).</li>
-      <li><strong>Wybierz kraj</strong>:
-        <ul>
-          <li>chcesz <em>polską</em> bibliotekę będąc za granicą → serwer <strong>Polska</strong>;</li>
-          <li>chcesz sprawdzić ofertę innego kraju → wybierz <strong>konkretny kraj</strong> w aplikacji.</li>
-        </ul>
-      </li>
-      <li><strong>Wyczyść cookies/cache</strong> przeglądarki (albo użyj trybu prywatnego/incognito).</li>
-      <li><strong>Włącz protokół WireGuard/NordLynx</strong> (jeśli dostępny) — daje stabilniejszy streaming.</li>
-      <li><strong>Ustaw DNS przez tunel</strong> (w aplikacji lub routerze) — zminimalizujesz ryzyko blokad DNS.</li>
-      <li><strong>Uruchom Netflix</strong> i sprawdź katalog, a w razie komunikatu o proxy — przejdź do sekcji
-          <a href="#problemy">rozwiązywanie problemów</a>.</li>
-    </ol>
+      <h1>VPN a Netflix w Polsce — co działa w 2025</h1>
 
-    <!-- CTA -->
-    <div class="cta">
-      <a class="btn btn-primary"
-         href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584"
-         target="_blank" rel="sponsored nofollow noopener noreferrer">✅ NordVPN — profile do streamingu</a>
-      <a class="btn btn-ghost"
-         href="https://www.tkqlhce.com/click-101525886-17061430"
-         target="_blank" rel="sponsored nofollow noopener noreferrer">Surfshark — dobra cena i stabilność</a>
-    </div>
-  </section>
+      <figure class="hero">
+        <img src="/assets/img/hero/vpn-netflix-polska.webp" width="1200" height="628"
+             alt="VPN a Netflix w Polsce — co działa w 2025" fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>VPN a Netflix w Polsce — co działa w 2025</figcaption>
+      </figure>
 
-  <section id="problemy">
-    <h2>Najczęstsze problemy i rozwiązania</h2>
-    <table class="table">
-      <caption>Netflix + VPN — szybka diagnostyka</caption>
-      <thead><tr><th>Problem</th><th>Rozwiązanie</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>Komunikat o proxy / błąd „przez sieć proxy”</td>
-          <td>Zmień serwer (inny w tym samym kraju), wyczyść cookies, użyj trybu incognito, upewnij się że DNS idzie przez VPN (<a href="/blog/vpn-dns-leak.html">instrukcja</a>), rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany IP</a>.</td>
-        </tr>
-        <tr>
-          <td>Buforowanie / niska jakość</td>
-          <td>WireGuard/NordLynx, bliższy serwer, 5 GHz Wi-Fi lub kabel, zamknij inne transfery; sprawdź <a href="/blog/vpn-szybkosc-test.html">szybkość VPN</a>.</td>
-        </tr>
-        <tr>
-          <td>Aplikacja TV blokuje odtwarzanie</td>
-          <td>Przetestuj na przeglądarce, potem na TV; na Smart TV/helpersz router z VPN (<a href="/blog/vpn-na-routerze.html">poradnik</a>).</td>
-        </tr>
-        <tr>
-          <td>Katalog się nie zmienił</td>
-          <td>Wyloguj/loguj ponownie, wyczyść cookies, zrestartuj aplikację; sprawdź IP/kraj na ipleak.net (powinien wskazywać serwer VPN).</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Jeśli celem są lokalne platformy, sprawdź też:
-      <a href="/blog/player-tvp-vpn.html">Player/TVP z VPN</a> i
-      <a href="/blog/vpn-geoblokady.html">jak działają blokady regionalne</a>.
-    </p>
-  </section>
+      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
 
-  <section id="jakosc">
-    <h2>Jakość, prędkość i serwery</h2>
-    <ul>
-      <li><strong>Serwery „streaming”</strong> — wielu dostawców oznacza w aplikacji serwery zalecane do VOD.</li>
-      <li><strong>Protokół</strong>: <em>WireGuard/NordLynx</em> zwykle minimalizuje opóźnienia i buforowanie.</li>
-      <li><strong>Router</strong>: konfiguracja na routerze ułatwia działanie na TV/konsole (<a href="/blog/vpn-na-routerze.html">jak ustawić</a>).</li>
-      <li><strong>Stabilność</strong>: jeśli często trafiasz na blokady, rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowane IP</a>.</li>
-    </ul>
-    <p>Porównanie popularnych usług znajdziesz w <a href="/blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a>.</p>
-  </section>
+      <!-- TOC -->
+      <nav class="toc" aria-label="Spis treści">
+        <strong>Spis treści</strong>
+        <ol>
+          <li><a href="#sekcja-1">Sekcja 1</a></li>
+          <li><a href="#sekcja-2">Sekcja 2</a></li>
+          <li><a href="#sekcja-3">Sekcja 3</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
+        </ol>
+      </nav>
 
-  <!-- Czytaj też (перелинковка 3+) -->
-  <aside class="readmore">
-    <h2>Czytaj też</h2>
-    <p>Powiązane:
-      <a href="/blog/vpn-geoblokady.html">VPN i geoblokady</a>,
-      <a href="/blog/vpn-geolokalizacja.html">Geolokalizacja IP</a>,
-      <a href="/blog/player-tvp-vpn.html">Player/TVP z VPN</a>,
-      <a href="/blog/vpn-dns-leak.html">Test wycieków DNS</a>,
-      <a href="/blog/vpn-na-routerze.html">VPN na routerze</a>
-    </p>
-  </aside>
+      <h2 id="sekcja-1">Sekcja 1</h2>
+      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
 
-  <!-- Author -->
-  <section class="author">
-    <div class="author__media">
-      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-    </div>
-    <div class="author__body">
-      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-03">03.09.2025</time></p>
-    </div>
-  </section>
+      <h2 id="sekcja-2">Sekcja 2</h2>
+      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
 
-  <!-- Wideo -->
-  <section id="video">
-    <h2>Wideo: Netflix + VPN — szybki przewodnik</h2>
-    <video controls preload="metadata"
-           poster="/assets/img/thumbs/vpn-netflix-polska.webp"
-           width="960" height="540" style="max-width:100%;border-radius:12px;">
-      <source src="/assets/video/intro.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </section>
+      <h2 id="sekcja-3">Sekcja 3</h2>
+      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
 
-  <h2 id="top3">TOP-3 VPN 2025</h2>
-  <ol class="product-mini">
-    <li><strong>NordVPN</strong> — profile streamingowe, NordLynx (WireGuard). <a href="https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>Surfshark</strong> — dobra skuteczność i cena; nielimitowane urządzenia. <a href="https://www.tkqlhce.com/click-101525886-17061430" target="_blank" rel="sponsored nofollow noopener noreferrer">Oferta</a></li>
-    <li><strong>CyberGhost</strong> — profile pod streaming. <a href="#" target="_blank" rel="sponsored nofollow noopener noreferrer">Wkrótce</a></li>
-  </ol>
+      <!-- CTA -->
+      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
+        <a class="btn btn-primary"
+           href="/go/nordvpn.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
+        &nbsp;
+        <a class="btn btn-ghost"
+           href="/go/surfshark.html"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
+      </div>
 
-  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-</main>
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Czy VPN jest legalny w Polsce?</summary>
+          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
+        </details>
+        <details>
+          <summary>Czy VPN spowalnia internet?</summary>
+          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
+        </details>
+        <details>
+          <summary>Czy VPN daje pełną anonimowość?</summary>
+          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
+        </details>
+      </section>
 
-<footer class="foot">
-  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
-</footer>
+      <!-- Czytaj też -->
+      <aside class="readmore">
+        <h2>Czytaj też</h2>
+        <p>Powiązane:
+          <a href="/blog/no-logs.html">VPN no-logs</a>,
+          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
+          <a href="/blog/test-vpn.html">Test VPN</a>
+        </p>
+      </aside>
 
-<!-- JSON-LD: Article -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "inLanguage":"pl-PL",
-  "headline":"Netflix z VPN w Polsce — jak działa i jak ustawić (2025)",
-  "description":"Jak oglądać Netflix z VPN w Polsce i za granicą: działanie, legalność, konfiguracja, rozwiązywanie problemów i jakość streamingu.",
-  "datePublished":"2025-08-30",
-  "dateModified":"2025-09-03",
-  "image":"https://dloran1.github.io/assets/img/hero/vpn-netflix-polska.webp",
-  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-  "publisher":{"@type":"Organization","name":"VPN Polska",
-    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-  },
-  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-netflix-polska.html"
+      <!-- Author -->
+      <section class="author">
+        <div class="author__media">
+          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+        </div>
+        <div class="author__body">
+          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
+        </div>
+      </section>
+
+      <!-- TOP 5 -->
+      <section class="top5" id="top5">
+        <h2>TOP 5 VPN w Polsce (2025)</h2>
+        <ol class="top5__list">
+          <li>
+            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
+            <div class="mini-cta">
+              <a class="btn btn-small"
+                 href="/go/nordvpn.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
+            </div>
+          </li>
+          <li>
+            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
+            <div class="mini-cta">
+              <a class="btn btn-small btn-ghost"
+                 href="/go/surfshark.html"
+                 target="_blank" rel="sponsored nofollow noopener"
+                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
+            </div>
+          </li>
+          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
+          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
+        </ol>
+      </section>
+
+            <!-- Video (YouTube) -->
+      <section class="video">
+        <h2>Video: przewodnik wideo</h2>
+        <div class="video-wrapper">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <style>
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: .6rem;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+      }
+      </style>
+
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+    </article>
+  </div>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "inLanguage":"pl-PL",
+    "headline":"VPN a Netflix w Polsce — co działa w 2025",
+    "description":"Etalon artykułu: VPN a Netflix w Polsce — co działa w 2025. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
+    "datePublished":"2025-09-04",
+    "dateModified":"2025-09-04",
+    "image":"https://dloran1.github.io/assets/img/hero/vpn-netflix-polska.webp",
+    "url":"https://dloran1.github.io/blog/vpn-netflix-polska.html",
+    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+    "publisher":{"@type":"Organization","name":"VPN Polska",
+      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+    },
+    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-netflix-polska.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
+      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
+      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ItemList (TOP 5) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"TOP 5 VPN w Polsce (2025)",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD: VideoObject -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "VPN a Netflix w Polsce — co działa w 2025 — wideo",
+  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
+  "thumbnailUrl": [
+    "https://dloran1.github.io/assets/img/thumbs/vpn-netflix-polska.webp"
+  ],
+  "uploadDate": "2025-09-04",
+  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
 }
-</script>
-
-<!-- JSON-LD: Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
-    {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-    {"@type":"ListItem","position":3,"name":"Netflix z VPN","item":"https://dloran1.github.io/blog/vpn-netflix-polska.html"}
-  ]
-}
-</script>
-
-<!-- JSON-LD: FAQ (Netflix + VPN) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Czy Netflix z VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Korzystanie z VPN w Polsce jest legalne. Serwis może jednak ograniczać dostęp z adresów IP rozpoznanych jako VPN zgodnie ze swoim regulaminem."}},
-    {"@type":"Question","name":"Dlaczego widzę komunikat o proxy?","acceptedAnswer":{"@type":"Answer","text":"Adres IP serwera VPN mógł zostać zablokowany. Zmień serwer w tym samym kraju, wyczyść cookies, użyj trybu incognito i upewnij się, że DNS przechodzi przez VPN."}},
-    {"@type":"Question","name":"Czy jakość wideo spadnie przez VPN?","acceptedAnswer":{"@type":"Answer","text":"Z dobrym serwerem i protokołem WireGuard/NordLynx różnica zwykle jest niewielka. Dla stabilności użyj 5 GHz Wi-Fi lub kabla i zamknij inne duże transfery."}},
-    {"@type":"Question","name":"Czy dedykowany IP pomaga?","acceptedAnswer":{"@type":"Answer","text":"Często tak — indywidualny adres IP rzadziej trafia na listy blokad. Sprawdź ofertę dostawcy w zakresie IP dedykowanego."}}
-  ]
-}
-</script>
-
-<!-- JSON-LD: HowTo (krok po kroku) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"HowTo",
-  "inLanguage":"pl-PL",
-  "name":"Netflix + VPN — konfiguracja",
-  "description":"Wybór kraju, czyszczenie cookies, DNS przez tunel i test IP.",
-  "tool":[{"@type":"HowToTool","name":"Aplikacja VPN"}],
-  "step":[
-    {"@type":"HowToStep","name":"Wybierz serwer","text":"Połącz z serwerem w kraju, którego bibliotekę chcesz oglądać (np. Polska)."},
-    {"@type":"HowToStep","name":"Wyczyść cookies","text":"Wyczyść cookies/cache albo użyj trybu incognito przed otwarciem Netflixa."},
-    {"@type":"HowToStep","name":"Ustaw DNS","text":"Włącz opcję DNS przez VPN w aplikacji lub na routerze, aby uniknąć wycieków."},
-    {"@type":"HowToStep","name":"Test","text":"Sprawdź IP i kraj na ipleak.net, uruchom Netflix i zweryfikuj katalog."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: VideoObject -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoObject",
-  "inLanguage":"pl-PL",
-  "name":"Netflix + VPN — w pigułce",
-  "description":"Krótki przewodnik: konfiguracja, serwery i rozwiązywanie problemów.",
-  "thumbnailUrl":"https://dloran1.github.io/assets/img/thumbs/vpn-netflix-polska.webp",
-  "uploadDate":"2025-09-03",
-  "duration":"PT40S",
-  "contentUrl":"https://dloran1.github.io/assets/video/intro.mp4",
-  "embedUrl":"https://dloran1.github.io/blog/vpn-netflix-polska.html#video"
-}
-</script>
-
-<!-- JSON-LD: ItemList (TOP-3 z Product) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"TOP-3 VPN 2025",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"item":{
-      "@type":"Product","name":"NordVPN",
-      "brand":{"@type":"Brand","name":"NordVPN"},
-      "url":"https://dloran1.github.io/blog/vpn-netflix-polska.html#top3",
-      "offers":{"@type":"Offer","url":"https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=312&url_id=2584","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":2,"item":{
-      "@type":"Product","name":"Surfshark",
-      "brand":{"@type":"Brand","name":"Surfshark"},
-      "url":"https://dloran1.github.io/blog/vpn-netflix-polska.html#top3",
-      "offers":{"@type":"Offer","url":"https://www.tkqlhce.com/click-101525886-17061430","availability":"https://schema.org/InStock","priceCurrency":"USD"}
-    }},
-    {"@type":"ListItem","position":3,"item":{
-      "@type":"Product","name":"CyberGhost",
-      "brand":{"@type":"Brand","name":"CyberGhost"},
-      "url":"https://dloran1.github.io/blog/vpn-netflix-polska.html#top3",
-      "offers":{"@type":"Offer","url":"#","availability":"https://schema.org/PreOrder","priceCurrency":"USD"}
-    }}
-  ]
-}
-</script>
+  </script>
 
 </body>
 </html>
