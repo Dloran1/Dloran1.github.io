@@ -2,35 +2,21 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>VPN dla Smart TV — proste metody</title>
-  <meta name="description" content="Etalon artykułu: VPN dla Smart TV — proste metody. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <title>VPN dla Smart TV — proste metody: aplikacja, router, Smart DNS (2025)</title>
+  <meta name="description" content="Jak uruchomić VPN na Smart TV: aplikacja na TV, router z VPN i Smart DNS do VOD. Która metoda jest najlepsza do Netflix/Player/TVP VOD, jak ustawić DNS i co zrobić przy problemach z buforowaniem. Praktyczny poradnik 2025.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-dla-smart-tv.html">
-
-  <!-- Perf -->
-  <link rel="preload" as="image" href="/assets/img/hero/vpn-dla-smart-tv.webp" imagesrcset="/assets/img/hero/vpn-dla-smart-tv.webp" imagesizes="100vw">
-  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="VPN Polska">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="VPN dla Smart TV — proste metody">
-  <meta property="og:description" content="Etalon artykułu: VPN dla Smart TV — proste metody. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:title" content="VPN dla Smart TV — proste metody: aplikacja, router, Smart DNS (2025)">
+  <meta property="og:description" content="Trzy sposoby na VPN w Smart TV: aplikacja, router z VPN i Smart DNS do VOD. Instrukcje, plusy/minusy i naprawa typowych błędów.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-dla-smart-tv.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-dla-smart-tv.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VPN dla Smart TV — proste metody">
-  <meta name="twitter:description" content="Etalon artykułu: VPN dla Smart TV — proste metody. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-dla-smart-tv.webp">
 
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
@@ -40,239 +26,210 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-      {"@type":"ListItem","position":3,"name":"VPN dla Smart TV — proste metody","item":"https://dloran1.github.io/blog/vpn-dla-smart-tv.html"}
+      {"@type":"ListItem","position":3,"name":"VPN dla Smart TV","item":"https://dloran1.github.io/blog/vpn-dla-smart-tv.html"}
     ]
   }
   </script>
-
-  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
-  <style>
-    .post .article { max-width: 72ch; margin: 0 auto; }
-    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
-    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
-    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
-    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
-  </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- Widoczne breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
-    <div class="wrap">
-      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>VPN dla Smart TV — proste metody</span>
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> •
+      <a href="/blog/index.html">Blog</a>
     </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="breadcrumbs"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a> / VPN dla Smart TV</p>
+  <h1>VPN dla Smart TV — proste metody: aplikacja, router, Smart DNS (2025)</h1>
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-dla-smart-tv.webp"
+         alt="VPN dla Smart TV — aplikacja, router z VPN i Smart DNS"
+         width="1200" height="628"
+         fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+  <p class="lead">Smart TV nie zawsze ma natywną aplikację VPN, ale masz trzy skuteczne drogi: <strong>aplikacja na TV</strong> (jeśli system wspiera), <strong>router z VPN</strong> (pełna ochrona) i <strong>Smart DNS</strong> (najprościej do VOD). Poniżej porównanie metod, instrukcje i naprawa typowych problemów z geoblokadami oraz buforowaniem.</p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <h2>Spis treści</h2>
+    <ul>
+      <li><a href="#metody">Trzy metody: aplikacja, router, Smart DNS</a></li>
+      <li><a href="#aplikacja">Metoda 1: Aplikacja VPN na Smart TV</a></li>
+      <li><a href="#router">Metoda 2: Router z VPN (najszersza zgodność)</a></li>
+      <li><a href="#smartdns">Metoda 3: Smart DNS (najszybsze VOD)</a></li>
+      <li><a href="#ustawienia">Ustawienia jakości: 4K/Atmos, DNS, trasa</a></li>
+      <li><a href="#problemy">Typowe problemy i jak je naprawić</a></li>
+      <li><a href="#checklista">Checklista „odpal i oglądaj”</a></li>
+    </ul>
   </nav>
 
-  <div class="wrap post">
-    <article class="article">
+  <h2 id="metody">Trzy metody: aplikacja, router, Smart DNS</h2>
+  <ul>
+    <li><strong>Aplikacja VPN na TV</strong> — działa na wybranych systemach (Android TV/Google TV). Najprościej, gdy sklep z apkami jest dostępny.</li>
+    <li><strong>Router z VPN</strong> — najlepsza zgodność (działa z każdym TV); pełny tunel dla całej sieci TV, gier w chmurze i aplikacji.</li>
+    <li><strong>Smart DNS</strong> — idealne do VOD (Netflix/Player/TVP VOD), bo nie szyfruje całego ruchu i nie zwiększa pingu.</li>
+  </ul>
+  <p>Powiązane poradniki: <a href="/blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a>, <a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a>, <a href="/blog/vpn-netflix-polska.html">VPN a Netflix w Polsce</a>.</p>
 
-      <h1>VPN dla Smart TV — proste metody</h1>
+  <h2 id="aplikacja">Metoda 1: Aplikacja VPN na Smart TV</h2>
+  <ol>
+    <li>Sprawdź system: jeśli to <strong>Android TV/Google TV</strong> — zainstaluj aplikację VPN ze sklepu.</li>
+    <li>Zaloguj się i wybierz <strong>serwer w kraju treści</strong> (np. PL dla Player/TVP VOD).</li>
+    <li>Jeśli obraz przycina się w 4K — przetestuj inny węzeł/kraj, ewentualnie przełącz na <a href="#smartdns">Smart DNS</a> do samego VOD.</li>
+  </ol>
+  <p>Brak apki? Użyj <a href="#router">routera z VPN</a> lub <a href="#smartdns">Smart DNS</a>. Do konsol/streamingu z PS5/Xbox: <a href="/blog/vpn-dla-konsol-ps5-xbox.html">poradnik</a>.</p>
 
-      <figure class="hero">
-        <img src="/assets/img/hero/vpn-dla-smart-tv.webp" width="1200" height="628"
-             alt="VPN dla Smart TV — proste metody" fetchpriority="high" loading="eager" decoding="async">
-        <figcaption>VPN dla Smart TV — proste metody</figcaption>
-      </figure>
+  <h2 id="router">Metoda 2: Router z VPN (najszersza zgodność)</h2>
+  <ul>
+    <li>Włącz klienta <a href="/blog/wireguard-vs-openvpn.html">WireGuard/OpenVPN</a> na routerze (OpenWrt/AsusWRT/MikroTik/UniFi).</li>
+    <li>Zrób <strong>policy-based routing</strong>: TV → przez VPN; reszta domu lokalnie (mniej opóźnień).</li>
+    <li><strong>DNS</strong> dostawcy VPN lub selektywne trasy dla domen VOD — mniej problemów z wykrywaniem VPN.</li>
+    <li>Preferuj <strong>Ethernet</strong> dla TV; w Wi-Fi używaj 5 GHz, sprawdź kanały i zakłócenia.</li>
+  </ul>
+  <p>Jeśli potrzebujesz pełnego przewodnika do 4K: testy przepustowości i buforowania opisujemy w <a href="/blog/test-vpn.html">Test VPN</a> i <a href="/blog/vpn-szybkosc-test.html">Prędkość VPN</a>.</p>
 
-      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
+  <h2 id="smartdns">Metoda 3: Smart DNS (najszybsze VOD)</h2>
+  <p><strong>Smart DNS</strong> przełącza tylko wybrane domeny VOD i nie szyfruje całego ruchu, dzięki czemu łatwiej uzyskać 4K/Atmos bez dropów.</p>
+  <ol>
+    <li>Włącz Smart DNS w panelu dostawcy i <strong>zarejestruj swoje IP</strong>.</li>
+    <li>W TV wpisz ręcznie adresy Smart DNS (zamiast automatycznych).</li>
+    <li>Zrestartuj TV/aplikację VOD i przetestuj Player/TVP VOD/Netflix.</li>
+  </ol>
+  <p>Jeśli serwis wykrywa VPN lub biblioteka się nie zmienia — odśwież Smart DNS, wyczyść cache aplikacji i zrestartuj TV.</p>
 
-      <!-- TOC -->
-      <nav class="toc" aria-label="Spis treści">
-        <strong>Spis treści</strong>
-        <ol>
-          <li><a href="#sekcja-1">Sekcja 1</a></li>
-          <li><a href="#sekcja-2">Sekcja 2</a></li>
-          <li><a href="#sekcja-3">Sekcja 3</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
-        </ol>
-      </nav>
-
-      <h2 id="sekcja-1">Sekcja 1</h2>
-      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
-
-      <h2 id="sekcja-2">Sekcja 2</h2>
-      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
-
-      <h2 id="sekcja-3">Sekcja 3</h2>
-      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
-
-      <!-- CTA -->
-      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
-        <a class="btn btn-primary"
-           href="/go/nordvpn.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
-        &nbsp;
-        <a class="btn btn-ghost"
-           href="/go/surfshark.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
-      </div>
-
-      <!-- FAQ -->
-      <section class="faq" id="faq">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Czy VPN jest legalny w Polsce?</summary>
-          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
-        </details>
-        <details>
-          <summary>Czy VPN spowalnia internet?</summary>
-          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
-        </details>
-        <details>
-          <summary>Czy VPN daje pełną anonimowość?</summary>
-          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
-        </details>
-      </section>
-
-      <!-- Czytaj też -->
-      <aside class="readmore">
-        <h2>Czytaj też</h2>
-        <p>Powiązane:
-          <a href="/blog/no-logs.html">VPN no-logs</a>,
-          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
-          <a href="/blog/test-vpn.html">Test VPN</a>
-        </p>
-      </aside>
-
-      <!-- Author -->
-      <section class="author">
-        <div class="author__media">
-          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-        </div>
-        <div class="author__body">
-          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
-        </div>
-      </section>
-
-      <!-- TOP 5 -->
-      <section class="top5" id="top5">
-        <h2>TOP 5 VPN w Polsce (2025)</h2>
-        <ol class="top5__list">
-          <li>
-            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
-            <div class="mini-cta">
-              <a class="btn btn-small"
-                 href="/go/nordvpn.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
-            </div>
-          </li>
-          <li>
-            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
-            <div class="mini-cta">
-              <a class="btn btn-small btn-ghost"
-                 href="/go/surfshark.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
-            </div>
-          </li>
-          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
-        </ol>
-      </section>
-
-            <!-- Video (YouTube) -->
-      <section class="video">
-        <h2>Video: przewodnik wideo</h2>
-        <div class="video-wrapper">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </section>
-
-      <style>
-      .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-        overflow: hidden;
-        border-radius: .6rem;
-      }
-      .video-wrapper iframe {
-        position: absolute;
-        top:0; left:0;
-        width:100%; height:100%;
-      }
-      </style>
-
-<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-    </article>
+  <!-- CTA #1 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ NordVPN — świetny do Smart TV i VOD</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — nielimit urządzeń w domu</a>
   </div>
 
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "inLanguage":"pl-PL",
-    "headline":"VPN dla Smart TV — proste metody",
-    "description":"Etalon artykułu: VPN dla Smart TV — proste metody. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
-    "datePublished":"2025-09-04",
-    "dateModified":"2025-09-04",
-    "image":"https://dloran1.github.io/assets/img/hero/vpn-dla-smart-tv.webp",
-    "url":"https://dloran1.github.io/blog/vpn-dla-smart-tv.html",
-    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska",
-      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-    },
-    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dla-smart-tv.html"
-  }
-  </script>
+  <h2 id="ustawienia">Ustawienia jakości: 4K/Atmos, DNS, trasa</h2>
+  <ul>
+    <li><strong>Serwery:</strong> wybieraj węzły w kraju treści lub sąsiednie (czasem DE/NL działa lepiej dla PL VOD wieczorem).</li>
+    <li><strong>DNS:</strong> użyj DNS dostawcy VPN lub Smart DNS — unikniesz <a href="/blog/vpn-dns-leak.html">wycieków DNS</a> i błędnych bibliotek.</li>
+    <li><strong>Trasa:</strong> jeśli buforuje, zmień miasto/kraj; sprawdź obciążenie węzła i porę (szczyt wieczorny).</li>
+  </ul>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
-      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
-      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
-    ]
-  }
-  </script>
+  <h2 id="problemy">Typowe problemy i jak je naprawić</h2>
+  <ul>
+    <li><strong>„Wykryto VPN”</strong> — zmień węzeł w tym samym kraju, odśwież Smart DNS, wyczyść cache aplikacji.</li>
+    <li><strong>Lag/buforowanie</strong> — przełącz na inny węzeł lub Smart DNS, użyj Ethernet zamiast Wi-Fi.</li>
+    <li><strong>Brak 4K/Atmos</strong> — sprawdź przepustowość, ustawienia HDR, ogranicz obciążenie sieci.</li>
+  </ul>
+  <p>Przewodniki VOD: <a href="/blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="/blog/player-tvp-vpn.html">Player</a>, <a href="/blog/vpn-netflix-polska.html">Netflix</a>.</p>
 
-  <!-- JSON-LD: ItemList (TOP 5) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "name":"TOP 5 VPN w Polsce (2025)",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
-      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
-      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
-    ]
-  }
-  </script>
+  <h2 id="checklista">Checklista „odpal i oglądaj”</h2>
+  <ol>
+    <li>Wybierz metodę: <strong>apka</strong> (jeśli TV wspiera) / <strong>router z VPN</strong> / <strong>Smart DNS</strong> (VOD).</li>
+    <li>Skonfiguruj <strong>DNS</strong> dostawcy i sprawdź wycieki.</li>
+    <li>Przetestuj 2–3 węzły/kraje; wybierz stabilny pod wieczorny szczyt.</li>
+    <li>Podłącz TV po <strong>Ethernecie</strong> lub mocnym 5 GHz.</li>
+    <li>Miej plan B: drugi węzeł/kraj albo Smart DNS.</li>
+  </ol>
 
+  <!-- CTA #2 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN (TV + VOD)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — sprawdź ofertę</a>
+  </div>
 
-  <!-- JSON-LD: VideoObject -->
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "VPN dla Smart TV — proste metody — wideo",
-  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
-  "thumbnailUrl": [
-    "https://dloran1.github.io/assets/img/thumbs/vpn-dla-smart-tv.webp"
-  ],
-  "uploadDate": "2025-09-04",
-  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  <!-- TOP-5 -->
+  <section id="top5" class="top5">
+    <h2>TOP 5 VPN do Smart TV i VOD (2025)</h2>
+    <ol>
+      <li><strong>NordVPN</strong> — stabilne pule do VOD, Smart DNS, szybkie serwery PL/UE. <a href="/go/nordvpn.html" target="_blank" rel="sponsored nofollow noopener">Sprawdź</a></li>
+      <li><strong>Surfshark</strong> — nielimit urządzeń, Smart DNS w pakiecie, świetna cena. <a href="/go/surfshark.html" target="_blank" rel="sponsored nofollow noopener">Zobacz</a></li>
+      <li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+      <li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+      <li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ — Smart TV i VPN</h2>
+    <details>
+      <summary>Czy każdy Smart TV obsłuży aplikację VPN?</summary>
+      <p>Nie. Aplikacje VPN działają głównie na Android TV/Google TV. Dla innych systemów użyj routera z VPN lub Smart DNS.</p>
+    </details>
+    <details>
+      <summary>Smart DNS czy pełny VPN?</summary>
+      <p>Do VOD — Smart DNS (szybciej, mniej problemów). Do prywatności całej sieci — router z VPN.</p>
+    </details>
+    <details>
+      <summary>Czy VPN poprawi jakość obrazu?</summary>
+      <p>Pośrednio. Jeśli operator dławi ruch lub trasa jest zła, właściwy węzeł/Smart DNS może ustabilizować odtwarzanie i buforowanie.</p>
+    </details>
+  </section>
+
+  <!-- YouTube -->
+  <div class="yt-embed" aria-label="Wideo: VPN dla Smart TV — trzy metody">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&modestbranding=1&iv_load_policy=3"
+      title="VPN dla Smart TV — aplikacja, router, Smart DNS (poradnik)"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-05">05.09.2025</time></p>
+    </div>
+  </section>
+
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/vpn-dla-apple-tv.html">Apple TV</a>, <a href="/blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="/blog/player-tvp-vpn.html">Player i TVP VOD</a>, <a href="/blog/vpn-netflix-polska.html">Netflix PL</a></p>
+  </aside>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN dla Smart TV — proste metody: aplikacja, router, Smart DNS (2025)",
+  "description":"Jak uruchomić VPN na Smart TV: aplikacja, router z VPN i Smart DNS do VOD. Instrukcje, ustawienia jakości 4K/Atmos i naprawa typowych problemów.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-05",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-dla-smart-tv.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dla-smart-tv.html"
 }
-  </script>
+</script>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
