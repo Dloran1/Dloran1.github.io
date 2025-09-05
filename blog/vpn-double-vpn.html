@@ -2,35 +2,21 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Double VPN — kiedy podwójne szyfrowanie ma sens</title>
-  <meta name="description" content="Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <title>Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)</title>
+  <meta name="description" content="Double VPN (multi-hop) przesyła ruch przez dwa serwery VPN. Zyskasz dodatkową warstwę prywatności, ale kosztem prędkości. Wyjaśniamy: kiedy to ma sens, jak ustawić, wpływ na ping, VOD i P2P, alternatywy (Tor, dedykowany IP).">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-double-vpn.html">
-
-  <!-- Perf -->
-  <link rel="preload" as="image" href="/assets/img/hero/vpn-double-vpn.webp" imagesrcset="/assets/img/hero/vpn-double-vpn.webp" imagesizes="100vw">
-  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="VPN Polska">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Double VPN — kiedy podwójne szyfrowanie ma sens">
-  <meta property="og:description" content="Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:title" content="Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)">
+  <meta property="og:description" content="Przewodnik po multi-hop: zalety, wady, konfiguracja i najlepsze praktyki.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-double-vpn.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Double VPN — kiedy podwójne szyfrowanie ma sens">
-  <meta name="twitter:description" content="Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp">
 
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
@@ -40,239 +26,205 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-      {"@type":"ListItem","position":3,"name":"Double VPN — kiedy podwójne szyfrowanie ma sens","item":"https://dloran1.github.io/blog/vpn-double-vpn.html"}
+      {"@type":"ListItem","position":3,"name":"Double VPN (Multi-hop)","item":"https://dloran1.github.io/blog/vpn-double-vpn.html"}
     ]
   }
   </script>
-
-  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
-  <style>
-    .post .article { max-width: 72ch; margin: 0 auto; }
-    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
-    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
-    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
-    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
-  </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- Widoczne breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
-    <div class="wrap">
-      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Double VPN — kiedy podwójne szyfrowanie ma sens</span>
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> •
+      <a href="/blog/index.html">Blog</a>
     </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="breadcrumbs"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a> / Double VPN (Multi-hop)</p>
+  <h1>Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)</h1>
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-double-vpn.webp"
+         alt="Double VPN (multi-hop) — dodatkowa warstwa prywatności"
+         width="1200" height="628"
+         fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+  <p class="lead"><strong>Double VPN</strong> (multi-hop) to połączenie przez <em>dwa</em> kolejne serwery VPN. Zwiększa trudność profilowania trasy i łączenia Twojej tożsamości z aktywnością online. Ma jednak koszt: <strong>niższa prędkość</strong> i <strong>wyższy ping</strong>. Tu znajdziesz kiedy warto go użyć, jak poprawnie ustawić oraz jakie są praktyczne alternatywy.</p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <h2>Spis treści</h2>
+    <ul>
+      <li><a href="#co-to">Czym jest Double VPN i jak działa</a></li>
+      <li><a href="#kiedy">Kiedy Double VPN ma sens</a></li>
+      <li><a href="#wady">Wady i ograniczenia (ping, VOD, P2P)</a></li>
+      <li><a href="#konfiguracja">Konfiguracja i najlepsze praktyki</a></li>
+      <li><a href="#alternatywy">Alternatywy: Tor, dedykowany IP, pojedynczy węzeł premium</a></li>
+      <li><a href="#bezpieczenstwo">Dodatkowe bezpieczeństwo: DNS, WebRTC, IPv6</a></li>
+      <li><a href="#checklista">Checklista: kiedy włączyć, kiedy wyłączyć</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
   </nav>
 
-  <div class="wrap post">
-    <article class="article">
+  <h2 id="co-to">Czym jest Double VPN i jak działa</h2>
+  <p>W zwykłym VPN ruch idzie: <em>Urządzenie → Serwer A → Internet</em>. W Double VPN: <em>Urządzenie → Serwer A → Serwer B → Internet</em>. Drugi hop dodaje warstwę pośrednią i utrudnia korelację ruchu. Niektóre implementacje szyfrują dwukrotnie lub używają oddzielnych par kluczy.</p>
+  <p>Podstawy: <a href="/blog/co-to-jest-vpn.html">Co to jest VPN</a> • Polityki prywatności: <a href="/blog/no-logs.html">no-logs</a> • Ograniczenia: <a href="/blog/wady-vpn.html">Wady VPN</a>.</p>
 
-      <h1>Double VPN — kiedy podwójne szyfrowanie ma sens</h1>
+  <h2 id="kiedy">Kiedy Double VPN ma sens</h2>
+  <ul>
+    <li><strong>Wrażliwa praca zdalna</strong> (dziennikarstwo, audyty, administracja), gdy chcesz utrudnić profilowanie trasy.</li>
+    <li><strong>Sieci z nadzorem</strong>, gdzie dodatkowa warstwa komplikuje korelację metadanych.</li>
+    <li><strong>Łączenie jurysdykcji</strong> (np. PL → NL/IS), by rozproszyć punkty styku ruchu.</li>
+  </ul>
+  <p>Uwaga: multi-hop to nie „magiczna peleryna”. Stosuj wraz z dobrymi praktykami: <a href="/blog/vpn-kill-switch.html">kill switch</a>, <a href="/blog/vpn-dns-leak.html">brak wycieków DNS</a>, <a href="/blog/vpn-2fa-mfa.html">2FA/MFA</a>.</p>
 
-      <figure class="hero">
-        <img src="/assets/img/hero/vpn-double-vpn.webp" width="1200" height="628"
-             alt="Double VPN — kiedy podwójne szyfrowanie ma sens" fetchpriority="high" loading="eager" decoding="async">
-        <figcaption>Double VPN — kiedy podwójne szyfrowanie ma sens</figcaption>
-      </figure>
+  <h2 id="wady">Wady i ograniczenia (ping, VOD, P2P)</h2>
+  <ul>
+    <li><strong>Wyższy ping</strong> i częściej zmienny <em>jitter</em> — dwie trasy, dwa węzły.</li>
+    <li><strong>Niższa prędkość</strong> — dodatkowe szyfrowanie i hop.</li>
+    <li><strong>VOD/Streaming</strong>: większa szansa na buforowanie i wykrywanie VPN (lepiej pojedynczy węzeł lub <a href="/blog/vpn-dla-smart-tv.html">Smart TV</a> / <a href="/blog/vpn-dla-apple-tv.html">Apple TV</a> z <strong>Smart DNS</strong>).</li>
+    <li><strong>P2P</strong>: zwykle lepiej na pojedynczym węźle; jeśli potrzebujesz portów → <a href="/blog/vpn-port-forwarding.html">port forwarding</a>.</li>
+  </ul>
 
-      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
+  <h2 id="konfiguracja">Konfiguracja i najlepsze praktyki</h2>
+  <ol>
+    <li><strong>Wybierz kierunek łańcucha</strong>: np. <em>PL → NL</em> (bliski pierwszy hop, „wyjście” w kraju docelowym).</li>
+    <li><strong>Protokół</strong>: domyślnie <a href="/blog/wireguard-vs-openvpn.html">WireGuard</a> (wydajny). OpenVPN UDP jako plan B.</li>
+    <li><strong>DNS</strong>: wymuś DNS dostawcy i sprawdź <a href="/blog/vpn-dns-leak.html">wycieki</a>. Z multi-hopem niespójny DNS łatwiej zdradza trasę.</li>
+    <li><strong>Split tunneling</strong>: kieruj wrażliwe aplikacje przez multi-hop, a resztę przez pojedynczy węzeł (mniej lagów) — <a href="/blog/vpn-split-tunneling.html">jak to zrobić</a>.</li>
+    <li><strong>Testy</strong>: zmierz prędkość/ping/jitter na 2–3 parach serwerów i wybierz najbardziej stabilną — <a href="/blog/test-vpn.html">Test VPN</a>, <a href="/blog/vpn-szybkosc-test.html">Prędkość VPN</a>.</li>
+  </ol>
 
-      <!-- TOC -->
-      <nav class="toc" aria-label="Spis treści">
-        <strong>Spis treści</strong>
-        <ol>
-          <li><a href="#sekcja-1">Sekcja 1</a></li>
-          <li><a href="#sekcja-2">Sekcja 2</a></li>
-          <li><a href="#sekcja-3">Sekcja 3</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
-        </ol>
-      </nav>
-
-      <h2 id="sekcja-1">Sekcja 1</h2>
-      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
-
-      <h2 id="sekcja-2">Sekcja 2</h2>
-      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
-
-      <h2 id="sekcja-3">Sekcja 3</h2>
-      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
-
-      <!-- CTA -->
-      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
-        <a class="btn btn-primary"
-           href="/go/nordvpn.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
-        &nbsp;
-        <a class="btn btn-ghost"
-           href="/go/surfshark.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
-      </div>
-
-      <!-- FAQ -->
-      <section class="faq" id="faq">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Czy VPN jest legalny w Polsce?</summary>
-          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
-        </details>
-        <details>
-          <summary>Czy VPN spowalnia internet?</summary>
-          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
-        </details>
-        <details>
-          <summary>Czy VPN daje pełną anonimowość?</summary>
-          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
-        </details>
-      </section>
-
-      <!-- Czytaj też -->
-      <aside class="readmore">
-        <h2>Czytaj też</h2>
-        <p>Powiązane:
-          <a href="/blog/no-logs.html">VPN no-logs</a>,
-          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
-          <a href="/blog/test-vpn.html">Test VPN</a>
-        </p>
-      </aside>
-
-      <!-- Author -->
-      <section class="author">
-        <div class="author__media">
-          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-        </div>
-        <div class="author__body">
-          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
-        </div>
-      </section>
-
-      <!-- TOP 5 -->
-      <section class="top5" id="top5">
-        <h2>TOP 5 VPN w Polsce (2025)</h2>
-        <ol class="top5__list">
-          <li>
-            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
-            <div class="mini-cta">
-              <a class="btn btn-small"
-                 href="/go/nordvpn.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
-            </div>
-          </li>
-          <li>
-            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
-            <div class="mini-cta">
-              <a class="btn btn-small btn-ghost"
-                 href="/go/surfshark.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
-            </div>
-          </li>
-          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
-        </ol>
-      </section>
-
-            <!-- Video (YouTube) -->
-      <section class="video">
-        <h2>Video: przewodnik wideo</h2>
-        <div class="video-wrapper">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </section>
-
-      <style>
-      .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-        overflow: hidden;
-        border-radius: .6rem;
-      }
-      .video-wrapper iframe {
-        position: absolute;
-        top:0; left:0;
-        width:100%; height:100%;
-      }
-      </style>
-
-<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-    </article>
+  <!-- CTA #1 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ NordVPN — stabilny multi-hop + szybki WireGuard</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — multi-hop i nielimit urządzeń</a>
   </div>
 
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "inLanguage":"pl-PL",
-    "headline":"Double VPN — kiedy podwójne szyfrowanie ma sens",
-    "description":"Etalon artykułu: Double VPN — kiedy podwójne szyfrowanie ma sens. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
-    "datePublished":"2025-09-04",
-    "dateModified":"2025-09-04",
-    "image":"https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp",
-    "url":"https://dloran1.github.io/blog/vpn-double-vpn.html",
-    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska",
-      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-    },
-    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-double-vpn.html"
-  }
-  </script>
+  <h2 id="alternatywy">Alternatywy: Tor, dedykowany IP, pojedynczy węzeł premium</h2>
+  <ul>
+    <li><strong>Tor</strong> — maksymalna decentralizacja kosztem prędkości; dobry do przeglądania, nie do streamów/gier.</li>
+    <li><strong>Dedykowany IP</strong> — do whitelist i stałego dostępu (nie do anonimowości w tłumie): <a href="/blog/vpn-dedykowany-ip.html">co to jest</a>.</li>
+    <li><strong>Pojedynczy węzeł „premium”</strong> — często daje wystarczającą prywatność i lepszą wydajność niż multi-hop.</li>
+  </ul>
+  <p>Jeśli Twoim celem jest streaming: zobacz <a href="/blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="/blog/player-tvp-vpn.html">Player</a>, <a href="/blog/vpn-netflix-polska.html">Netflix</a>.</p>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
-      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
-      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
-    ]
-  }
-  </script>
+  <h2 id="bezpieczenstwo">Dodatkowe bezpieczeństwo: DNS, WebRTC, IPv6</h2>
+  <ul>
+    <li><strong>Kill switch</strong> + <strong>auto-connect</strong> — brak „przebitek” poza tunel: <a href="/blog/vpn-kill-switch.html">co to jest</a>.</li>
+    <li><strong>WebRTC</strong> — zablokuj ujawnianie IP lokalnego w przeglądarce.</li>
+    <li><strong>IPv6</strong> — jeśli dostawca nie tuneluje IPv6, tymczasowo wyłącz IPv6 (lub użyj dostawcy, który je obsługuje).</li>
+  </ul>
 
-  <!-- JSON-LD: ItemList (TOP 5) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "name":"TOP 5 VPN w Polsce (2025)",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
-      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
-      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
-    ]
-  }
-  </script>
+  <h2 id="checklista">Checklista: kiedy włączyć, kiedy wyłączyć</h2>
+  <ol>
+    <li><strong>Włącz</strong>, gdy: pracujesz z wrażliwymi danymi, jedziesz do kraju z restrykcjami, chcesz rozdzielić jurysdykcje.</li>
+    <li><strong>Wyłącz</strong>, gdy: grasz online, streamujesz 4K, seedujesz P2P — wybierz pojedynczy węzeł.</li>
+    <li>Testuj 2–3 pary węzłów; zostaw tę z najmniejszym jitterem.</li>
+    <li>Używaj <a href="/blog/vpn-split-tunneling.html">split tunnelingu</a>, by ograniczyć multi-hop tylko do wrażliwych aplikacji.</li>
+  </ol>
 
+  <!-- CTA #2 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN (Multi-hop)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — sprawdź ofertę</a>
+  </div>
 
-  <!-- JSON-LD: VideoObject -->
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Double VPN — kiedy podwójne szyfrowanie ma sens — wideo",
-  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
-  "thumbnailUrl": [
-    "https://dloran1.github.io/assets/img/thumbs/vpn-double-vpn.webp"
-  ],
-  "uploadDate": "2025-09-04",
-  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  <!-- TOP-5 -->
+  <section id="top5" class="top5">
+    <h2>TOP 5 VPN w Polsce (2025)</h2>
+    <ol>
+      <li><strong>NordVPN</strong> — stabilny multi-hop, szybkie trasy, audyty. <a href="/go/nordvpn.html" target="_blank" rel="sponsored nofollow noopener">Sprawdź</a></li>
+      <li><strong>Surfshark</strong> — multi-hop, nielimit urządzeń, dobra cena. <a href="/go/surfshark.html" target="_blank" rel="sponsored nofollow noopener">Zobacz</a></li>
+      <li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+      <li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+      <li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2 id="faq">FAQ</h2>
+    <details>
+      <summary>Czy Double VPN szyfruje „podwójnie”?</summary>
+      <p>Zależy od implementacji. Zawsze masz co najmniej dwa etapy tunelowania; czasem dochodzi drugie szyfrowanie/klucze. Kluczowe są solidne protokoły i brak wycieków.</p>
+    </details>
+    <details>
+      <summary>Czy multi-hop nadaje się do VOD?</summary>
+      <p>Rzadko. Częściej powoduje buforowanie i wykrywanie VPN. Do VOD lepszy pojedynczy węzeł lub <strong>Smart DNS</strong> na TV.</p>
+    </details>
+    <details>
+      <summary>Czy multi-hop jest lepszy od Tora?</summary>
+      <p>Nie jest „lepszy” ani „gorszy” — ma inne zastosowanie. Tor to wielowęzłowa sieć anonimizująca, zwykle wolniejsza; multi-hop to opcja w VPN z kontrolowanymi węzłami i lepszą wydajnością.</p>
+    </details>
+  </section>
+
+  <!-- YouTube -->
+  <div class="yt-embed" aria-label="Wideo: Double VPN — kiedy warto i jak ustawić">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&modestbranding=1&iv_load_policy=3"
+      title="Double VPN (multi-hop) — poradnik i najlepsze praktyki"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+    </div>
+  </section>
+
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/no-logs.html">VPN no-logs</a>, <a href="/blog/vpn-kill-switch.html">Kill switch</a>, <a href="/blog/vpn-split-tunneling.html">Split tunneling</a>, <a href="/blog/vpn-dedykowany-ip.html">Dedykowany IP</a></p>
+  </aside>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)",
+  "description":"Double VPN (multi-hop) — co daje, kiedy warto go użyć, jak ustawić i testować oraz jakie są alternatywy (Tor, pojedynczy węzeł, dedykowany IP).",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-double-vpn.html"
 }
-  </script>
+</script>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
