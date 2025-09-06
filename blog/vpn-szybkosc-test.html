@@ -2,35 +2,21 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Prędkość VPN — jak testować i poprawiać</title>
-  <meta name="description" content="Etalon artykułu: Prędkość VPN — jak testować i poprawiać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <title>Prędkość VPN — jak testować i poprawiać wyniki (2025)</title>
+  <meta name="description" content="Jak rzetelnie przetestować prędkość VPN: narzędzia (Speedtest, iperf3), ping/jitter/packet loss, pora dnia, serwery. Jak poprawić wyniki: protokół WireGuard, MTU/MSS, DNS, Wi-Fi vs Ethernet, trasa i peering. Kompletny przewodnik 2025.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
-
-  <!-- Perf -->
-  <link rel="preload" as="image" href="/assets/img/hero/vpn-szybkosc-test.webp" imagesrcset="/assets/img/hero/vpn-szybkosc-test.webp" imagesizes="100vw">
-  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="VPN Polska">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Prędkość VPN — jak testować i poprawiać">
-  <meta property="og:description" content="Etalon artykułu: Prędkość VPN — jak testować i poprawiać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:title" content="Prędkość VPN — jak testować i poprawiać wyniki (2025)">
+  <meta property="og:description" content="Metodyka testów, interpretacja ping/jitter/strat, oraz poprawki: WireGuard, MTU, DNS i dobór węzła.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-szybkosc-test.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Prędkość VPN — jak testować i poprawiać">
-  <meta name="twitter:description" content="Etalon artykułu: Prędkość VPN — jak testować i poprawiać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp">
 
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
@@ -40,239 +26,223 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-      {"@type":"ListItem","position":3,"name":"Prędkość VPN — jak testować i poprawiać","item":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"}
+      {"@type":"ListItem","position":3,"name":"Prędkość VPN — test","item":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"}
     ]
   }
   </script>
-
-  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
-  <style>
-    .post .article { max-width: 72ch; margin: 0 auto; }
-    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
-    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
-    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
-    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
-  </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- Widoczne breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
-    <div class="wrap">
-      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Prędkość VPN — jak testować i poprawiać</span>
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> •
+      <a href="/blog/index.html">Blog</a>
     </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="breadcrumbs"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a> / Prędkość VPN — test</p>
+  <h1>Prędkość VPN — jak testować i poprawiać wyniki (2025)</h1>
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-szybkosc-test.webp"
+         alt="Test prędkości VPN — metodyka, ping, jitter i optymalizacja"
+         width="1200" height="628"
+         fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+  <p class="lead">Wydajność VPN zależy od <strong>protokołu</strong>, <strong>węzła</strong>, <strong>trasy</strong>, jakości lokalnego łącza (Wi-Fi vs Ethernet) oraz ustawień takich jak <strong>MTU</strong> i <strong>DNS</strong>. Poniżej dostajesz <strong>rzetelną metodykę testów</strong>, interpretację wyników i checklistę poprawek, które realnie zwiększają prędkość i stabilność.</p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <h2>Spis treści</h2>
+    <ul>
+      <li><a href="#narzedzia">Narzędzia do testów i przygotowanie</a></li>
+      <li><a href="#metodyka">Metodyka: przed/po VPN, pory dnia i powtórzenia</a></li>
+      <li><a href="#interpretacja">Jak czytać wyniki: ping, jitter, packet loss, bufferbloat</a></li>
+      <li><a href="#wezel">Dobór węzła i kraju</a></li>
+      <li><a href="#protokol">Protokół: WireGuard vs OpenVPN/IKEv2</a></li>
+      <li><a href="#mtu">MTU/MSS i Wi-Fi vs Ethernet</a></li>
+      <li><a href="#dns">DNS i spójność regionu</a></li>
+      <li><a href="#vod">Streaming, gry i P2P — niuanse testowania</a></li>
+      <li><a href="#checklista">Checklista szybkich poprawek</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
   </nav>
 
-  <div class="wrap post">
-    <article class="article">
+  <h2 id="narzedzia">Narzędzia do testów i przygotowanie</h2>
+  <ul>
+    <li><strong>Speedtest</strong> (apka/strona) — przepustowość, ping/jitter. Do porównań używaj zawsze <em>tego samego serwera</em>.</li>
+    <li><strong>iperf3</strong> — pomiar między Twoim urządzeniem a kontrolowanym serwerem (jeśli masz VPS).</li>
+    <li><strong>Ping/trace</strong> — diagnostyka trasy (skoki RTT, gdzie rosną opóźnienia).</li>
+  </ul>
+  <p>Ogólne założenia testów i kontrola zmiennych opisaliśmy też w: <a href="/blog/test-vpn.html">Test VPN — scenariusz</a>.</p>
 
-      <h1>Prędkość VPN — jak testować i poprawiać</h1>
+  <h2 id="metodyka">Metodyka: przed/po VPN, pory dnia i powtórzenia</h2>
+  <ol>
+    <li><strong>Baseline</strong>: 3 pomiary bez VPN (Ethernet/5 GHz), notuj serwer Speedtest.</li>
+    <li><strong>VPN</strong>: 3 pomiary na <em>tym samym</em> serwerze Speedtest dla 2–3 węzłów (PL → DE → NL).</li>
+    <li><strong>Pory dnia</strong>: powtórz rano, po południu i wieczorem — wieczorem przeciążenie bywa największe.</li>
+    <li><strong>Stałe zmienne</strong>: ten sam protokół, te same ustawienia Wi-Fi, wyłącz tło w systemie (backupy, chmura).</li>
+  </ol>
+  <p>Jak dobierać węzły i protokoły pod cel: <a href="/blog/vpn-optymalne-ustawienia.html">optymalne ustawienia VPN</a>.</p>
 
-      <figure class="hero">
-        <img src="/assets/img/hero/vpn-szybkosc-test.webp" width="1200" height="628"
-             alt="Prędkość VPN — jak testować i poprawiać" fetchpriority="high" loading="eager" decoding="async">
-        <figcaption>Prędkość VPN — jak testować i poprawiać</figcaption>
-      </figure>
+  <h2 id="interpretacja">Jak czytać wyniki: ping, jitter, packet loss, bufferbloat</h2>
+  <ul>
+    <li><strong>Ping</strong> — opóźnienie do serwera; istotny dla gier/VC.</li>
+    <li><strong>Jitter</strong> — zmienność pingu; im niższy, tym stabilniejszy strumień (VOD/VC).</li>
+    <li><strong>Packet loss</strong> — nawet 1–2% psuje prędkość TCP i jakość połączeń.</li>
+    <li><strong>Bufferbloat</strong> — jeśli upload „dusi” download (lub na odwrót), pomaga QoS/Smart Queue w routerze i/lub niższe MTU.</li>
+  </ul>
 
-      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
-
-      <!-- TOC -->
-      <nav class="toc" aria-label="Spis treści">
-        <strong>Spis treści</strong>
-        <ol>
-          <li><a href="#sekcja-1">Sekcja 1</a></li>
-          <li><a href="#sekcja-2">Sekcja 2</a></li>
-          <li><a href="#sekcja-3">Sekcja 3</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
-        </ol>
-      </nav>
-
-      <h2 id="sekcja-1">Sekcja 1</h2>
-      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
-
-      <h2 id="sekcja-2">Sekcja 2</h2>
-      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
-
-      <h2 id="sekcja-3">Sekcja 3</h2>
-      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
-
-      <!-- CTA -->
-      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
-        <a class="btn btn-primary"
-           href="/go/nordvpn.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
-        &nbsp;
-        <a class="btn btn-ghost"
-           href="/go/surfshark.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
-      </div>
-
-      <!-- FAQ -->
-      <section class="faq" id="faq">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Czy VPN jest legalny w Polsce?</summary>
-          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
-        </details>
-        <details>
-          <summary>Czy VPN spowalnia internet?</summary>
-          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
-        </details>
-        <details>
-          <summary>Czy VPN daje pełną anonimowość?</summary>
-          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
-        </details>
-      </section>
-
-      <!-- Czytaj też -->
-      <aside class="readmore">
-        <h2>Czytaj też</h2>
-        <p>Powiązane:
-          <a href="/blog/no-logs.html">VPN no-logs</a>,
-          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
-          <a href="/blog/test-vpn.html">Test VPN</a>
-        </p>
-      </aside>
-
-      <!-- Author -->
-      <section class="author">
-        <div class="author__media">
-          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-        </div>
-        <div class="author__body">
-          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
-        </div>
-      </section>
-
-      <!-- TOP 5 -->
-      <section class="top5" id="top5">
-        <h2>TOP 5 VPN w Polsce (2025)</h2>
-        <ol class="top5__list">
-          <li>
-            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
-            <div class="mini-cta">
-              <a class="btn btn-small"
-                 href="/go/nordvpn.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
-            </div>
-          </li>
-          <li>
-            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
-            <div class="mini-cta">
-              <a class="btn btn-small btn-ghost"
-                 href="/go/surfshark.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
-            </div>
-          </li>
-          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
-        </ol>
-      </section>
-
-            <!-- Video (YouTube) -->
-      <section class="video">
-        <h2>Video: przewodnik wideo</h2>
-        <div class="video-wrapper">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </section>
-
-      <style>
-      .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-        overflow: hidden;
-        border-radius: .6rem;
-      }
-      .video-wrapper iframe {
-        position: absolute;
-        top:0; left:0;
-        width:100%; height:100%;
-      }
-      </style>
-
-<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-    </article>
+  <!-- CTA #1 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ NordVPN — szybki WireGuard i stabilne węzły</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — nielimit urządzeń, dobre prędkości</a>
   </div>
 
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "inLanguage":"pl-PL",
-    "headline":"Prędkość VPN — jak testować i poprawiać",
-    "description":"Etalon artykułu: Prędkość VPN — jak testować i poprawiać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
-    "datePublished":"2025-09-04",
-    "dateModified":"2025-09-04",
-    "image":"https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp",
-    "url":"https://dloran1.github.io/blog/vpn-szybkosc-test.html",
-    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska",
-      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-    },
-    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"
-  }
-  </script>
+  <h2 id="wezel">Dobór węzła i kraju</h2>
+  <ul>
+    <li><strong>Bliskość</strong> geograficzna obniża ping, ale liczy się też <strong>peering</strong>. Czasem DE/NL będą szybsze niż PL, zależnie od operatora.</li>
+    <li>Testuj 2–3 miasta w jednym kraju, <strong>porównuj jitter</strong> i stabilność w godzinach szczytu.</li>
+    <li>Do VOD wybierz kraj biblioteki; do pracy/VC — najbliższy stabilny węzeł.</li>
+  </ul>
+  <p>Więcej o trasie i peeringu: <a href="/blog/vpn-geolokalizacja.html">Geolokalizacja i VPN</a>, typowe blokady: <a href="/blog/vpn-geoblokady.html">VPN a geoblokady</a>.</p>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
-      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
-      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
-    ]
-  }
-  </script>
+  <h2 id="protokol">Protokół: WireGuard vs OpenVPN/IKEv2</h2>
+  <ul>
+    <li><strong>WireGuard</strong> — zwykle najwyższa przepustowość i najniższy narzut CPU. Domyślny wybór.</li>
+    <li><strong>OpenVPN UDP</strong> — plan B, gdy WG jest blokowany lub trasa jest gorsza; TCP tylko, gdy musisz.</li>
+    <li><strong>IKEv2</strong> — świetny na mobile (szybkie wznowienie), czasem przegrywa z WG przepustowością.</li>
+  </ul>
+  <p>Porównanie i ustawienia per system: <a href="/blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, <a href="/blog/vpn-android-konfiguracja.html">Android</a>, <a href="/blog/vpn-iphone-konfiguracja.html">iPhone</a>, <a href="/blog/vpn-windows-konfiguracja.html">Windows</a>, <a href="/blog/vpn-na-mac.html">macOS</a>, <a href="/blog/vpn-linux-konfiguracja.html">Linux</a>.</p>
 
-  <!-- JSON-LD: ItemList (TOP 5) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "name":"TOP 5 VPN w Polsce (2025)",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
-      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
-      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
-    ]
-  }
-  </script>
+  <h2 id="mtu">MTU/MSS i Wi-Fi vs Ethernet</h2>
+  <ul>
+    <li><strong>MTU</strong>: zbyt duży powoduje fragmentację lub „wiszące” ładowanie stron. Testuj zakres 1280–1380 dla WG; w OpenVPN użyj <em>mssfix</em>.</li>
+    <li><strong>Ethernet</strong> lub Wi-Fi 5 GHz — unikaj 2.4 GHz przy testach i streamingu 4K.</li>
+    <li>Router: jeśli możesz, włącz <strong>Smart Queue/QoS</strong> (redukcja bufferbloatu przy uploadzie).</li>
+  </ul>
+  <p>Więcej praktycznych wskazówek: <a href="/blog/vpn-optymalne-ustawienia.html">optymalne ustawienia VPN</a>.</p>
 
+  <h2 id="dns">DNS i spójność regionu</h2>
+  <p>Używaj <strong>DNS dostawcy VPN</strong>, aby uniknąć <a href="/blog/vpn-dns-leak.html">wycieków DNS</a> i konfliktów IP↔DNS. Zewnętrzny DoH/DoT poza tunelem zaniża prędkość rozwiązywania i bywa przyczyną błędów regionu (VOD/banki).</p>
 
-  <!-- JSON-LD: VideoObject -->
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Prędkość VPN — jak testować i poprawiać — wideo",
-  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
-  "thumbnailUrl": [
-    "https://dloran1.github.io/assets/img/thumbs/vpn-szybkosc-test.webp"
-  ],
-  "uploadDate": "2025-09-04",
-  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  <h2 id="vod">Streaming, gry i P2P — niuanse testowania</h2>
+  <ul>
+    <li><strong>VOD</strong>: testuj realnym odtwarzaniem (1080p/4K), sprawdź <em>buffer health</em> i czasy startu. Przewodniki: <a href="/blog/vpn-netflix-polska.html">Netflix PL</a>, <a href="/blog/player-tvp-vpn.html">Player i TVP</a>, <a href="/blog/tvp-vod-vpn.html">TVP VOD</a>.</li>
+    <li><strong>Gry</strong>: mierz ping/jitter do serwera gry; czasem lepiej grać <em>bez</em> VPN, a resztę ruchu zostawić w tunelu (zobacz <a href="/blog/vpn-split-tunneling.html">split tunneling</a>).</li>
+    <li><strong>P2P</strong>: sprawdź liczbę peerów i upload przy długim seedzie; rozważ <a href="/blog/vpn-port-forwarding.html">port forwarding</a>. Podstawy: <a href="/blog/vpn-p2p-bezpiecznie.html">P2P bezpiecznie</a>.</li>
+  </ul>
+
+  <h2 id="checklista">Checklista szybkich poprawek</h2>
+  <ol>
+    <li>Przełącz na <strong>WireGuard</strong>; w razie problemów testuj OpenVPN UDP.</li>
+    <li>Zmień <strong>węzeł</strong> (PL → DE/NL) i wybierz ten z najniższym <strong>jitterem</strong>.</li>
+    <li><strong>Ethernet</strong> lub 5 GHz; wyłącz obciążające tło.</li>
+    <li>Skoryguj <strong>MTU</strong> (np. 1280–1380) lub <em>mssfix</em> w OpenVPN.</li>
+    <li>Wymuś <strong>DNS dostawcy</strong>; wyłącz zewnętrzny DoH/DoT poza tunelem.</li>
+  </ol>
+
+  <!-- CTA #2 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN (szybki WireGuard)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — sprawdź ofertę</a>
+  </div>
+
+  <!-- TOP-5 -->
+  <section id="top5" class="top5">
+    <h2>TOP 5 na prędkość i stabilność (2025)</h2>
+    <ol>
+      <li><strong>NordVPN</strong> — szybki WireGuard, niskie jittery, kill switch. <a href="/go/nordvpn.html" target="_blank" rel="sponsored nofollow noopener">Sprawdź</a></li>
+      <li><strong>Surfshark</strong> — nielimit urządzeń, dobre pule IP. <a href="/go/surfshark.html" target="_blank" rel="sponsored nofollow noopener">Zobacz</a></li>
+      <li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+      <li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+      <li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ — prędkość i testy VPN</h2>
+    <details>
+      <summary>Dlaczego moje wyniki wieczorem są gorsze?</summary>
+      <p>To godziny szczytu: przeciążone węzły i gorzej zachowujące się trasy. Testuj kilka miast i wybieraj najniższy jitter.</p>
+    </details>
+    <details>
+      <summary>Czy TCP w OpenVPN jest „wolniejszy” niż UDP?</summary>
+      <p>Zwykle tak — ma większy narzut i gorzej znosi straty. Używaj UDP; TCP tylko, gdy sieć blokuje UDP.</p>
+    </details>
+    <details>
+      <summary>Czy VPN zawsze obniży prędkość internetu?</summary>
+      <p>Z reguły tak (szyfrowanie, długa trasa), ale przy dobrym węźle i WireGuard spadek bywa niewielki, a czasem trasa przez VPN jest nawet stabilniejsza.</p>
+    </details>
+  </section>
+
+  <!-- YouTube -->
+  <div class="yt-embed" aria-label="Wideo: Jak testować prędkość VPN i poprawiać wyniki">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&modestbranding=1&iv_load_policy=3"
+      title="Prędkość VPN — testy i optymalizacja (2025)"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+    </div>
+  </section>
+
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/test-vpn.html">Test VPN — scenariusz</a>, <a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>, <a href="/blog/vpn-split-tunneling.html">Split tunneling</a>, <a href="/blog/vpn-p2p-bezpiecznie.html">P2P bezpiecznie</a>, <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a></p>
+  </aside>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Prędkość VPN — jak testować i poprawiać wyniki (2025)",
+  "description":"Rzetelne testy prędkości VPN (Speedtest, iperf3), interpretacja ping/jitter/packet loss/bufferbloat oraz poprawki: WireGuard, dobór węzła, MTU/MSS, DNS, Ethernet vs Wi-Fi.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"
 }
-  </script>
+</script>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
