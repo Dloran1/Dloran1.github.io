@@ -2,35 +2,21 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Port forwarding w VPN — kiedy i jak używać</title>
-  <meta name="description" content="Etalon artykułu: Port forwarding w VPN — kiedy i jak używać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <title>Port forwarding w VPN — kiedy i jak używać (2025)</title>
+  <meta name="description" content="Wyjaśniamy port forwarding w VPN: po co jest, kiedy ma sens (P2P/seed, zdalny dostęp, self-hosted), jak go włączyć i przetestować, jakie są ryzyka oraz alternatywy. Praktyczny poradnik 2025.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/vpn-port-forwarding.html">
-
-  <!-- Perf -->
-  <link rel="preload" as="image" href="/assets/img/hero/vpn-port-forwarding.webp" imagesrcset="/assets/img/hero/vpn-port-forwarding.webp" imagesizes="100vw">
-  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="VPN Polska">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Port forwarding w VPN — kiedy i jak używać">
-  <meta property="og:description" content="Etalon artykułu: Port forwarding w VPN — kiedy i jak używać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:title" content="Port forwarding w VPN — kiedy i jak używać (2025)">
+  <meta property="og:description" content="Konfiguracja i testy PF: P2P, zdalny dostęp, self-hosted. Ryzyka, kill switch, DNS, alternatywy.">
   <meta property="og:url" content="https://dloran1.github.io/blog/vpn-port-forwarding.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Port forwarding w VPN — kiedy i jak używać">
-  <meta name="twitter:description" content="Etalon artykułu: Port forwarding w VPN — kiedy i jak używać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp">
 
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
@@ -40,239 +26,208 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-      {"@type":"ListItem","position":3,"name":"Port forwarding w VPN — kiedy i jak używać","item":"https://dloran1.github.io/blog/vpn-port-forwarding.html"}
+      {"@type":"ListItem","position":3,"name":"Port forwarding w VPN","item":"https://dloran1.github.io/blog/vpn-port-forwarding.html"}
     ]
   }
   </script>
-
-  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
-  <style>
-    .post .article { max-width: 72ch; margin: 0 auto; }
-    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
-    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
-    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
-    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
-  </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- Widoczne breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
-    <div class="wrap">
-      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Port forwarding w VPN — kiedy i jak używać</span>
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> •
+      <a href="/blog/index.html">Blog</a>
     </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="breadcrumbs"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a> / Port forwarding w VPN</p>
+  <h1>Port forwarding w VPN — kiedy i jak używać (2025)</h1>
+  <figure class="article-hero">
+    <img src="/assets/img/hero/vpn-port-forwarding.webp"
+         alt="Port forwarding w VPN — zasada działania i konfiguracja"
+         width="1200" height="628"
+         fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+  <p class="lead"><strong>Port forwarding (PF)</strong> pozwala przekierować wybrane porty z publicznego adresu IP dostawcy VPN na Twoje urządzenie za tunelem. Przydaje się w <strong>P2P/seed</strong>, zdalnym dostępie i usługach self-hosted. Tu znajdziesz, kiedy PF ma sens, jak go włączyć i bezpiecznie przetestować oraz jakie są <strong>ryzyka</strong> i <strong>alternatywy</strong>.</p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <h2>Spis treści</h2>
+    <ul>
+      <li><a href="#po-co">Po co port forwarding i jak działa</a></li>
+      <li><a href="#kiedy">Kiedy warto włączyć PF (a kiedy nie)</a></li>
+      <li><a href="#konfiguracja">Konfiguracja krok po kroku</a></li>
+      <li><a href="#testy">Testy i diagnostyka</a></li>
+      <li><a href="#bezpieczenstwo">Bezpieczeństwo: kill switch, firewall, DNS/IPv6</a></li>
+      <li><a href="#alternatywy">Alternatywy dla PF</a></li>
+      <li><a href="#checklista">Checklista „włącz i nie żałuj”</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
   </nav>
 
-  <div class="wrap post">
-    <article class="article">
+  <h2 id="po-co">Po co port forwarding i jak działa</h2>
+  <p>Domowe łącza za <em>CGNAT</em> lub zaporą operatora nie przyjmują ruchu przychodzącego. Dostawcy VPN z <strong>port forwardingiem</strong> wystawiają publiczny port na swoim IP i tunelują go do Ciebie. Dzięki temu aplikacje z zewnątrz (np. klienci P2P) mogą połączyć się z Twoim komputerem wprost przez tunel.</p>
+  <p>Podstawy prywatności i wyboru dostawcy: <a href="/blog/no-logs.html">VPN no-logs</a>, <a href="/blog/co-to-jest-vpn.html">Co to jest VPN</a>.</p>
 
-      <h1>Port forwarding w VPN — kiedy i jak używać</h1>
+  <h2 id="kiedy">Kiedy warto włączyć PF (a kiedy nie)</h2>
+  <ul>
+    <li><strong>Warto</strong>: P2P/seed (więcej połączeń przychodzących, lepsze ratio), self-hosted (np. mały serwer www, git, game server), zdalny dostęp.</li>
+    <li><strong>Nie zawsze</strong>: zwykłe przeglądanie, streaming VOD (tu częściej <a href="/blog/vpn-dla-smart-tv.html">Smart TV</a>/<a href="/blog/vpn-dla-apple-tv.html">Apple TV</a> + Smart DNS), bankowość (lepiej bez otwartych portów).</li>
+  </ul>
+  <p>O P2P więcej tu: <a href="/blog/vpn-p2p-bezpiecznie.html">P2P/torrenty z VPN</a>. O ograniczeniach regionalnych: <a href="/blog/vpn-geoblokady.html">geoblokady</a>.</p>
 
-      <figure class="hero">
-        <img src="/assets/img/hero/vpn-port-forwarding.webp" width="1200" height="628"
-             alt="Port forwarding w VPN — kiedy i jak używać" fetchpriority="high" loading="eager" decoding="async">
-        <figcaption>Port forwarding w VPN — kiedy i jak używać</figcaption>
-      </figure>
-
-      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
-
-      <!-- TOC -->
-      <nav class="toc" aria-label="Spis treści">
-        <strong>Spis treści</strong>
-        <ol>
-          <li><a href="#sekcja-1">Sekcja 1</a></li>
-          <li><a href="#sekcja-2">Sekcja 2</a></li>
-          <li><a href="#sekcja-3">Sekcja 3</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
-        </ol>
-      </nav>
-
-      <h2 id="sekcja-1">Sekcja 1</h2>
-      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
-
-      <h2 id="sekcja-2">Sekcja 2</h2>
-      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
-
-      <h2 id="sekcja-3">Sekcja 3</h2>
-      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
-
-      <!-- CTA -->
-      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
-        <a class="btn btn-primary"
-           href="/go/nordvpn.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
-        &nbsp;
-        <a class="btn btn-ghost"
-           href="/go/surfshark.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
-      </div>
-
-      <!-- FAQ -->
-      <section class="faq" id="faq">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Czy VPN jest legalny w Polsce?</summary>
-          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
-        </details>
-        <details>
-          <summary>Czy VPN spowalnia internet?</summary>
-          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
-        </details>
-        <details>
-          <summary>Czy VPN daje pełną anonimowość?</summary>
-          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
-        </details>
-      </section>
-
-      <!-- Czytaj też -->
-      <aside class="readmore">
-        <h2>Czytaj też</h2>
-        <p>Powiązane:
-          <a href="/blog/no-logs.html">VPN no-logs</a>,
-          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
-          <a href="/blog/test-vpn.html">Test VPN</a>
-        </p>
-      </aside>
-
-      <!-- Author -->
-      <section class="author">
-        <div class="author__media">
-          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-        </div>
-        <div class="author__body">
-          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
-        </div>
-      </section>
-
-      <!-- TOP 5 -->
-      <section class="top5" id="top5">
-        <h2>TOP 5 VPN w Polsce (2025)</h2>
-        <ol class="top5__list">
-          <li>
-            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
-            <div class="mini-cta">
-              <a class="btn btn-small"
-                 href="/go/nordvpn.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
-            </div>
-          </li>
-          <li>
-            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
-            <div class="mini-cta">
-              <a class="btn btn-small btn-ghost"
-                 href="/go/surfshark.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
-            </div>
-          </li>
-          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
-        </ol>
-      </section>
-
-            <!-- Video (YouTube) -->
-      <section class="video">
-        <h2>Video: przewodnik wideo</h2>
-        <div class="video-wrapper">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </section>
-
-      <style>
-      .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-        overflow: hidden;
-        border-radius: .6rem;
-      }
-      .video-wrapper iframe {
-        position: absolute;
-        top:0; left:0;
-        width:100%; height:100%;
-      }
-      </style>
-
-<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-    </article>
+  <!-- CTA #1 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ NordVPN — szybki WireGuard, stabilne pule</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — nielimit urządzeń (P2P)</a>
   </div>
 
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "inLanguage":"pl-PL",
-    "headline":"Port forwarding w VPN — kiedy i jak używać",
-    "description":"Etalon artykułu: Port forwarding w VPN — kiedy i jak używać. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
-    "datePublished":"2025-09-04",
-    "dateModified":"2025-09-04",
-    "image":"https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp",
-    "url":"https://dloran1.github.io/blog/vpn-port-forwarding.html",
-    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska",
-      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-    },
-    "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-port-forwarding.html"
-  }
-  </script>
+  <h2 id="konfiguracja">Konfiguracja krok po kroku</h2>
+  <ol>
+    <li><strong>Sprawdź, czy Twój dostawca wspiera PF</strong> — część usług udostępnia przekierowanie tylko w wybranych lokalizacjach lub aplikacjach (statyczny lub dynamiczny port).</li>
+    <li><strong>Włącz PF w aplikacji lub panelu</strong> — aplikacja poda przydzielony port (np. 49152). Zapisz go.</li>
+    <li><strong>Przypisz port w aplikacji</strong> (np. qBittorrent/Transmission; lub w usłudze, którą wystawiasz), ustaw <em>listening port</em> = przydzielony.</li>
+    <li><strong>Firewall</strong> — zezwól na ruch przychodzący na ten port <em>tylko</em> przez interfejs VPN (wg0/tun0). Zablokuj ten port na interfejsach LAN/WAN.</li>
+    <li><strong>Stałość IP</strong> — niektórzy dostawcy zmieniają port po reconnect; jeśli potrzebujesz stabilności, rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany IP</a>.</li>
+  </ol>
+  <p>Instrukcje systemowe: <a href="/blog/vpn-windows-konfiguracja.html">Windows</a>, <a href="/blog/vpn-na-mac.html">macOS</a>, <a href="/blog/vpn-linux-konfiguracja.html">Linux</a>, <a href="/blog/vpn-android-konfiguracja.html">Android</a>, <a href="/blog/vpn-iphone-konfiguracja.html">iPhone</a>.</p>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
-      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
-      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
-    ]
-  }
-  </script>
+  <h2 id="testy">Testy i diagnostyka</h2>
+  <ol>
+    <li>Upewnij się, że VPN jest połączony, a port jest <strong>przydzielony</strong> (w apce/panelu).</li>
+    <li>Uruchom usługę nasłuchującą na tym porcie (np. klient P2P lub prosty serwer testowy).</li>
+    <li>Sprawdź otwartość portu z zewnątrz (dowolnym testerem portów) — powinien być <em>open</em> na publicznym IP VPN.</li>
+    <li>W razie „closed/filtered”: czy działa kill switch? czy firewall przepuszcza ruch <em>na interfejsie VPN</em>? czy port nie jest zmienny po reconnect?</li>
+  </ol>
+  <p>Diagnostyka prędkości/pingu: <a href="/blog/test-vpn.html">Test VPN</a>, <a href="/blog/vpn-szybkosc-test.html">Prędkość i ping</a>. Kontrola wycieków: <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a>.</p>
 
-  <!-- JSON-LD: ItemList (TOP 5) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "name":"TOP 5 VPN w Polsce (2025)",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
-      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
-      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
-    ]
-  }
-  </script>
+  <h2 id="bezpieczenstwo">Bezpieczeństwo: kill switch, firewall, DNS/IPv6</h2>
+  <ul>
+    <li><strong>Kill switch</strong> — ruch bez tunelu nie może „przebić się” na WAN. Włącz go w aplikacji i systemie. Poradnik: <a href="/blog/vpn-kill-switch.html">kill switch</a>.</li>
+    <li><strong>Firewall</strong> — reguły zezwalające <em>tylko</em> na interfejs VPN, drop na LAN/WAN dla tego portu. Na Linux: <em>ufw/nftables</em>.</li>
+    <li><strong>DNS/IPv6</strong> — wymuś DNS dostawcy; jeśli IPv6 nie jest tunelowane, tymczasowo wyłącz, by uniknąć niespójności regionu/wycieków.</li>
+  </ul>
+  <p>Jeśli wystawiasz usługi self-hosted, rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany IP</a> lub reverse proxy z ACL.</p>
 
+  <h2 id="alternatywy">Alternatywy dla PF</h2>
+  <ul>
+    <li><strong>Dedykowany IP</strong> — własny adres w VPN; łatwiejsze whitelisty, przewidywalność. Minusem jest mniejsza „mieszanina” ruchu.</li>
+    <li><strong>Reverse proxy/tunel aplikacyjny</strong> — wystawiasz usługę przez pośrednika (bez otwierania portów u siebie).</li>
+    <li><strong>Tracker/seedbox</strong> — w P2P przenieś seed na zewnętrzny serwer, a pobieraj szyfrowanym SFTP/HTTPS.</li>
+  </ul>
 
-  <!-- JSON-LD: VideoObject -->
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Port forwarding w VPN — kiedy i jak używać — wideo",
-  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
-  "thumbnailUrl": [
-    "https://dloran1.github.io/assets/img/thumbs/vpn-port-forwarding.webp"
-  ],
-  "uploadDate": "2025-09-04",
-  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  <h2 id="checklista">Checklista „włącz i nie żałuj”</h2>
+  <ol>
+    <li>Dostawca faktycznie wspiera <strong>port forwarding</strong> w wybranej lokalizacji.</li>
+    <li>Masz <strong>przydzielony port</strong> i ustawiony go w aplikacji/usłudze.</li>
+    <li><strong>Kill switch</strong> + reguły zapory zezwalające tylko na interfejs VPN.</li>
+    <li>DNS przez dostawcę VPN; brak <em>DoH/DoT</em> poza tunelem; IPv6 spójne z VPN.</li>
+    <li>Po reconnect sprawdzasz, czy port się nie zmienił; w razie potrzeby dedykowany IP.</li>
+  </ol>
+
+  <!-- CTA #2 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN (stabilne pule pod P2P)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — nielimit urządzeń</a>
+  </div>
+
+  <!-- TOP-5 -->
+  <section id="top5" class="top5">
+    <h2>TOP 5 VPN do port forwardingu / P2P (2025)</h2>
+    <ol>
+      <li><strong>NordVPN</strong> — szybki WireGuard, kill switch, dobre pule pod P2P. <a href="/go/nordvpn.html" target="_blank" rel="sponsored nofollow noopener">Sprawdź</a></li>
+      <li><strong>Surfshark</strong> — nielimit urządzeń, stabilne prędkości. <a href="/go/surfshark.html" target="_blank" rel="sponsored nofollow noopener">Zobacz</a></li>
+      <li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+      <li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+      <li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+    </ol>
+    <p class="muted">Uwaga: zakres i dostępność funkcji PF różnią się u dostawców i lokalizacji.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ — port forwarding w VPN</h2>
+    <details>
+      <summary>Czy port forwarding jest konieczny do torrentów?</summary>
+      <p>Nie, ale poprawia widoczność w DHT i liczbę połączeń przychodzących — zwykle lepsze seed/ratio. Bez PF też pobierzesz/wysłesz dane.</p>
+    </details>
+    <details>
+      <summary>Czy PF obniża bezpieczeństwo?</summary>
+      <p>Otwierasz „okno” do swojej usługi — ważne są reguły zapory (tylko interfejs VPN), aktualny software i brak ekspozycji na WAN bez tunelu. Włącz <a href="/blog/vpn-kill-switch.html">kill switch</a>.</p>
+    </details>
+    <details>
+      <summary>Dlaczego po reconnect port się zmienia?</summary>
+      <p>Niektórzy dostawcy przydzielają <em>dynamiczne</em> porty. Sprawdź w apce/panelu i zautomatyzuj aktualizację w swojej usłudze albo rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany IP</a>.</p>
+    </details>
+  </section>
+
+  <!-- YouTube -->
+  <div class="yt-embed" aria-label="Wideo: Port forwarding w VPN — konfiguracja i testy">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&modestbranding=1&iv_load_policy=3"
+      title="Port forwarding w VPN — praktyczny poradnik (2025)"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+    </div>
+  </section>
+
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/vpn-p2p-bezpiecznie.html">P2P/torrenty z VPN</a>, <a href="/blog/vpn-dedykowany-ip.html">VPN z dedykowanym IP</a>, <a href="/blog/vpn-kill-switch.html">Kill switch</a>, <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a></p>
+  </aside>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Port forwarding w VPN — kiedy i jak używać (2025)",
+  "description":"Port forwarding w VPN: zastosowania (P2P, zdalny dostęp, self-hosted), konfiguracja krok po kroku, testy, bezpieczeństwo (kill switch, firewall, DNS/IPv6) i alternatywy.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-port-forwarding.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-port-forwarding.html"
 }
-  </script>
+</script>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
