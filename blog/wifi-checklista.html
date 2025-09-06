@@ -2,35 +2,21 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <title>Checklisty bezpieczeństwa Wi‑Fi — krok po kroku</title>
-  <meta name="description" content="Etalon artykułu: Checklisty bezpieczeństwa Wi‑Fi — krok po kroku. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <title>Checklista bezpieczeństwa Wi-Fi — dom, biuro i podróże (2025)</title>
+  <meta name="description" content="Gotowa checklista bezpieczeństwa Wi-Fi: router, hasła i WPA3, segmentacja IoT/gości, DNS bez wycieków, VPN w hotspotach, praca zdalna, testy i monitoring. Wydrukuj i odhaczaj.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Styles / Favicon -->
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://dloran1.github.io/blog/wifi-checklista.html">
-
-  <!-- Perf -->
-  <link rel="preload" as="image" href="/assets/img/hero/wifi-checklista.webp" imagesrcset="/assets/img/hero/wifi-checklista.webp" imagesizes="100vw">
-  <meta name="robots" content="max-image-preview:large">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="VPN Polska">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Checklisty bezpieczeństwa Wi‑Fi — krok po kroku">
-  <meta property="og:description" content="Etalon artykułu: Checklisty bezpieczeństwa Wi‑Fi — krok po kroku. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
+  <meta property="og:title" content="Checklista bezpieczeństwa Wi-Fi — dom, biuro i podróże (2025)">
+  <meta property="og:description" content="WPA3, silne hasła, segmentacja IoT/gości, DNS i VPN w hotspotach. Wydrukuj i odhaczaj.">
   <meta property="og:url" content="https://dloran1.github.io/blog/wifi-checklista.html">
   <meta property="og:image" content="https://dloran1.github.io/assets/img/hero/wifi-checklista.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Checklisty bezpieczeństwa Wi‑Fi — krok po kroku">
-  <meta name="twitter:description" content="Etalon artykułu: Checklisty bezpieczeństwa Wi‑Fi — krok po kroku. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.">
-  <meta name="twitter:image" content="https://dloran1.github.io/assets/img/hero/wifi-checklista.webp">
 
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
@@ -40,239 +26,206 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
-      {"@type":"ListItem","position":3,"name":"Checklisty bezpieczeństwa Wi‑Fi — krok po kroku","item":"https://dloran1.github.io/blog/wifi-checklista.html"}
+      {"@type":"ListItem","position":3,"name":"Checklista bezpieczeństwa Wi-Fi","item":"https://dloran1.github.io/blog/wifi-checklista.html"}
     ]
   }
   </script>
-
-  <!-- Fail-safe: hero nie szerszy niż kolumna tekstu -->
-  <style>
-    .post .article { max-width: 72ch; margin: 0 auto; }
-    .post .article .hero { max-width: 72ch; margin: 1rem auto; }
-    .post .article .hero img { display:block; width:100%; height:auto; max-width:100%; }
-    .toc { background:rgba(255,255,255,.06); padding:1rem; border-radius:.6rem; }
-    .top5__list .btn.btn-small { font-size:.9rem; padding:.35rem .75rem; text-decoration:none; }
-  </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- Widoczne breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Okruszki nawigacyjne">
-    <div class="wrap">
-      <a href="/">Strona główna</a> › <a href="/blog/index.html">Blog</a> › <span>Checklisty bezpieczeństwa Wi‑Fi — krok po kroku</span>
+<nav class="nav" aria-label="Główna nawigacja">
+  <div class="inner">
+    <a class="logo" href="/">VPN Polska</a>
+    <div class="menu">
+      <a href="/">Strona główna</a> •
+      <a href="/blog/index.html">Blog</a>
     </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="breadcrumbs"><a href="/">Strona główna</a> / <a href="/blog/index.html">Blog</a> / Checklista bezpieczeństwa Wi-Fi</p>
+  <h1>Checklista bezpieczeństwa Wi-Fi — dom, biuro i podróże (2025)</h1>
+  <figure class="article-hero">
+    <img src="/assets/img/hero/wifi-checklista.webp"
+         alt="Checklista bezpieczeństwa Wi-Fi — router, IoT, VPN, DNS"
+         width="1200" height="628"
+         fetchpriority="high" loading="eager" decoding="async">
+  </figure>
+  <p class="lead">Poniżej znajdziesz <strong>skondensowaną checklistę</strong>, która zabezpiecza domowe i mobilne Wi-Fi: <strong>WPA3</strong>, silne hasła, <strong>segmentację IoT/gości</strong>, <strong>DNS bez wycieków</strong>, <strong>VPN</strong> w hotspotach, a także testy i monitoring. Każdy punkt to <em>konkretne działanie</em> z odnośnikami do naszych poradników.</p>
+</header>
+
+<main class="wrap post" id="top">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Spis treści">
+    <h2>Spis treści</h2>
+    <ul>
+      <li><a href="#router">Router i podstawy</a></li>
+      <li><a href="#hasla">Szyfrowanie i hasła</a></li>
+      <li><a href="#segmentacja">Segmentacja: goście i IoT</a></li>
+      <li><a href="#dns">DNS i prywatność</a></li>
+      <li><a href="#hotspoty">Publiczne hotspoty</a></li>
+      <li><a href="#praca">Praca zdalna</a></li>
+      <li><a href="#testy">Testy i monitoring</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
   </nav>
 
-  <div class="wrap post">
-    <article class="article">
+  <h2 id="router">Router i podstawy</h2>
+  <ul>
+    <li>Aktualizuj <strong>firmware</strong> (auto-update, jeśli jest) i wyłącz zdalny panel z Internetu.</li>
+    <li>Silne <strong>hasło admina</strong> + 2FA, jeśli dostępne.</li>
+    <li>Wyłącz <strong>WPS</strong> i zbędne usługi (UPnP, jeśli nie potrzebujesz).</li>
+    <li>Preferuj pasma <strong>5 GHz/6 GHz</strong>; ogranicz 2.4 GHz do IoT.</li>
+  </ul>
+  <p>Szerzej: <a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a>, wydajność i MTU: <a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a>.</p>
 
-      <h1>Checklisty bezpieczeństwa Wi‑Fi — krok po kroku</h1>
+  <h2 id="hasla">Szyfrowanie i hasła</h2>
+  <ul>
+    <li>Włącz <strong>WPA3-Personal</strong>; jeśli nie działa z częścią urządzeń — <strong>WPA2-AES</strong> (bez TKIP).</li>
+    <li>Hasło PSK: losowe, ≥16 znaków. Nie używaj słowników ani dat.</li>
+    <li>Unikaj ukrywania SSID — to nie podnosi realnie bezpieczeństwa.</li>
+  </ul>
+  <p>O protokołach i prywatności: <a href="/blog/co-to-jest-vpn.html">Co to jest VPN</a>.</p>
 
-      <figure class="hero">
-        <img src="/assets/img/hero/wifi-checklista.webp" width="1200" height="628"
-             alt="Checklisty bezpieczeństwa Wi‑Fi — krok po kroku" fetchpriority="high" loading="eager" decoding="async">
-        <figcaption>Checklisty bezpieczeństwa Wi‑Fi — krok po kroku</figcaption>
-      </figure>
-
-      <p><strong>Etalon</strong>: stała struktura (hero, TOC, treść, CTA, FAQ, TOP‑5, JSON‑LD). Tekst uzupełnimy później; linki i meta są już zgodne z protokołem.</p>
-
-      <!-- TOC -->
-      <nav class="toc" aria-label="Spis treści">
-        <strong>Spis treści</strong>
-        <ol>
-          <li><a href="#sekcja-1">Sekcja 1</a></li>
-          <li><a href="#sekcja-2">Sekcja 2</a></li>
-          <li><a href="#sekcja-3">Sekcja 3</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#top5">TOP 5 VPN w Polsce</a></li>
-        </ol>
-      </nav>
-
-      <h2 id="sekcja-1">Sekcja 1</h2>
-      <p>Wprowadzenie i treść merytoryczna. Wewnętrzne linki: <a href="/blog/no-logs.html">no-logs</a>, <a href="/blog/test-vpn.html">test VPN</a>.</p>
-
-      <h2 id="sekcja-2">Sekcja 2</h2>
-      <p>Kolejna część treści. Sprawdź też: <a href="/blog/darmowe-vs-platne-vpn.html">darmowe vs płatne VPN</a>.</p>
-
-      <h2 id="sekcja-3">Sekcja 3</h2>
-      <p>Podsumowanie i praktyczne wskazówki. CTA poniżej.</p>
-
-      <!-- CTA -->
-      <div class="cta" role="group" aria-label="Oferty VPN" style="margin-top:24px">
-        <a class="btn btn-primary"
-           href="/go/nordvpn.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="NordVPN — przejdź do oferty">✅ Zacznij z NordVPN</a>
-        &nbsp;
-        <a class="btn btn-ghost"
-           href="/go/surfshark.html"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Surfshark — sprawdź ofertę">Surfshark — sprawdź ofertę</a>
-      </div>
-
-      <!-- FAQ -->
-      <section class="faq" id="faq">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Czy VPN jest legalny w Polsce?</summary>
-          <p>Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem.</p>
-        </details>
-        <details>
-          <summary>Czy VPN spowalnia internet?</summary>
-          <p>Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę.</p>
-        </details>
-        <details>
-          <summary>Czy VPN daje pełną anonimowość?</summary>
-          <p>Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań.</p>
-        </details>
-      </section>
-
-      <!-- Czytaj też -->
-      <aside class="readmore">
-        <h2>Czytaj też</h2>
-        <p>Powiązane:
-          <a href="/blog/no-logs.html">VPN no-logs</a>,
-          <a href="/blog/jaki-serwer-vpn.html">Jaki VPN wybrać?</a>,
-          <a href="/blog/test-vpn.html">Test VPN</a>
-        </p>
-      </aside>
-
-      <!-- Author -->
-      <section class="author">
-        <div class="author__media">
-          <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
-        </div>
-        <div class="author__body">
-          <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
-          <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-04">04.09.2025</time></p>
-        </div>
-      </section>
-
-      <!-- TOP 5 -->
-      <section class="top5" id="top5">
-        <h2>TOP 5 VPN w Polsce (2025)</h2>
-        <ol class="top5__list">
-          <li>
-            <strong>NordVPN</strong> — szybkie serwery w PL/EU, polityka no-logs, stabilny streaming VOD.
-            <div class="mini-cta">
-              <a class="btn btn-small"
-                 href="/go/nordvpn.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="NordVPN — przejdź do oferty">Przejdź do oferty</a>
-            </div>
-          </li>
-          <li>
-            <strong>Surfshark</strong> — świetny stosunek ceny do możliwości, nielimitowane urządzenia.
-            <div class="mini-cta">
-              <a class="btn btn-small btn-ghost"
-                 href="/go/surfshark.html"
-                 target="_blank" rel="sponsored nofollow noopener"
-                 aria-label="Surfshark — sprawdź ofertę">Sprawdź ofertę</a>
-            </div>
-          </li>
-          <li><strong>ProtonVPN</strong> — nacisk na prywatność i open-source. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>CyberGhost</strong> — przyjazne aplikacje i profile VOD. <em>Wkrótce w naszej ofercie</em>.</li>
-          <li><strong>ExpressVPN</strong> — stabilna infrastruktura globalna. <em>Wkrótce w naszej ofercie</em>.</li>
-        </ol>
-      </section>
-
-            <!-- Video (YouTube) -->
-      <section class="video">
-        <h2>Video: przewodnik wideo</h2>
-        <div class="video-wrapper">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </section>
-
-      <style>
-      .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-        overflow: hidden;
-        border-radius: .6rem;
-      }
-      .video-wrapper iframe {
-        position: absolute;
-        top:0; left:0;
-        width:100%; height:100%;
-      }
-      </style>
-
-<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
-    </article>
+  <!-- CTA #1 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ NordVPN — ochrona w Wi-Fi + DNS</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — Auto-connect w hotspotach</a>
   </div>
 
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "inLanguage":"pl-PL",
-    "headline":"Checklisty bezpieczeństwa Wi‑Fi — krok po kroku",
-    "description":"Etalon artykułu: Checklisty bezpieczeństwa Wi‑Fi — krok po kroku. Struktura zgodna z protokołem — hero, TOC, CTA, FAQ, TOP-5, JSON-LD.",
-    "datePublished":"2025-09-04",
-    "dateModified":"2025-09-04",
-    "image":"https://dloran1.github.io/assets/img/hero/wifi-checklista.webp",
-    "url":"https://dloran1.github.io/blog/wifi-checklista.html",
-    "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
-    "publisher":{"@type":"Organization","name":"VPN Polska",
-      "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
-    },
-    "mainEntityOfPage":"https://dloran1.github.io/blog/wifi-checklista.html"
-  }
-  </script>
+  <h2 id="segmentacja">Segmentacja: goście i IoT</h2>
+  <ul>
+    <li>Utwórz oddzielne SSID: <strong>Goście</strong> (izolacja klientów) oraz <strong>IoT</strong> (tylko Internet, brak dostępu do LAN).</li>
+    <li>Włącz <strong>Client Isolation</strong> w sieci gościnnej; dla IoT zablokuj ruch przychodzący z LAN.</li>
+    <li>Na głównym SSID trzymaj tylko Twoje komputery i telefony.</li>
+  </ul>
+  <p>Wideo i TV: <a href="/blog/vpn-dla-smart-tv.html">Smart TV</a>, <a href="/blog/vpn-dla-apple-tv.html">Apple TV</a>.</p>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Czy VPN jest legalny w Polsce?","acceptedAnswer":{"@type":"Answer","text":"Tak, korzystanie z VPN jest legalne, o ile używasz go zgodnie z prawem."}},
-      {"@type":"Question","name":"Czy VPN spowalnia internet?","acceptedAnswer":{"@type":"Answer","text":"Minimalnie, zależnie od serwera i obciążenia; szybkie protokoły zmniejszają różnicę."}},
-      {"@type":"Question","name":"Czy VPN daje pełną anonimowość?","acceptedAnswer":{"@type":"Answer","text":"Nie. VPN to warstwa prywatności, ale nie usuwa śladów cookies i logowań."}}
-    ]
-  }
-  </script>
+  <h2 id="dns">DNS i prywatność</h2>
+  <ul>
+    <li>Jeśli korzystasz z VPN, wymuś <strong>DNS dostawcy</strong> i unikaj DoH/DoT poza tunelem (inaczej <a href="/blog/vpn-dns-leak.html">wycieki DNS</a> i błędy regionu).</li>
+    <li>Bez VPN wybierz resolver z ochroną przed phishingiem/malware.</li>
+    <li>IPv6: włącz tylko, jeśli jest tunelowane; w przeciwnym razie wyłącz w systemie/routerze.</li>
+  </ul>
 
-  <!-- JSON-LD: ItemList (TOP 5) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "name":"TOP 5 VPN w Polsce (2025)",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"NordVPN","url":"https://dloran1.github.io/go/nordvpn.html"}},
-      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Surfshark","url":"https://dloran1.github.io/go/surfshark.html"}},
-      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"ProtonVPN","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"CyberGhost","description":"Wkrótce w naszej ofercie"}},
-      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"ExpressVPN","description":"Wkrótce w naszej ofercie"}}
-    ]
-  }
-  </script>
+  <h2 id="hotspoty">Publiczne hotspoty</h2>
+  <ul>
+    <li><strong>VPN + kill switch</strong> włączone <em>zanim</em> zalogujesz się gdziekolwiek. Poradnik: <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>.</li>
+    <li>Najpierw <strong>captive portal</strong>, potem VPN (pomocne: <code>neverssl.com</code>).</li>
+    <li>Ogranicz <strong>WebRTC</strong> i udostępnianie w pobliżu (AirDrop/BT) w miejscach publicznych.</li>
+  </ul>
 
+  <h2 id="praca">Praca zdalna</h2>
+  <ul>
+    <li>Ruch służbowy (RDP/SSH/VoIP/CRM) przez VPN; prywatny ruch poza tunelem przez <a href="/blog/vpn-split-tunneling.html">split tunneling</a>, jeśli potrzebujesz.</li>
+    <li><strong>MFA/2FA</strong> do usług firmowych. Omówienie: <a href="/blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a>.</li>
+    <li>Dla stałych adresów i whitelist — rozważ <a href="/blog/vpn-dedykowany-ip.html">dedykowany IP</a>.</li>
+  </ul>
 
-  <!-- JSON-LD: VideoObject -->
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Checklisty bezpieczeństwa Wi‑Fi — krok po kroku — wideo",
-  "description": "Materiał wideo uzupełniający artykuł. Zastąp VIDEO_ID prawdziwym identyfikatorem z YouTube.",
-  "thumbnailUrl": [
-    "https://dloran1.github.io/assets/img/thumbs/wifi-checklista.webp"
-  ],
-  "uploadDate": "2025-09-04",
-  "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
-  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  <h2 id="testy">Testy i monitoring</h2>
+  <ul>
+    <li>Raz na kwartał przejdź całą checklistę i zrób testy: <a href="/blog/test-vpn.html">Test VPN</a>, <a href="/blog/vpn-szybkosc-test.html">Prędkość i ping</a>.</li>
+    <li>Sprawdź <strong>IP/DNS</strong> przed/po VPN i brak wycieków IPv6.</li>
+    <li>W routerze włącz powiadomienia o nowych wersjach/nieudanych logowaniach.</li>
+  </ul>
+
+  <!-- CTA #2 -->
+  <div class="cta">
+    <a class="btn btn-primary"
+       href="/go/nordvpn.html"
+       target="_blank" rel="sponsored nofollow noopener">✅ Zacznij z NordVPN (Wi-Fi i praca)</a>
+    &nbsp;
+    <a class="btn btn-ghost"
+       href="/go/surfshark.html"
+       target="_blank" rel="sponsored nofollow noopener">Surfshark — sprawdź ofertę</a>
+  </div>
+
+  <!-- TOP-5 -->
+  <section id="top5" class="top5">
+    <h2>TOP 5 kroków podnoszących bezpieczeństwo Wi-Fi (2025)</h2>
+    <ol>
+      <li><strong>WPA3 + silny PSK</strong> — koniec ze słabymi hasłami.</li>
+      <li><strong>Segmentacja</strong> — osobne SSID dla gości i IoT.</li>
+      <li><strong>Aktualny firmware</strong> — łatki na czas.</li>
+      <li><strong>DNS bez wycieków</strong> — spójność regionu, prywatność.</li>
+      <li><strong>VPN w hotspotach</strong> — tunel + kill switch. <a href="/blog/vpn-publiczne-wifi.html">Jak to zrobić</a></li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ — checklista Wi-Fi</h2>
+    <details>
+      <summary>Czy ukrywanie SSID ma sens?</summary>
+      <p>Niewielki. Skup się na WPA3/WPA2-AES i silnym PSK oraz segmentacji.</p>
+    </details>
+    <details>
+      <summary>Czy UPnP zawsze wyłączać?</summary>
+      <p>Jeśli nie używasz usług wymagających mapowania portów, tak — wyłącz. W przeciwnym razie ogranicz do zaufanych urządzeń.</p>
+    </details>
+    <details>
+      <summary>Jaki DNS wybrać, gdy nie używam VPN?</summary>
+      <p>Taki, który oferuje filtrację phishing/malware i szyfrowanie (DoH/DoT). Gdy używasz VPN — korzystaj z DNS dostawcy, aby uniknąć konfliktów.</p>
+    </details>
+  </section>
+
+  <!-- YouTube -->
+  <div class="yt-embed" aria-label="Wideo: Checklista bezpieczeństwa Wi-Fi — 2025">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&modestbranding=1&iv_load_policy=3"
+      title="Checklista bezpieczeństwa Wi-Fi — poradnik 2025"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="author__media">
+      <img src="/assets/img/authors/denys.webp" alt="Denys Shchur" width="160" height="160" loading="lazy" decoding="async">
+    </div>
+    <div class="author__body">
+      <p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+      <p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+    </div>
+  </section>
+
+  <aside class="readmore">
+    <h2>Czytaj też</h2>
+    <p>Powiązane: <a href="/blog/wifi-bezpieczenstwo.html">Bezpieczeństwo Wi-Fi</a>, <a href="/blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>, <a href="/blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a>, <a href="/blog/vpn-dns-leak.html">Wycieki DNS</a>, <a href="/blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia</a></p>
+  </aside>
+
+  <p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Checklista bezpieczeństwa Wi-Fi — dom, biuro i podróże (2025)",
+  "description":"Praktyczna checklista Wi-Fi: router/firmware, WPA3 i hasła, segmentacja gości/IoT, DNS bez wycieków, VPN w hotspotach, praca zdalna oraz testy i monitoring.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/wifi-checklista.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/wifi-checklista.html"
 }
-  </script>
+</script>
+
+<footer class="foot">
+  <p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
