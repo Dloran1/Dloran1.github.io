@@ -1,0 +1,28 @@
+
+/* VPN Polska hardening */
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+body{margin:0;padding:0 16px;font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Arial,sans-serif;color:#e7e7ee;background:#0f1115}
+article,main,.container{max-width:860px;margin:0 auto;padding:24px 0}
+h1{font-size:2rem;line-height:1.25;margin:0 0 16px}
+h2{font-size:1.4rem;margin:28px 0 12px;line-height:1.35}
+h3{font-size:1.15rem;margin:20px 0 10px}
+a{color:#8ab4ff;text-decoration:underline;text-underline-offset:2px}
+a:hover{color:#c3d6ff}
+ul,ol{padding-left:1.2rem;margin:10px 0}li{margin:6px 0}
+img,svg,video,canvas,iframe{max-width:100%;height:auto;display:block}
+figure{margin:16px 0}article img{border-radius:10px}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}
+th,td{border:1px solid rgba(140,140,160,.35);padding:8px 10px}
+.breadcrumbs{margin:8px 0 20px;font-size:.95rem;opacity:.9}
+.breadcrumbs ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.breadcrumbs li+li::before{content:"›";margin:0 8px;opacity:.6}
+.toc{border:1px solid rgba(140,140,160,.35);border-radius:10px;padding:14px;background:rgba(255,255,255,.04);margin:20px 0}
+.toc strong{display:block;margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em;font-size:.9rem;opacity:.85}
+.toc ul{margin:0;padding-left:1rem}
+.cta{border:1px solid rgba(140,140,160,.35);border-radius:10px;background:rgba(255,255,255,.08);padding:20px;margin:24px 0}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid transparent;margin-right:8px;min-width:200px;text-align:center}
+.btn-primary{background:#2E90FA;color:#fff}.btn-secondary{background:#00B3A4;color:#fff}
+.related{border-top:1px solid rgba(140,140,160,.35);padding-top:14px;margin-top:20px}
+.author-box{border:1px solid rgba(140,140,160,.35);border-radius:10px;padding:14px;background:rgba(255,255,255,.04);margin:20px 0}
+.lang-switch ul{list-style:none;margin:0;padding:0;display:flex;gap:8px}
+.lang-switch a{padding:4px 8px;border:1px solid rgba(140,140,160,.35);border-radius:6px;text-decoration:none}
