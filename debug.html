@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>DEBUG posts.json</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;background:#0e0f12;color:#e9eef3}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px}
+    pre{white-space:pre-wrap;background:#0a0c10;border:1px solid #1f2530;border-radius:10px;padding:12px;overflow:auto}
+    a{color:#4ea1ff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>DEBUG posts.json</h1>
+    <p>Ниже показано, что реально возвращает <code>/data/posts.json</code>. Если здесь есть <code>desc</code>,
+       а на карточках пусто — проблема в главной странице/кэше.</p>
+    <p><a href="../data/posts.json" target="_blank">/data/posts.json (открыть отдельно)</a></p>
+    <pre id="out">Ładowanie…</pre>
+  </div>
+  <script>
+    (async () => {
+      const res = await fetch('/data/posts.json?v=' + Date.now(), { cache: 'no-store' });
+      const j = await res.json();
+      document.getElementById('out').textContent = JSON.stringify(j.slice(0,5), null, 2) + (j.length > 5 ? `\n... total: ${j.length}` : '');
+    })();
+  </script>
+</body>
+</html>

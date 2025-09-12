@@ -1,0 +1,52 @@
+<!doctype html><html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VPN dla VOD — Netflix, Player, TVP za granicą | VPN Polska</title>
+<meta name="description" content="Jak oglądać polskie VOD w podróży: Netflix PL, Player, TVP. Legalne wskazówki, ustawienia VPN, dobór serwera i protokołu.">
+<link rel="canonical" href="https://dloran1.github.io/vod.html"><meta name="robots" content="index,follow">
+<meta property="og:type" content="article"><meta property="og:url" content="https://dloran1.github.io/vod.html">
+<meta property="og:title" content="VPN dla VOD — Netflix, Player, TVP za granicą"><meta property="og:description" content="Konkretnie: serwery, protokoły i ustawienia.">
+<meta property="og:image" content="https://dloran1.github.io/assets/og.jpg">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header><div class="wrap">
+  <nav>
+    <div class="brand">VPN Polska</div>
+    <a href="../index.html">Strona główna</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../vod.html" aria-current="page">Vod</a>
+    <a href="../kontakt.html">Kontakt</a>
+  </nav>
+</div></header>
+
+<main class="wrap content">
+  <h1>VPN dla VOD: jak oglądać polskie serwisy podczas podróży</h1>
+  <p>Ustawienia, które często działają dla Netflix PL, Player, TVP VOD, Canal+ online i innych serwisów — gdy jesteś poza Polską.</p>
+
+  <h2>Krótkie zasady</h2>
+  <ul>
+    <li><b>Serwer:</b> Polska (Warszawa lub najbliższe miasto).</li>
+    <li><b>Protokół:</b> najpierw <b>WireGuard</b>; gdy błąd — <b>OpenVPN TCP 443</b>.</li>
+    <li><b>DNS:</b> DNS dostawcy VPN lub własne (np. 1.1.1.1).</li>
+    <li><b>IPv6:</b> wyłącz, jeśli aplikacja pozwala (mniej błędów geolokalizacji).</li>
+    <li><b>Kill Switch:</b> włącz, by uniknąć „przebić” IP.</li>
+  </ul>
+
+  <h2>Typowe błędy i rozwiązania</h2>
+  <div class="note">
+    <p><b>Netflix „proxy/VPN detected”:</b> zmień serwer w PL; przełącz protokół na OpenVPN TCP; wyczyść cookies; zrestartuj appkę.</p>
+    <p><b>Player/TVP nie ładuje treści:</b> wyłącz IPv6, sprawdź DNS, zmień protokół, spróbuj innej lokalizacji PL.</p>
+  </div>
+
+  <div class="more">
+    <h3>Powiązane poradniki</h3>
+    <ul>
+      <li><a href="../blog/vpn-netflix-polska.html">Netflix Polska: typowe ustawienia</a></li>
+      <li><a href="../blog/player-tvp-vpn.html">Player i TVP z zagranicy</a></li>
+      <li><a href="../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a></li>
+    </ul>
+  </div>
+</main>
+
+<footer><div class="wrap small">© <span id="y"></span> VPN Polska • Kontakt: <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body></html>
