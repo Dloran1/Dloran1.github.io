@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>VPN na iPhone — konfiguracja i profile (WireGuard, IKEv2) 2025</title>
+<meta content="Jak skonfigurować VPN na iPhone: aplikacje dostawców, natywne profile IKEv2, WireGuard, Always-On, blokada ruchu poza VPN, DNS bez wycieków, split tunneling w praktyce. Kompletny poradnik 2025." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="VPN na iPhone — konfiguracja i profile (WireGuard, IKEv2) 2025" property="og:title"/>
+<meta content="Aplikacja dostawcy czy profil IKEv2/WireGuard? Ustawienia Always-On, DNS, brak wycieków i praktyczne scenariusze (VOD, bankowość, praca zdalna)." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-iphone-konfiguracja.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN na iPhone — konfiguracja","item":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / VPN na iPhone</p>
+<h1>VPN na iPhone — konfiguracja i profile (WireGuard, IKEv2) 2025</h1>
+<figure class="article-hero">
+<img alt="VPN na iPhone — konfiguracja aplikacji, IKEv2 i WireGuard" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-iphone-konfiguracja.webp" width="1200"/>
+</figure>
+<p class="lead"><strong>iOS</strong> ma wbudowaną obsługę VPN (IKEv2/On-Demand), a wielu dostawców dodaje własne aplikacje z <strong>WireGuard</strong>. Tu znajdziesz najszybszą ścieżkę uruchomienia VPN, ustawienia <strong>Always-On</strong>, <strong>blokadę ruchu poza VPN</strong>, DNS bez wycieków i praktyczne scenariusze (VOD, bankowość, praca zdalna).</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#metody">Dwie metody: aplikacja dostawcy vs profil systemowy</a></li>
+<li><a href="#app">Konfiguracja przez aplikację (najprościej)</a></li>
+<li><a href="#ikev2">Konfiguracja profilu IKEv2 (system iOS)</a></li>
+<li><a href="#wireguard">WireGuard na iPhone (oficjalna apka)</a></li>
+<li><a href="#dns">DNS bez wycieków: DoH/DoT, WebRTC, IPv6</a></li>
+<li><a href="#scenariusze">Scenariusze: VOD, bankowość, praca zdalna</a></li>
+<li><a href="#checklista">Checklista „uruchom i zapomnij”</a></li>
+<li><a href="#faq">FAQ dla iOS</a></li>
+</ul>
+</nav>
+<h2 id="metody">Dwie metody: aplikacja dostawcy vs profil systemowy</h2>
+<ul>
+<li><strong>Aplikacja dostawcy</strong> — najszybsza, zwykle obsługuje <em>WireGuard</em>, wybór kraju, automatyczne aktualizacje i <em>kill switch</em>.</li>
+<li><strong>Profil IKEv2</strong> — natywny klient iOS (Ustawienia → VPN). Minimalistyczny, stabilny, dobry w środowiskach z ograniczeniami MDM.</li>
+</ul>
+<p>Podstawy działania i wyboru dostawcy: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a>, porównanie top usług: <a href="../../blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a>.</p>
+<h2 id="app">Konfiguracja przez aplikację (najprościej)</h2>
+<ol>
+<li>Pobierz aplikację dostawcy z App Store i zaloguj się.</li>
+<li>Wybierz <strong>WireGuard</strong> w ustawieniach protokołu (jeśli dostępny).</li>
+<li>Włącz <strong>Auto-connect</strong> i opcję „blokuj ruch bez VPN” (kill switch/jego odpowiednik w iOS).</li>
+<li>Wybierz serwer/kraj. Do VOD użyj kraju biblioteki, do pracy zdalnej — lokalny węzeł o niskim pingu.</li>
+</ol>
+<p>Praktyczne ustawienia prędkości: <a href="../../blog/vpn-optymalne-ustawienia.html">optymalne</a>, test trasy i jittera: <a href="../../blog/vpn-szybkosc-test.html">jak testować</a>.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN na iOS — szybki WireGuard i kill switch</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark iOS — nielimit urządzeń</a>
+</div>
+<h2 id="ikev2">Konfiguracja profilu IKEv2 (system iOS)</h2>
+<ol>
+<li>W Ustawienia → <strong>VPN</strong> → <strong>Dodaj konfigurację VPN…</strong> wybierz <strong>IKEv2</strong>.</li>
+<li>Wpisz dane z panelu dostawcy: <em>Serwer</em>, <em>Zdalny ID</em>, <em>Lokalny ID</em>, <em>Uwierzytelnianie</em> (login/hasło lub certyfikat).</li>
+<li>Włącz <strong>Połącz na żądanie (On-Demand)</strong>, skonfiguruj reguły: „Zawsze” lub dla wybranych domen/aplikacji.</li>
+<li>W zakładce DNS upewnij się, że używasz <strong>DNS dostawcy</strong> (unikniesz <a href="../../blog/vpn-dns-leak.html">wycieków</a>).</li>
+</ol>
+<p>Jeśli profil pochodzi z MDM: sprawdź polityki split tunnelingu i wyjątki domen.</p>
+<h2 id="wireguard">WireGuard na iPhone (oficjalna apka)</h2>
+<ol>
+<li>Zainstaluj „WireGuard” z App Store.</li>
+<li>Dodaj tunel z <strong>pliku .conf</strong> albo zeskanuj <strong>QR</strong> z panelu dostawcy.</li>
+<li>Włącz przełącznik tunelu, w „On-Demand” ustaw <em>Always-On</em> dla sieci komórkowej i Wi-Fi.</li>
+<li>Jeśli dostawca udostępnia <em>DNS = …</em> w pliku, zostaw bez zmian; inaczej dopisz jego serwery.</li>
+</ol>
+<p>Porównanie protokołów i wydajności: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.</p>
+<h2 id="dns">DNS bez wycieków: DoH/DoT, WebRTC, IPv6</h2>
+<ul>
+<li><strong>DNS dostawcy VPN</strong> — zaznacz w apce (Override DNS) lub w profilu WireGuard/IKev2.</li>
+<li><strong>Safari/Przeglądarki</strong> — unikaj zewnętrznego DoH/DoT poza tunelem (niespójny region). Jeśli używasz — kieruj go przez VPN.</li>
+<li><strong>IPv6</strong> — gdy dostawca nie tuneluje IPv6, rozważ tymczasowe wyłączenie w profilu; gdy wspiera — zostaw włączone.</li>
+<li><strong>WebRTC</strong> — na iOS jest ograniczone, ale w aplikacjach typu komunikatory nadal egzekwuj ruch przez VPN.</li>
+</ul>
+<p>Diagnoza „po objawach”: <a href="../../blog/vpn-dns-leak.html">wycieki DNS</a>, <a href="../../blog/test-vpn.html">test VPN</a>.</p>
+<h2 id="scenariusze">Scenariusze: VOD, bankowość, praca zdalna</h2>
+<h3>VOD (Player, TVP VOD, Netflix)</h3>
+<ul>
+<li>Do samych bibliotek VOD często lepszy jest <strong>Smart DNS</strong> na routerze/TV. Na iPhone w przeglądarce — pełny VPN z DNS dostawcy.</li>
+<li>Po zmianie kraju wyczyść cookies/odśwież aplikację VOD. Zobacz: <a href="../../blog/player-tvp-vpn.html">Player i TVP</a>, <a href="../../blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="../../blog/vpn-netflix-polska.html">Netflix PL</a>.</li>
+</ul>
+<h3>Bankowość</h3>
+<ul>
+<li>Część banków blokuje logowania z zagranicy/VPN. Używaj <strong>polskiego węzła</strong> lub wyłącz VPN. Dobre praktyki: <a href="../../blog/vpn-bankowosc-online.html">bankowość online</a>.</li>
+</ul>
+<h3>Praca zdalna</h3>
+<ul>
+<li>Wybieraj lokalny węzeł o niskim pingu; rozważ <a href="../../blog/vpn-dedykowany-ip.html">dedykowany IP</a> do whitelist.</li>
+<li>Jeśli firma wymaga osobnego klienta — profil IKEv2/MDM. O sieciach firmowych: <a href="../../blog/vpn-dla-firm-msp.html">VPN dla MSP</a>.</li>
+</ul>
+<h2 id="checklista">Checklista „uruchom i zapomnij”</h2>
+<ol>
+<li>Aplikacja dostawcy z <strong>WireGuard</strong> + <strong>Auto-connect</strong>.</li>
+<li><strong>Blokuj ruch bez VPN</strong> (kill switch/Always-On) i DNS dostawcy.</li>
+<li>Test 2–3 węzłów; wybierz stabilny pod wieczorny szczyt.</li>
+<li>Dla VOD miej plan B: <strong>Smart DNS</strong> lub drugi węzeł w tym samym kraju.</li>
+<li>Sprawdź po aktualizacji iOS, czy profil/apka zachowały uprawnienia VPN.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN na iOS</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark na iOS — sprawdź</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN na iPhone (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — szybki WireGuard, stabilne pule, kill switch. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, dobry stosunek cena/jakość. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ dla iOS</h2>
+<details>
+<summary>Co wybrać: aplikacja dostawcy czy profil IKEv2?</summary>
+<p>Dla większości — aplikacja (WireGuard, automatyka, kill switch). Profil IKEv2 ma sens w środowiskach MDM lub gdy potrzebujesz minimalizmu i stabilności systemowej.</p>
+</details>
+<details>
+<summary>Czy VPN wpływa na baterię iPhone?</summary>
+<p>Minimalnie przy WireGuard. W OpenVPN/IKEv2 zużycie bywa wyższe na słabym sygnale LTE/Wi-Fi. Użyj Auto-connect i stabilnych węzłów.</p>
+</details>
+<details>
+<summary>Dlaczego VOD wykrywa VPN na iPhonie?</summary>
+<p>Często chodzi o reputację IP lub niespójność DNS. Zmień węzeł w tym samym kraju, wyczyść cookies, sprawdź <a href="../../blog/vpn-dns-leak.html">wycieki DNS</a>; rozważ Smart DNS do VOD.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: VPN na iPhone — konfiguracja WireGuard i IKEv2" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="VPN na iPhone — konfiguracja i najlepsze praktyki (2025)"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/vpn-android-konfiguracja.html">VPN na Androidzie</a>, <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>, <a href="../../blog/vpn-netflix-polska.html">VPN a Netflix</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN na iPhone — konfiguracja i profile (WireGuard, IKEv2) 2025",
+  "description":"Jak skonfigurować VPN na iPhone: aplikacje dostawców, profile IKEv2, WireGuard, Always-On, blokada ruchu poza VPN, DNS bez wycieków, scenariusze VOD/bankowość/praca.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-iphone-konfiguracja.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-iphone-konfiguracja.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>VPN na Linuxie — konfiguracja i narzędzia (WireGuard, OpenVPN) 2025</title>
+<meta content="Kompletny poradnik: konfiguracja VPN na Linuxie (WireGuard i OpenVPN) z użyciem NetworkManager, wg-quick, systemd, ufw/nftables. DNS bez wycieków, kill switch, split tunneling i autostart. Działa na Ubuntu, Debian, Fedora, Arch i innych." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-linux-konfiguracja.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="VPN na Linuxie — konfiguracja i narzędzia (WireGuard, OpenVPN) 2025" property="og:title"/>
+<meta content="Instrukcje krok po kroku: NetworkManager, wg-quick, OpenVPN, systemd, kill switch, DNS i split tunneling." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-linux-konfiguracja.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-linux-konfiguracja.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN na Linuxie — konfiguracja","item":"https://dloran1.github.io/blog/vpn-linux-konfiguracja.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / VPN na Linuxie — konfiguracja</p>
+<h1>VPN na Linuxie — konfiguracja i narzędzia (WireGuard, OpenVPN) 2025</h1>
+<figure class="article-hero">
+<img alt="Linux VPN — konfiguracja NetworkManager, WireGuard i OpenVPN" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-linux-konfiguracja.webp" width="1200"/>
+</figure>
+<p class="lead">Ten poradnik prowadzi od zera do działającego <strong>WireGuard</strong> lub <strong>OpenVPN</strong> na Linuxie (Ubuntu/Debian/Fedora/Arch i pochodne). Pokażemy dwie drogi: <strong>graficzny NetworkManager</strong> i <strong>CLI</strong> (wg-quick/openvpn + systemd). Do tego <strong>DNS bez wycieków</strong>, <strong>kill switch</strong>, <strong>split tunneling</strong>, autostart i diagnostyka.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#co-potrzebne">Co będzie potrzebne</a></li>
+<li><a href="#nm">Konfiguracja przez NetworkManager (GUI)</a></li>
+<li><a href="#wgquick">WireGuard przez wg-quick (CLI + systemd)</a></li>
+<li><a href="#openvpncli">OpenVPN (CLI + systemd)</a></li>
+<li><a href="#dns">DNS bez wycieków (systemd-resolved/NetworkManager)</a></li>
+<li><a href="#killswitch">Kill switch (ufw/nftables/iptables)</a></li>
+<li><a href="#split">Split tunneling (policy routing)</a></li>
+<li><a href="#diagnostyka">Diagnostyka pingu/prędkości</a></li>
+<li><a href="#checklista">Checklista „uruchom i zapomnij”</a></li>
+</ul>
+</nav>
+<h2 id="co-potrzebne">Co będzie potrzebne</h2>
+<ul>
+<li>Dane od dostawcy: <em>pliki .conf</em> dla WireGuard lub <em>.ovpn</em> dla OpenVPN (czasem certyfikaty + login/hasło).</li>
+<li>Uprawnienia sudo.</li>
+<li>Aktualny kernel (WireGuard jest w jądrze) i zainstalowane pakiety: <code>wireguard-tools</code>, <code>openvpn</code>, <code>network-manager</code> + pluginy.</li>
+</ul>
+<p>Wybór dostawcy i różnice między protokołami: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, ogólne podstawy: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a>.</p>
+<h2 id="nm">Konfiguracja przez NetworkManager (GUI)</h2>
+<ol>
+<li>Zainstaluj pluginy:
+      <ul>
+<li>WireGuard: <code>network-manager-wireguard</code> (np. <em>Ubuntu/Fedora</em> przez repo dystrybucji).</li>
+<li>OpenVPN: <code>network-manager-openvpn</code>.</li>
+</ul>
+</li>
+<li>Otwórz „Ustawienia sieci” → „VPN” → <strong>Importuj z pliku</strong> i wskaż plik <code>.conf</code> (WG) lub <code>.ovpn</code>.</li>
+<li>W zakładce <strong>IPv4/IPv6</strong> ustaw <strong>DNS dostawcy</strong> (override) oraz <strong>„Tylko dla połączeń VPN”</strong> jeśli chcesz pełnego tunelu.</li>
+<li>Włącz <strong>Auto-connect</strong> i zapisz. Ikona VPN w panelu powinna pozwolić łączyć/rozłączać jednym kliknięciem.</li>
+</ol>
+<p>Jeśli chcesz kontrolować DNS dokładniej lub masz wycieki — zobacz sekcję <a href="#dns">DNS bez wycieków</a>.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — szybki WireGuard na Linuxie</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — świetny na desktop + router</a>
+</div>
+<h2 id="wgquick">WireGuard przez wg-quick (CLI + systemd)</h2>
+<ol>
+<li>Zainstaluj: <code>sudo apt install wireguard-tools</code> (Ubuntu/Debian) lub odpowiednik w Twojej dystrybucji.</li>
+<li>Skopiuj plik konfiguracyjny do <code>/etc/wireguard/wg0.conf</code> i ustaw prawa <code>600</code>.</li>
+<li>Testowo uruchom: <code>sudo wg-quick up wg0</code>. Sprawdź <code>ip a</code> (powinien pojawić się interfejs <em>wg0</em>).</li>
+<li>Autostart: <code>sudo systemctl enable wg-quick@wg0</code> i <code>sudo systemctl start wg-quick@wg0</code>.</li>
+<li>DNS: w sekcji <code>[Interface]</code> dodaj <code>DNS = x.x.x.x</code> (serwery dostawcy) lub skonfiguruj <a href="#dns">systemd-resolved</a>.</li>
+</ol>
+<p>Trudniejsze przypadki (kilka peerów, ręczne trasy) też ogarnie <code>wg-quick</code>. W razie problemów zobacz <a href="../../blog/test-vpn.html">Test VPN</a> i <a href="../../blog/vpn-szybkosc-test.html">prędkość/ping</a>.</p>
+<h2 id="openvpncli">OpenVPN (CLI + systemd)</h2>
+<ol>
+<li>Zainstaluj: <code>sudo apt install openvpn</code> (+ <code>resolvconf</code> lub obsługę <code>systemd-resolved</code>).</li>
+<li>Wrzuć plik <code>.ovpn</code> do <code>/etc/openvpn/client/</code>, nazwij np. <code>pl.ovpn</code>.</li>
+<li>Start: <code>sudo systemctl start openvpn-client@pl</code>; autostart: <code>enable</code>.</li>
+<li>DNS: użyj wbudowanych opcji <code>dhcp-option DNS</code> w <code>.ovpn</code> lub skonfiguruj <a href="#dns">resolved</a>.</li>
+</ol>
+<p>Jeśli masz problemy z wydajnością, spróbuj UDP i nowsze szyfry, albo rozważ przejście na <a href="../../blog/wireguard-vs-openvpn.html">WireGuard</a>.</p>
+<h2 id="dns">DNS bez wycieków (systemd-resolved/NetworkManager)</h2>
+<p>Wyciek DNS to najczęstszy powód wykrycia VPN (niespójny region). Szczegóły: <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>.</p>
+<ul>
+<li><strong>systemd-resolved</strong>: w <code>/etc/systemd/resolved.conf</code> ustaw <code>DNS=</code> i <code>Domains=~.</code>, włącz <code>DNSStubListener=yes</code>, a następnie wskaż <code>127.0.0.53</code> jako DNS dla interfejsu VPN.</li>
+<li><strong>NetworkManager</strong>: w profilu VPN zaznacz „Używaj tylko dla połączeń VPN” i ustaw DNS dostawcy jako override.</li>
+<li><strong>IPv6</strong>: jeśli dostawca nie tuneluje IPv6, tymczasowo je wyłącz (na interfejsie lub globalnie) albo wybierz dostawcę, który je obsługuje.</li>
+</ul>
+<h2 id="killswitch">Kill switch (ufw/nftables/iptables)</h2>
+<p>Kill switch ma zablokować ruch poza tunelem, gdy VPN padnie. Ogólne podstawy: <a href="../../blog/vpn-kill-switch.html">Kill switch</a>.</p>
+<ul>
+<li><strong>ufw</strong> (Ubuntu): zezwól tylko na ruch przez <em>wg0</em>/<em>tun0</em>; zablokuj wychodzące na <em>wlan0/eth0</em> poza VPN.</li>
+<li><strong>nftables/iptables</strong>: reguły „drop” na OUTPUT z wyjątkiem interfejsu tunelu i koniecznych DNS/NTP.</li>
+<li><strong>Auto-connect</strong> + <strong>systemd</strong>: uruchamiaj tunel wcześnie, zanim wystartują aplikacje sieciowe.</li>
+</ul>
+<h2 id="split">Split tunneling (policy routing)</h2>
+<p>Chcesz, by tylko część aplikacji/tras szła przez VPN? Użyj <strong>policy routing</strong> (znaczniki fwmark + tabele routingu). Wprowadzenie: <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a>.</p>
+<ul>
+<li><strong>Po PID/aplikacji</strong>: wrapper uruchamiający program z odpowiednim <em>fwmark</em>.</li>
+<li><strong>Po domenach</strong>: mapuj domeny na trasy (z ostrożnością, bo DNS może się zmieniać).</li>
+<li><strong>Po IP/portach</strong>: reguły nftables/iptables kierujące wybrane ruchy do tablicy routingu VPN.</li>
+</ul>
+<h2 id="diagnostyka">Diagnostyka pingu/prędkości</h2>
+<ul>
+<li><strong>Ping/jitter</strong>: porównaj kilka węzłów (PL/DE/NL); wybierz najmniej obciążony.</li>
+<li><strong>Przepustowość</strong>: testuj w różnych porach (szczyt wieczorny potrafi zwolnić). Zobacz: <a href="../../blog/test-vpn.html">Test VPN</a> i <a href="../../blog/vpn-szybkosc-test.html">Prędkość i ping</a>.</li>
+<li><strong>VOD</strong>: jeśli buforuje, spróbuj <a href="../../blog/vpn-dla-smart-tv.html">Smart TV</a> + <strong>Smart DNS</strong> albo inny węzeł.</li>
+</ul>
+<h2 id="checklista">Checklista „uruchom i zapomnij”</h2>
+<ol>
+<li>Import profilu w <strong>NetworkManager</strong> lub konfiguracja <strong>wg-quick/OpenVPN</strong>.</li>
+<li><strong>DNS dostawcy</strong> + brak <strong>DoH/DoT</strong> poza tunelem (spójny region).</li>
+<li><strong>Kill switch</strong> (ufw/nftables) i <strong>Auto-connect</strong> w systemd.</li>
+<li>Policy routing dla aplikacji, które nie potrzebują tunelu (opcjonalnie).</li>
+<li>Test IP/DNS + test prędkości w 2–3 porach dnia.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (Linux)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN na Linuxa (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — szybki WireGuard, dobre skrypty, audyty. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — przyjazny na desktopie, nielimit urządzeń. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ — Linux i VPN</h2>
+<details>
+<summary>WireGuard czy OpenVPN na Linuxie?</summary>
+<p>Na desktopie zwykle <strong>WireGuard</strong> (mniej CPU, lepsza prędkość). OpenVPN jako kompatybilny plan B (np. sieci korporacyjne, starsze routery).</p>
+</details>
+<details>
+<summary>Czy muszę wyłączyć IPv6?</summary>
+<p>Nie, jeśli dostawca tuneluje IPv6. Jeśli nie — wyłącz tymczasowo lub wybierz dostawcę z pełnym wsparciem.</p>
+</details>
+<details>
+<summary>Dlaczego serwis VOD wykrywa VPN?</summary>
+<p>Często chodzi o reputację puli IP lub wyciek DNS. Zmień węzeł w tym samym kraju i sprawdź <a href="../../blog/vpn-dns-leak.html">wycieki DNS</a>.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: VPN na Linuxie — konfiguracja WireGuard i OpenVPN" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="VPN na Linuxie — konfiguracja i najlepsze praktyki (2025)"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, <a href="../../blog/vpn-kill-switch.html">Kill switch</a>, <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a>, <a href="../../blog/test-vpn.html">Test VPN</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN na Linuxie — konfiguracja i narzędzia (WireGuard, OpenVPN) 2025",
+  "description":"Konfiguracja VPN na Linuxie: NetworkManager, wg-quick, OpenVPN, systemd, DNS bez wycieków, kill switch, split tunneling i autostart. Dla Ubuntu/Debian/Fedora/Arch.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-linux-konfiguracja.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-linux-konfiguracja.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

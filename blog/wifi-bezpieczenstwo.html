@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>Bezpieczeństwo Wi-Fi — jak chronić domową i mobilną sieć (2025)</title>
+<meta content="Pełna ochrona Wi-Fi: silne hasła i WPA3, gościnna sieć dla IoT, aktualizacje routera, segmentacja, DNS bez wycieków, VPN w publicznych hotspotach i checklista bezpieczeństwa. Praktyczny poradnik 2025." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="Bezpieczeństwo Wi-Fi — jak chronić domową i mobilną sieć (2025)" property="og:title"/>
+<meta content="WPA3, silne hasła, sieć dla gości/IoT, aktualizacje, segmentacja, DNS i VPN w publicznym Wi-Fi." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/wifi-bezpieczenstwo.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/wifi-bezpieczenstwo.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Bezpieczeństwo Wi-Fi","item":"https://dloran1.github.io/blog/wifi-bezpieczenstwo.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / Bezpieczeństwo Wi-Fi</p>
+<h1>Bezpieczeństwo Wi-Fi — jak chronić domową i mobilną sieć (2025)</h1>
+<figure class="article-hero">
+<img alt="Bezpieczeństwo Wi-Fi — router, sieć dla gości, IoT, VPN" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/wifi-bezpieczenstwo.webp" width="1200"/>
+</figure>
+<p class="lead">Twoja sieć Wi-Fi to <strong>pierwsza linia obrony</strong> dla komputerów, telefonów i urządzeń IoT. Poniżej dostajesz praktyczny plan: <strong>WPA3</strong>, silne hasła, <strong>sieć gościnna/IoT</strong>, aktualizacje routera, segmentacja, <strong>DNS bez wycieków</strong> oraz <strong>VPN</strong> w publicznych hotspotach. Na końcu — gotowa checklista.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#router">Router: szybkie wygrane bezpieczeństwa</a></li>
+<li><a href="#szyfrowanie">Szyfrowanie i hasła: WPA3/WPA2 i PSK</a></li>
+<li><a href="#segmentacja">Segmentacja: sieć dla gości i IoT</a></li>
+<li><a href="#dns">DNS, wycieki i prywatność</a></li>
+<li><a href="#publiczne">Publiczne Wi-Fi: jak nie dać się złapać</a></li>
+<li><a href="#praca">Praca zdalna i urządzenia firmowe</a></li>
+<li><a href="#checklista">Checklista bezpieczeństwa Wi-Fi</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<h2 id="router">Router: szybkie wygrane bezpieczeństwa</h2>
+<ul>
+<li><strong>Aktualizacje firmware</strong>: włącz automatyczne, jeśli dostępne; w przeciwnym razie sprawdzaj ręcznie raz w miesiącu.</li>
+<li><strong>Hasło admina</strong>: długie i unikalne; wyłącz zdalny panel administracyjny z Internetu.</li>
+<li><strong>Wyłącz WPS</strong> (PIN) i zbędne usługi (UPnP w scenariuszach, gdzie nie jest potrzebny).</li>
+<li><strong>5 GHz / 6 GHz</strong> (jeśli masz Wi-Fi 6/6E) — mniej zakłóceń niż 2.4 GHz.</li>
+</ul>
+<p>Praktyczny przegląd ustawień i optymalizacji znajdziesz też w: <a href="../../blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a> i <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN — test</a>.</p>
+<h2 id="szyfrowanie">Szyfrowanie i hasła: WPA3/WPA2 i PSK</h2>
+<ul>
+<li><strong>Tryb WPA3-Personal</strong>; jeśli urządzenia nie wspierają — <strong>WPA2-AES</strong> (unikaj mieszanych z WEP/TKIP).</li>
+<li><strong>Silny PSK</strong>: min. 14–16 znaków, losowy; nie używaj nazwy sieci ani słów ze słownika.</li>
+<li><strong>Ukrywanie SSID</strong> nie daje realnego bezpieczeństwa — lepiej postawić na silne uwierzytelnianie.</li>
+</ul>
+<h2 id="segmentacja">Segmentacja: sieć dla gości i IoT</h2>
+<p>Urządzenia IoT (kamery, żarówki, TV) mają zwykle słabsze aktualizacje i większe ryzyko luk. Umieść je w <strong>osobnej sieci</strong> (VLAN/Guest) bez dostępu do sieci głównej.</p>
+<ul>
+<li><strong>Guest SSID</strong> — izolacja klientów, brak wglądu do Twoich urządzeń.</li>
+<li><strong>IoT SSID</strong> — tylko dostęp do Internetu; zablokuj ruch do segmentu LAN.</li>
+<li><strong>Hasła unikalne</strong> dla każdego SSID; różne reguły zapory.</li>
+</ul>
+<p>W temacie TV i multimediów: <a href="../../blog/vpn-dla-smart-tv.html">VPN dla Smart TV</a>, <a href="../../blog/vpn-dla-apple-tv.html">VPN dla Apple TV</a>.</p>
+<h2 id="dns">DNS, wycieki i prywatność</h2>
+<p>Zapytania DNS ujawniają, jakie domeny odwiedzasz. Wybierz <strong>DNS dostawcy VPN</strong> albo zaufany resolver i <strong>unikaj wycieków</strong> (np. gdy przeglądarka używa DoH poza tunelem).</p>
+<ul>
+<li>Jeśli korzystasz z VPN, wymuś jego DNS w aplikacji. Więcej: <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>.</li>
+<li>Jeśli bez VPN — rozważ DNS z ochroną przed phishingiem i <em>malware</em>.</li>
+<li>IPv6: gdy nie jest tunelowane — tymczasowo wyłącz w systemie lub w routerze.</li>
+</ul>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — ochrona w publicznym Wi-Fi + DNS</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — nielimit urządzeń, Auto-connect</a>
+</div>
+<h2 id="publiczne">Publiczne Wi-Fi: jak nie dać się złapać</h2>
+<ul>
+<li><strong>VPN z kill switchem</strong> i <strong>Auto-connect</strong> — włącz zanim użyjesz banku czy poczty. Przewodnik: <a href="../../blog/vpn-publiczne-wifi.html">publiczne Wi-Fi</a>.</li>
+<li><strong>Captive portal</strong>: najpierw zaloguj się do portalu, potem włącz VPN (pomocne: <code>neverssl.com</code>).</li>
+<li><strong>WebRTC</strong>: ogranicz w przeglądarce ujawnianie IP lokalnego.</li>
+</ul>
+<p>Praca zdalna w hotelu? Rozważ <a href="../../blog/vpn-dedykowany-ip.html">dedykowany IP</a> i zasady z <a href="../../blog/vpn-praca-zdalna.html">praca zdalna</a>.</p>
+<h2 id="praca">Praca zdalna i urządzenia firmowe</h2>
+<ul>
+<li>Wymuś <strong>VPN dla narzędzi służbowych</strong> (RDP/SSH/CRM), prywatny ruch osobno lub <a href="../../blog/vpn-split-tunneling.html">split tunneling</a>.</li>
+<li><strong>MFA/2FA</strong> do kont firmowych (authenticator, klucze U2F). Omówienie: <a href="../../blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a>.</li>
+</ul>
+<h2 id="checklista">Checklista bezpieczeństwa Wi-Fi</h2>
+<ol>
+<li>Router: aktualizacje, silne hasło admina, wyłączone WPS/UPnP (jeśli zbędne).</li>
+<li>WPA3-Personal (lub WPA2-AES) + PSK ≥16 znaków.</li>
+<li>Oddzielne SSID: Goście i IoT, izolacja klientów i blokada do LAN.</li>
+<li>DNS bez wycieków; IPv6 zgodne lub wyłączone.</li>
+<li>W publicznym Wi-Fi: VPN + kill switch, logowanie do captive portalu przed uruchomieniem VPN.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (Wi-Fi i praca zdalna)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 praktyk ochrony Wi-Fi (2025)</h2>
+<ol>
+<li><strong>WPA3 + silny PSK</strong> — unikasz słabych haseł i starych protokołów.</li>
+<li><strong>Aktualny router</strong> — łatki bezpieczeństwa na czas.</li>
+<li><strong>Segmentacja</strong> — oddziel IoT i gości od LAN.</li>
+<li><strong>DNS bez wycieków</strong> — spójność regionu i prywatność.</li>
+<li><strong>VPN w hotspotach</strong> — tunel + kill switch + Auto-connect. <a href="../../blog/vpn-publiczne-wifi.html">Jak to zrobić</a></li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ — bezpieczeństwo Wi-Fi</h2>
+<details>
+<summary>Czy ukrywanie SSID poprawia bezpieczeństwo?</summary>
+<p>Niewiele — sieć i tak można wykryć. Lepiej skupić się na WPA3/WPA2-AES i silnym haśle.</p>
+</details>
+<details>
+<summary>WPS jest wygodny — czy warto zostawić?</summary>
+<p>Nie. WPS bywa podatny (PIN). Lepiej go wyłączyć i parować urządzenia klasycznie.</p>
+</details>
+<details>
+<summary>Czy darmowy VPN jest OK do publicznego Wi-Fi?</summary>
+<p>Zwykle nie — limity i wątpliwa prywatność. Lepiej wybrać płatny VPN z audytami <a href="../../blog/no-logs.html">no-logs</a> i działającym <a href="../../blog/vpn-kill-switch.html">kill switchem</a>.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: Bezpieczeństwo Wi-Fi — praktyczny poradnik 2025" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="Bezpieczeństwo Wi-Fi — poradnik 2025"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/wifi-checklista.html">Checklista Wi-Fi</a>, <a href="../../blog/vpn-publiczne-wifi.html">VPN w publicznym Wi-Fi</a>, <a href="../../blog/vpn-2fa-mfa.html">VPN i 2FA/MFA</a>, <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>, <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Bezpieczeństwo Wi-Fi — jak chronić domową i mobilną sieć (2025)",
+  "description":"WPA3, silne hasła, sieć gościnna i IoT, aktualizacje routera, segmentacja, DNS bez wycieków, VPN w publicznych hotspotach. Pełna checklista bezpieczeństwa Wi-Fi.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/wifi-bezpieczenstwo.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/wifi-bezpieczenstwo.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

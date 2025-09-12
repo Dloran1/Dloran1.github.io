@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)</title>
+<meta content="Double VPN (multi-hop) przesyła ruch przez dwa serwery VPN. Zyskasz dodatkową warstwę prywatności, ale kosztem prędkości. Wyjaśniamy: kiedy to ma sens, jak ustawić, wpływ na ping, VOD i P2P, alternatywy (Tor, dedykowany IP)." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-double-vpn.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)" property="og:title"/>
+<meta content="Przewodnik po multi-hop: zalety, wady, konfiguracja i najlepsze praktyki." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-double-vpn.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Double VPN (Multi-hop)","item":"https://dloran1.github.io/blog/vpn-double-vpn.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / Double VPN (Multi-hop)</p>
+<h1>Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)</h1>
+<figure class="article-hero">
+<img alt="Double VPN (multi-hop) — dodatkowa warstwa prywatności" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-double-vpn.webp" width="1200"/>
+</figure>
+<p class="lead"><strong>Double VPN</strong> (multi-hop) to połączenie przez <em>dwa</em> kolejne serwery VPN. Zwiększa trudność profilowania trasy i łączenia Twojej tożsamości z aktywnością online. Ma jednak koszt: <strong>niższa prędkość</strong> i <strong>wyższy ping</strong>. Tu znajdziesz kiedy warto go użyć, jak poprawnie ustawić oraz jakie są praktyczne alternatywy.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#co-to">Czym jest Double VPN i jak działa</a></li>
+<li><a href="#kiedy">Kiedy Double VPN ma sens</a></li>
+<li><a href="#wady">Wady i ograniczenia (ping, VOD, P2P)</a></li>
+<li><a href="#konfiguracja">Konfiguracja i najlepsze praktyki</a></li>
+<li><a href="#alternatywy">Alternatywy: Tor, dedykowany IP, pojedynczy węzeł premium</a></li>
+<li><a href="#bezpieczenstwo">Dodatkowe bezpieczeństwo: DNS, WebRTC, IPv6</a></li>
+<li><a href="#checklista">Checklista: kiedy włączyć, kiedy wyłączyć</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<h2 id="co-to">Czym jest Double VPN i jak działa</h2>
+<p>W zwykłym VPN ruch idzie: <em>Urządzenie → Serwer A → Internet</em>. W Double VPN: <em>Urządzenie → Serwer A → Serwer B → Internet</em>. Drugi hop dodaje warstwę pośrednią i utrudnia korelację ruchu. Niektóre implementacje szyfrują dwukrotnie lub używają oddzielnych par kluczy.</p>
+<p>Podstawy: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a> • Polityki prywatności: <a href="../../blog/no-logs.html">no-logs</a> • Ograniczenia: <a href="../../blog/wady-vpn.html">Wady VPN</a>.</p>
+<h2 id="kiedy">Kiedy Double VPN ma sens</h2>
+<ul>
+<li><strong>Wrażliwa praca zdalna</strong> (dziennikarstwo, audyty, administracja), gdy chcesz utrudnić profilowanie trasy.</li>
+<li><strong>Sieci z nadzorem</strong>, gdzie dodatkowa warstwa komplikuje korelację metadanych.</li>
+<li><strong>Łączenie jurysdykcji</strong> (np. PL → NL/IS), by rozproszyć punkty styku ruchu.</li>
+</ul>
+<p>Uwaga: multi-hop to nie „magiczna peleryna”. Stosuj wraz z dobrymi praktykami: <a href="../../blog/vpn-kill-switch.html">kill switch</a>, <a href="../../blog/vpn-dns-leak.html">brak wycieków DNS</a>, <a href="../../blog/vpn-2fa-mfa.html">2FA/MFA</a>.</p>
+<h2 id="wady">Wady i ograniczenia (ping, VOD, P2P)</h2>
+<ul>
+<li><strong>Wyższy ping</strong> i częściej zmienny <em>jitter</em> — dwie trasy, dwa węzły.</li>
+<li><strong>Niższa prędkość</strong> — dodatkowe szyfrowanie i hop.</li>
+<li><strong>VOD/Streaming</strong>: większa szansa na buforowanie i wykrywanie VPN (lepiej pojedynczy węzeł lub <a href="../../blog/vpn-dla-smart-tv.html">Smart TV</a> / <a href="../../blog/vpn-dla-apple-tv.html">Apple TV</a> z <strong>Smart DNS</strong>).</li>
+<li><strong>P2P</strong>: zwykle lepiej na pojedynczym węźle; jeśli potrzebujesz portów → <a href="../../blog/vpn-port-forwarding.html">port forwarding</a>.</li>
+</ul>
+<h2 id="konfiguracja">Konfiguracja i najlepsze praktyki</h2>
+<ol>
+<li><strong>Wybierz kierunek łańcucha</strong>: np. <em>PL → NL</em> (bliski pierwszy hop, „wyjście” w kraju docelowym).</li>
+<li><strong>Protokół</strong>: domyślnie <a href="../../blog/wireguard-vs-openvpn.html">WireGuard</a> (wydajny). OpenVPN UDP jako plan B.</li>
+<li><strong>DNS</strong>: wymuś DNS dostawcy i sprawdź <a href="../../blog/vpn-dns-leak.html">wycieki</a>. Z multi-hopem niespójny DNS łatwiej zdradza trasę.</li>
+<li><strong>Split tunneling</strong>: kieruj wrażliwe aplikacje przez multi-hop, a resztę przez pojedynczy węzeł (mniej lagów) — <a href="../../blog/vpn-split-tunneling.html">jak to zrobić</a>.</li>
+<li><strong>Testy</strong>: zmierz prędkość/ping/jitter na 2–3 parach serwerów i wybierz najbardziej stabilną — <a href="../../blog/test-vpn.html">Test VPN</a>, <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN</a>.</li>
+</ol>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — stabilny multi-hop + szybki WireGuard</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — multi-hop i nielimit urządzeń</a>
+</div>
+<h2 id="alternatywy">Alternatywy: Tor, dedykowany IP, pojedynczy węzeł premium</h2>
+<ul>
+<li><strong>Tor</strong> — maksymalna decentralizacja kosztem prędkości; dobry do przeglądania, nie do streamów/gier.</li>
+<li><strong>Dedykowany IP</strong> — do whitelist i stałego dostępu (nie do anonimowości w tłumie): <a href="../../blog/vpn-dedykowany-ip.html">co to jest</a>.</li>
+<li><strong>Pojedynczy węzeł „premium”</strong> — często daje wystarczającą prywatność i lepszą wydajność niż multi-hop.</li>
+</ul>
+<p>Jeśli Twoim celem jest streaming: zobacz <a href="../../blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="../../blog/player-tvp-vpn.html">Player</a>, <a href="../../blog/vpn-netflix-polska.html">Netflix</a>.</p>
+<h2 id="bezpieczenstwo">Dodatkowe bezpieczeństwo: DNS, WebRTC, IPv6</h2>
+<ul>
+<li><strong>Kill switch</strong> + <strong>auto-connect</strong> — brak „przebitek” poza tunel: <a href="../../blog/vpn-kill-switch.html">co to jest</a>.</li>
+<li><strong>WebRTC</strong> — zablokuj ujawnianie IP lokalnego w przeglądarce.</li>
+<li><strong>IPv6</strong> — jeśli dostawca nie tuneluje IPv6, tymczasowo wyłącz IPv6 (lub użyj dostawcy, który je obsługuje).</li>
+</ul>
+<h2 id="checklista">Checklista: kiedy włączyć, kiedy wyłączyć</h2>
+<ol>
+<li><strong>Włącz</strong>, gdy: pracujesz z wrażliwymi danymi, jedziesz do kraju z restrykcjami, chcesz rozdzielić jurysdykcje.</li>
+<li><strong>Wyłącz</strong>, gdy: grasz online, streamujesz 4K, seedujesz P2P — wybierz pojedynczy węzeł.</li>
+<li>Testuj 2–3 pary węzłów; zostaw tę z najmniejszym jitterem.</li>
+<li>Używaj <a href="../../blog/vpn-split-tunneling.html">split tunnelingu</a>, by ograniczyć multi-hop tylko do wrażliwych aplikacji.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (Multi-hop)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN w Polsce (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — stabilny multi-hop, szybkie trasy, audyty. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — multi-hop, nielimit urządzeń, dobra cena. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2 id="faq">FAQ</h2>
+<details>
+<summary>Czy Double VPN szyfruje „podwójnie”?</summary>
+<p>Zależy od implementacji. Zawsze masz co najmniej dwa etapy tunelowania; czasem dochodzi drugie szyfrowanie/klucze. Kluczowe są solidne protokoły i brak wycieków.</p>
+</details>
+<details>
+<summary>Czy multi-hop nadaje się do VOD?</summary>
+<p>Rzadko. Częściej powoduje buforowanie i wykrywanie VPN. Do VOD lepszy pojedynczy węzeł lub <strong>Smart DNS</strong> na TV.</p>
+</details>
+<details>
+<summary>Czy multi-hop jest lepszy od Tora?</summary>
+<p>Nie jest „lepszy” ani „gorszy” — ma inne zastosowanie. Tor to wielowęzłowa sieć anonimizująca, zwykle wolniejsza; multi-hop to opcja w VPN z kontrolowanymi węzłami i lepszą wydajnością.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: Double VPN — kiedy warto i jak ustawić" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="Double VPN (multi-hop) — poradnik i najlepsze praktyki"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/no-logs.html">VPN no-logs</a>, <a href="../../blog/vpn-kill-switch.html">Kill switch</a>, <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a>, <a href="../../blog/vpn-dedykowany-ip.html">Dedykowany IP</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Double VPN (Multi-hop) — kiedy ma sens i jak ustawić (2025)",
+  "description":"Double VPN (multi-hop) — co daje, kiedy warto go użyć, jak ustawić i testować oraz jakie są alternatywy (Tor, pojedynczy węzeł, dedykowany IP).",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-double-vpn.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-double-vpn.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

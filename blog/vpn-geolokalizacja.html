@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>Geolokalizacja i VPN — co widzą serwisy i jak to kontrolować (2025)</title>
+<meta content="Jak działa geolokalizacja IP, DNS, GPS i Wi-Fi. Co widzą strony i aplikacje oraz jak ustawić VPN/Smart DNS, by zachować spójny region i prywatność. Praktyczny poradnik 2025." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-geolokalizacja.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="Geolokalizacja i VPN — co widzą serwisy i jak to kontrolować (2025)" property="og:title"/>
+<meta content="IP, DNS, GPS i Wi-Fi: jak serwisy określają Twoją lokalizację oraz jak poprawnie skonfigurować VPN/Smart DNS." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-geolokalizacja.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-geolokalizacja.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Geolokalizacja i VPN","item":"https://dloran1.github.io/blog/vpn-geolokalizacja.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / Geolokalizacja i VPN</p>
+<h1>Geolokalizacja i VPN — co widzą serwisy i jak to kontrolować (2025)</h1>
+<figure class="article-hero">
+<img alt="Geolokalizacja i VPN — IP, DNS, GPS i Wi-Fi" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-geolokalizacja.webp" width="1200"/>
+</figure>
+<p class="lead">Strony i aplikacje określają Twój region na podstawie <strong>IP</strong>, <strong>DNS</strong>, a czasem także <strong>GPS</strong> i <strong>odcisków Wi-Fi</strong>. Pokażemy, co faktycznie widzą usługi, kiedy dane potrafią się „rozjechać” i jak ustawić <strong>VPN</strong> oraz <strong>Smart DNS</strong>, aby zachować spójny region i prywatność.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#co-widza">Co widzą serwisy: IP, DNS, GPS/Wi-Fi, odciski</a></li>
+<li><a href="#vpn-smartdns">VPN vs Smart DNS — kiedy co wybrać</a></li>
+<li><a href="#spojnosc">Spójność regionu: jak uniknąć „rozdwojonej” lokalizacji</a></li>
+<li><a href="#mobile">Geolokalizacja w mobile: Android/iOS (GPS, uprawnienia)</a></li>
+<li><a href="#desktop">Desktop: przeglądarki, WebRTC i DoH/DoT</a></li>
+<li><a href="#router">Router i dom: policy routing, DNS, IPv6</a></li>
+<li><a href="#checklista">Checklista „spójny region + prywatność”</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<h2 id="co-widza">Co widzą serwisy: IP, DNS, GPS/Wi-Fi, odciski</h2>
+<ul>
+<li><strong>IP publiczne</strong> — kraj/miasto wg baz geolokalizacyjnych; ważna <em>reputacja puli</em> (czy IP nie jest oznaczone jako VPN).</li>
+<li><strong>DNS</strong> — serwery, z których korzystasz. <em>Niespójność IP↔DNS</em> często zdradza VPN. O wyciekach: <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>.</li>
+<li><strong>GPS</strong> (mobile) — dokładna pozycja z urządzenia, porównywana z IP.</li>
+<li><strong>Wi-Fi geolocation</strong> — „odciski” okolicznych sieci; na desktopie bywa precyzyjne, jeśli dasz zgodę w przeglądarce.</li>
+<li><strong>Fingerprint</strong> — język, strefa czasowa, czcionki, canvas; to nie „lokalizacja”, ale pomaga łączyć sesje.</li>
+</ul>
+<p>Wprowadzenie do tematu ograniczeń regionalnych: <a href="../../blog/vpn-geoblokady.html">VPN a geoblokady</a>. Podstawy technologii: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a>.</p>
+<h2 id="vpn-smartdns">VPN vs Smart DNS — kiedy co wybrać</h2>
+<ul>
+<li><strong>VPN</strong> — pełne szyfrowanie i zmiana IP/regionu. Idealny do prywatności i pracy zdalnej. W VOD czasem bywa wykrywany lub dodaje opóźnienia.</li>
+<li><strong>Smart DNS</strong> — przełącza wybrane domeny VOD na określony region bez tunelu. Najlepsze do Player/TVP/Netflix 4K, ale <em>nie chroni ruchu</em>.</li>
+</ul>
+<p>Urządzenia TV i konsole: <a href="../../blog/vpn-dla-smart-tv.html">Smart TV</a>, <a href="../../blog/vpn-dla-apple-tv.html">Apple TV</a>, <a href="../../blog/vpn-dla-konsol-ps5-xbox.html">PS5/Xbox</a>. Netflix w PL: <a href="../../blog/vpn-netflix-polska.html">poradnik</a>.</p>
+<h2 id="spojnosc">Spójność regionu: jak uniknąć „rozdwojonej” lokalizacji</h2>
+<ul>
+<li><strong>Używaj DNS dostawcy VPN</strong> lub <strong>Smart DNS</strong> — nie mieszaj ich z publicznymi DNS poza tunelem.</li>
+<li><strong>Wyłącz własny DoH/DoT</strong> w przeglądarce, jeśli działa poza VPN — powoduje konflikt IP↔DNS.</li>
+<li><strong>Wyczyść cookies/aplikację</strong> po zmianie kraju; niektóre serwisy „zapamiętują” region.</li>
+<li><strong>GPS</strong>: jeśli aplikacja upiera się przy realnej pozycji — ogranicz uprawnienia lokalizacji lub wyłącz GPS na czas seansu.</li>
+<li><strong>WebRTC</strong> — zablokuj ujawnianie IP lokalnego w przeglądarce.</li>
+</ul>
+<p>Diagnoza krok po kroku: <a href="../../blog/vpn-dns-leak.html">wycieki DNS</a> + <a href="../../blog/test-vpn.html">testy trasy/pingu</a>.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — spójny region (VPN + Smart DNS)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — nielimit urządzeń, dobre pule</a>
+</div>
+<h2 id="mobile">Geolokalizacja w mobile: Android/iOS (GPS, uprawnienia)</h2>
+<ul>
+<li><strong>Android</strong>: w apce VPN włącz Always-on + „blokuj bez VPN”; w Ustawienia → Lokalizacja ogranicz dostęp dla VOD, używaj <a href="../../blog/vpn-android-konfiguracja.html">Private DNS</a> zgodnie z zaleceniami.</li>
+<li><strong>iOS</strong>: sprawdź uprawnienia lokalizacji dla VOD (np. „Nigdy”/„Pytaj”); rozważ IKEv2/WireGuard. Usuń/odłącz stare profile z własnym DNS.</li>
+<li>Mobilne Wi-Fi skanowanie może zdradzać miasto — wyłącz „dokładną lokalizację”, gdy niepotrzebna.</li>
+</ul>
+<h2 id="desktop">Desktop: przeglądarki, WebRTC i DoH/DoT</h2>
+<ul>
+<li><strong>WebRTC</strong> — włącz ochronę przed ujawnianiem IP lokalnego; rozszerzenia lub ustawienia przeglądarki.</li>
+<li><strong>DNS przez HTTPS (DoH)</strong> — jeśli jest ustawiony globalnie na serwer spoza VPN, powstaje konflikt regionu. Używaj DoH/DoT tylko „wewnątrz” tunelu lub wyłącz.</li>
+<li><strong>Strefa czasowa/język</strong> — potrafią zdradzić region; to nie jest krytyczne, ale czasem wpływa na treść VOD/sklepów.</li>
+</ul>
+<h2 id="router">Router i dom: policy routing, DNS, IPv6</h2>
+<ul>
+<li><strong>Policy-based routing</strong>: kieruj TV/konsolę przez VPN, a resztę lokalnie; mniej opóźnień na urządzeniach krytycznych.</li>
+<li><strong>DNS na tunelu</strong> — ustaw serwery DNS dostawcy na interfejsie VPN; unikniesz cofania do DNS operatora.</li>
+<li><strong>IPv6</strong> — jeśli dostawca VPN nie tuneluje IPv6, tymczasowo wyłącz je na routerze. Gdy wspiera — zostaw włączone.</li>
+</ul>
+<p>Szczegóły konfiguracji domowej: <a href="../../blog/vpn-dla-smart-tv.html">Smart TV</a>, <a href="../../blog/vpn-dla-apple-tv.html">Apple TV</a>, <a href="../../blog/vpn-dla-konsol-ps5-xbox.html">PS5/Xbox</a>.</p>
+<h2 id="checklista">Checklista „spójny region + prywatność”</h2>
+<ol>
+<li>W apce VPN włącz: <strong>DNS dostawcy</strong>, <strong>kill switch</strong>, <strong>auto-connect</strong>.</li>
+<li>Wyłącz własny <strong>DoH/DoT</strong> poza tunelem i <strong>WebRTC-leaks</strong> w przeglądarce.</li>
+<li>Na mobile ogranicz <strong>GPS</strong> dla VOD; na desktopie wyczyść cookies/aplikacje po zmianie kraju.</li>
+<li>Testuj 2–3 węzły/kraje; wybierz najstabilniejszy (wieczorny szczyt).</li>
+<li>Na TV/konsoli preferuj <strong>Ethernet</strong>; do VOD rozważ <strong>Smart DNS</strong>.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (spójny region)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN do kontroli geolokalizacji (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — stabilne pule, Smart DNS, szybki WireGuard. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, Smart DNS, dobra cena. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ</h2>
+<details>
+<summary>Czemu Netflix/Player pokazuje inny kraj niż wybrałem w VPN?</summary>
+<p>Najczęściej niespójność IP↔DNS lub zachowane cookies. Włącz DNS dostawcy/Smart DNS, wyczyść cookies/apkę i przełącz na inny węzeł w tym samym kraju.</p>
+</details>
+<details>
+<summary>Czy Smart DNS ujawnia moją lokalizację?</summary>
+<p>Smart DNS nie szyfruje ruchu — służy głównie do VOD. Dla prywatności użyj pełnego VPN z <a href="../../blog/no-logs.html">no-logs</a> i <a href="../../blog/vpn-kill-switch.html">kill switchem</a>.</p>
+</details>
+<details>
+<summary>Czy muszę wyłączać GPS?</summary>
+<p>Tylko gdy aplikacja VOD upiera się przy realnej pozycji sprzecznej z IP. Ogranicz uprawnienia lokalizacji lub wyłącz GPS na czas seansu.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: Geolokalizacja i VPN — co widzą serwisy" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="Geolokalizacja i VPN — poradnik 2025"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/vpn-geoblokady.html">VPN a geoblokady</a>, <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>, <a href="../../blog/vpn-dla-smart-tv.html">Smart TV</a>, <a href="../../blog/vpn-netflix-polska.html">Netflix PL</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Geolokalizacja i VPN — co widzą serwisy i jak to kontrolować (2025)",
+  "description":"Jak działa geolokalizacja IP, DNS, GPS i Wi-Fi oraz jak ustawić VPN/Smart DNS, by zachować spójny region i prywatność.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-geolokalizacja.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-geolokalizacja.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

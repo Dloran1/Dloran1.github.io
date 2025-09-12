@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>VPN na Windows — konfiguracja krok po kroku (2025)</title>
+<meta content="Jak skonfigurować VPN w Windows 10/11: aplikacje dostawców (WireGuard), wbudowany klient (IKEv2), OpenVPN, kill switch, DNS bez wycieków, auto-connect, split tunneling i testy. Kompletny poradnik 2025." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="VPN na Windows — konfiguracja krok po kroku (2025)" property="og:title"/>
+<meta content="Aplikacje dostawców (WireGuard), wbudowany klient IKEv2, OpenVPN, kill switch, DNS i testy prędkości." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-windows-konfiguracja.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-windows-konfiguracja.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN na Windows — konfiguracja","item":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / VPN na Windows — konfiguracja</p>
+<h1>VPN na Windows — konfiguracja krok po kroku (2025)</h1>
+<figure class="article-hero">
+<img alt="VPN na Windows 10/11 — konfiguracja, kill switch i testy" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-windows-konfiguracja.webp" width="1200"/>
+</figure>
+<p class="lead">W Windows 10/11 masz trzy praktyczne ścieżki: <strong>aplikacja dostawcy</strong> (najprościej, zwykle <strong>WireGuard</strong>), wbudowany klient <strong>IKEv2</strong> oraz <strong>OpenVPN</strong>. Pokażemy ustawienia, <strong>kill switch</strong>, <strong>DNS bez wycieków</strong>, <strong>auto-connect</strong> po starcie i szybkie testy prędkości/stabilności.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#wybor">Co wybrać: aplikacja, IKEv2 czy OpenVPN</a></li>
+<li><a href="#app">Aplikacja dostawcy (WireGuard) — najszybciej</a></li>
+<li><a href="#ikev2">Wbudowany klient Windows (IKEv2)</a></li>
+<li><a href="#openvpn">OpenVPN w Windows</a></li>
+<li><a href="#bezpieczenstwo">Kill switch, DNS i IPv6 — brak wycieków</a></li>
+<li><a href="#auto">Auto-connect po starcie i po wybudzeniu</a></li>
+<li><a href="#split">Split tunneling i wyjątki aplikacji</a></li>
+<li><a href="#testy">Test prędkości i stabilności</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<h2 id="wybor">Co wybrać: aplikacja, IKEv2 czy OpenVPN</h2>
+<ul>
+<li><strong>Aplikacja dostawcy</strong> — rekomendowana: <strong>WireGuard</strong>, wbudowany <a href="../../blog/vpn-kill-switch.html">kill switch</a>, <strong>wymuszanie DNS</strong>, często <a href="../../blog/vpn-split-tunneling.html">split tunneling</a>.</li>
+<li><strong>Windows IKEv2</strong> — lekki i stabilny, dobry plan B (szczególnie w korporacyjnych sieciach).</li>
+<li><strong>OpenVPN</strong> — kompatybilny wszędzie, ale z reguły wolniejszy niż WireGuard. Dobry jako alternatywa (UDP).</li>
+</ul>
+<p>O różnicach protokołów: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a> i ogólne podstawy: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a>.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — prosty Windows client (WireGuard)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — nielimit urządzeń, split tunneling</a>
+</div>
+<h2 id="app">Aplikacja dostawcy (WireGuard) — najszybciej</h2>
+<ol>
+<li>Zainstaluj oficjalną aplikację dostawcy VPN i zaloguj się.</li>
+<li>Wybierz <strong>WireGuard</strong> jako protokół; zapnij <strong>kill switch</strong> i <strong>Auto-connect</strong>.</li>
+<li>Połącz z <strong>PL/DE/NL</strong> i dodaj 2–3 miasta do ulubionych (szybkie przełączanie).</li>
+<li>Włącz <strong>wymuszanie DNS</strong> dostawcy (zwykle w ustawieniach prywatności).</li>
+</ol>
+<p>Jeśli zależy Ci na whitelistach IP lub stabilnych logowaniach SaaS, rozważ <a href="../../blog/vpn-dedykowany-ip.html">dedykowany IP</a>.</p>
+<h2 id="ikev2">Wbudowany klient Windows (IKEv2)</h2>
+<ol>
+<li>Ustawienia systemu → <em>Sieć i Internet</em> → <em>VPN</em> → <strong>Dodaj połączenie VPN</strong>.</li>
+<li>Dostawca: <em>Windows (wbudowane)</em>, Nazwa: np. <em>VPN-PL</em>, Adres serwera: od dostawcy.</li>
+<li>Typ VPN: <strong>IKEv2</strong>, Rodzaj logowania: <em>Nazwa użytkownika i hasło</em> (lub certyfikat, jeśli masz).</li>
+<li>Zapisz → Połącz. Dla stabilności włącz <strong>Używaj tego połączenia jako domyślnego</strong> (pełny tunel).</li>
+</ol>
+<p>Iphone/Android alternatywy znajdziesz w: <a href="../../blog/vpn-iphone-konfiguracja.html">iPhone</a>, <a href="../../blog/vpn-android-konfiguracja.html">Android</a>.</p>
+<h2 id="openvpn">OpenVPN w Windows</h2>
+<ol>
+<li>Zainstaluj <em>OpenVPN Connect</em> lub klasyczny klient; pobierz pliki <code>.ovpn</code> od dostawcy.</li>
+<li>Preferuj <strong>UDP</strong>; TCP używaj tylko gdy sieć blokuje UDP.</li>
+<li>Jeśli strony „wiszą”, użyj <code>mssfix</code> i rozważ niższe MTU (patrz niżej).</li>
+</ol>
+<p>Porównanie do WG i ustawienia prędkości: <a href="../../blog/vpn-optymalne-ustawienia.html">optymalne ustawienia</a>.</p>
+<h2 id="bezpieczenstwo">Kill switch, DNS i IPv6 — brak wycieków</h2>
+<ul>
+<li><strong>Kill switch</strong>: włącz w aplikacji dostawcy, aby ruch nie wyszedł na WAN przy zerwaniu tunelu. Szczegóły: <a href="../../blog/vpn-kill-switch.html">Kill switch</a>.</li>
+<li><strong>DNS</strong>: wymuś DNS dostawcy; wyłącz zewnętrzny DoH/DoT poza VPN, aby uniknąć <a href="../../blog/vpn-dns-leak.html">wycieków DNS</a>.</li>
+<li><strong>IPv6</strong>: jeśli dostawca nie tuneluje IPv6 — wyłącz w Windows do czasu pełnej obsługi.</li>
+</ul>
+<h2 id="auto">Auto-connect po starcie i po wybudzeniu</h2>
+<ul>
+<li>W aplikacji włącz <strong>Auto-connect</strong> i „uruchom przy starcie” (Startup).</li>
+<li>W laptopach zaznacz wznawianie po uśpieniu i utracie łączności (często „Auto-reconnect”).</li>
+</ul>
+<h2 id="split">Split tunneling i wyjątki aplikacji</h2>
+<p>Jeśli bank/serwis nie akceptuje IP z innego kraju, użyj <strong>split tunnelingu</strong> (per-app/per-site) i wyklucz konkretną aplikację przeglądarki lub domenę. Omówienie: <a href="../../blog/vpn-split-tunneling.html">split tunneling</a>. Dla pracy zdalnej — zobacz <a href="../../blog/vpn-praca-zdalna.html">praca zdalna</a>.</p>
+<h2 id="testy">Test prędkości i stabilności</h2>
+<ol>
+<li>Zrób <strong>baseline</strong> bez VPN (3 pomiary).</li>
+<li>Połącz przez WG, testuj 2–3 miasta (PL/DE/NL) o różnych porach; zapisuj <strong>ping/jitter</strong>.</li>
+<li>Gdy strony „wiszą”, zredukuj <strong>MTU</strong> do 1280–1380 (wg klienta) i powtórz testy.</li>
+</ol>
+<p>Pełna metodyka: <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN — jak testować</a>, scenariusz: <a href="../../blog/test-vpn.html">Test VPN</a>.</p>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (Windows, WireGuard)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — split tunneling na Windows</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN dla Windows (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — szybki WireGuard, kill switch, wymuszanie DNS. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, split per-app, Smart DNS. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ — VPN na Windows</h2>
+<details>
+<summary>Czy wbudowany klient Windows jest tak samo „bezpieczny” jak aplikacja?</summary>
+<p>IKEv2 jest bezpieczny, ale aplikacje dostawców dają <em>dodatkowo</em> kill switch, split tunneling i wymuszanie DNS. Dlatego zwykle są lepszym wyborem.</p>
+</details>
+<details>
+<summary>WireGuard czy OpenVPN na Windows?</summary>
+<p>Najczęściej <strong>WireGuard</strong> (szybciej i stabilniej). OpenVPN UDP zostaw jako plan B, gdy sieć blokuje WG.</p>
+</details>
+<details>
+<summary>Strony ładują się wolno po włączeniu VPN — co zrobić?</summary>
+<p>Przetestuj inny węzeł, obniż <strong>MTU</strong> (np. 1280–1380), wyłącz zewnętrzny DoH/DoT poza VPN i sprawdź bufferbloat (QoS w routerze).</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: VPN na Windows — konfiguracja i testy" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="VPN na Windows — poradnik 2025"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, <a href="../../blog/vpn-kill-switch.html">Kill switch</a>, <a href="../../blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>, <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a>, <a href="../../blog/test-vpn.html">Test VPN</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN na Windows — konfiguracja krok po kroku (2025)",
+  "description":"Windows 10/11: aplikacje dostawców (WireGuard), wbudowany IKEv2, OpenVPN, kill switch, DNS/IPv6, auto-connect, split tunneling i testy prędkości. Poradnik 2025.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-windows-konfiguracja.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-windows-konfiguracja.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>Wycieki DNS i VPN — jak wykryć i naprawić (2025)</title>
+<meta content="Czym jest wyciek DNS, dlaczego zdarza się nawet z VPN i jak go usunąć: testy, ustawienia DNS, WebRTC, IPv6, przeglądarki, Android/iOS, Windows/macOS/Linux i router. Kompletny poradnik 2025." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-dns-leak.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="Wycieki DNS i VPN — jak wykryć i naprawić (2025)" property="og:title"/>
+<meta content="Testy wycieków DNS/WebRTC/IPv6 i gotowe naprawy: DNS dostawcy VPN, kill switch, split tunneling, Private DNS, DoH/DoT, ustawienia w systemach i routerze." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-dns-leak.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-dns-leak.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Wycieki DNS i VPN","item":"https://dloran1.github.io/blog/vpn-dns-leak.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / Wycieki DNS i VPN</p>
+<h1>Wycieki DNS i VPN — jak wykryć i naprawić (2025)</h1>
+<figure class="article-hero">
+<img alt="Wyciek DNS z VPN — test i naprawa" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-dns-leak.webp" width="1200"/>
+</figure>
+<p class="lead">Wyciek DNS zdradza, z <strong>jakich serwerów DNS</strong> korzystasz — czasem także Twojego operatora i przybliżoną lokalizację — nawet gdy masz włączony VPN. Poniżej dostajesz <strong>prosty test krok po kroku</strong> oraz komplet napraw: DNS dostawcy VPN, blokada WebRTC, poprawne IPv6, Private DNS/DoH/DoT i ustawienia dla Androida, iOS, Windows, macOS, Linux i routerów.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#co-to">Co to jest wyciek DNS i dlaczego się zdarza</a></li>
+<li><a href="#test">Szybki test wycieków DNS/WebRTC/IPv6</a></li>
+<li><a href="#naprawa">Natychmiastowe naprawy (skrót)</a></li>
+<li><a href="#systemy">Ustawienia w systemach: Windows, macOS, Android, iOS, Linux</a></li>
+<li><a href="#router">Router i sieć domowa: DNS, IPv6, QoS</a></li>
+<li><a href="#vod">VOD i geoblokady: biblioteki, Smart DNS i cookies</a></li>
+<li><a href="#checklista">Checklista „zero wycieków”</a></li>
+</ul>
+</nav>
+<h2 id="co-to">Co to jest wyciek DNS i dlaczego się zdarza</h2>
+<p>Gdy wpisujesz adres strony, system pyta <em>serwer DNS</em>, „jaki to IP?”. Z VPN <strong>cały ruch powinien iść tunelem</strong>, także zapytania DNS. Wyciek DNS pojawia się, gdy zapytania wylatują <em>poza</em> tunel (np. do DNS operatora). Powody: błędne ustawienia systemu/przeglądarki, <strong>WebRTC</strong> w przeglądarce, <strong>IPv6</strong> poza tunelem, split tunneling, polityki firmowe lub captive portal w hotelu/na lotnisku.</p>
+<p>Podstawy: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a> • Prywatność: <a href="../../blog/no-logs.html">no-logs</a> • Bezpieczeństwo: <a href="../../blog/vpn-kill-switch.html">kill switch</a>, <a href="../../blog/vpn-split-tunneling.html">split tunneling</a>.</p>
+<h2 id="test">Szybki test wycieków DNS/WebRTC/IPv6</h2>
+<ol>
+<li>Połącz VPN (najlepiej <a href="../../blog/wireguard-vs-openvpn.html">WireGuard</a>) z wybranym krajem.</li>
+<li>Otwórz stronę testową (dowolne narzędzia do sprawdzenia IP/DNS/WebRTC/IPv6).</li>
+<li>Sprawdź:
+      <ul>
+<li><strong>IP publiczne</strong> — powinno być z kraju serwera VPN.</li>
+<li><strong>Serwery DNS</strong> — powinny należeć do dostawcy VPN (nie do ISP/domowego routera).</li>
+<li><strong>WebRTC</strong> — nie powinno ujawniać lokalnego/realnego IP.</li>
+<li><strong>IPv6</strong> — jeśli włączone, też ma iść tunelem.</li>
+</ul>
+</li>
+<li>Jeśli widzisz DNS operatora/realne IP — przejdź do napraw poniżej.</li>
+</ol>
+<p>Jak rzetelnie testować łącze, ping i jitter: <a href="../../blog/test-vpn.html">Test VPN</a>, <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN</a>.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — brak wycieków DNS + szybki WireGuard</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — nielimit urządzeń, solidny DNS</a>
+</div>
+<h2 id="naprawa">Natychmiastowe naprawy (skrót)</h2>
+<ul>
+<li><strong>Wymuś DNS dostawcy VPN</strong> w aplikacji/tunelu (opcja „Use VPN DNS”/„Override DNS”).</li>
+<li><strong>Wyłącz własne DoH/DoT</strong> w przeglądarce/systemie, jeśli omija tunel (np. Firefox/Chrome „Zawsze HTTPS/DNS przez HTTPS”).</li>
+<li><strong>WebRTC</strong>: włącz „Zabezpieczenia/Blokuj udostępnianie IP lokalnego” lub użyj rozszerzenia ochronnego.</li>
+<li><strong>IPv6</strong>: jeśli dostawca nie tuneluje IPv6, tymczasowo wyłącz IPv6 w systemie/routerze.</li>
+<li><strong>Kill switch</strong>: włącz pełną blokadę ruchu poza VPN (także przy ponownym łączeniu).</li>
+<li><strong>Split tunneling</strong>: upewnij się, że przeglądarka/wybrana apka <em>nie jest</em> wyłączona z VPN.</li>
+</ul>
+<h2 id="systemy">Ustawienia w systemach: Windows, macOS, Android, iOS, Linux</h2>
+<h3>Windows</h3>
+<ul>
+<li>W aplikacji VPN zaznacz <strong>„Używaj DNS dostawcy”</strong> + <strong>kill switch</strong>.</li>
+<li>W Windows → Ustawienia sieci → właściwości karty → DNS na „Automatyczny przez VPN”; usuń ręczne DNS (np. 8.8.8.8) ustawione kiedyś.</li>
+<li>Przeglądarki: wyłącz DoH/„Zawsze HTTPS” i włącz ochronę WebRTC.</li>
+</ul>
+<h3>macOS</h3>
+<ul>
+<li>W apce VPN włącz DNS dostawcy + kill switch.</li>
+<li>Preferencje Sieci → interfejs VPN na górze priorytetów; usuń niestandardowe DNS z Wi-Fi/Ethernet.</li>
+<li>Przeglądarki: jak wyżej (DoH/WebRTC).</li>
+</ul>
+<h3>Android</h3>
+<ul>
+<li>W apce VPN: <strong>Always-on</strong> + <strong>Blokuj połączenia bez VPN</strong> + DNS dostawcy.</li>
+<li>Ustawienia → Sieć → <strong>Prywatny DNS</strong>: wyłącz własne DoT (lub ustaw host dostawcy, jeśli wspiera).</li>
+<li>Jeśli problemy z rozłączaniem — zobacz <a href="../../blog/vpn-android-konfiguracja.html">VPN na Androidzie</a>.</li>
+</ul>
+<h3>iOS/iPadOS</h3>
+<ul>
+<li>W apce VPN: wymuś DNS dostawcy; używaj protokołu <em>IKEv2/WireGuard</em> w zależności od aplikacji.</li>
+<li>Sprawdź profile „VPN/MDM”, które mogły dodać własny DNS.</li>
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>NetworkManager/systemd-resolved: ustaw <strong>dns=systemd-resolved</strong> i sprawdź, czy interfejs tunelu dodaje DNS dostawcy.</li>
+<li>OpenVPN/WireGuard: w plikach konfigów dopisz push/Peer DNS (np. <code>DNS = x.x.x.x</code> lub skrypt <code>up</code>).</li>
+<li>Więcej: <a href="../../blog/vpn-linux-konfiguracja.html">VPN na Linuxie</a>.</li>
+</ul>
+<h2 id="router">Router i sieć domowa: DNS, IPv6, QoS</h2>
+<ul>
+<li><strong>Router z VPN</strong>: klient <a href="../../blog/wireguard-vs-openvpn.html">WireGuard/OpenVPN</a> + <strong>policy-based routing</strong> (przeglądarka/TV → przez VPN).</li>
+<li><strong>DNS</strong>: ustaw DNS dostawcy na interfejsie tunelu; wyłącz „DNS rebind protection” blokujący odpowiedzi z tunelu (jeśli to problem).</li>
+<li><strong>IPv6</strong>: jeśli nie tunelujesz IPv6, wyłącz je na routerze do czasu pełnej obsługi w VPN.</li>
+<li><strong>Captive portal</strong> (hotel/lotnisko): najpierw zaloguj się bez VPN, potem włącz VPN i odśwież lease DNS.</li>
+</ul>
+<p>Szerzej o urządzeniach TV i konsolach: <a href="../../blog/vpn-dla-smart-tv.html">Smart TV</a>, <a href="../../blog/vpn-dla-apple-tv.html">Apple TV</a>, <a href="../../blog/vpn-dla-konsol-ps5-xbox.html">PS5/Xbox</a>.</p>
+<h2 id="vod">VOD i geoblokady: biblioteki, Smart DNS i cookies</h2>
+<p>W VOD liczy się <strong>reputacja puli IP</strong> i spójność DNS. Jeśli Player/TVP/Netflix rozpoznaje VPN:</p>
+<ol>
+<li>Zmień węzeł <strong>w tym samym kraju</strong> (inna pula IP).</li>
+<li>Wyczyść cookies/aplikację i odśwież DNS (restart aplikacji/TV).</li>
+<li>Rozważ <strong>Smart DNS</strong> do samych serwisów VOD (bez pełnego tunelu). Przewodniki: <a href="../../blog/player-tvp-vpn.html">Player i TVP</a>, <a href="../../blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="../../blog/vpn-netflix-polska.html">Netflix PL</a>.</li>
+</ol>
+<h2 id="checklista">Checklista „zero wycieków”</h2>
+<ol>
+<li>W apce VPN włącz: <strong>DNS dostawcy</strong>, <strong>kill switch</strong>, <strong>auto-connect</strong>.</li>
+<li>Wyłącz własne DoH/DoT, które omijają tunel (przeglądarka/system).</li>
+<li>Zablokuj <strong>WebRTC</strong> i upewnij się, że <strong>IPv6</strong> też jest tunelowane (lub tymczasowo wyłączone).</li>
+<li>Nie wyłączaj z VPN przeglądarki w <a href="../../blog/vpn-split-tunneling.html">split tunnelingu</a>.</li>
+<li>Przetestuj na 2–3 węzłach i <strong>powtórz test</strong> po zmianach.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (bez wycieków DNS)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN w Polsce (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — szczelny DNS, dobre pule VOD, szybki WireGuard. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, solidne DNS i cena. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ — wycieki DNS i VPN</h2>
+<details>
+<summary>Czy DoH/DoT zawsze pogarsza sprawę?</summary>
+<p>Nie — ale jeśli DoH/DoT w przeglądarce idzie <em>poza</em> tunel, powoduje niespójność i wyciek. Najlepiej używać DNS dostawcy VPN lub DoH/DoT skonfigurowanego <em>wewnątrz</em> tunelu.</p>
+</details>
+<details>
+<summary>Czy muszę wyłączyć IPv6?</summary>
+<p>Tylko jeśli dostawca nie tuneluje IPv6. Jeśli wspiera — zostaw włączone. Tymczasowe wyłączenie pomaga w diagnostyce.</p>
+</details>
+<details>
+<summary>WebRTC przecieka mimo VPN — co zrobić?</summary>
+<p>Włącz blokadę udostępniania lokalnego IP w przeglądarce, użyj rozszerzenia, a w apce VPN włącz funkcje anty-WebRTC, jeśli są dostępne.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: Jak wykryć i naprawić wycieki DNS w VPN" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="Wycieki DNS — test i naprawa (poradnik)"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/test-vpn.html">Test VPN</a>, <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN</a>, <a href="../../blog/vpn-kill-switch.html">Kill switch</a>, <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Wycieki DNS i VPN — jak wykryć i naprawić (2025)",
+  "description":"Czym jest wyciek DNS, jak go przetestować i usunąć: DNS dostawcy VPN, WebRTC, IPv6, DoH/DoT, ustawienia dla Windows, macOS, Android, iOS, Linux i routerów.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-dns-leak.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-dns-leak.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

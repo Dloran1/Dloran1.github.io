@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>Test VPN — prędkość, ping i wycieki (kompletny przewodnik 2025)</title>
+<meta content="Jak poprawnie przetestować VPN: prędkość (download/upload), ping i trasy, wycieki DNS/WebRTC, stabilność i streaming. Gotowe kroki, narzędzia i interpretacja wyników." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/test-vpn.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="Test VPN — prędkość, ping i wycieki (2025)" property="og:title"/>
+<meta content="Pełna procedura testowania VPN: prędkości, opóźnienia, wycieki DNS/WebRTC, streaming i P2P." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/test-vpn.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/test-vpn.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Test VPN","item":"https://dloran1.github.io/blog/test-vpn.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / Test VPN</p>
+<h1>Test VPN — prędkość, ping i wycieki (kompletny przewodnik 2025)</h1>
+<figure class="article-hero">
+<img alt="Test VPN — prędkość, ping, DNS/WebRTC" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/test-vpn.webp" width="1200"/>
+</figure>
+<p class="lead">Pokażemy Ci krok po kroku, jak rzetelnie sprawdzić VPN: prędkość (download/upload), ping i trasy, wycieki DNS/WebRTC, stabilność, streaming i P2P. Dostajesz też checklisty i szybkie wnioski, co poprawić, gdy coś nie działa.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#przygotowanie">Przygotowanie do testów</a></li>
+<li><a href="#predkosc">Test prędkości: download, upload, jitter</a></li>
+<li><a href="#ping">Ping i trasa: gry, SaaS, trasy PL/UE</a></li>
+<li><a href="#wycieki">Wycieki: DNS, WebRTC, IP</a></li>
+<li><a href="#streaming">Streaming VOD (TVP/Player/Netflix)</a></li>
+<li><a href="#p2p">P2P/torrenty: stabilność i upload</a></li>
+<li><a href="#stabilnosc">Stabilność i rozłączenia</a></li>
+<li><a href="#interpretacja">Jak interpretować wyniki i co poprawić</a></li>
+<li><a href="#arkusz">Arkusz wyników — jak prowadzić zapiski</a></li>
+</ul>
+</nav>
+<h2 id="przygotowanie">Przygotowanie do testów</h2>
+<ul>
+<li>Zaktualizuj aplikację VPN i sterowniki sieciowe.</li>
+<li>Wybierz protokół: <strong>WireGuard</strong> (domyślnie) lub <strong>IKEv2</strong> na mobilnym 5G. <em>OpenVPN UDP</em> zostaw jako plan B. Więcej: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>.</li>
+<li>Włącz <a href="../../blog/vpn-kill-switch.html">kill switch</a> i DNS dostawcy, wyłącz „inteligentne” akceleratory w przeglądarkach.</li>
+<li>Wyczyść cache/cookies przed testem streamingu; dla pewności użyj trybu prywatnego.</li>
+</ul>
+<h2 id="predkosc">Test prędkości: download, upload, jitter</h2>
+<p>Wykonaj serię testów <strong>bez VPN</strong> i <strong>z VPN</strong> na 3 róznych serwerach (PL, sąsiedni kraj UE, USA/UK). Każdy test powtarzaj 3× i zapisuj medianę. Jeśli rozbieżności są duże — sprawdź przeciążenie węzła.</p>
+<ul>
+<li><strong>Download</strong> — streaming, pobieranie plików.</li>
+<li><strong>Upload</strong> — wideokonferencje, wysyłka plików, P2P.</li>
+<li><strong>Jitter</strong> — stabilność połączenia (ważne w rozmowach i grach).</li>
+</ul>
+<p>Jak poprawiać wyniki: zobacz <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN — test i poprawa</a> oraz <a href="../../blog/vpn-optymalne-ustawienia.html">optymalne ustawienia</a>.</p>
+<h2 id="ping">Ping i trasa: gry, SaaS, trasy PL/UE</h2>
+<p>Ping testuj do konkretnego celu (serwer gry, host SaaS). Nie zawsze najbliższy geograficznie serwer VPN da najniższy ping — liczy się <strong>trasa (routing)</strong>. Często PL→DE→cel bywa lepsze niż PL→PL, zależnie od operatorów.</p>
+<p>Poradnik praktyczny: <a href="../../blog/vpn-dla-graczy.html">VPN dla graczy — ping, trasa, stabilność</a>.</p>
+<h2 id="wycieki">Wycieki: DNS, WebRTC, IP</h2>
+<p>Po włączeniu VPN Twój prawdziwy IP i zapytania DNS nie mogą wyciekać. Sprawdź to na kilku serwisach i przeglądarkach. Jeśli widzisz DNS ISP, zmień ustawienia w kliencie lub przełącz protokół.</p>
+<p>Więcej o diagnozie: <a href="../../blog/vpn-dns-leak.html">Wycieki DNS i jak je naprawić</a>.</p>
+<h2 id="streaming">Streaming VOD (TVP/Player/Netflix)</h2>
+<p>Dla <a href="../../blog/tvp-vod-vpn.html">TVP VOD</a> i <a href="../../blog/player-tvp-vpn.html">Player</a> zacznij od serwera w Polsce; jeśli blokuje, zmień na inny w PL lub sąsiedni kraj UE i <strong>wyczyść cookies/DNS</strong>. Netflix w danym kraju wymaga właściwych pul IP — testuj różne miasta w obrębie tego samego kraju.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — stabilne prędkości i trasy</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — nielimit urządzeń, świetna cena</a>
+</div>
+<h2 id="p2p">P2P/torrenty: stabilność i upload</h2>
+<p>Wybieraj węzły oznaczone <strong>P2P</strong>. Zapisuj średni upload podczas seedowania 15–20 minut, monitoruj rozłączenia (logi), sprawdzaj czy nie ma throttle’u na dłuższych sesjach.</p>
+<p>Bezpieczna praktyka: <a href="../../blog/vpn-p2p-bezpiecznie.html">P2P z VPN — poradnik</a>.</p>
+<h2 id="stabilnosc">Stabilność i rozłączenia</h2>
+<ul>
+<li>Włącz <strong>auto-connect</strong> i <strong>kill switch</strong>.</li>
+<li>Jeśli zrywa — sprawdź inny protokół, węzeł w tym samym kraju, ewentualnie inny port.</li>
+<li>Sprawdź MTU i QoS na routerze (porady: <a href="../../blog/vpn-optymalne-ustawienia.html">optymalne ustawienia</a>).</li>
+</ul>
+<h2 id="interpretacja">Jak interpretować wyniki i co poprawić</h2>
+<ul>
+<li><strong>Duży spadek download</strong> — zmień węzeł w tym samym kraju; sprawdź obciążenie.</li>
+<li><strong>Wysoki ping</strong> — testuj sąsiednie kraje (DE/NL/SE/UK) i wybierz najlepszą trasę do celu.</li>
+<li><strong>Wycieki DNS/WebRTC</strong> — wymuś DNS dostawcy, wyłącz rozszerzenia typu WebRTC leak.</li>
+<li><strong>VOD blokuje</strong> — inny serwer + czyszczenie cookies/DNS, czasem inna przeglądarka.</li>
+</ul>
+<h2 id="arkusz">Arkusz wyników — jak prowadzić zapiski</h2>
+<p>Ustal jednolity arkusz (kolumny): data, lokalizacja serwera, protokół, download/upload/jitter (mediany 3×), ping do celu A/B, wycieki (DNS/WebRTC), VOD (TVP/Player/Netflix — OK/NIE), P2P (upload/rozłączenia). Po tygodniu masz wiarygodny obraz jakości usługi.</p>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij test z NordVPN</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN do testów i codziennego użytku (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — wysokie prędkości, stabilne trasy PL/UE, audyty. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, dobra cena, funkcje premium. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ — testowanie VPN</h2>
+<details>
+<summary>Jak często powtarzać testy?</summary>
+<p>Przynajmniej 3× dziennie (rano/popółudnie/wieczór) przez 3–5 dni, aby uśrednić wpływ przeciążeń.</p>
+</details>
+<details>
+<summary>Czy wyniki w przeglądarce i aplikacji Speedtest będą się różnić?</summary>
+<p>Tak, to normalne. Liczą się <em>porównywalne warunki</em> i spójna metodologia (te same serwery testowe).</p>
+</details>
+<details>
+<summary>Jaki protokół jest najlepszy do testów?</summary>
+<p>WireGuard. Jeśli masz problemy z trasą lub blokadami, spróbuj IKEv2 lub OpenVPN UDP.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: Jak rzetelnie przetestować VPN (poradnik)" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="Jak rzetelnie przetestować VPN — poradnik"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-05">05.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/vpn-szybkosc-test.html">Prędkość VPN — test i poprawa</a>, <a href="../../blog/vpn-dns-leak.html">Wycieki DNS i VPN</a>, <a href="../../blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Test VPN — prędkość, ping i wycieki (kompletny przewodnik 2025)",
+  "description":"Jak poprawnie przetestować VPN: prędkość, ping i trasy, wycieki DNS/WebRTC, stabilność, streaming i P2P. Kroki, narzędzia i interpretacja wyników.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-05",
+  "image":"https://dloran1.github.io/assets/img/hero/test-vpn.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/test-vpn.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

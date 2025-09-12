@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>Prędkość VPN — jak testować i poprawiać wyniki (2025)</title>
+<meta content="Jak rzetelnie przetestować prędkość VPN: narzędzia (Speedtest, iperf3), ping/jitter/packet loss, pora dnia, serwery. Jak poprawić wyniki: protokół WireGuard, MTU/MSS, DNS, Wi-Fi vs Ethernet, trasa i peering. Kompletny przewodnik 2025." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-szybkosc-test.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="Prędkość VPN — jak testować i poprawiać wyniki (2025)" property="og:title"/>
+<meta content="Metodyka testów, interpretacja ping/jitter/strat, oraz poprawki: WireGuard, MTU, DNS i dobór węzła." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-szybkosc-test.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"Prędkość VPN — test","item":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / Prędkość VPN — test</p>
+<h1>Prędkość VPN — jak testować i poprawiać wyniki (2025)</h1>
+<figure class="article-hero">
+<img alt="Test prędkości VPN — metodyka, ping, jitter i optymalizacja" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-szybkosc-test.webp" width="1200"/>
+</figure>
+<p class="lead">Wydajność VPN zależy od <strong>protokołu</strong>, <strong>węzła</strong>, <strong>trasy</strong>, jakości lokalnego łącza (Wi-Fi vs Ethernet) oraz ustawień takich jak <strong>MTU</strong> i <strong>DNS</strong>. Poniżej dostajesz <strong>rzetelną metodykę testów</strong>, interpretację wyników i checklistę poprawek, które realnie zwiększają prędkość i stabilność.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#narzedzia">Narzędzia do testów i przygotowanie</a></li>
+<li><a href="#metodyka">Metodyka: przed/po VPN, pory dnia i powtórzenia</a></li>
+<li><a href="#interpretacja">Jak czytać wyniki: ping, jitter, packet loss, bufferbloat</a></li>
+<li><a href="#wezel">Dobór węzła i kraju</a></li>
+<li><a href="#protokol">Protokół: WireGuard vs OpenVPN/IKEv2</a></li>
+<li><a href="#mtu">MTU/MSS i Wi-Fi vs Ethernet</a></li>
+<li><a href="#dns">DNS i spójność regionu</a></li>
+<li><a href="#vod">Streaming, gry i P2P — niuanse testowania</a></li>
+<li><a href="#checklista">Checklista szybkich poprawek</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<h2 id="narzedzia">Narzędzia do testów i przygotowanie</h2>
+<ul>
+<li><strong>Speedtest</strong> (apka/strona) — przepustowość, ping/jitter. Do porównań używaj zawsze <em>tego samego serwera</em>.</li>
+<li><strong>iperf3</strong> — pomiar między Twoim urządzeniem a kontrolowanym serwerem (jeśli masz VPS).</li>
+<li><strong>Ping/trace</strong> — diagnostyka trasy (skoki RTT, gdzie rosną opóźnienia).</li>
+</ul>
+<p>Ogólne założenia testów i kontrola zmiennych opisaliśmy też w: <a href="../../blog/test-vpn.html">Test VPN — scenariusz</a>.</p>
+<h2 id="metodyka">Metodyka: przed/po VPN, pory dnia i powtórzenia</h2>
+<ol>
+<li><strong>Baseline</strong>: 3 pomiary bez VPN (Ethernet/5 GHz), notuj serwer Speedtest.</li>
+<li><strong>VPN</strong>: 3 pomiary na <em>tym samym</em> serwerze Speedtest dla 2–3 węzłów (PL → DE → NL).</li>
+<li><strong>Pory dnia</strong>: powtórz rano, po południu i wieczorem — wieczorem przeciążenie bywa największe.</li>
+<li><strong>Stałe zmienne</strong>: ten sam protokół, te same ustawienia Wi-Fi, wyłącz tło w systemie (backupy, chmura).</li>
+</ol>
+<p>Jak dobierać węzły i protokoły pod cel: <a href="../../blog/vpn-optymalne-ustawienia.html">optymalne ustawienia VPN</a>.</p>
+<h2 id="interpretacja">Jak czytać wyniki: ping, jitter, packet loss, bufferbloat</h2>
+<ul>
+<li><strong>Ping</strong> — opóźnienie do serwera; istotny dla gier/VC.</li>
+<li><strong>Jitter</strong> — zmienność pingu; im niższy, tym stabilniejszy strumień (VOD/VC).</li>
+<li><strong>Packet loss</strong> — nawet 1–2% psuje prędkość TCP i jakość połączeń.</li>
+<li><strong>Bufferbloat</strong> — jeśli upload „dusi” download (lub na odwrót), pomaga QoS/Smart Queue w routerze i/lub niższe MTU.</li>
+</ul>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN — szybki WireGuard i stabilne węzły</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — nielimit urządzeń, dobre prędkości</a>
+</div>
+<h2 id="wezel">Dobór węzła i kraju</h2>
+<ul>
+<li><strong>Bliskość</strong> geograficzna obniża ping, ale liczy się też <strong>peering</strong>. Czasem DE/NL będą szybsze niż PL, zależnie od operatora.</li>
+<li>Testuj 2–3 miasta w jednym kraju, <strong>porównuj jitter</strong> i stabilność w godzinach szczytu.</li>
+<li>Do VOD wybierz kraj biblioteki; do pracy/VC — najbliższy stabilny węzeł.</li>
+</ul>
+<p>Więcej o trasie i peeringu: <a href="../../blog/vpn-geolokalizacja.html">Geolokalizacja i VPN</a>, typowe blokady: <a href="../../blog/vpn-geoblokady.html">VPN a geoblokady</a>.</p>
+<h2 id="protokol">Protokół: WireGuard vs OpenVPN/IKEv2</h2>
+<ul>
+<li><strong>WireGuard</strong> — zwykle najwyższa przepustowość i najniższy narzut CPU. Domyślny wybór.</li>
+<li><strong>OpenVPN UDP</strong> — plan B, gdy WG jest blokowany lub trasa jest gorsza; TCP tylko, gdy musisz.</li>
+<li><strong>IKEv2</strong> — świetny na mobile (szybkie wznowienie), czasem przegrywa z WG przepustowością.</li>
+</ul>
+<p>Porównanie i ustawienia per system: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, <a href="../../blog/vpn-android-konfiguracja.html">Android</a>, <a href="../../blog/vpn-iphone-konfiguracja.html">iPhone</a>, <a href="../../blog/vpn-windows-konfiguracja.html">Windows</a>, <a href="../../blog/vpn-na-mac.html">macOS</a>, <a href="../../blog/vpn-linux-konfiguracja.html">Linux</a>.</p>
+<h2 id="mtu">MTU/MSS i Wi-Fi vs Ethernet</h2>
+<ul>
+<li><strong>MTU</strong>: zbyt duży powoduje fragmentację lub „wiszące” ładowanie stron. Testuj zakres 1280–1380 dla WG; w OpenVPN użyj <em>mssfix</em>.</li>
+<li><strong>Ethernet</strong> lub Wi-Fi 5 GHz — unikaj 2.4 GHz przy testach i streamingu 4K.</li>
+<li>Router: jeśli możesz, włącz <strong>Smart Queue/QoS</strong> (redukcja bufferbloatu przy uploadzie).</li>
+</ul>
+<p>Więcej praktycznych wskazówek: <a href="../../blog/vpn-optymalne-ustawienia.html">optymalne ustawienia VPN</a>.</p>
+<h2 id="dns">DNS i spójność regionu</h2>
+<p>Używaj <strong>DNS dostawcy VPN</strong>, aby uniknąć <a href="../../blog/vpn-dns-leak.html">wycieków DNS</a> i konfliktów IP↔DNS. Zewnętrzny DoH/DoT poza tunelem zaniża prędkość rozwiązywania i bywa przyczyną błędów regionu (VOD/banki).</p>
+<h2 id="vod">Streaming, gry i P2P — niuanse testowania</h2>
+<ul>
+<li><strong>VOD</strong>: testuj realnym odtwarzaniem (1080p/4K), sprawdź <em>buffer health</em> i czasy startu. Przewodniki: <a href="../../blog/vpn-netflix-polska.html">Netflix PL</a>, <a href="../../blog/player-tvp-vpn.html">Player i TVP</a>, <a href="../../blog/tvp-vod-vpn.html">TVP VOD</a>.</li>
+<li><strong>Gry</strong>: mierz ping/jitter do serwera gry; czasem lepiej grać <em>bez</em> VPN, a resztę ruchu zostawić w tunelu (zobacz <a href="../../blog/vpn-split-tunneling.html">split tunneling</a>).</li>
+<li><strong>P2P</strong>: sprawdź liczbę peerów i upload przy długim seedzie; rozważ <a href="../../blog/vpn-port-forwarding.html">port forwarding</a>. Podstawy: <a href="../../blog/vpn-p2p-bezpiecznie.html">P2P bezpiecznie</a>.</li>
+</ul>
+<h2 id="checklista">Checklista szybkich poprawek</h2>
+<ol>
+<li>Przełącz na <strong>WireGuard</strong>; w razie problemów testuj OpenVPN UDP.</li>
+<li>Zmień <strong>węzeł</strong> (PL → DE/NL) i wybierz ten z najniższym <strong>jitterem</strong>.</li>
+<li><strong>Ethernet</strong> lub 5 GHz; wyłącz obciążające tło.</li>
+<li>Skoryguj <strong>MTU</strong> (np. 1280–1380) lub <em>mssfix</em> w OpenVPN.</li>
+<li>Wymuś <strong>DNS dostawcy</strong>; wyłącz zewnętrzny DoH/DoT poza tunelem.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN (szybki WireGuard)</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 na prędkość i stabilność (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — szybki WireGuard, niskie jittery, kill switch. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, dobre pule IP. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ — prędkość i testy VPN</h2>
+<details>
+<summary>Dlaczego moje wyniki wieczorem są gorsze?</summary>
+<p>To godziny szczytu: przeciążone węzły i gorzej zachowujące się trasy. Testuj kilka miast i wybieraj najniższy jitter.</p>
+</details>
+<details>
+<summary>Czy TCP w OpenVPN jest „wolniejszy” niż UDP?</summary>
+<p>Zwykle tak — ma większy narzut i gorzej znosi straty. Używaj UDP; TCP tylko, gdy sieć blokuje UDP.</p>
+</details>
+<details>
+<summary>Czy VPN zawsze obniży prędkość internetu?</summary>
+<p>Z reguły tak (szyfrowanie, długa trasa), ale przy dobrym węźle i WireGuard spadek bywa niewielki, a czasem trasa przez VPN jest nawet stabilniejsza.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: Jak testować prędkość VPN i poprawiać wyniki" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="Prędkość VPN — testy i optymalizacja (2025)"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/test-vpn.html">Test VPN — scenariusz</a>, <a href="../../blog/vpn-optymalne-ustawienia.html">Optymalne ustawienia VPN</a>, <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a>, <a href="../../blog/vpn-p2p-bezpiecznie.html">P2P bezpiecznie</a>, <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"Prędkość VPN — jak testować i poprawiać wyniki (2025)",
+  "description":"Rzetelne testy prędkości VPN (Speedtest, iperf3), interpretacja ping/jitter/packet loss/bufferbloat oraz poprawki: WireGuard, dobór węzła, MTU/MSS, DNS, Ethernet vs Wi-Fi.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-szybkosc-test.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-szybkosc-test.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>

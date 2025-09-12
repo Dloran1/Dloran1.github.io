@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<title>VPN na Mac — szybki poradnik (WireGuard, IKEv2, OpenVPN) 2025</title>
+<meta content="Jak ustawić VPN na macOS: aplikacje dostawców, wbudowany klient IKEv2, WireGuard/OpenVPN, kill switch, DNS bez wycieków, split tunneling, autostart. Praktyczny poradnik 2025 dla MacBook i iMac." name="description"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/style.css" rel="stylesheet"/><link href="../../assets/style-extensions-vpnpolska.css" rel="stylesheet"/>
+<link href="https://dloran1.github.io/blog/vpn-na-mac.html" rel="canonical"/>
+<!-- Open Graph / Twitter -->
+<meta content="article" property="og:type"/>
+<meta content="VPN na Mac — szybki poradnik (WireGuard, IKEv2, OpenVPN) 2025" property="og:title"/>
+<meta content="Ustawienia krok po kroku: aplikacja dostawcy, IKEv2 w systemie, WireGuard/OpenVPN, kill switch, DNS i wydajność." property="og:description"/>
+<meta content="https://dloran1.github.io/blog/vpn-na-mac.html" property="og:url"/>
+<meta content="https://dloran1.github.io/assets/img/hero/vpn-na-mac.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="628" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Strona główna","item":"https://dloran1.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://dloran1.github.io/blog/index.html"},
+      {"@type":"ListItem","position":3,"name":"VPN na Mac","item":"https://dloran1.github.io/blog/vpn-na-mac.html"}
+    ]
+  }
+  </script>
+<link href="/assets/style.css" rel="stylesheet"/><link href="/assets/style-extensions-vpnpolska.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Główna nawigacja" class="nav">
+<div class="inner">
+<a class="logo" href="../../">VPN Polska</a>
+<div class="menu">
+<a href="../../">Strona główna</a> •
+      <a href="../../blog/index.html">Blog</a>
+</div>
+</div>
+</nav>
+<header class="wrap">
+<p class="breadcrumbs"><a href="../../">Strona główna</a> / <a href="../../blog/index.html">Blog</a> / VPN na Mac</p>
+<h1>VPN na Mac — szybki poradnik (WireGuard, IKEv2, OpenVPN) 2025</h1>
+<figure class="article-hero">
+<img alt="VPN na macOS — konfiguracja aplikacji, IKEv2, WireGuard i OpenVPN" decoding="async" fetchpriority="high" height="628" loading="eager" src="../../assets/img/hero/vpn-na-mac.webp" width="1200"/>
+</figure>
+<p class="lead"><strong>macOS</strong> świetnie współpracuje z VPN: masz aplikacje dostawców (zazwyczaj <strong>WireGuard</strong>) i wbudowanego klienta <strong>IKEv2</strong>. Tu dostajesz krótki, praktyczny przewodnik: najszybsza konfiguracja, <strong>kill switch</strong>, <strong>DNS bez wycieków</strong>, <strong>split tunneling</strong>, autostart oraz wskazówki dla VOD, bankowości i pracy zdalnej.</p>
+</header>
+<main class="wrap post" id="top">
+<!-- TOC -->
+<nav aria-label="Spis treści" class="toc">
+<h2>Spis treści</h2>
+<ul>
+<li><a href="#metody">Dwie metody: aplikacja dostawcy vs IKEv2 w systemie</a></li>
+<li><a href="#app">Konfiguracja przez aplikację (najszybciej)</a></li>
+<li><a href="#ikev2">Konfiguracja IKEv2 w macOS (systemowy klient)</a></li>
+<li><a href="#wireguard-openvpn">WireGuard/OpenVPN — kiedy warto na Macu</a></li>
+<li><a href="#dns">DNS bez wycieków: DoH/DoT, WebRTC, IPv6</a></li>
+<li><a href="#scenariusze">Scenariusze: VOD, bankowość, praca zdalna</a></li>
+<li><a href="#checklista">Checklista „uruchom i zapomnij”</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<h2 id="metody">Dwie metody: aplikacja dostawcy vs IKEv2 w systemie</h2>
+<ul>
+<li><strong>Aplikacja dostawcy</strong> — prostota, protokół <em>WireGuard</em>, automatyka, kill switch, wybór kraju.</li>
+<li><strong>Klient IKEv2 (wbudowany)</strong> — Ustawienia sieci → VPN; stabilny, lekki, dobry w środowiskach firmowych/MDM.</li>
+</ul>
+<p>Podstawy technologii: <a href="../../blog/co-to-jest-vpn.html">Co to jest VPN</a>, porównanie usług: <a href="../../blog/nordvpn-vs-surfshark-pl.html">NordVPN vs Surfshark</a>.</p>
+<h2 id="app">Konfiguracja przez aplikację (najszybciej)</h2>
+<ol>
+<li>Pobierz aplikację dostawcy dla macOS i zaloguj się.</li>
+<li>Wybierz <strong>WireGuard</strong> (jeśli dostępny) i włącz <strong>Auto-connect</strong> + <strong>Kill switch</strong>.</li>
+<li>Włącz wymuszanie <strong>DNS dostawcy</strong> (by uniknąć <a href="../../blog/vpn-dns-leak.html">wycieków DNS</a>).</li>
+<li>Wybierz serwer/kraj; do pracy zdalnej — lokalny o niskim pingu, do VOD — zgodny z biblioteką.</li>
+</ol>
+<p>Więcej o wydajności i testach: <a href="../../blog/vpn-szybkosc-test.html">Prędkość i ping</a>, <a href="../../blog/test-vpn.html">Test VPN</a>.</p>
+<!-- CTA #1 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ NordVPN na macOS — szybki WireGuard + kill switch</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark Mac — nielimit urządzeń</a>
+</div>
+<h2 id="ikev2">Konfiguracja IKEv2 w macOS (systemowy klient)</h2>
+<ol>
+<li>Otwórz <strong>Ustawienia systemowe → Sieć → VPN → Dodaj konfigurację</strong> i wybierz <strong>IKEv2</strong>.</li>
+<li>Wprowadź dane z panelu dostawcy: <em>Adres serwera</em>, <em>Identyfikator zdalny</em>, <em>Uwierzytelnianie</em> (login/hasło lub certyfikat).</li>
+<li>W opcjach <strong>Zaawansowanych</strong> ustaw „Wyślij cały ruch przez VPN” oraz <strong>DNS dostawcy</strong> (jeśli wymaga ręcznego wpisu).</li>
+<li>Dodaj opcjonalny <em>On-Demand</em> (automatyczne łączenie) i nadaj priorytet interfejsowi VPN w kolejności usług sieciowych.</li>
+</ol>
+<p>Jeśli konfigurację dostarcza MDM, sprawdź reguły split tunnelingu i wyjątki domen.</p>
+<h2 id="wireguard-openvpn">WireGuard/OpenVPN — kiedy warto na Macu</h2>
+<ul>
+<li><strong>WireGuard</strong> — najlepszy stosunek prędkość/CPU; zwykle natywnie wspierany w aplikacjach dostawców.</li>
+<li><strong>OpenVPN</strong> — jako plan B (sieci korporacyjne, zgodność). Przy UDP działa zwykle szybciej niż TCP.</li>
+</ul>
+<p>Porównanie: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>. Zaawansowane trasy: <a href="../../blog/vpn-split-tunneling.html">Split tunneling</a>.</p>
+<h2 id="dns">DNS bez wycieków: DoH/DoT, WebRTC, IPv6</h2>
+<ul>
+<li><strong>DNS dostawcy VPN</strong> — włącz w aplikacji lub wpisz w konfiguracji IKEv2; po zmianie kraju wyczyść cache DNS/przeglądarki.</li>
+<li><strong>DoH/DoT</strong> — unikaj zewnętrznego DoH/DoT poza tunelem (konflikt IP↔DNS). Jeśli używasz — kieruj przez VPN.</li>
+<li><strong>WebRTC</strong> — zablokuj ujawnianie IP lokalnego w przeglądarce.</li>
+<li><strong>IPv6</strong> — jeśli dostawca nie tuneluje IPv6, tymczasowo je wyłącz w interfejsie lub użyj dostawcy ze wsparciem.</li>
+</ul>
+<p>Diagnoza i testy: <a href="../../blog/vpn-dns-leak.html">Wycieki DNS</a>, <a href="../../blog/test-vpn.html">Test VPN</a>.</p>
+<h2 id="scenariusze">Scenariusze: VOD, bankowość, praca zdalna</h2>
+<h3>VOD</h3>
+<ul>
+<li>Liczy się reputacja puli IP i spójny DNS. Poradniki: <a href="../../blog/player-tvp-vpn.html">Player i TVP</a>, <a href="../../blog/tvp-vod-vpn.html">TVP VOD</a>, <a href="../../blog/vpn-netflix-polska.html">Netflix PL</a>.</li>
+</ul>
+<h3>Bankowość</h3>
+<ul>
+<li>Część banków blokuje logowania z zagranicy/VPN — używaj <strong>polskich węzłów</strong> lub wyłącz VPN. Wskazówki: <a href="../../blog/vpn-bankowosc-online.html">bankowość online</a>.</li>
+</ul>
+<h3>Praca zdalna</h3>
+<ul>
+<li>Preferuj lokalny węzeł o niskim pingu; do whitelist rozważ <a href="../../blog/vpn-dedykowany-ip.html">dedykowany IP</a>. Dla zespołów: <a href="../../blog/vpn-dla-firm-msp.html">VPN dla MSP</a>.</li>
+</ul>
+<h2 id="checklista">Checklista „uruchom i zapomnij”</h2>
+<ol>
+<li>Aplikacja z <strong>WireGuard</strong> lub profil <strong>IKEv2</strong> z Auto-connect.</li>
+<li><strong>Kill switch</strong> + wymuszony <strong>DNS dostawcy</strong>.</li>
+<li>Test IP/DNS i prędkości na 2–3 węzłach (różne pory dnia).</li>
+<li>Dla VOD przygotuj plan B: inny węzeł/Smart DNS.</li>
+<li>Po aktualizacji macOS sprawdź, czy profil/aplikacja ma nadal uprawnienia VPN.</li>
+</ol>
+<!-- CTA #2 -->
+<div class="cta">
+<a class="btn btn-primary" href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">✅ Zacznij z NordVPN na Mac</a>
+     
+    <a class="btn btn-ghost" href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Surfshark — sprawdź ofertę</a>
+</div>
+<!-- TOP-5 -->
+<section class="top5" id="top5">
+<h2>TOP 5 VPN na macOS (2025)</h2>
+<ol>
+<li><strong>NordVPN</strong> — szybki WireGuard, kill switch, dobre pule VOD. <a href="../../go/nordvpn.html" rel="sponsored nofollow noopener" target="_blank">Sprawdź</a></li>
+<li><strong>Surfshark</strong> — nielimit urządzeń, Smart DNS, świetna cena. <a href="../../go/surfshark.html" rel="sponsored nofollow noopener" target="_blank">Zobacz</a></li>
+<li><strong>ExpressVPN</strong> — wkrótce w ofercie.</li>
+<li><strong>CyberGhost</strong> — wkrótce w ofercie.</li>
+<li><strong>Proton VPN</strong> — wkrótce w ofercie.</li>
+</ol>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+<h2>FAQ</h2>
+<details>
+<summary>Czy macOS ma własnego klienta VPN?</summary>
+<p>Tak — IKEv2 (VPN w Ustawieniach sieci). Jest stabilny i lekki, ale aplikacje dostawców zwykle dają WireGuard, kill switch i automatyzacje.</p>
+</details>
+<details>
+<summary>VPN spowalnia internet na Macu — co zrobić?</summary>
+<p>Sprawdź inny węzeł/kraj, użyj WireGuard, wyłącz DoH/DoT poza tunelem, upewnij się, że DNS idzie przez VPN. Porównaj węzły wieczorem.</p>
+</details>
+<details>
+<summary>Dlaczego serwis VOD wykrywa VPN?</summary>
+<p>Często to reputacja IP lub niespójność DNS. Zmień węzeł, wyczyść cookies, testuj spójność IP↔DNS. Szczegóły: <a href="../../blog/vpn-dns-leak.html">wycieki DNS</a>.</p>
+</details>
+</section>
+<!-- YouTube -->
+<div aria-label="Wideo: VPN na Mac — konfiguracja WireGuard i IKEv2" class="yt-embed">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/yCWNRzoQGis?rel=0&amp;modestbranding=1&amp;iv_load_policy=3" title="VPN na Mac — konfiguracja i najlepsze praktyki (2025)"></iframe>
+</div>
+<!-- Author -->
+<section class="author">
+<div class="author__media">
+<img alt="Denys Shchur" decoding="async" height="160" loading="lazy" src="../../assets/img/authors/denys.webp" width="160"/>
+</div>
+<div class="author__body">
+<p><strong>Autor: Denys Shchur</strong> — praktyk VPN i SEO.</p>
+<p class="muted">Ostatnia aktualizacja: <time datetime="2025-09-06">06.09.2025</time></p>
+</div>
+</section>
+<aside class="readmore">
+<h2>Czytaj też</h2>
+<p>Powiązane: <a href="../../blog/wireguard-vs-openvpn.html">WireGuard vs OpenVPN</a>, <a href="../../blog/vpn-kill-switch.html">Kill switch</a>, <a href="../../blog/vpn-geoblokady.html">VPN a geoblokady</a>, <a href="../../blog/vpn-netflix-polska.html">Netflix PL</a></p>
+</aside>
+<p class="backtop"><a href="#top">↑ Wróć na górę</a></p>
+</main>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "inLanguage":"pl-PL",
+  "headline":"VPN na Mac — szybki poradnik (WireGuard, IKEv2, OpenVPN) 2025",
+  "description":"Jak ustawić VPN na macOS: aplikacje dostawców, IKEv2, WireGuard/OpenVPN, kill switch, DNS bez wycieków, split tunneling i autostart. Porady dla VOD, bankowości i pracy zdalnej.",
+  "datePublished":"2025-09-02",
+  "dateModified":"2025-09-06",
+  "image":"https://dloran1.github.io/assets/img/hero/vpn-na-mac.webp",
+  "author":{"@type":"Person","name":"Denys Shchur","url":"https://dloran1.github.io/o-autorze.html"},
+  "publisher":{"@type":"Organization","name":"VPN Polska",
+    "logo":{"@type":"ImageObject","url":"https://dloran1.github.io/assets/img/logo-512.png","width":512,"height":512}
+  },
+  "mainEntityOfPage":"https://dloran1.github.io/blog/vpn-na-mac.html"
+}
+</script>
+<footer class="foot">
+<p>© 2025 VPN Polska • <a href="mailto:denger88@gmail.com">denger88@gmail.com</a></p>
+</footer>
+</body>
+</html>
