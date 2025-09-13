@@ -1,0 +1,16 @@
+
+/* VPN World - extensions (neutral) */
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+img,svg,video,canvas,iframe{max-width:100%;height:auto;display:block}
+article,main,.container{max-width:860px;margin:0 auto;padding:24px 16px}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}
+th,td{border:1px solid rgba(140,140,160,.35);padding:8px 10px}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;border:1px solid transparent;font-weight:600;min-width:200px;text-align:center}
+.btn-primary{background:#2E90FA;color:#fff}.btn-secondary{background:#00B3A4;color:#fff}
+.cta{border:1px solid rgba(140,140,160,.35);border-radius:10px;background:rgba(255,255,255,.06);padding:18px;margin:20px 0}
+.breadcrumbs ul{list-style:none;padding:0;margin:0;display:flex;gap:.5rem;flex-wrap:wrap}
+.breadcrumbs li::after{content:'›';opacity:.6;margin:0 .25rem}
+.breadcrumbs li:last-child::after{content:''}
+.toc ul{list-style:disc;margin-left:1.25rem}
+.author-box{border-top:1px solid rgba(140,140,160,.35);margin-top:24px;padding-top:16px;opacity:.95}
+.related ul{list-style:disc;margin-left:1.25rem}
